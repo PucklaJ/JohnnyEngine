@@ -60,6 +60,6 @@ private:
 
 	CubeMap* m_cubeMap = nullptr;
 	std::string m_textures[6];
-	bool m_texturesSet = false;
+    bool m_texturesInitialized = false;
 };
 

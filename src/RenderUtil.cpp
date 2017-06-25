@@ -20,6 +20,10 @@ void RenderUtil::clearScreen()
 
 bool RenderUtil::initGraphics(float r, float g, float b, float a)
 {
+    SDL::LogManager::log("Initializing attributes for OpenGL");
+    
+    glewExperimental = GL_TRUE;
+    
 	if (glewInit() != GLEW_OK)
 	{
 		SDL::LogManager::error("Couldn't inititialize GLEW");
@@ -42,18 +46,23 @@ bool RenderUtil::initGraphics(float r, float g, float b, float a)
 	//glEnable(GL_FRAMEBUFFER_SRGB);
 
 	if(SDL_GL_SetSwapInterval(-1)<0)
-	{
-		ERROR_OUT(SDL_GL_SetSwapInterval(1));
-	}
-
+    {
+        ERROR_OUT(SDL_GL_SetSwapInterval(1));
+    }
 	return true;
 }
 
 void RenderUtil::initWindow()
 {
+    SDL::LogManager::log("Initializing GL-Attributes for Window");
+    
 	ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1));
 	ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1));
 	ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8));
+    
+    ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE));
+    ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3));
+    ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3));
 }
 
 void RenderUtil::swapWindow(SDL_Window* w)

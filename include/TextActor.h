@@ -8,7 +8,7 @@
 #ifdef _WIN32
     #include <TTF/SDL_ttf.h>
 #else
-    #include <SDL2_ttf/SDL_ttf.h>
+    #include <SDL2/SDL_ttf.h>
 #endif
 #endif
 #include <string>
