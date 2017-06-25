@@ -2,7 +2,7 @@
 #define CAMERA_H
 
 #include <glm/glm.hpp>
-#include <GL\glew.h>
+#include <GL/glew.h>
 #include "Actor.h"
 
 class Camera : public SDL::Actor

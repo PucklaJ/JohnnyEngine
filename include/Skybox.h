@@ -2,6 +2,7 @@
 #include "Actor.h"
 #include <glm/glm.hpp>
 #include <GL/glew.h>
+#include <string>
 
 class CubeMap;
 class Shader;
@@ -59,5 +60,6 @@ private:
 
 	CubeMap* m_cubeMap = nullptr;
 	std::string m_textures[6];
+    bool m_texturesInitialized = false;
 };
 

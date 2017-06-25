@@ -55,13 +55,8 @@ void Shader::link()
 		GLint maxLength = 0;
 		glGetProgramiv(m_program, GL_INFO_LOG_LENGTH, &maxLength);
 
-		std::vector<char> infoLog(maxLength);
-		glGetProgramInfoLog(m_program, maxLength, &maxLength, &infoLog[0]);
-
-		for (size_t i = 0; i < infoLog.size(); i++)
-		{
-			std::cout << infoLog[i];
-		}
+		char infoLog[maxLength];
+		glGetProgramInfoLog(m_program, maxLength, &maxLength, infoLog);
 
 		glDeleteProgram(m_program);
 
@@ -72,12 +67,19 @@ void Shader::link()
 		if (m_geo != 0)
 			glDeleteShader(m_geo);
 
-		SDL::LogManager::error("Shader failed to link");
+		SDL::LogManager::error(std::string("Shader failed to link:\n") + infoLog);
 
 		return;
 	}
-
+    GLuint vao = 0;
+    glGenVertexArrays(1,&vao);
+    glBindVertexArray(vao);
+    
 	glValidateProgram(m_program);
+    
+    glBindVertexArray(0);
+    glDeleteVertexArrays(1,&vao);
+    
 	GLint status;
 	glGetProgramiv(m_program, GL_VALIDATE_STATUS, &status);
 
@@ -86,13 +88,8 @@ void Shader::link()
 		GLint maxLength = 0;
 		glGetProgramiv(m_program, GL_INFO_LOG_LENGTH, &maxLength);
 
-		std::vector<char> infoLog(maxLength);
-		glGetProgramInfoLog(m_program, maxLength, &maxLength, &infoLog[0]);
-
-		for (size_t i = 0; i < infoLog.size(); i++)
-		{
-			std::cout << infoLog[i];
-		}
+		char infoLog[maxLength];
+		glGetProgramInfoLog(m_program, maxLength, &maxLength, infoLog);
 
 		glDeleteProgram(m_program);
 
@@ -103,7 +100,7 @@ void Shader::link()
 		if (m_geo != 0)
 			glDeleteShader(m_geo);
 
-		SDL::LogManager::error("Shader failed to validate");
+		SDL::LogManager::error(std::string("Shader failed to validate:\n") + infoLog);
 
 		return;
 	}
@@ -143,7 +140,6 @@ void Shader::addUniform(const std::string & uniform,bool endIfNotThere)
 		if (endIfNotThere)
 		{
 			SDL::LogManager::error("Couldn't find uniform: " + uniform);
-			shutdownProgram();
 		}
 		
 	}

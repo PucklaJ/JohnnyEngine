@@ -8,7 +8,11 @@
 #include <iostream>
 #include "Skybox.h"
 #include "ShadowMap.h"
+#ifndef __APPLE__
 #include <TTF/SDL_ttf.h>
+#else
+#include <SDL2/SDL_ttf.h>
+#endif
 #include "Mesh.h"
 #include "Model.h"
 #include "TextActor.h"

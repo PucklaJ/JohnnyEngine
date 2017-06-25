@@ -2,7 +2,7 @@
 #include <GL/glew.h>
 #include <string>
 #include <map>
-#include <glm\glm.hpp>
+#include <glm/glm.hpp>
 
 class Shader
 {

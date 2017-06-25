@@ -20,7 +20,11 @@
 #include "RenderBuffer.h"
 #include "Mesh.h"
 #include "Skybox.h"
+#ifndef __APPLE__
 #include <TTF/SDL_ttf.h>
+#else
+#include <SDL2/SDL_ttf.h>
+#endif
 //#define DEBUG_OUTPUTS
 
 namespace SDL
@@ -93,24 +97,33 @@ namespace SDL
             m_joystickManager = nullptr;
         }
 
-        removeChild(m_inputManager);
-        m_resourceManager->clear();
+        if(m_inputManager)
+            removeChild(m_inputManager);
+        if(m_resourceManager)
+            m_resourceManager->clear();
         
 		RenderManager::unload();
 		Skybox::clear();
 
-        delete m_resourceManager;
-		delete m_lighting;
+        if(m_resourceManager)
+            delete m_resourceManager;
+        if(m_lighting)
+            delete m_lighting;
 
-		delete m_frameBufferTex;
-		delete m_frameBufferTexMulti;
-		delete m_renderBuffer;
-		delete m_renderBufferMulti;
-		delete m_frameBuffer;
-		delete m_frameBufferMulti;
-		delete m_frameBufferMesh;
+        if(m_frameBufferTex)
+        {
+            delete m_frameBufferTex;
+            delete m_frameBufferTexMulti;
+            delete m_renderBuffer;
+            delete m_renderBufferMulti;
+            delete m_frameBuffer;
+            delete m_frameBufferMulti;
+            delete m_frameBufferMesh;
+        }
+		
 
-        delete m_window;
+        if(m_window)
+            delete m_window;
 
         SDL_Quit();
 

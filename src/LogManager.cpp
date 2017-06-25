@@ -2,7 +2,9 @@
 #include <cstdio>
 #include <sstream>
 #include <iostream>
+#ifdef _WIN32
 #include <Windows.h>
+#endif
 #include <SDL2/SDL.h>
 #include "MainClass.h"
 #include "WindowHandle.h"
@@ -44,7 +46,11 @@ namespace SDL
         std::string text = "";
 
         time(&m_timer);
+#ifdef _WIN32
         localtime_s(m_tm,&m_timer);
+#else
+        localtime(&m_timer);
+#endif
 
         std::stringstream str;
 
@@ -61,7 +67,11 @@ namespace SDL
         std::string text = ""; // Hallo
 
         time(&m_timer);
+#ifdef _WIN32
         localtime_s(m_tm,&m_timer);
+#else
+        localtime(&m_timer);
+#endif
 
         std::stringstream str;
 
@@ -117,7 +127,11 @@ namespace SDL
 
 
 		FILE* file;
+#ifdef _WIN32
 		fopen_s(&file,m_file, "a");
+#else
+        file = fopen(m_file, "a");
+#endif
         fprintf(file,msg.c_str(),"");
         fclose(file);
     }
@@ -130,7 +144,11 @@ namespace SDL
 		std::cerr << msg;
 
 		FILE* file;
-		fopen_s(&file, m_file, "a");
+#ifdef _WIN32
+		fopen_s(&file,m_file, "a");
+#else
+        file = fopen(m_file, "a");
+#endif
 		fprintf(file, msg.c_str(), "");
 		fclose(file);
 

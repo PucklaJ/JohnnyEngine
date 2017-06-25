@@ -1,5 +1,5 @@
 #pragma once
-#include <SDL2\SDL.h>
+#include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <chrono>
 #include "Transform.h"
