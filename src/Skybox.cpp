@@ -41,11 +41,12 @@ Skybox::~Skybox()
 
 bool Skybox::init()
 {
-	m_cubeMap = new CubeMap(m_textures[TOP], m_textures[BOTTOM], m_textures[LEFT], m_textures[RIGHT], m_textures[FRONT], m_textures[BACK], m_mainClass->getResourceManager());
+	if(m_texturesSet)
+		m_cubeMap = new CubeMap(m_textures[TOP], m_textures[BOTTOM], m_textures[LEFT], m_textures[RIGHT], m_textures[FRONT], m_textures[BACK], m_mainClass->getResourceManager());
 
 	if (SKYBOX_SHADER == nullptr)
 	{
-		SKYBOX_SHADER = new Shader();
+		SKYBOX_SHADER = new Shader("Skybox Shader");
 		SKYBOX_SHADER->setLoadDefaultUniforms(false);
 		SKYBOX_SHADER->addVertexShader(m_mainClass->getResourceManager()->loadShader("vertexShaderSkybox.glsl"));
 		SKYBOX_SHADER->addFragmentShader(m_mainClass->getResourceManager()->loadShader("fragmentShaderSkybox.glsl"));
@@ -130,28 +131,33 @@ bool Skybox::update()
 
 bool Skybox::render()
 {
-	glm::mat4 projectionMatrix = m_mainClass->getCamera()->getViewMatrix();
-	projectionMatrix[3][0] = 0;
-	projectionMatrix[3][1] = 0;
-	projectionMatrix[3][2] = 0;
-	projectionMatrix = Transform::getProjectionMatrix() * projectionMatrix;
+	if(m_cubeMap)
+	{
+		glm::mat4 projectionMatrix = m_mainClass->getCamera()->getViewMatrix();
+		projectionMatrix[3][0] = 0;
+		projectionMatrix[3][1] = 0;
+		projectionMatrix[3][2] = 0;
+		projectionMatrix = Transform::getProjectionMatrix() * projectionMatrix;
 
-	SKYBOX_SHADER->setUniformMat4("projectionMatrix", projectionMatrix);
-	m_cubeMap->bind(SKYBOX_SHADER, "cubeMap", 0, GL_TEXTURE_CUBE_MAP);
-	SKYBOX_MESH->render();
-	m_cubeMap->unbind(0, GL_TEXTURE_CUBE_MAP);
+		SKYBOX_SHADER->setUniformMat4("projectionMatrix", projectionMatrix);
+		m_cubeMap->bind(SKYBOX_SHADER, "cubeMap", 0, GL_TEXTURE_CUBE_MAP);
+		SKYBOX_MESH->render();
+		m_cubeMap->unbind(0, GL_TEXTURE_CUBE_MAP);
+	}
 
 	return true;
 }
 
 void Skybox::quit()
 {
-	delete m_cubeMap;
+	if(m_cubeMap)
+		delete m_cubeMap;
 }
 
 void Skybox::setTexture(short which, const std::string& fileName)
 {
 	m_textures[which] = fileName;
+	m_texturesSet = true;
 }
 
 SkyboxMesh::SkyboxMesh()

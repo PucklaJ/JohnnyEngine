@@ -6,7 +6,7 @@
 #include <cstdlib>
 
 
-Shader::Shader()
+Shader::Shader(const std::string& name) : m_name(name)
 {
 	m_program = glCreateProgram();
 	if (m_program == 0)
@@ -41,7 +41,7 @@ void Shader::link()
 {
 	if (m_program == 0)
 	{
-		SDL::LogManager::error("Couldn't link Shader, because the program hasn't been initialized");
+		SDL::LogManager::error("Couldn't link Shader (" + m_name + "), because the program hasn't been initialized");
 		return;
 	}
 
@@ -72,7 +72,7 @@ void Shader::link()
 		if (m_geo != 0)
 			glDeleteShader(m_geo);
 
-		SDL::LogManager::error("Shader failed to link");
+		SDL::LogManager::error("Shader ("+ m_name +") failed to link");
 
 		return;
 	}
@@ -103,7 +103,7 @@ void Shader::link()
 		if (m_geo != 0)
 			glDeleteShader(m_geo);
 
-		SDL::LogManager::error("Shader failed to validate");
+		SDL::LogManager::error("Shader ("+ m_name +") failed to validate");
 
 		return;
 	}
@@ -138,12 +138,11 @@ void Shader::addUniform(const std::string & uniform,bool endIfNotThere)
 {
 	GLuint uniLoc = glGetUniformLocation(m_program, uniform.c_str());
 
-	if (uniLoc == -1)
+	if (uniLoc == (GLuint)-1)
 	{
 		if (endIfNotThere)
 		{
-			SDL::LogManager::error("Couldn't find uniform: " + uniform);
-			shutdownProgram();
+			SDL::LogManager::error("(" + m_name + ") Couldn't find uniform: " + uniform);
 		}
 		
 	}
@@ -245,7 +244,7 @@ void Shader::addProgram(const std::string & text, GLuint type)
 
 		glDeleteShader(shader);
 
-		SDL::LogManager::error(std::string("Shader failed to compile:\n") + errorLog);
+		SDL::LogManager::error(std::string("Shader ("+ m_name +") failed to compile:\n") + errorLog);
 
 		delete[] errorLog;
 

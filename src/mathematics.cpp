@@ -1,9 +1,9 @@
-#include "mathematics.h"
+#include <mathematics.h>
 #include <cmath>
 #include <iostream>
 #include <cstdlib>
-#include "Actor.h"
-#include "MainClass.h"
+#include <Actor.h>
+#include <MainClass.h>
 
 namespace SDL
 {

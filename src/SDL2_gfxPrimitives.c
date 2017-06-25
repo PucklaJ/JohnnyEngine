@@ -32,9 +32,9 @@ Andreas Schiffler -- aschiffler at ferzkopp dot net
 #include <math.h>
 #include <string.h>
 
-#include "SDL2_gfxPrimitives.h"
-#include "SDL2_rotozoom.h"
-#include "SDL2_gfxPrimitives_font.h"
+#include "../include/SDL2_gfxPrimitives.h"
+#include "../include/SDL2_rotozoom.h"
+#include "../include/SDL2_gfxPrimitives_font.h"
 
 /* ---- Structures */
 

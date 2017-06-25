@@ -2,12 +2,12 @@
 #include <GL/glew.h>
 #include <string>
 #include <map>
-#include <glm\glm.hpp>
+#include <glm/glm.hpp>
 
 class Shader
 {
 public:
-	Shader();
+	Shader(const std::string& name = "Shader");
 	~Shader();
 
 	void addFragmentShader(const std::string&);
@@ -47,5 +47,7 @@ private:
 
 	bool m_shadowMap = false;
 	bool m_loadDefaultUniforms = true;
+
+	std::string m_name = "Shader";
 };
 

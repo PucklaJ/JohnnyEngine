@@ -1,6 +1,6 @@
-#include "FrameBuffer.h"
-#include "Texture.h"
-#include "RenderBuffer.h"
+#include <FrameBuffer.h>
+#include <Texture.h>
+#include <RenderBuffer.h>
 #include <iostream>
 
 FrameBuffer::FrameBuffer()

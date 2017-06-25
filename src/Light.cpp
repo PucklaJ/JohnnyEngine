@@ -1,9 +1,9 @@
-#include "Light.h"
-#include "Shader.h"
+#include <Light.h>
+#include <Shader.h>
 #include <sstream>
 #include <iostream>
-#include "ShadowMap.h"
-#include "MainClass.h"
+#include <ShadowMap.h>
+#include <MainClass.h>
 
 #define MATH_PI 3.14159265f
 

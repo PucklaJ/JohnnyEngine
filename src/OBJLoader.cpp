@@ -1,12 +1,12 @@
-#include "OBJLoader.h"
+#include <OBJLoader.h>
 #include <fstream>
 #include <iostream>
-#include "Vertex.h"
+#include <Vertex.h>
 #include <sstream>
 #include <SDL2/SDL.h>
-#include "ResourceManager.h"
-#include "Texture.h"
-#include "Shader.h"
+#include <ResourceManager.h>
+#include <Texture.h>
+#include <Shader.h>
 #include <assimp/scene.h>
 
 #define _CRT_SECURE_NO_WARNINGS

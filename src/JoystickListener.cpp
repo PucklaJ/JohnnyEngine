@@ -1,7 +1,7 @@
-#include "JoystickListener.h"
-#include "JoystickManager.h"
-#include "LogManager.h"
-#include "operators.h"
+#include <JoystickListener.h>
+#include <JoystickManager.h>
+#include <LogManager.h>
+#include <operators.h>
 #include <iostream>
 //#define DEBUG_OUTPUTS
 

@@ -1,8 +1,8 @@
-#include "Model.h"
+#include <Model.h>
 #include <assimp/scene.h>
-#include "Mesh.h"
-#include "Shader.h"
-#include "ResourceManager.h"
+#include <Mesh.h>
+#include <Shader.h>
+#include <ResourceManager.h>
 #include <iostream>
 
 Model::Model(aiNode* node,const aiScene* scene,bool switchZAndY)

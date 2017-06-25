@@ -14,9 +14,9 @@ Shader* RenderManager::DEFAULT_POST_PROCESSING_SHADER = nullptr;
 
 void RenderManager::loadDefaultShaders(SDL::ResourceManager* res,Lighting* light)
 {
-	DEFAULT_SHADER = new Shader();
-	DEFAULT_SHADOWMAP_SHADER = new Shader();
-	DEFAULT_POST_PROCESSING_SHADER = new Shader();
+	DEFAULT_SHADER = new Shader("Default Shader");
+	DEFAULT_SHADOWMAP_SHADER = new Shader("Default Shadowmap Shader");
+	DEFAULT_POST_PROCESSING_SHADER = new Shader("Default Post Processing Shader");
 
 	std::map<std::string, std::string> defineChanges = light->getDefineChanges();
 

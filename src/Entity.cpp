@@ -1,11 +1,11 @@
-#include "Entity.h"
-#include "MainClass.h"
-#include "ResourceManager.h"
-#include "Mesh.h"
-#include "Shader.h"
+#include <Entity.h>
+#include <MainClass.h>
+#include <ResourceManager.h>
+#include <Mesh.h>
+#include <Shader.h>
 #include <iostream>
-#include "RenderManager.h"
-#include "Model.h"
+#include <RenderManager.h>
+#include <Model.h>
 
 Entity::Entity(const std::string& fileName) : SDL::Actor("Entity"),
 	m_fileName(fileName)

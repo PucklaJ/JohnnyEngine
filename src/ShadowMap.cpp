@@ -1,13 +1,13 @@
-#include "ShadowMap.h"
-#include "FrameBuffer.h"
-#include "Shader.h"
-#include "MainGame.h"
-#include "Transform.h"
+#include <ShadowMap.h>
+#include <FrameBuffer.h>
+#include <Shader.h>
+#include <Transform.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include "mathematics.h"
-#include "MainClass.h"
+#include <mathematics.h>
+#include <MainClass.h>
 #include <iostream>
+#include <Light.h>
 
 
 ShadowMap::ShadowMap(GLsizei width, GLsizei height) : Texture(nullptr,width,height,GL_DEPTH_COMPONENT,GL_DEPTH_COMPONENT,GL_FLOAT),

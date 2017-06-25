@@ -153,7 +153,7 @@ namespace SDL
 
 			const aiScene* sceneAi = loader.ReadFile("res/models/" + file, aiProcess_Triangulate | aiProcess_FlipUVs);
 
-			if (!sceneAi || sceneAi->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !sceneAi->mRootNode)
+			if (!sceneAi || (sceneAi->mFlags & AI_SCENE_FLAGS_INCOMPLETE) || !sceneAi->mRootNode)
 			{
 				LogManager::error(std::string("Loading Scene: ") + loader.GetErrorString());
 				return nullptr;

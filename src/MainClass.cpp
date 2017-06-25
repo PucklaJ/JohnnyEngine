@@ -1,26 +1,32 @@
-#include "MainClass.h"
+#include <MainClass.h>
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-#include "InputManager.h"
-#include "ResourceManager.h"
-#include "Camera.h"
-#include "LogManager.h"
-#include "JoystickManager.h"
-#include "operators.h"
-#include "Colors.h"
-#include "RenderUtil.h"
-#include "Light.h"
-#include "ShadowMap.h"
-#include "Shader.h"
-#include "RenderManager.h"
-#include "Texture.h"
-#include "FrameBuffer.h"
-#include "RenderBuffer.h"
-#include "Mesh.h"
-#include "Skybox.h"
+#include <InputManager.h>
+#include <ResourceManager.h>
+#include <Camera.h>
+#include <LogManager.h>
+#include <JoystickManager.h>
+#include <operators.h>
+#include <Colors.h>
+#include <RenderUtil.h>
+#include <Light.h>
+#include <ShadowMap.h>
+#include <Shader.h>
+#include <RenderManager.h>
+#include <Texture.h>
+#include <FrameBuffer.h>
+#include <RenderBuffer.h>
+#include <Mesh.h>
+#include <Skybox.h>
+#ifdef _WIN32
 #include <TTF/SDL_ttf.h>
+#else
+#ifdef __linux__
+#include <SDL2/SDL_ttf.h>
+#endif
+#endif
 //#define DEBUG_OUTPUTS
 
 namespace SDL

@@ -62,7 +62,7 @@ void Texture::initTexture2DShader(SDL::MainClass* mainClass)
 {
 	if (!m_texture2DShader)
 	{
-		m_texture2DShader = new Shader();
+		m_texture2DShader = new Shader("Texture2D Shader");
 		m_texture2DShader->setLoadDefaultUniforms(false);
 
 		m_texture2DShader->addVertexShader(mainClass->getResourceManager()->loadShader("vertexShaderTexture2D.glsl"));

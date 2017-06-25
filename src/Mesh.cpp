@@ -1,9 +1,9 @@
-#include "Mesh.h"
+#include <Mesh.h>
 #include <GL/glew.h>
-#include "Vertex.h"
-#include "LogManager.h"
+#include <Vertex.h>
+#include <LogManager.h>
 #include <iostream>
-#include "ResourceManager.h"
+#include <ResourceManager.h>
 #include <assimp/scene.h>
 
 

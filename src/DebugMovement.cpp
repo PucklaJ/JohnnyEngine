@@ -1,6 +1,6 @@
-#include "DebugMovement.h"
-#include "MainClass.h"
-#include "Camera.h"
+#include <DebugMovement.h>
+#include <MainClass.h>
+#include <Camera.h>
 
 DebugMovement::DebugMovement(float moveSpeed, float lookSpeed) : SDL::Actor("DebugMovement"),
 	m_moveSpeed(moveSpeed),

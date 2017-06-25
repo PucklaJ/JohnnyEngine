@@ -1,5 +1,5 @@
-#include "CubeMap.h"
-#include "ResourceManager.h"
+#include <CubeMap.h>
+#include <ResourceManager.h>
 #include <iostream>
 
 CubeMap::CubeMap(const std::string & top, const std::string & bottom, const std::string & left, const std::string & right, const std::string & front, const std::string & back, SDL::ResourceManager* res) : Texture()
