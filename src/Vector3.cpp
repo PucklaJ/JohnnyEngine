@@ -1,5 +1,8 @@
+#ifndef VECTOR3_CPP
+#define VECTOR3_CPP
 #include "../include/Vector3.h"
-/*#include <cmath>
+#include <cmath>
+#include "..\include\Vector3.h"
 
 namespace Johnny
 {
@@ -111,24 +114,24 @@ namespace Johnny
 		return v1.length(squared);
 	}
 	template<class T>
-	Vector3<T>& operator+=(Vector3<T>& v1, const Vector3<T>& v2)
+	Vector3<T>& Vector3<T>::operator+=(const Vector3<T>& v2)
 	{
-		return v1.add(v2);
+		return add(v2);
 	}
 	template<class T>
-	Vector3<T>& operator-=(Vector3<T>& v1, const Vector3<T>& v2)
+	Vector3<T>& Vector3<T>::operator-=(const Vector3<T>& v2)
 	{
-		return v1.subtract(v2);
+		return subtract(v2);
 	}
 	template<class T>
-	Vector3<T>& operator*=(Vector3<T>& v1, const Vector3<T>& v2)
+	Vector3<T>& Vector3<T>::operator*=(const Vector3<T>& v2)
 	{
-		return v1.multiply(v2);
+		return multiply(v2);
 	}
 	template<class T>
-	Vector3<T>& operator/=(Vector3<T>& v1, const Vector3<T>& v2)
+	Vector3<T>& Vector3<T>::operator/=(const Vector3<T>& v2)
 	{
-		return v1.divide(v2);
+		return divide(v2);
 	}
 	template<class T>
 	const Vector3<T> operator+(const Vector3<T>& v1, const Vector3<T>& v2)
@@ -150,4 +153,12 @@ namespace Johnny
 	{
 		return Vector3<T>(v1).divide(v2);
 	}
-}*/
+	template<class T>
+	std::ostream& operator<<(std::ostream& os, const Vector3<T>& v)
+	{
+		os << "(" << v.x << ";" << v.y << ";" << v.z << ")";
+		return os;
+	}
+}
+
+#endif

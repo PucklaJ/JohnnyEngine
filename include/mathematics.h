@@ -1,10 +1,15 @@
 #ifndef MATHEMATICS_H_INCLUDED
 #define MATHEMATICS_H_INCLUDED
 #include <ostream>
+#define _USE_MATH_DEFINES 1
 #include <cmath>
+#include <math.h>
 #include <vector>
 #include <algorithm>
-#define MATH_PI 3.14159265359
+#include "Vector2.h"
+#include "Vector3.h"
+#include "Vector4.h"
+#include "Matrix3.h"
 
 namespace Johnny
 {

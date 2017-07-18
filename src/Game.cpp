@@ -14,7 +14,8 @@
 #include "../include/TextActor2D.h"
 #include "../include/operators.h"
 #include "../include/Timer.h"
-#include "../include/Matrix3.h"
+#include "../include/mathematics.h"
+#include "../include/operators.h"
 
 Game::Game() : Johnny::MainClass(Johnny::InitFlags::INIT_3D,"johnny3D-Engine",1280,720,SDL_WINDOW_RESIZABLE)
 {
@@ -109,12 +110,17 @@ bool Game::init()
 	for (int i = 0; i<9; i++)
 		mat2.values[i] = mat2Values[i];
 
-	mat1 *= mat2;
+	mat1 = mat1 * mat2;
 
-	std::cout << "MAT1:" << std::endl;
-	mat1.print();
-	std::cout << "MAT2:" << std::endl;
-	mat2.print();
+	std::cout << "MAT1:" << std::endl << mat1 << std::endl;
+	std::cout << "MAT2:" << std::endl << mat2 << std::endl;
+
+	Johnny::Vector4f v1(2,3,3,4), v2(5,6,6,9);
+
+	v1 = v1 + v2;
+
+	std::cout << std::string("V1: ") << v1 << std::endl;
+	std::cout << std::string("V2: ") << v2 << std::endl;
 
 	return true;
 }

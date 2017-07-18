@@ -1,5 +1,7 @@
+#ifndef VECTOR4_CPP
+#define VECTOR4_CPP
 #include "../include/Vector4.h"
-/*#include <cmath>
+#include <cmath>
 
 namespace Johnny
 {
@@ -120,50 +122,59 @@ namespace Johnny
 	}
 
 	template<class T>
-	Vector4<T>& operator+=(Vector4<T>& v1, const Vector4<T>& v2)
+	Vector4<T>& Vector4<T>::operator+=(const Vector4<T>& v2)
 	{
-		return v1.add(v2);
+		return add(v2);
 	}
 
 	template<class T>
-	Vector4<T>& operator-=(Vector4<T>& v1, const Vector4<T>& v2)
+	Vector4<T>& Vector4<T>::operator-=(const Vector4<T>& v2)
 	{
-		return v1.subtract(v2);
+		return subtract(v2);
 	}
 
 	template<class T>
-	Vector4<T>& operator*=(Vector4<T>& v1, const Vector4<T>& v2)
+	Vector4<T>& Vector4<T>::operator*=(const Vector4<T>& v2)
 	{
-		return v1.multiply(v2);
+		return multiply(v2);
 	}
 
 	template<class T>
-	Vector4<T>& operator/=(Vector4<T>& v1, const Vector4<T>& v2)
+	Vector4<T>& Vector4<T>::operator/=(const Vector4<T>& v2)
 	{
-		return v1.divide(v2);
+		return divide(v2);
 	}
 
 	template<class T>
 	const Vector4<T> operator+(const Vector4<T>& v1, const Vector4<T>& v2)
 	{
-		return Vector4(v1).add(v2);
+		return Vector4<T>(v1).add(v2);
 	}
 
 	template<class T>
 	const Vector4<T> operator-(const Vector4<T>& v1, const Vector4<T>& v2)
 	{
-		return Vector4(v1).subtract(v2);
+		return Vector4<T>(v1).subtract(v2);
 	}
 
 	template<class T>
 	const Vector4<T> operator*(const Vector4<T>& v1, const Vector4<T>& v2)
 	{
-		return Vector4(v1).multiply(v2);
+		return Vector4<T>(v1).multiply(v2);
 	}
 
 	template<class T>
 	const Vector4<T> operator/(const Vector4<T>& v1, const Vector4<T>& v2)
 	{
-		return Vector4(v1).divide(v2);
+		return Vector4<T>(v1).divide(v2);
 	}
-}*/
+
+	template<class T>
+	std::ostream& operator<<(std::ostream& os, const Vector4<T>& v)
+	{
+		os << "(" << v.x << ";" << v.y << ";" << v.z << ";" << v.w << ")";
+		return os;
+	}
+}
+
+#endif

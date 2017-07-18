@@ -2,7 +2,7 @@
 #include <glm\gtc\type_ptr.hpp>
 #include <glm\gtc\matrix_transform.hpp>
 #include "../include/Camera3D.h"
-#define MATH_PI 3.14159265f
+#define M_PI 3.14159265f
 
 namespace Johnny
 {
@@ -69,9 +69,9 @@ namespace Johnny
 		float y = m_rotation.y;
 		float z = m_rotation.z;
 
-		x = x / 180.0f * MATH_PI;
-		y = y / 180.0f * MATH_PI;
-		z = z / 180.0f * MATH_PI;
+		x = x / 180.0f * M_PI;
+		y = y / 180.0f * M_PI;
+		z = z / 180.0f * M_PI;
 
 		float rx[16], ry[16], rz[16];
 
@@ -112,9 +112,9 @@ namespace Johnny
 
 		translationMatrix = glm::translate(glm::mat4(), m_translation);
 
-		/*rotationMatrix = glm::rotate(glm::mat4(), m_rotation.x / 180.0f*MATH_PI, glm::vec3(1.0, 0.0, 0.0));
-		rotationMatrix = glm::rotate(rotationMatrix, m_rotation.y/180.0f*MATH_PI, glm::vec3(0.0, 1.0, 0.0));
-		rotationMatrix = glm::rotate(rotationMatrix, m_rotation.z / 180.0f*MATH_PI, glm::vec3(0.0, 0.0, 1.0));*/
+		/*rotationMatrix = glm::rotate(glm::mat4(), m_rotation.x / 180.0f*M_PI, glm::vec3(1.0, 0.0, 0.0));
+		rotationMatrix = glm::rotate(rotationMatrix, m_rotation.y/180.0f*M_PI, glm::vec3(0.0, 1.0, 0.0));
+		rotationMatrix = glm::rotate(rotationMatrix, m_rotation.z / 180.0f*M_PI, glm::vec3(0.0, 0.0, 1.0));*/
 
 		scaleMatrix = glm::scale(glm::mat4(), m_scale);
 
@@ -128,7 +128,7 @@ namespace Johnny
 
 		float ar = width / height;
 
-		/*float tanHalfFov = (float)tan(fov / 180.0f*MATH_PI / 2.0f);
+		/*float tanHalfFov = (float)tan(fov / 180.0f*M_PI / 2.0f);
 		float zRange = zNear - zFar;
 
 		float pr[16];
@@ -140,7 +140,7 @@ namespace Johnny
 
 		proj = glm::make_mat4(pr);*/
 
-		proj = glm::perspective(fov / 180.0f * MATH_PI, ar, zNear, zFar);
+		proj = glm::perspective(fov / 180.0f * M_PI, ar, zNear, zFar);
 
 		if (cam == nullptr)
 			return proj*trans;

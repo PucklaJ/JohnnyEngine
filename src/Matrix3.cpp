@@ -1,5 +1,7 @@
+#ifndef MATRIX3_CPP
+#define MATRIX3_CPP
 #include "../include/Matrix3.h"
-/*#include <string>
+#include <string>
 #include "../include/operators.h"
 
 namespace Johnny
@@ -24,11 +26,18 @@ namespace Johnny
 	}
 
 	template<class T>
+	Matrix3<T>::Matrix3(const Matrix3<T>& mat)
+	{
+		for (unsigned int i = 0; i < 9; i++)
+			values[i] = mat.values[i];
+	}
+
+	template<class T>
 	Matrix3<T>& Matrix3<T>::multiply(const Matrix3<T>& mat)
 	{
 		T sum[3];
 
-		for (unsigned int r = 0; r < 3;r++)
+		for (unsigned int r = 0; r < 3; r++)
 		{
 			for (unsigned int c = 0; c < 3; c++)
 			{
@@ -41,9 +50,11 @@ namespace Johnny
 
 			for (unsigned int i = 0; i < 3; i++)
 			{
-				values[MAT3_GET(r,i)] = sum[i];
+				values[MAT3_GET(r, i)] = sum[i];
 			}
 		}
+
+		return *this;
 	}
 
 	template<class T>
@@ -56,41 +67,50 @@ namespace Johnny
 	}
 
 	template<class T>
-	Matrix3<T>& operator*=(Matrix3<T>& mat1, const Matrix3<T>& mat2)
+	inline void Matrix3<T>::print()
 	{
-		return mat1.multiply(mat2);
+		std::cout << *this;
 	}
 
 	template<class T>
-	Matrix3<T>& operator*=(Matrix3<T>& mat, const T& v)
+	Matrix3<T>& Matrix3<T>::operator*=(const Matrix3<T>& mat2)
 	{
-		return mat.multiply(v);
+		return multiply(mat2);
+	}
+
+	template<class T>
+	Matrix3<T>& Matrix3<T>::operator*=(const T& v)
+	{
+		return multiply(v);
 	}
 
 	template<class T>
 	Matrix3<T> operator*(const Matrix3<T>& mat1, const Matrix3<T>& mat2)
 	{
-		return mat1.multiply(mat2);
+		return Matrix3<T>(mat1).multiply(mat2);
 	}
+
 	template<class T>
 	Matrix3<T> operator*(const Matrix3<T>& mat, const T& v)
 	{
-		return mat.multiply(v);
+		return Matrix3<T>(mat).multiply(v);
 	}
 
 	template<class T>
 	std::ostream& operator<<(std::ostream& os, const Matrix3<T>& mat)
 	{
-		for (unsigned int c = 0; c < 3; c++)
+		for (unsigned int r = 0; r < 3; r++)
 		{
 			os << "[ ";
-			for (unsigned int r = 0; r < 3; r++)
+			for (unsigned int c = 0; c < 3; c++)
 			{
-				os << std::string("") + mat.values[MAT3_GET(r,c)] + " ";
+				os << mat.values[MAT3_GET(r, c)] << " ";
 			}
-			os << "]"
+			os << "]" << std::endl;
 		}
 
 		return os;
 	}
-}*/
+}
+
+#endif

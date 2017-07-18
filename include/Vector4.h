@@ -1,9 +1,17 @@
 #pragma once
-
 #include <GL/glew.h>
+#include <iostream>
 
 namespace Johnny
 {
+	template<class T> class Vector4;
+	template<class T> const Vector4<T> operator+(const Vector4<T>&, const Vector4<T>&);
+	template<class T> const Vector4<T> operator-(const Vector4<T>&, const Vector4<T>&);
+	template<class T> const Vector4<T> operator*(const Vector4<T>&, const Vector4<T>&);
+	template<class T> const Vector4<T> operator/(const Vector4<T>&, const Vector4<T>&);
+
+	template<class T> std::ostream& operator<<(std::ostream&, const Vector4<T>&);
+
 	template<class T>
 	class Vector4
 	{
@@ -14,28 +22,28 @@ namespace Johnny
 
 		union
 		{
-			T x = 0.0f;
+			T x = 0;
 			T r;
 			T width;
 		};
 
 		union
 		{
-			T y = 0.0f;
+			T y = 0;
 			T g;
 			T height;
 		};
 
 		union
 		{
-			T z = 0.0f;
+			T z = 0;
 			T b;
 			T depth;
 		};
 
 		union
 		{
-			T w = 0.0f;
+			T w = 0;
 			T a;
 			T time;
 		};
@@ -52,15 +60,17 @@ namespace Johnny
 
 		T distance(const Vector4&, bool squared = false) const;
 
-		friend Vector4& operator+=(Vector4&, const Vector4&);
-		friend Vector4& operator-=(Vector4&, const Vector4&);
-		friend Vector4& operator*=(Vector4&, const Vector4&);
-		friend Vector4& operator/=(Vector4&, const Vector4&);
+		Vector4& operator+=(const Vector4&);
+		Vector4& operator-=(const Vector4&);
+		Vector4& operator*=(const Vector4&);
+		Vector4& operator/=(const Vector4&);
 
-		friend const Vector4 operator+(const Vector4&, const Vector4&);
-		friend const Vector4 operator-(const Vector4&, const Vector4&);
-		friend const Vector4 operator*(const Vector4&, const Vector4&);
-		friend const Vector4 operator/(const Vector4&, const Vector4&);
+		friend const Vector4<T> operator+<>(const Vector4<T>&, const Vector4<T>&);
+		friend const Vector4<T> operator-<>(const Vector4<T>&, const Vector4<T>&);
+		friend const Vector4<T> operator*<>(const Vector4<T>&, const Vector4<T>&);
+		friend const Vector4<T> operator/<>(const Vector4<T>&, const Vector4<T>&);
+
+		friend std::ostream& operator<< <>(std::ostream&, const Vector4<T>&);
 	};
 
 	typedef Vector4<GLfloat> Vector4f;
@@ -68,171 +78,4 @@ namespace Johnny
 	typedef Vector4<GLint> Vector4i;
 }
 
-#include <cmath>
-
-namespace Johnny
-{
-	template<class T>
-	Vector4<T>::Vector4(const T& x, const T& y, const T& z, const T& w)
-	{
-		this->x = x;
-		this->y = y;
-		this->z = z;
-		this->w = w;
-	}
-
-	template<class T>
-	Vector4<T>::Vector4(const Vector4<T>& v)
-	{
-		x = v.x;
-		y = v.y;
-		z = v.z;
-		w = v.w;
-	}
-
-	template<class T>
-	T Vector4<T>::length(bool squared) const
-	{
-		if (squared)
-			return x*x + y*y + z*z + w*w;
-		else
-			return sqrt(x*x + y*y + z*z + w*w);
-	}
-
-	template<class T>
-	Vector4<T>& Vector4<T>::normalise()
-	{
-		T Length = length();
-
-		x /= Length;
-		y /= Length;
-		z /= Length;
-		w /= Length;
-
-		return *this;
-	}
-
-	template<class T>
-	Vector4<T>& Vector4<T>::add(const Vector4<T>& v)
-	{
-		x += v.x;
-		y += v.y;
-		z += v.z;
-		w += v.w;
-
-		return *this;
-	}
-
-	template<class T>
-	Vector4<T>& Vector4<T>::subtract(const Vector4<T>& v)
-	{
-		x -= v.x;
-		y -= v.y;
-		z -= v.z;
-		w -= v.w;
-
-		return *this;
-	}
-
-	template<class T>
-	Vector4<T>& Vector4<T>::multiply(const Vector4<T>& v)
-	{
-		x *= v.x;
-		y *= v.y;
-		z *= v.z;
-		w *= v.w;
-
-		return *this;
-	}
-
-	template<class T>
-	Vector4<T>& Vector4<T>::multiply(const T& s)
-	{
-		x *= s;
-		y *= s;
-		z *= s;
-		w *= s;
-
-		return *this;
-	}
-
-	template<class T>
-	Vector4<T>& Vector4<T>::divide(const Vector4& v)
-	{
-		x /= v.x;
-		y /= v.y;
-		z /= v.z;
-		w /= v.w;
-
-		return *this;
-	}
-
-	template<class T>
-	Vector4<T>& Vector4<T>::divide(const T& s)
-	{
-		x /= s;
-		y /= s;
-		z /= s;
-		w /= s;
-
-		return *this;
-	}
-
-	template<class T>
-	T Vector4<T>::distance(const Vector4<T>& v, bool squared) const
-	{
-		Vector4 v1(v);
-
-		v1.subtract(*this);
-
-		return v1.length(squared);
-	}
-
-	template<class T>
-	Vector4<T>& operator+=(Vector4<T>& v1, const Vector4<T>& v2)
-	{
-		return v1.add(v2);
-	}
-
-	template<class T>
-	Vector4<T>& operator-=(Vector4<T>& v1, const Vector4<T>& v2)
-	{
-		return v1.subtract(v2);
-	}
-
-	template<class T>
-	Vector4<T>& operator*=(Vector4<T>& v1, const Vector4<T>& v2)
-	{
-		return v1.multiply(v2);
-	}
-
-	template<class T>
-	Vector4<T>& operator/=(Vector4<T>& v1, const Vector4<T>& v2)
-	{
-		return v1.divide(v2);
-	}
-
-	template<class T>
-	const Vector4<T> operator+(const Vector4<T>& v1, const Vector4<T>& v2)
-	{
-		return Vector4(v1).add(v2);
-	}
-
-	template<class T>
-	const Vector4<T> operator-(const Vector4<T>& v1, const Vector4<T>& v2)
-	{
-		return Vector4(v1).subtract(v2);
-	}
-
-	template<class T>
-	const Vector4<T> operator*(const Vector4<T>& v1, const Vector4<T>& v2)
-	{
-		return Vector4(v1).multiply(v2);
-	}
-
-	template<class T>
-	const Vector4<T> operator/(const Vector4<T>& v1, const Vector4<T>& v2)
-	{
-		return Vector4(v1).divide(v2);
-	}
-}
+#include "../src/Vector4.cpp"

@@ -5,7 +5,7 @@
 #include "../include/ShadowMap3D.h"
 #include "../include/MainClass.h"
 
-#define MATH_PI 3.14159265f
+#define M_PI 3.14159265f
 
 namespace Johnny
 {
@@ -155,8 +155,8 @@ namespace Johnny
 		s->setUniformVec3(prefix + "direction", direction);
 		s->setUniformVec3(prefix + "diffuse", diffuse);
 		s->setUniformVec3(prefix + "specular", specular);
-		s->setUniformf(prefix + "innerCutOff", cos(innerCutOff / 180.0f * MATH_PI));
-		s->setUniformf(prefix + "outerCutOff", cos(outerCutOff / 180.0f * MATH_PI));
+		s->setUniformf(prefix + "innerCutOff", cos(innerCutOff / 180.0f * M_PI));
+		s->setUniformf(prefix + "outerCutOff", cos(outerCutOff / 180.0f * M_PI));
 		s->setUniformf(prefix + "quadratic", quadratic);
 		s->setUniformf(prefix + "linear", linear);
 		s->setUniformf(prefix + "constant", constant);

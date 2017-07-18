@@ -5,7 +5,6 @@
 #include "../include/LogManager.h"
 #include "../include/Texture.h"
 #include "../include/Mesh3D.h"
-#include "../include/mathematics.h"
 #include "../include/stb_image.h"
 #include <fstream>
 #include <GL/glew.h>

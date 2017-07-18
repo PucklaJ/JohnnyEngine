@@ -1,5 +1,7 @@
+#ifndef VECTOR2_CPP
+#define VECTOR2_CPP
 #include "../include/Vector2.h"
-/*#include <cmath>
+#include <cmath>
 
 namespace Johnny
 {
@@ -21,7 +23,7 @@ namespace Johnny
 		if (squared)
 			return x*x + y*y;
 		else
-			return sqrt(x*x+y*y);
+			return sqrt(x*x + y*y);
 	}
 	template<class T>
 	Vector2<T>& Vector2<T>::normalise()
@@ -87,7 +89,7 @@ namespace Johnny
 		return x * v.x + y * v.y;
 	}
 	template<class T>
-	T Vector2<T>::distance(const Vector2<T>& v,bool squared) const
+	T Vector2<T>::distance(const Vector2<T>& v, bool squared) const
 	{
 		Vector2<T> v1(v);
 
@@ -96,24 +98,24 @@ namespace Johnny
 		return v1.length(squared);
 	}
 	template<class T>
-	Vector2<T>& operator+=(Vector2<T>& v1, const Vector2<T>& v2)
+	Vector2<T>& Vector2<T>::operator+=(const Vector2<T>& v2)
 	{
-		return v1.add(v2);
+		return add(v2);
 	}
 	template<class T>
-	Vector2<T>& operator-=(Vector2<T>& v1, const Vector2<T>& v2)
+	Vector2<T>& Vector2<T>::operator-=(const Vector2<T>& v2)
 	{
-		return v1.subtract(v2);
+		return subtract(v2);
 	}
 	template<class T>
-	Vector2<T>& operator*=(Vector2<T>& v1, const Vector2<T>& v2)
+	Vector2<T>& Vector2<T>::operator*=(const Vector2<T>& v2)
 	{
-		return v1.multiply(v2);
+		return multiply(v2);
 	}
 	template<class T>
-	Vector2<T>& operator/=(Vector2<T>& v1, const Vector2<T>& v2)
+	Vector2<T>& Vector2<T>::operator/=(const Vector2<T>& v2)
 	{
-		return v1.divide(v2);
+		return divide(v2);
 	}
 	template<class T>
 	const Vector2<T> operator+(const Vector2<T>& v1, const Vector2<T>& v2)
@@ -135,4 +137,12 @@ namespace Johnny
 	{
 		return Vector2<T>(v1).divide(v2);
 	}
-}*/
+	template<class T>
+	std::ostream& operator<<(std::ostream& os, const Vector2<T>& v)
+	{
+		os << "(" << v.x << ";" << v.y << ")";
+		return os;
+	}
+}
+
+#endif

@@ -95,7 +95,7 @@ namespace Johnny
 		{
 
 			lightView = glm::lookAt(m_spotLight->position, m_spotLight->position + m_spotLight->direction, glm::vec3(0.0, 1.0, 0.0));
-			lightProjection = glm::perspective(/*m_spotLight->outerCutOff * (float)MATH_PI / 180.0f*/Transform3D::getFOV() / 180.0f * (float)MATH_PI, /*(float)m_width / (float)m_height*/MainClass::getInstance()->getNativeRes().x / MainClass::getInstance()->getNativeRes().y, glm::clamp(Transform3D::getNearPlane(), 1.0f, 10.0f), glm::clamp(Transform3D::getFarPlane(), 100.0f, 1000.0f));
+			lightProjection = glm::perspective(/*m_spotLight->outerCutOff * (float)M_PI / 180.0f*/Transform3D::getFOV() / 180.0f * (float)M_PI, /*(float)m_width / (float)m_height*/MainClass::getInstance()->getNativeRes().x / MainClass::getInstance()->getNativeRes().y, glm::clamp(Transform3D::getNearPlane(), 1.0f, 10.0f), glm::clamp(Transform3D::getFarPlane(), 100.0f, 1000.0f));
 		}
 
 		m_lightSpaceMatrix = lightProjection * lightView;

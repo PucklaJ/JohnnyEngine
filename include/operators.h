@@ -10,4 +10,5 @@ extern const std::string operator+(const std::string&,const float&);
 extern const std::string operator+(const float&,const std::string&);
 
 
+
 #endif // OPERATORS_H_INCLUDED
