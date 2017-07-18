@@ -3,7 +3,7 @@
 #include <vector>
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>
-#include "Transform.h"
+#include "Transform3D.h"
 
 #define NORM_W 1280.0
 #define NORM_H 720.0
@@ -14,11 +14,12 @@
 #define INT_MAX 2147483647
 #endif
 
-class Shader;
 
-namespace SDL
+
+namespace Johnny
 {
     class MainClass;
+	class Shader;
 
     class Actor
     {
@@ -48,7 +49,6 @@ namespace SDL
 
 
             MainClass* getMainClass();
-			Transform& getTransform() { return m_transform; }
             Actor* getParent(){return m_parent;}
             std::vector<Actor*>& getChildren() {return m_children;}
             bool isAffectedByCamera() const {return m_isAffectedByCamera;}
@@ -73,7 +73,6 @@ namespace SDL
             bool m_isAffectedByCamera = true;
             bool m_visible = true;
 			bool m_castsShadows = true;
-			Transform m_transform;
 			Shader* m_shader = nullptr;
 
             const char* m_name = "";

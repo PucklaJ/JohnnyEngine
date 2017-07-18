@@ -3376,3 +3376,128 @@ ERROR: error(#273) 1 compilation errors.  No code generated
 [19:06:2017] [23:01:08] Initializing Engine
 [19:06:2017] [23:01:09] OpenGL-Version: 4.5.13474 Compatibility Profile Context 22.19.162.4
 [19:06:2017] [23:01:09] Finished Initializing Engine
+[17:07:2017] [14:21:21] Initializing Engine
+[17:07:2017] [14:21:26] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [14:21:26] Finished Initializing Engine
+[17:07:2017] [15:11:22] Initializing Engine
+[17:07:2017] [15:11:23] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [15:11:23] Finished Initializing Engine
+[17:07:2017] [17:35:54] Initializing Engine
+[17:07:2017] [17:35:55] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [17:35:55] Finished Initializing Engine
+[17:07:2017] [17:54:36] Initializing Engine
+[17:07:2017] [17:54:36] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [17:54:36] Finished Initializing Engine
+[17:07:2017] [18:00:04] Initializing Engine
+[17:07:2017] [18:00:04] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [18:00:04] Finished Initializing Engine
+[17:07:2017] [18:00:26] Initializing Engine
+[17:07:2017] [18:00:27] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [18:00:27] Finished Initializing Engine
+[17:07:2017] [18:21:03] Initializing Engine
+[17:07:2017] [18:21:04] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [18:21:04] Finished Initializing Engine
+[17:07:2017] [18:23:35] Initializing Engine
+[17:07:2017] [18:23:36] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [18:23:36] Finished Initializing Engine
+[17:07:2017] [18:30:53] Initializing Engine
+[17:07:2017] [18:30:54] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [18:30:54] Finished Initializing Engine
+[17:07:2017] [19:53:03] Initializing Engine
+[17:07:2017] [19:53:04] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [19:53:04] Finished Initializing Engine
+[17:07:2017] [19:56:30] Initializing Engine
+[17:07:2017] [19:56:31] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [19:56:31] Finished Initializing Engine
+[17:07:2017] [19:57:19] Initializing Engine
+[17:07:2017] [19:57:20] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [19:57:20] Finished Initializing Engine
+[17:07:2017] [19:57:39] Initializing Engine
+[17:07:2017] [19:57:40] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [19:57:40] Finished Initializing Engine
+[17:07:2017] [19:57:40] ERROR: Shader failed to compile:
+Fragment shader failed to compile with the following errors:
+ERROR: 0:1: error(#106) Invalid shader version number
+ERROR: 0:73: error(#421) Keyword or operator "out" usage incorrect. GLSL version number 130 is required.
+ERROR: error(#273) 2 compilation errors.  No code generated
+
+
+[17:07:2017] [19:57:59] Program was shutdown by an error
+[17:07:2017] [19:58:06] Initializing Engine
+[17:07:2017] [19:58:07] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [19:58:07] Finished Initializing Engine
+[17:07:2017] [22:38:56] Initializing Engine
+[17:07:2017] [22:38:57] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [22:38:57] Finished Initializing Engine
+[17:07:2017] [22:40:25] Initializing Engine
+[17:07:2017] [22:40:25] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [22:40:25] Finished Initializing Engine
+[17:07:2017] [22:41:44] Initializing Engine
+[17:07:2017] [22:41:45] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [22:41:45] Finished Initializing Engine
+[17:07:2017] [22:44:26] Initializing Engine
+[17:07:2017] [22:44:26] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [22:44:26] Finished Initializing Engine
+[17:07:2017] [22:44:50] Initializing Engine
+[17:07:2017] [22:44:51] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [22:44:51] Finished Initializing Engine
+[17:07:2017] [22:46:07] Initializing Engine
+[17:07:2017] [22:46:08] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [22:46:08] Finished Initializing Engine
+[17:07:2017] [22:49:10] Initializing Engine
+[17:07:2017] [22:49:11] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [22:49:11] Finished Initializing Engine
+[17:07:2017] [22:51:12] Initializing Engine
+[17:07:2017] [22:51:13] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [22:51:13] Finished Initializing Engine
+[17:07:2017] [22:56:39] Initializing Engine
+[17:07:2017] [22:56:40] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [22:56:40] Finished Initializing Engine
+[17:07:2017] [22:58:58] Initializing Engine
+[17:07:2017] [22:58:58] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [22:58:58] Finished Initializing Engine
+[17:07:2017] [23:00:34] Initializing Engine
+[17:07:2017] [23:00:34] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:00:34] Finished Initializing Engine
+[17:07:2017] [23:02:24] Initializing Engine
+[17:07:2017] [23:02:25] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:02:25] Finished Initializing Engine
+[17:07:2017] [23:05:21] Initializing Engine
+[17:07:2017] [23:05:21] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:05:21] Finished Initializing Engine
+[17:07:2017] [23:08:21] Initializing Engine
+[17:07:2017] [23:08:22] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:08:22] Finished Initializing Engine
+[17:07:2017] [23:09:57] Initializing Engine
+[17:07:2017] [23:09:58] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:09:58] Finished Initializing Engine
+[17:07:2017] [23:10:48] Initializing Engine
+[17:07:2017] [23:10:49] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:10:49] Finished Initializing Engine
+[17:07:2017] [23:12:55] Initializing Engine
+[17:07:2017] [23:12:56] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:12:56] Finished Initializing Engine
+[17:07:2017] [23:13:19] Initializing Engine
+[17:07:2017] [23:13:19] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:13:19] Finished Initializing Engine
+[17:07:2017] [23:14:35] Initializing Engine
+[17:07:2017] [23:14:36] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:14:36] Finished Initializing Engine
+[17:07:2017] [23:17:11] Initializing Engine
+[17:07:2017] [23:17:11] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:17:11] Finished Initializing Engine
+[17:07:2017] [23:18:58] Initializing Engine
+[17:07:2017] [23:18:59] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:18:59] Finished Initializing Engine
+[17:07:2017] [23:20:30] Initializing Engine
+[17:07:2017] [23:20:30] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:20:30] Finished Initializing Engine
+[17:07:2017] [23:22:10] Initializing Engine
+[17:07:2017] [23:22:11] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:22:11] Finished Initializing Engine
+[17:07:2017] [23:23:19] Initializing Engine
+[17:07:2017] [23:23:20] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:23:20] Finished Initializing Engine
+[17:07:2017] [23:23:31] Initializing Engine
+[17:07:2017] [23:23:31] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[17:07:2017] [23:23:31] Finished Initializing Engine

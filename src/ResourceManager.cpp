@@ -4,37 +4,37 @@
 #include <cstdio>
 #include "LogManager.h"
 #include "Texture.h"
-#include "Mesh.h"
+#include "Mesh3D.h"
 #include "mathematics.h"
 #include "stb_image.h"
 #include <fstream>
 #include <GL/glew.h>
 #include "OBJLoader.h"
 #include "operators.h"
-#include "Model.h"
-#include "Light.h"
+#include "Model3D.h"
+#include "Light3D.h"
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 #include <assimp/Importer.hpp>
-#include "Entity.h"
+#include "Entity3D.h"
 
-namespace SDL
+namespace Johnny
 {
-    typedef std::map<std::string,Texture*>::iterator TextureIterator;
+	typedef std::map<std::string, Texture*>::iterator TextureIterator;
 	typedef std::map<std::string, std::string>::iterator ShaderIterator;
-	typedef std::map<std::string, Mesh*>::iterator MeshIterator;
+	typedef std::map<std::string, Mesh3D*>::iterator MeshIterator;
 	typedef std::map<std::string, Scene*>::iterator SceneIterator;
 	typedef std::map<std::string, TextureData*>::iterator TextureDataIterator;
 
-    ResourceManager::ResourceManager()
-    {
+	ResourceManager::ResourceManager()
+	{
 
-    }
+	}
 
-    ResourceManager::~ResourceManager()
-    {
+	ResourceManager::~ResourceManager()
+	{
 
-    }
+	}
 
 	std::string ResourceManager::loadShader(const std::string& fileName, std::map<std::string, std::string>* definesToChange)
 	{
@@ -85,14 +85,14 @@ namespace SDL
 		return fileContents;
 	}
 
-	Mesh * ResourceManager::loadMesh(const std::string& fileName)
+	Mesh3D * ResourceManager::loadMesh(const std::string& fileName)
 	{
 		unsigned int start = SDL_GetTicks();
 		std::string file = getFileName(fileName);
-		LogManager::log("Loading: " + file,true,false);
+		LogManager::log("Loading: " + file, true, false);
 
 		MeshIterator it;
-		Mesh* mesh = nullptr;
+		Mesh3D* mesh = nullptr;
 		it = m_meshes.find(file);
 
 		if (it != m_meshes.end())
@@ -107,8 +107,8 @@ namespace SDL
 
 			if (loader.getVertices() && loader.getInidices())
 			{
-				LogManager::log(std::string(" V: ") + (int)loader.getVerticesSize() + " I: " + (int)loader.getIndicesSize(),false,false);
-				mesh = new Mesh();
+				LogManager::log(std::string(" V: ") + (int)loader.getVerticesSize() + " I: " + (int)loader.getIndicesSize(), false, false);
+				mesh = new Mesh3D();
 				mesh->addVertices(loader.getVertices(), loader.getVerticesSize(), loader.getInidices(), loader.getIndicesSize());
 				for (size_t i = 0; i < loader.getMaterials().size(); i++)
 				{
@@ -130,7 +130,7 @@ namespace SDL
 
 		unsigned int end = SDL_GetTicks();
 
-		LogManager::log(std::string(" T: ") + (int)(end - start) + " ms",false);
+		LogManager::log(std::string(" T: ") + (int)(end - start) + " ms", false);
 
 		return mesh;
 	}
@@ -148,19 +148,19 @@ namespace SDL
 		else
 		{
 			Assimp::Importer loader;
-			std::string fileExtension = file.substr(file.find_last_of('.')+1);
+			std::string fileExtension = file.substr(file.find_last_of('.') + 1);
 			bool switchZAndY = fileExtension == "blend" ? true : (fileExtension == "dae" ? true : (fileExtension == "stl" ? true : false));
 
 			const aiScene* sceneAi = loader.ReadFile("res/models/" + file, aiProcess_Triangulate | aiProcess_FlipUVs);
 
-			if (!sceneAi || (sceneAi->mFlags & AI_SCENE_FLAGS_INCOMPLETE) || !sceneAi->mRootNode)
+			if (!sceneAi || sceneAi->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !sceneAi->mRootNode)
 			{
 				LogManager::error(std::string("Loading Scene: ") + loader.GetErrorString());
 				return nullptr;
 			}
-			
+
 			scene = new Scene();
-			processScene(sceneAi, scene,switchZAndY);
+			processScene(sceneAi, scene, switchZAndY);
 
 			for (size_t i = 0; i < scene->models.size(); i++)
 			{
@@ -173,27 +173,27 @@ namespace SDL
 		return scene;
 	}
 
-    Texture* ResourceManager::loadTexture(const std::string& fileName)
-    {
-        Texture* tex = nullptr;
+	Texture* ResourceManager::loadTexture(const std::string& fileName)
+	{
+		Texture* tex = nullptr;
 		std::string file = getFileName(fileName);
 
-        TextureIterator it;
-        
-        for(it = m_textures.begin();it!=m_textures.end();it++)
-        {
-            if(it->first.compare(file) == 0)
-            {
-                break;
-            }
-        }
+		TextureIterator it;
 
-        if(it != m_textures.end())
-        {
-            tex = it->second;
-        }
-        else
-        {
+		for (it = m_textures.begin(); it != m_textures.end(); it++)
+		{
+			if (it->first.compare(file) == 0)
+			{
+				break;
+			}
+		}
+
+		if (it != m_textures.end())
+		{
+			tex = it->second;
+		}
+		else
+		{
 			GLsizei width = 0, height = 0, numChannels = 0;
 
 			GLubyte* pixels = stbi_load(("res/textures/" + file).c_str(), &width, &height, &numChannels, 4);
@@ -209,10 +209,10 @@ namespace SDL
 			stbi_image_free(pixels);
 
 			m_textures[file] = tex;
-        }
+		}
 
-        return tex;
-    }
+		return tex;
+	}
 
 	TextureData* ResourceManager::loadTextureData(const std::string& fileName)
 	{
@@ -228,7 +228,7 @@ namespace SDL
 
 			if (data->numChannels == 0 || data->data == nullptr)
 			{
-				SDL::LogManager::error("Couldn't load TextureData of " + file);
+				LogManager::error("Couldn't load TextureData of " + file);
 				delete data;
 			}
 			else
@@ -240,17 +240,17 @@ namespace SDL
 
 		return nullptr;
 	}
-    
-    void ResourceManager::clearTextures()
-    {
-        for(TextureIterator it = m_textures.begin();it!=m_textures.end();it++)
-        {
+
+	void ResourceManager::clearTextures()
+	{
+		for (TextureIterator it = m_textures.begin(); it != m_textures.end(); it++)
+		{
 			if (it->second)
 				delete it->second;
-        }
-        
-        m_textures.clear();
-    }
+		}
+
+		m_textures.clear();
+	}
 
 	void ResourceManager::clearShaders()
 	{
@@ -268,7 +268,7 @@ namespace SDL
 		m_meshes.clear();
 	}
 
-	void ResourceManager::deleteMesh(Mesh* m)
+	void ResourceManager::deleteMesh(Mesh3D* m)
 	{
 		for (MeshIterator it = m_meshes.begin(); it != m_meshes.end(); it++)
 		{
@@ -303,19 +303,19 @@ namespace SDL
 			}
 		}
 	}
-    
-    void ResourceManager::deleteTexture(Texture* tex)
-    {
-        for(TextureIterator it = m_textures.begin();it!=m_textures.end();it++)
-        {
-            if(it->second == tex)
-            {
-                delete it->second;
-                m_textures.erase(it);
-                break;
-            }
-        }
-    }
+
+	void ResourceManager::deleteTexture(Texture* tex)
+	{
+		for (TextureIterator it = m_textures.begin(); it != m_textures.end(); it++)
+		{
+			if (it->second == tex)
+			{
+				delete it->second;
+				m_textures.erase(it);
+				break;
+			}
+		}
+	}
 
 	void ResourceManager::clearTextureDatas()
 	{
@@ -339,8 +339,8 @@ namespace SDL
 			}
 		}
 	}
-    
-	bool ResourceManager::isLoaded(Mesh* m)
+
+	bool ResourceManager::isLoaded(Mesh3D* m)
 	{
 		for (MeshIterator it = m_meshes.begin(); it != m_meshes.end(); it++)
 		{
@@ -378,30 +378,30 @@ namespace SDL
 	}
 
 	void ResourceManager::clear()
-    {
-        clearTextures();
+	{
+		clearTextures();
 		clearTextureDatas();
 		clearShaders();
 		clearMeshes();
 		clearScenes();
-    }
-
-	void ResourceManager::processScene(const aiScene* sceneAi, Scene* scene,bool switchZAndY)
-	{
-		processNode(sceneAi->mRootNode, sceneAi, scene,switchZAndY);
 	}
 
-	void ResourceManager::processNode(aiNode* node, const aiScene* sceneAi, Scene* scene,bool switchZAndY)
+	void ResourceManager::processScene(const aiScene* sceneAi, Scene* scene, bool switchZAndY)
+	{
+		processNode(sceneAi->mRootNode, sceneAi, scene, switchZAndY);
+	}
+
+	void ResourceManager::processNode(aiNode* node, const aiScene* sceneAi, Scene* scene, bool switchZAndY)
 	{
 		if (node->mMeshes)
 		{
-			Model* model = new Model(node, sceneAi,switchZAndY);
+			Model3D* model = new Model3D(node, sceneAi, switchZAndY);
 			scene->models.push_back(model);
 		}
 
 		for (unsigned int i = 0; i < node->mNumChildren; i++)
 		{
-			processNode(node->mChildren[i], sceneAi, scene,switchZAndY);
+			processNode(node->mChildren[i], sceneAi, scene, switchZAndY);
 		}
 	}
 
@@ -417,46 +417,47 @@ namespace SDL
 			return directory;
 		else
 		{
-			return directory.substr(pos+1);
+			return directory.substr(pos + 1);
 		}
 	}
-    
-    bool ResourceManager::isLoaded(Texture* tex)
-    {
-        for(TextureIterator it = m_textures.begin();it!=m_textures.end();it++)
-        {
-            if(it->second && it->second == tex)
-                return true;
-        }
-        
-        return false;
-    }   
-}
 
-void Scene::addAsEntities(SDL::MainClass* m)
-{
-	if (this)
+	bool ResourceManager::isLoaded(Texture* tex)
+	{
+		for (TextureIterator it = m_textures.begin(); it != m_textures.end(); it++)
+		{
+			if (it->second && it->second == tex)
+				return true;
+		}
+
+		return false;
+	}
+
+	void Scene::addAsEntities(MainClass* m)
+	{
+		if (this)
+		{
+			for (size_t i = 0; i < models.size(); i++)
+			{
+				Entity3D* ent = new Entity3D(models[i]);
+				m->addChild(ent);
+			}
+		}
+	}
+
+	Model3D* Scene::getModel(const std::string& name)
 	{
 		for (size_t i = 0; i < models.size(); i++)
 		{
-			Entity* ent = new Entity(models[i]);
-			m->addChild(ent);
+			if (models[i]->getName() == name)
+				return models[i];
 		}
-	}
-}
 
-Model* Scene::getModel(const std::string& name)
-{
-	for (size_t i = 0; i < models.size(); i++)
+		return nullptr;
+	}
+
+	TextureData::~TextureData()
 	{
-		if (models[i]->getName() == name)
-			return models[i];
+		stbi_image_free(data);
 	}
 
-	return nullptr;
-}
-
-TextureData::~TextureData()
-{
-	stbi_image_free(data);
 }

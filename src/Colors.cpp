@@ -1,7 +1,7 @@
-#include <Colors.h>
-#include <mathematics.h>
+#include "Colors.h"
+#include "mathematics.h"
 
-namespace SDL
+namespace Johnny
 {
 	namespace Colors
 	{

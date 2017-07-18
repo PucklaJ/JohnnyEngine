@@ -1,5 +1,6 @@
 #pragma once
-#include <SDL2/SDL.h>
+#if 0
+#include <SDL2\SDL.h>
 #include <GL/glew.h>
 #include <chrono>
 #include "Transform.h"
@@ -18,7 +19,7 @@ class Shader;
 class ShadowMap;
 class Material;
 
-class MainGame : public SDL::MainClass
+class MainGame : public MainClass
 {
 public:
 	MainGame(int width = DEF_W, int height = DEF_H);
@@ -57,4 +58,5 @@ private:
 	SpotLight* spotLight[NUM_SPOT_LIGHTS];
 #endif
 };
+#endif
 

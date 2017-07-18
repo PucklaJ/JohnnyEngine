@@ -1,76 +1,72 @@
 #include "RenderUtil.h"
-#include <GL/glew.h>
+#include <GL\glew.h>
 #include <iostream>
 #include "LogManager.h"
 
-RenderUtil::RenderUtil()
+namespace Johnny
 {
-}
-
-
-RenderUtil::~RenderUtil()
-{
-}
-
-void RenderUtil::clearScreen()
-{
-	glClearDepth(1.0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-}
-
-bool RenderUtil::initGraphics(float r, float g, float b, float a)
-{
-    SDL::LogManager::log("Initializing attributes for OpenGL");
-    
-    glewExperimental = GL_TRUE;
-    
-	if (glewInit() != GLEW_OK)
+	RenderUtil::RenderUtil()
 	{
-		SDL::LogManager::error("Couldn't inititialize GLEW");
-		return false;
 	}
 
-	SDL::LogManager::log("OpenGL-Version: " + RenderUtil::getOpenGLVersion());
 
-	glClearColor(r, g, b, a);
+	RenderUtil::~RenderUtil()
+	{
+	}
 
-	
-	glFrontFace(GL_CCW);
-	glCullFace(GL_BACK);
-	glEnable(GL_CULL_FACE);
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glEnable(GL_MULTISAMPLE);
+	void RenderUtil::clearScreen()
+	{
+		glClearDepth(1.0);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	}
 
-	//glEnable(GL_FRAMEBUFFER_SRGB);
+	bool RenderUtil::initGraphics(float r, float g, float b, float a)
+	{
+		if (glewInit() != GLEW_OK)
+		{
+			LogManager::error("Couldn't inititialize GLEW");
+			return false;
+		}
 
-	if(SDL_GL_SetSwapInterval(-1)<0)
-    {
-        ERROR_OUT(SDL_GL_SetSwapInterval(1));
-    }
-	return true;
-}
+		LogManager::log("OpenGL-Version: " + RenderUtil::getOpenGLVersion());
 
-void RenderUtil::initWindow()
-{
-    SDL::LogManager::log("Initializing GL-Attributes for Window");
-    
-	ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1));
-	ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1));
-	ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8));
-    
-    ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE));
-    ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3));
-    ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3));
-}
+		glClearColor(r, g, b, a);
 
-void RenderUtil::swapWindow(SDL_Window* w)
-{
-	SDL_GL_SwapWindow(w);
-}
 
-std::string RenderUtil::getOpenGLVersion()
-{
-	return std::string((const char*)glGetString(GL_VERSION));
+		glFrontFace(GL_CCW);
+		glCullFace(GL_BACK);
+		glEnable(GL_CULL_FACE);
+		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glEnable(GL_MULTISAMPLE);
+
+		//glEnable(GL_FRAMEBUFFER_SRGB);
+
+		ERROR_OUT(SDL_GL_SetSwapInterval(-1));
+
+		return true;
+	}
+
+	void RenderUtil::initWindow()
+	{
+		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1));
+		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1));
+		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8));
+
+		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE));
+		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3));
+		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3));
+	}
+
+	void RenderUtil::swapWindow(SDL_Window* w)
+	{
+		SDL_GL_SwapWindow(w);
+	}
+
+	std::string RenderUtil::getOpenGLVersion()
+	{
+		return std::string((const char*)glGetString(GL_VERSION));
+	}
+
 }

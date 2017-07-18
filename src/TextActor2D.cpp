@@ -1,11 +1,11 @@
-#include "TextActor.h"
+#include "TextActor2D.h"
 #include "MainClass.h"
 #include <iostream>
 #include "Texture.h"
 
-namespace SDL
+namespace Johnny
 {
-    TextActor::TextActor(TTF_Font* font,const SDL_Color& color,const std::string& text) : Actor("TextActor"),
+	TextActor2D::TextActor2D(TTF_Font* font,const SDL_Color& color,const std::string& text) : Actor("TextActor"),
         m_text(text),
         m_font(font),
         m_color(color)
@@ -14,12 +14,12 @@ namespace SDL
 		m_castsShadows = false;
     }
     
-    TextActor::~TextActor()
+	TextActor2D::~TextActor2D()
     {
         
     }
     
-    bool TextActor::init()
+    bool TextActor2D::init()
     {
 		Texture::initTexture2DShader(m_mainClass);
 		Texture::initTexture2DBuffers();
@@ -30,7 +30,7 @@ namespace SDL
         return true;
     }
     
-    bool TextActor::update()
+    bool TextActor2D::update()
     {
         if(m_needsUpdate)
         {
@@ -40,14 +40,14 @@ namespace SDL
         return true;
     }
 
-	bool TextActor::render()
+	bool TextActor2D::render()
 	{
-		Texture::renderTexture2D(m_texture, glm::vec2(m_transform.getTranslation()), m_textureWidth, m_textureHeight);
+		Texture::renderTexture2D(m_texture, m_transform.getTranslation(), m_textureWidth, m_textureHeight);
 
 		return true;
 	}
     
-    void TextActor::generateText()
+    void TextActor2D::generateText()
     {
         if(m_mainClass)
         {

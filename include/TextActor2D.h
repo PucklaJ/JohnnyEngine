@@ -8,20 +8,23 @@
 #ifdef _WIN32
     #include <TTF/SDL_ttf.h>
 #else
-    #include <SDL2/SDL_ttf.h>
+    #include <SDL2_ttf/SDL_ttf.h>
 #endif
 #endif
 #include <string>
+#include "Transform2D.h"
 
-class Texture;
 
-namespace SDL
+
+namespace Johnny
 {
-    class TextActor : public SDL::Actor
+	class Texture;
+
+    class TextActor2D : public Actor
     {
     public:
-        TextActor(TTF_Font*,const SDL_Color& color = {0,0,0,255},const std::string& text = "");
-        ~TextActor();
+		TextActor2D(TTF_Font*,const SDL_Color& color = {0,0,0,255},const std::string& text = "");
+        ~TextActor2D();
         
         bool init() override;
         bool update() override;
@@ -34,10 +37,12 @@ namespace SDL
         const std::string& getText() const {return m_text;}
         const SDL_Color& getColor() const {return m_color;}
         TTF_Font* getFont() {return m_font;}
+		Transform2D& getTransform() { return m_transform; }
         
     private:
         void generateText();
-    
+		Transform2D m_transform;
+
         std::string m_text = "";
         TTF_Font* m_font = nullptr;
 		Texture* m_texture = nullptr;

@@ -4,7 +4,7 @@
 #include <vector>
 #include <map>
 
-namespace SDL
+namespace Johnny
 {
     extern int Uint8ToInt(Uint8 u);
     namespace Buttons

@@ -1,12 +1,12 @@
-#include <JoystickManager.h>
-#include <JoystickListener.h>
+#include "JoystickManager.h"
+#include "JoystickListener.h"
 #include <SDL2/SDL_joystick.h>
 #include <iostream>
-#include <LogManager.h>
-#include <operators.h>
+#include "LogManager.h"
+#include "operators.h"
 //#define DEBUG_OUTPUTS
 
-namespace SDL
+namespace Johnny
 {
     JoystickManager::JoystickManager()
     {

@@ -1,43 +1,41 @@
-#include <MainClass.h>
+#include "MainClass.h"
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
 #include "InputManager.h"
 #include "ResourceManager.h"
-#include "Camera.h"
+#include "Camera3D.h"
 #include "LogManager.h"
 #include "JoystickManager.h"
 #include "operators.h"
 #include "Colors.h"
 #include "RenderUtil.h"
-#include "Light.h"
-#include "ShadowMap.h"
+#include "Light3D.h"
+#include "ShadowMap3D.h"
 #include "Shader.h"
 #include "RenderManager.h"
 #include "Texture.h"
 #include "FrameBuffer.h"
 #include "RenderBuffer.h"
-#include "Mesh.h"
+#include "Mesh3D.h"
 #include "Skybox.h"
-#ifdef _WIN32
 #include <TTF/SDL_ttf.h>
-#else
-#include <SDL2/SDL_ttf.h>
-#endif
+#include "Timer.h"
 //#define DEBUG_OUTPUTS
 
-namespace SDL
+namespace Johnny
 {
     MainClass* MainClass::instance = nullptr;
 
-    MainClass::MainClass(const char* title,int width,int height,Uint32 windowFlags) : Actor("MainClass"),
+    MainClass::MainClass(Uint32 initFlags,const char* title,int width,int height,Uint32 windowFlags) : Actor("MainClass"),
                                                                    m_windowTitle(title),
                                                                    m_windowWidth(width),
                                                                    m_windowHeight(height),
 																   m_scaleW(1.0f),
 																   m_scaleH(1.0f),
-																   m_initWindowFlags(windowFlags)
+																   m_initWindowFlags(windowFlags),
+																   m_initFlags(initFlags)
 
     {
         if(instance == nullptr)
@@ -45,7 +43,6 @@ namespace SDL
             instance = this;
         }
 
-        m_FPSes[0] = m_FPSes[1] = m_FPSes[2] = 0.0;
         m_isAffectedByCamera = false;
         m_mainClass = this;
 		m_castsShadows = false;
@@ -72,7 +69,7 @@ namespace SDL
         }
         catch(std::exception& e)
         {
-            std::cerr << "An error accoured!" << std::endl << e.what() << std::endl;
+			LogManager::error(std::string("An error accoured!\n") + e.what() + "\n");
         }
 
     }
@@ -81,6 +78,17 @@ namespace SDL
     {
 
     }
+
+	void MainClass::init3D()
+	{
+		m_camera3D = new Camera3D();
+		addChild(m_camera3D);
+		m_lighting3D = new Lighting3D();
+	}
+
+	void MainClass::init2D()
+	{
+	}
 
 	void MainClass::afterInit()
 	{
@@ -97,33 +105,30 @@ namespace SDL
             m_joystickManager = nullptr;
         }
 
-        if(m_inputManager)
-            removeChild(m_inputManager);
-        if(m_resourceManager)
-            m_resourceManager->clear();
+        removeChild(m_inputManager);
+        m_resourceManager->clear();
         
 		RenderManager::unload();
 		Skybox::clear();
 
-        if(m_resourceManager)
-            delete m_resourceManager;
-        if(m_lighting)
-            delete m_lighting;
+		delete m_renderManager;
+        delete m_resourceManager;
+		delete m_timer;
+		if (m_lighting3D)
+		{
+			delete m_lighting3D;
+			m_lighting3D = nullptr;
+		}
 
-        if(m_frameBufferTex)
-        {
-            delete m_frameBufferTex;
-            delete m_frameBufferTexMulti;
-            delete m_renderBuffer;
-            delete m_renderBufferMulti;
-            delete m_frameBuffer;
-            delete m_frameBufferMulti;
-            delete m_frameBufferMesh;
-        }
-		
+		delete m_frameBufferTex;
+		delete m_frameBufferTexMulti;
+		delete m_renderBuffer;
+		delete m_renderBufferMulti;
+		delete m_frameBuffer;
+		delete m_frameBufferMulti;
+		delete m_frameBufferMesh;
 
-        if(m_window)
-            delete m_window;
+        delete m_window;
 
         SDL_Quit();
 
@@ -137,30 +142,25 @@ namespace SDL
         if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
         {
             LogManager::error(std::string("Initializing SDL: ") + SDL_GetError());
-            exit(-1);
         }
 		if (TTF_Init() < 0)
 		{
 			LogManager::error(std::string("Initializing SDL_ttf: ") + TTF_GetError());
-			exit(-1);
 		}
 		RenderUtil::initWindow();
 
-        m_window = new WindowHandle(this,m_windowTitle,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,m_windowWidth,m_windowHeight,SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | m_initWindowFlags);
+        m_window = new Window(this,m_windowTitle,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,m_windowWidth,m_windowHeight,SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | m_initWindowFlags);
         if(!m_window->getWindow())
         {
             LogManager::error(std::string("Creating Window: ") + std::string(SDL_GetError()));
-            exit(-1);
         }
 		SDL_GLContext glContext = SDL_GL_CreateContext(m_window->getWindow());
 		if (!glContext)
 		{
 			LogManager::error("Couldn't create SDL_GL_Context");
-			exit(-1);
 		}
 		if (!RenderUtil::initGraphics(0.0f, 0.0f, 0.0f))
 		{
-			exit(-1);
 		}
         
         m_nativeResolution = glm::vec2(m_windowWidth, m_windowHeight);
@@ -168,16 +168,12 @@ namespace SDL
         m_scaleW = m_windowWidth/m_nativeResolution.x;
         m_scaleH = m_windowHeight/m_nativeResolution.y;
 
-        m_camera = new Camera();
-        addChild(m_camera);
-
         m_inputManager = new InputManager;
         m_inputManager->setMainClass(this);
         m_inputManager->setParent(this);
         m_inputManager->init();
 
 		m_resourceManager = new ResourceManager();
-		m_lighting = new Lighting();
 		m_renderManager = new RenderManager();
 		m_skybox = new Skybox();
 
@@ -196,10 +192,16 @@ namespace SDL
 		m_frameBufferMesh = Texture::createTexturePlane(2.0,2.0);
         
         // FPS Manager
-        SDL_initFramerate(&m_fpsManager);
-        SDL_setFramerate(&m_fpsManager,m_maxFPS);
+		m_timer = new Timer();
 
-		Transform::setProjection(70.0f, m_nativeResolution.x, m_nativeResolution.y, 0.1f, 1000.0f);
+		Transform3D::setProjection(70.0f, m_nativeResolution.x, m_nativeResolution.y, 0.1f, 1000.0f);
+
+		if ((m_initFlags & InitFlags::INIT_3D) != 0)
+			init3D();
+		if ((m_initFlags & InitFlags::INIT_2D) != 0)
+			init2D();
+		if ((m_initFlags & InitFlags::JOYSTICK) != 0)
+			activateJoystick();
 
         LogManager::log("Finished Initializing Engine");
     }
@@ -218,19 +220,7 @@ namespace SDL
 #ifdef DEBUG_OUTPUTS
         	std::cout << "Start of mainLoop" << std::endl;
 #endif
-                #ifdef MAX_FPS_LOCK
-                if(m_timeForMaxFPS == 0.0)
-                {
-                #endif
-                startTimeMeasure();
-                #ifdef MAX_FPS_LOCK
-                }
-                m_timeForMaxFPS += m_deltaClockTimeForMaxFPS.count() / 1000000.0;
-                
-                m_startTimeForMaxFPS = high_resolution_clock::now();
-                if(m_timeForMaxFPS >= 1.0/1000.0)
-                {
-                #endif
+					m_timer->startTimeMeasure();
 #ifdef DEBUG_OUTPUTS
                 	std::cout << "PollEvents" << std::endl;
 #endif
@@ -258,7 +248,7 @@ namespace SDL
 					m_frameBufferMulti->bind();
 					RenderUtil::clearScreen();
 
-					m_lighting->renderShadowMaps(this, RenderManager::DEFAULT_SHADOWMAP_SHADER);
+					m_lighting3D->renderShadowMaps(this, RenderManager::DEFAULT_SHADOWMAP_SHADER);
 					render();
 					m_renderManager->render(this);
 
@@ -271,7 +261,6 @@ namespace SDL
 					glViewport(m_viewportOffsetX,m_viewportOffsetY,m_windowWidth,m_windowHeight);
 					RenderManager::DEFAULT_POST_PROCESSING_SHADER->bind();
 					m_frameBufferTex->bind(RenderManager::DEFAULT_POST_PROCESSING_SHADER, "frameBuffer");
-					//m_lighting->getSpotLights()[0]->shadowMap->bind(RenderManager::DEFAULT_POST_PROCESSING_SHADER, "frameBuffer");
 
 					m_frameBufferMesh->render();
 
@@ -279,21 +268,8 @@ namespace SDL
 					glViewport(0, 0, (GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y);
 
 					RenderUtil::swapWindow(m_window->getWindow());
-                #ifdef MAX_FPS_LOCK
-                    m_timeForMaxFPS = 0.0;
-                }
-                
-                m_endTimeForMaxFPS = high_resolution_clock::now();
-                
-                m_deltaClockTimeForMaxFPS = m_endTimeForMaxFPS-m_startTimeForMaxFPS;
-                
-                if(m_timeForMaxFPS == 0.0)
-                {
-                    #endif
-                    m_fps = endTimeMeasure();
-                    #ifdef MAX_FPS_LOCK
-                }
-                #endif
+
+					m_timer->endTimeMeasure();
 #ifdef DEBUG_OUTPUTS
                 std::cout << "End of mainLoop" << std::endl;
 #endif
@@ -314,16 +290,16 @@ namespace SDL
                 case SDL_QUIT:
                     return false;
                 case SDL_KEYDOWN:
-                    m_inputManager->pressKey(e.key.keysym.sym);
+                    m_inputManager->pressKey(InputManager::convertSDL(e.key.keysym.sym));
                     break;
                 case SDL_KEYUP:
-                    m_inputManager->releaseKey(e.key.keysym.sym);
+                    m_inputManager->releaseKey(InputManager::convertSDL(e.key.keysym.sym));
                     break;
                 case SDL_MOUSEBUTTONDOWN:
-                    m_inputManager->pressKey(e.button.button);
+                    m_inputManager->pressKey(InputManager::convertSDL(e.button.button));
                     break;
                 case SDL_MOUSEBUTTONUP:
-                    m_inputManager->releaseKey(e.button.button);
+                    m_inputManager->releaseKey(InputManager::convertSDL(e.button.button));
                     break;
                 case SDL_MOUSEMOTION:
                     m_inputManager->setMouseCoords(e.motion.x,e.motion.y);
@@ -369,170 +345,6 @@ namespace SDL
         return true;
     }
 
-    void MainClass::startTimeMeasure()
-    {
-        m_startTime = high_resolution_clock::now();
-    }
-
-    int MainClass::endTimeMeasure()
-    {
-        if(m_maxFPS != NO_FPS_LOCK)
-            SDL_framerateDelay(&m_fpsManager);
-        
-        m_endTime = high_resolution_clock::now();
-        m_deltaClockTime = m_endTime - m_startTime;
-        m_realDeltaTimeInSeconds = m_deltaClockTime.count()/1000000.0;
-        
-        m_realDeltaTimeSize = getDeltaTimesSize();
-        if(m_realDeltaTimeSize == 11)
-            moveDeltaTimesOneIndexDown();
-
-        // Set the last frameTime
-        m_realDeltaTimes[m_realDeltaTimeSize == 11 ? 10 : m_realDeltaTimeSize] = m_realDeltaTimeInSeconds;
-
-        // Copy Real Frame Times into the smooth ones
-        copyRealTimesToSmoothTimes();
-
-        // Calculate the mean Time
-        m_smoothDeltaTimeInSeconds = calculateMeanDeltaTime();
-
-        m_FPSes[m_lastFrame] = 1.0/m_smoothDeltaTimeInSeconds;
-
-        m_lastFrame++;
-        if(m_lastFrame == 3)
-        {
-            m_lastFrame = 0;
-        }
-
-
-        return (int)((m_FPSes[0]+m_FPSes[1]+m_FPSes[2])/3.0);
-    }
-
-    void MainClass::copyRealTimesToSmoothTimes()
-    {
-        for(int i = 0;i<11;i++)
-        {
-            m_smoothDeltaTimes[i] = m_realDeltaTimes[i];
-        }
-    }
-
-
-    int MainClass::getDeltaTimesSize()
-    {
-        for(int i = 0;i<11;i++)
-        {
-            if(m_realDeltaTimes[i] == -1.0)
-                return i;
-        }
-
-        return 11;
-    }
-
-
-    void MainClass::moveDeltaTimesOneIndexDown()
-    {
-        for(int i = 0;i<11;i++)
-        {
-            if(i > 0)
-            m_realDeltaTimes[i-1] = m_realDeltaTimes[i];
-        }
-
-        m_realDeltaTimes[10] = -1.0;
-    }
-
-
-    double MainClass::calculateMeanDeltaTime()
-    {
-        double mean = 0.0;
-        int size = 11;
-
-        for(int i = 0;i<11;i++)
-        {
-            if(m_smoothDeltaTimes[i] == -1.0)
-            {
-                size = i;
-                break;
-            }
-        }
-
-        if(size > 4)
-        {
-            takeAwayHighestAndLowestDts();
-        }
-
-        for(int i = 0;i<11;i++)
-        {
-            if(m_smoothDeltaTimes[i] != -1.0)
-            {
-                mean += m_smoothDeltaTimes[i];
-            }
-        }
-
-        return mean/(size > 4 ? 7.0 : (double)size);
-    }
-
-    void MainClass::takeAwayHighestAndLowestDts()
-    {
-        int numIndex = 0;
-        double num=0;
-
-        // Take away two Lowest
-        for(int j = 0;j<2;j++)
-        {
-            setNum(num,numIndex);
-            for(int i = 0;i<11;i++)
-            {
-                if(m_smoothDeltaTimes[i] != -1.0)
-                {
-                    if(m_smoothDeltaTimes[i] < num)
-                    {
-                        num = m_smoothDeltaTimes[i];
-                        numIndex = i;
-                    }
-                }
-            }
-
-            m_smoothDeltaTimes[numIndex] = -1.0;
-
-        }
-
-
-        numIndex = 0;
-
-
-        //Take away two highest
-        for(int j = 0;j<2;j++)
-        {
-            setNum(num,numIndex);
-            for(int i = 0;i<11;i++)
-            {
-                if(m_smoothDeltaTimes[i] != -1.0)
-                {
-                    if(m_smoothDeltaTimes[i] > num)
-                    {
-                        num = m_smoothDeltaTimes[i];
-                        numIndex = i;
-                    }
-                }
-            }
-
-            m_smoothDeltaTimes[numIndex] = -1.0;
-        }
-
-    }
-
-    void MainClass::setNum(double& num,int& numIndex)
-    {
-        for(int i = 0;i<11;i++)
-        {
-            if(m_smoothDeltaTimes[i] != -1.0)
-            {
-                num = m_smoothDeltaTimes[i];
-                numIndex = i;
-            }
-        }
-    }
-
     bool MainClass::render()
     {
         return true;
@@ -549,9 +361,9 @@ namespace SDL
         return true;
     }
 
-    Camera* MainClass::getCamera()
+    Camera3D* MainClass::getCamera3D()
     {
-        return m_camera;
+        return m_camera3D;
     }
     
     void MainClass::onResize(int w,int h)
@@ -614,35 +426,9 @@ namespace SDL
 		}
     }
     
-    
-    void MainClass::setMaxFPS(int fps)
+    void MainClass::setAmbientLight3D(const SDL_Color& col)
     {
-        if(fps == NO_FPS_LOCK)
-        {
-            m_maxFPS = fps;
-            return;
-        }
-        
-        if(fps > FPS_UPPER_LIMIT)
-        {
-            fps = FPS_UPPER_LIMIT;
-        }
-        else if(fps < FPS_LOWER_LIMIT)
-        {
-            fps = FPS_LOWER_LIMIT;
-        }
-        
-        m_maxFPS = fps;
-        
-        if(SDL_setFramerate(&m_fpsManager,m_maxFPS)<0)
-        {
-            LogManager::error("Setting max FPS");
-        }
-    }
-    
-    void MainClass::setAmbientLight(const SDL_Color& col)
-    {
-		Lighting::ambientLight = glm::vec4((float)col.r / 255.0f,(float)col.g / 255.0f, (float)col.b / 255.0f, (float)col.a / 255.0f);
+		Lighting3D::ambientLight = glm::vec4((float)col.r / 255.0f,(float)col.g / 255.0f, (float)col.b / 255.0f, (float)col.a / 255.0f);
     }
     
     void MainClass::setNativeRes(const glm::vec2& v)
@@ -671,7 +457,7 @@ namespace SDL
 		m_frameBuffer->checkStatus();
 		m_frameBufferMulti->checkStatus();
 
-		Transform::setProjection(Transform::getFOV(), getNativeRes().x, getNativeRes().y, Transform::getNearPlane(), Transform::getFarPlane());
+		Transform3D::setProjection(Transform3D::getFOV(), getNativeRes().x, getNativeRes().y, Transform3D::getNearPlane(), Transform3D::getFarPlane());
 
 		onResize(m_window->getResolution().x,m_window->getResolution().y);
     }

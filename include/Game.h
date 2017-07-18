@@ -1,10 +1,12 @@
 #pragma once
 #include "MainClass.h"
 
-class SpotLight;
+namespace Johnny
+{
+	class SpotLight3D;
+}
 
-class Game :
-	public SDL::MainClass
+class Game : public Johnny::MainClass
 {
 public:
 	Game();
@@ -16,6 +18,6 @@ public:
 	void quit() override;
 
 private:
-	SpotLight* m_cameraLight = nullptr;
+	Johnny::SpotLight3D* m_cameraLight = nullptr;
 };
 

@@ -1,18 +1,18 @@
-#include <Actor.h>
+#include "Actor.h"
 #include <cstdlib>
 #include <algorithm>
-#include <Camera.h>
-#include <MainClass.h>
-#include <LogManager.h>
+#include "Camera3D.h"
+#include "MainClass.h"
+#include "LogManager.h"
 #include <sstream>
 #include <string>
 #include <iostream>
 #include <cstdio>
-#include <RenderManager.h>
+#include "RenderManager.h"
 //#define DEBUG_OUTPUTS
 
 
-namespace SDL
+namespace Johnny
 {
     template<class t>
     const char* toString(t number)

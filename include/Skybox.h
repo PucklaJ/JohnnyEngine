@@ -2,64 +2,65 @@
 #include "Actor.h"
 #include <glm/glm.hpp>
 #include <GL/glew.h>
-#include <string>
 
-class CubeMap;
-class Shader;
-
-class SkyboxVertex
+namespace Johnny
 {
-public:
-	glm::vec3 position;
-};
+	class CubeMap3D;
+	class Shader;
 
-class SkyboxMesh
-{
-public:
-	SkyboxMesh();
-	~SkyboxMesh();
+	class SkyboxVertex
+	{
+	public:
+		glm::vec3 position;
+	};
 
-	void addVertices(SkyboxVertex*,unsigned int);
+	class SkyboxMesh
+	{
+	public:
+		SkyboxMesh();
+		~SkyboxMesh();
 
-	void render();
-private:
-	GLuint m_vbo = 0;
-	GLuint m_vao = 0;
+		void addVertices(SkyboxVertex*, unsigned int);
 
-	GLsizei m_numVertices = 0;
-};
+		void render();
+	private:
+		GLuint m_vbo = 0;
+		GLuint m_vao = 0;
 
-enum SkyboxTex
-{
-	RIGHT,
-	LEFT,
-	TOP,
-	BOTTOM,
-	FRONT,
-	BACK
-};
+		GLsizei m_numVertices = 0;
+	};
 
-class Skybox : public SDL::Actor
-{
-public:
-	static void clear();
+	enum SkyboxTex : unsigned int
+	{
+		RIGHT=0,
+		LEFT=1,
+		TOP=2,
+		BOTTOM=3,
+		FRONT=4,
+		BACK=5
+	};
 
-	Skybox();
-	~Skybox();
+	class Skybox : public Actor
+	{
+	public:
+		static void clear();
 
-	bool init() override;
-	bool update() override;
-	bool render() override;
-	void quit() override;
+		Skybox();
+		~Skybox();
 
-	void setTexture(short, const std::string&);
+		bool init() override;
+		bool update() override;
+		bool render() override;
+		void quit() override;
 
-private:
-	static Shader* SKYBOX_SHADER;
-	static SkyboxMesh* SKYBOX_MESH;
+		void setTexture(short, const std::string&);
 
-	CubeMap* m_cubeMap = nullptr;
-	std::string m_textures[6];
-    bool m_texturesInitialized = false;
-};
+	private:
+		static Shader* SKYBOX_SHADER;
+		static SkyboxMesh* SKYBOX_MESH;
+
+		CubeMap3D* m_cubeMap = nullptr;
+		std::string m_textures[6];
+	};
+}
 

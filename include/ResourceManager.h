@@ -6,44 +6,42 @@
 #include <assimp/scene.h>
 #include <GL/glew.h>
 
-class Texture;
-class Mesh;
-class Model;
-class SpotLight;
-class DirectionalLight;
-class PointLight;
 
-namespace SDL
+
+namespace Johnny
 {
 	class MainClass;
-}
+	class Texture;
+	class Mesh3D;
+	class Model3D;
+	class SpotLight3D;
+	class DirectionalLight3D;
+	class PointLight3D;
 
-class Scene
-{
-public:
-	void addAsEntities(SDL::MainClass*);
+	class Scene
+	{
+	public:
+		void addAsEntities(MainClass*);
 
-	Model* getModel(const std::string&);
+		Model3D* getModel(const std::string&);
 
-	std::vector<Model*> models;
-	std::vector<SpotLight*> spotLights;
-	std::vector<DirectionalLight*> directionalLights;
-	std::vector<PointLight*> pointLights;
-};
+		std::vector<Model3D*> models;
+		std::vector<SpotLight3D*> spotLights;
+		std::vector<DirectionalLight3D*> directionalLights;
+		std::vector<PointLight3D*> pointLights;
+	};
 
-class TextureData
-{
-public:
-	~TextureData();
+	class TextureData
+	{
+	public:
+		~TextureData();
 
-	GLubyte* data = nullptr;
-	GLsizei width = 0;
-	GLsizei height = 0;
-	GLint numChannels = 0;
-};
+		GLubyte* data = nullptr;
+		GLsizei width = 0;
+		GLsizei height = 0;
+		GLint numChannels = 0;
+	};
 
-namespace SDL
-{
     class ResourceManager
     {
         public:
@@ -53,7 +51,7 @@ namespace SDL
             Texture* loadTexture(const std::string&);
 			TextureData* loadTextureData(const std::string&);
 			std::string loadShader(const std::string&,std::map<std::string,std::string>* defineChanges = nullptr);
-			Mesh* loadMesh(const std::string&);
+			Mesh3D* loadMesh(const std::string&);
 			Scene* loadScene(const std::string&);
             
             void clearTextures();
@@ -62,12 +60,12 @@ namespace SDL
 			void deleteTextureData(TextureData*);
 			void clearShaders();
 			void clearMeshes();
-			void deleteMesh(Mesh*);
+			void deleteMesh(Mesh3D*);
 			void clearScenes();
 			void deleteScene(Scene*);
             
             bool isLoaded(Texture*);
-			bool isLoaded(Mesh*);
+			bool isLoaded(Mesh3D*);
 			bool isLoaded(Scene*);
 			bool isLoaded(TextureData*);
             
@@ -85,7 +83,7 @@ namespace SDL
             std::map<std::string,Texture*> m_textures;
 			std::map<std::string, TextureData*> m_textureBytes;
 			std::map<std::string, std::string> m_shaders;
-			std::map<std::string, Mesh*> m_meshes;
+			std::map<std::string, Mesh3D*> m_meshes;
 			std::map<std::string, Scene*> m_scenes;
 
     };

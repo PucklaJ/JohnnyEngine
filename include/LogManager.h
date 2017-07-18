@@ -5,7 +5,7 @@
 
 extern void shutdownProgram();
 
-namespace SDL
+namespace Johnny
 
 {
     /** \brief

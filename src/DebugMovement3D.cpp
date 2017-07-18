@@ -1,0 +1,77 @@
+#include "DebugMovement3D.h"
+#include "MainClass.h"
+#include "Camera3D.h"
+#include "Timer.h"
+#include "InputManager.h"
+
+namespace Johnny
+{
+	DebugMovement3D::DebugMovement3D(float moveSpeed, float lookSpeed) : Actor("DebugMovement"),
+		m_moveSpeed(moveSpeed),
+		m_lookSpeed(lookSpeed)
+	{
+	}
+
+	DebugMovement3D::~DebugMovement3D()
+	{
+	}
+
+	bool DebugMovement3D::init()
+	{
+		SDL_SetRelativeMouseMode(SDL_TRUE);
+
+		return true;
+	}
+
+	bool DebugMovement3D::update()
+	{
+		if (m_mainClass->getInputManager()->isPressed(Keys::LSHIFT))
+			m_moveSpeed *= 5.0f;
+
+		if (m_mainClass->getInputManager()->isPressed(Keys::W))
+		{
+			m_mainClass->getCamera3D()->addPosition(0.0, 0.0, -m_moveSpeed*m_mainClass->getTimer()->getDeltaTimeInSeconds(), true);
+		}
+		if (m_mainClass->getInputManager()->isPressed(Keys::S))
+		{
+			m_mainClass->getCamera3D()->addPosition(0.0, 0.0, m_moveSpeed*m_mainClass->getTimer()->getDeltaTimeInSeconds(), true);
+		}
+		if (m_mainClass->getInputManager()->isPressed(Keys::A))
+		{
+			m_mainClass->getCamera3D()->addPosition(-m_moveSpeed*m_mainClass->getTimer()->getDeltaTimeInSeconds(), 0.0, 0.0, true);
+		}
+		if (m_mainClass->getInputManager()->isPressed(Keys::D))
+		{
+			m_mainClass->getCamera3D()->addPosition(m_moveSpeed*m_mainClass->getTimer()->getDeltaTimeInSeconds(), 0.0, 0.0, true);
+		}
+		if (m_mainClass->getInputManager()->isPressed(Keys::K))
+		{
+			m_mainClass->getCamera3D()->addPosition(0.0, -m_moveSpeed*m_mainClass->getTimer()->getDeltaTimeInSeconds(), 0.0, false);
+		}
+		if (m_mainClass->getInputManager()->isPressed(Keys::I))
+		{
+			m_mainClass->getCamera3D()->addPosition(0.0, m_moveSpeed*m_mainClass->getTimer()->getDeltaTimeInSeconds(), 0.0, false);
+		}
+
+		if (m_mainClass->getInputManager()->isPressed(Keys::LSHIFT))
+			m_moveSpeed /= 5.0f;
+
+
+		if (m_mainClass->getInputManager()->justPressed(Keys::ESCAPE))
+		{
+			SDL_SetRelativeMouseMode(SDL_FALSE);
+		}
+
+		if (SDL_GetRelativeMouseMode())
+		{
+			m_mainClass->getCamera3D()->addRotation(-m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().yrel, -m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().xrel, m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().wheel_y*10.0f*m_mainClass->getTimer()->getDeltaTimeInSeconds());
+		}
+		else if (m_mainClass->getInputManager()->justPressed(Keys::MS_LEFT))
+		{
+			SDL_SetRelativeMouseMode(SDL_TRUE);
+		}
+
+		return true;
+	}
+
+}

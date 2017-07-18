@@ -6,7 +6,7 @@
 #include <algorithm>
 #define MATH_PI 3.14159265359
 
-namespace SDL
+namespace Johnny
 {
     extern double abs(const double& d);
     extern int getRand(int min,int max);

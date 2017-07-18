@@ -2,7 +2,7 @@
 #define COLORS_H
 #include <SDL2/SDL_pixels.h>
 
-namespace SDL
+namespace Johnny
 {
     namespace Colors
     {

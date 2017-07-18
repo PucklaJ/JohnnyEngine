@@ -3,7 +3,7 @@
 #include <vector>
 #include <SDL2/SDL_events.h>
 
-namespace SDL
+namespace Johnny
 {
     class JoystickListener;
 
