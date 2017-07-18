@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <glm\glm.hpp>
+#include "Matrix3.h"
 
 namespace Johnny
 {
@@ -26,6 +27,8 @@ namespace Johnny
 		void setUniformVec3(const std::string&,const glm::vec3&);
 		void setUniformVec4(const std::string&, const glm::vec4&);
 		void setUniformMat4(const std::string&,const glm::mat4&);
+		void setUniformMat3(const std::string&, const glm::mat3&);
+		void setUniformMat3(const std::string&, const Matrix3f&);
 
 		void addAttribute(const std::string&,GLint);
 

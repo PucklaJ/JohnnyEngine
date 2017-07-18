@@ -8,7 +8,9 @@ namespace Johnny
 	template<class T> const Vector2<T> operator+(const Vector2<T>&, const Vector2<T>&);
 	template<class T> const Vector2<T> operator-(const Vector2<T>&, const Vector2<T>&);
 	template<class T> const Vector2<T> operator*(const Vector2<T>&, const Vector2<T>&);
+	template<class T> const Vector2<T> operator*(const Vector2<T>&, const T&);
 	template<class T> const Vector2<T> operator/(const Vector2<T>&, const Vector2<T>&);
+	template<class T> const Vector2<T> operator/(const Vector2<T>&, const T&);
 	template<class T> std::ostream& operator<<(std::ostream&, const Vector2<T>&);
 
 	template<class T>
@@ -54,7 +56,9 @@ namespace Johnny
 		friend const Vector2<T> operator+<>(const Vector2<T>&, const Vector2<T>&);
 		friend const Vector2<T> operator-<>(const Vector2<T>&, const Vector2<T>&);
 		friend const Vector2<T> operator*<>(const Vector2<T>&, const Vector2<T>&);
+		friend const Vector2<T> operator*<>(const Vector2<T>&, const T&);
 		friend const Vector2<T> operator/<>(const Vector2<T>&, const Vector2<T>&);
+		friend const Vector2<T> operator/<>(const Vector2<T>&, const T&);
 
 		friend std::ostream& operator<< <>(std::ostream&, const Vector2<T>&);
 	};

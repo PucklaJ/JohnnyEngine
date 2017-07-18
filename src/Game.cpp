@@ -88,26 +88,28 @@ bool Game::init()
 
 	addChild(new Johnny::DebugMovement3D());
 
-	Johnny::Matrix3f mat1(1.0f), mat2(2.0f);
+	Johnny::Matrix4f mat1(1.0f), mat2(2.0f);
 
 	GLfloat mat1Values[] =
 	{
-		1.0f,4.0f,7.0f,
-		2.0f,5.0f,8.0f,
-		3.0f,6.0f,9.0f
+		1.0f,4.0f,7.0f,1.0f,
+		2.0f,5.0f,8.0f,1.0f,
+		3.0f,6.0f,9.0f,1.0f,
+		3.0f,6.0f,9.0f,1.0f
 	};
 
 	GLfloat mat2Values[] =
 	{
-		10.0f,40.0f,70.0f,
-		20.0f,50.0f,80.0f,
-		30.0f,60.0f,90.0f
+		10.0f,40.0f,70.0f,100.0f,
+		20.0f,50.0f,80.0f,100.0f,
+		30.0f,60.0f,90.0f,100.0f,
+		30.0f,60.0f,90.0f,100.0f
 	};
 
-	for(int i = 0;i<9;i++)
+	for(int i = 0;i<16;i++)
 		mat1.values[i] = mat1Values[i];
 
-	for (int i = 0; i<9; i++)
+	for (int i = 0; i<16; i++)
 		mat2.values[i] = mat2Values[i];
 
 	mat1 = mat1 * mat2;
@@ -149,10 +151,12 @@ bool Game::update()
 			setNativeRes(glm::vec2(213.0f,120.0f));
 		}
 
-		fpsText->getTransform().setTranslation(0.0, getNativeRes().y - 30.0f);
+		fpsText->getTransform().setTranslation(0.0001f, getNativeRes().y - 30.0f);
 	}
 
 	fpsText->setText(std::string("FPS: ") + m_timer->getFPS());
+	fpsText->getTransform().setRotation(fpsText->getTransform().getRotation() + 50.0f*m_timer->getDeltaTimeInSeconds());
+	//fpsText->getTransform().setScale(fpsText->getTransform().getScale() + Johnny::Vector2f(0.8f*m_timer->getDeltaTimeInSeconds(), 0.8f*m_timer->getDeltaTimeInSeconds()));
 
 	return true;
 }

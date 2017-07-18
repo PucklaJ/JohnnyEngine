@@ -42,7 +42,7 @@ namespace Johnny
 
 	bool TextActor2D::render()
 	{
-		Texture::renderTexture2D(m_texture, m_transform.getTranslation(), m_textureWidth, m_textureHeight);
+		Texture::renderTexture2D(m_texture, m_transform.getTransformation(), m_textureWidth, m_textureHeight);
 
 		return true;
 	}

@@ -77,7 +77,7 @@ namespace Johnny
 
 			m_texture2DShader->addUniform("width");
 			m_texture2DShader->addUniform("height");
-			m_texture2DShader->addUniform("offset");
+			m_texture2DShader->addUniform("transform");
 			m_texture2DShader->addUniform("textureAddress");
 
 			mainClass->getRenderManager()->addShader(m_texture2DShader);
@@ -119,7 +119,7 @@ namespace Johnny
 		}
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const glm::vec2& pos, GLsizei w, GLsizei h)
+	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation, GLsizei w, GLsizei h)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
@@ -127,7 +127,7 @@ namespace Johnny
 			glGetIntegerv(GL_VIEWPORT, params);
 
 			m_texture2DShader->bind();
-			m_texture2DShader->setUniformVec2("offset", glm::vec2(pos.x / (GLfloat)params[2] * 2.0f - 1.0f, pos.y / (GLfloat)params[3] * 2.0f - 1.0f));
+			m_texture2DShader->setUniformMat3("transform", transformation);
 			m_texture2DShader->setUniformf("width", (GLfloat)w / (GLfloat)params[2] * 2.0f);
 			m_texture2DShader->setUniformf("height", (GLfloat)h / (GLfloat)params[3] * 2.0f);
 			tex->bind(m_texture2DShader);

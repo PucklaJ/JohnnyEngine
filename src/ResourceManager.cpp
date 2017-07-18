@@ -106,7 +106,10 @@ namespace Johnny
 
 			if (loader.getVertices() && loader.getInidices())
 			{
-				LogManager::log(std::string(" V: ") + (int)loader.getVerticesSize() + " I: " + (int)loader.getIndicesSize(), false, false);
+				LogManager::log(" V: ",false,false);
+				LogManager::log((int)loader.getVerticesSize(), false, false);
+				LogManager::log(" I: ",false,false);
+				LogManager::log((int)loader.getIndicesSize(),false,false);
 				mesh = new Mesh3D();
 				mesh->addVertices(loader.getVertices(), loader.getVerticesSize(), loader.getInidices(), loader.getIndicesSize());
 				for (size_t i = 0; i < loader.getMaterials().size(); i++)
@@ -129,7 +132,9 @@ namespace Johnny
 
 		unsigned int end = SDL_GetTicks();
 
-		LogManager::log(std::string(" T: ") + (int)(end - start) + " ms", false);
+		LogManager::log(" T: ", false,false);
+		LogManager::log((int)(end - start), false, false);
+		LogManager::log(" ms", false);
 
 		return mesh;
 	}

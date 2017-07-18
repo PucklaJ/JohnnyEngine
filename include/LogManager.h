@@ -31,6 +31,7 @@ namespace Johnny
              */
 
             static void log(const std::string& text,bool withTime = true,bool newLine = true);
+			static void log(int i, bool withTime = true, bool newLine = true);
 			static void error(const std::string& text, bool withTime = true, bool newLine = true, bool messageBox = true);
 
         protected:

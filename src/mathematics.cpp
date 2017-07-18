@@ -6,23 +6,7 @@
 #include "../include/MainClass.h"
 
 namespace Johnny
-{
-    double abs(const double& d)
-    {
-        if(d < 0.0)return -d;
-        else return d;
-    }
-    
-    int getRand(int min,int max)
-    {
-        return rand() % (max - min+1) + (min);
-    }
-    
-    bool luck(int percent)
-    {
-        return getRand(1,100) <= percent;
-    }
-    
+{   
     inline int calculateF(const A_Square& pos, const A_Square& target,int previousCosts)
     {
         return (int)(abs(target.x - pos.x) + abs(target.y - pos.y) + pos.g + previousCosts); 

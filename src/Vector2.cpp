@@ -133,9 +133,19 @@ namespace Johnny
 		return Vector2<T>(v1).multiply(v2);
 	}
 	template<class T>
+	const Vector2<T> operator*(const Vector2<T>& v, const T& s)
+	{
+		return Vector2<T>(v).multiply(s);
+	}
+	template<class T>
 	const Vector2<T> operator/(const Vector2<T>& v1, const Vector2<T>& v2)
 	{
 		return Vector2<T>(v1).divide(v2);
+	}
+	template<class T>
+	const Vector2<T> operator/(const Vector2<T>& v, const T& s)
+	{
+		return Vector2<T>(v).divide(s);
 	}
 	template<class T>
 	std::ostream& operator<<(std::ostream& os, const Vector2<T>& v)

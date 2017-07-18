@@ -10,7 +10,7 @@ namespace Johnny
 
 	}
 
-	Transform2D::Transform2D(const glm::vec2& translation, const GLfloat& rotation, const glm::vec2& scale) :
+	Transform2D::Transform2D(const Vector2f& translation, const GLfloat& rotation, const Vector2f& scale) :
 		m_translation(translation),
 		m_rotation(rotation),
 		m_scale(scale)
@@ -21,5 +21,10 @@ namespace Johnny
 	Transform2D::~Transform2D()
 	{
 
+	}
+
+	Matrix3f Transform2D::getTransformation() const
+	{
+		return /*Matrix3f::translate(m_translation) * */Matrix3f::rotate(m_rotation) * Matrix3f::scale(m_scale);
 	}
 }

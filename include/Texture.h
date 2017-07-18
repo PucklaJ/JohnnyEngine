@@ -4,7 +4,7 @@
 #include <GL/glew.h>
 #include <string>
 #include <SDL2/SDL.h>
-#include <glm/glm.hpp>
+#include "Matrix3.h"
 
 
 
@@ -21,7 +21,7 @@ namespace Johnny
 		static Texture* SDL_SurfaceToTexture(SDL_Surface*);
 		static void initTexture2DShader(MainClass*);
 		static void initTexture2DBuffers();
-		static void renderTexture2D(Texture*, const glm::vec2&, GLsizei, GLsizei);
+		static void renderTexture2D(Texture*, const Matrix3f&, GLsizei, GLsizei);
 
 		static Shader* getTexture2DShader();
 

@@ -191,6 +191,18 @@ namespace Johnny
 			glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &mat[0][0]);
 	}
 
+	void Shader::setUniformMat3(const std::string& name, const glm::mat3& mat)
+	{
+		if (m_program != 0)
+			glUniformMatrix3fv(getUniformLocation(name), 1, GL_FALSE, &mat[0][0]);
+	}
+
+	void Shader::setUniformMat3(const std::string& name, const Matrix3f& mat)
+	{
+		if (m_program != 0)
+			glUniformMatrix3fv(getUniformLocation(name), 1, GL_FALSE, mat.values);
+	}
+
 	void Shader::addProgram(const std::string & text, GLuint type)
 	{
 		if (m_program == 0)

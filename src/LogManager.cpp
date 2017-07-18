@@ -6,6 +6,7 @@
 #include <SDL2/SDL.h>
 #include "../include/MainClass.h"
 #include "../include/Window.h"
+#include "../include/operators.h"
 
 namespace Johnny
 {
@@ -121,6 +122,10 @@ namespace Johnny
         fprintf(file,msg.c_str(),"");
         fclose(file);
     }
+	void LogManager::log(int i, bool withTime, bool newLine)
+	{
+		log(std::string("") + i, withTime, newLine);
+	}
 	void LogManager::error(const std::string & text, bool withTime, bool newLine, bool messageBox)
 	{
 		std::string msg = (withTime ? (getDay() + " " + getTime()) : "");

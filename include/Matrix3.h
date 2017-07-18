@@ -1,5 +1,6 @@
 #pragma once
 #include "../include/Vector3.h"
+#include "../include/Vector2.h"
 #include <iostream>
 
 #define MAT3_GET(r,c) (r + c * 3)
@@ -16,6 +17,12 @@ namespace Johnny
 	{
 	public:
 		static Matrix3 identity();
+		static Matrix3 translate(const T&,const T&);
+		static Matrix3 translate(const Vector2<T>&);
+		static Matrix3 rotate(const T&);
+		static Matrix3 scale(const T&,const T&);
+		static Matrix3 scale(const Vector2<T>&);
+		static Matrix3 camera(const Vector2<T>&,const T&,const T&);
 
 		Matrix3() = default;
 		Matrix3(const T&);
