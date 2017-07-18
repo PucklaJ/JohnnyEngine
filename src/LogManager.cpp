@@ -1,11 +1,11 @@
-#include "LogManager.h"
+#include "../include/LogManager.h"
 #include <cstdio>
 #include <sstream>
 #include <iostream>
 #include <Windows.h>
 #include <SDL2/SDL.h>
-#include "MainClass.h"
-#include "Window.h"
+#include "../include/MainClass.h"
+#include "../include/Window.h"
 
 namespace Johnny
 {

@@ -3,9 +3,9 @@
 #include <SDL2\SDL.h>
 #include <GL/glew.h>
 #include <chrono>
-#include "Transform.h"
-#include "Light.h"
-#include "MainClass.h"
+#include "../include/Transform.h"
+#include "../include/Light.h"
+#include "../include/MainClass.h"
 #define DEF_W 1280
 #define DEF_H 720
 

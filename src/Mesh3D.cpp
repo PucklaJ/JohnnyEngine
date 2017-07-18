@@ -1,9 +1,9 @@
-#include "Mesh3D.h"
+#include "../include/Mesh3D.h"
 #include <GL/glew.h>
-#include "Vertex3D.h"
-#include "LogManager.h"
+#include "../include/Vertex3D.h"
+#include "../include/LogManager.h"
 #include <iostream>
-#include "ResourceManager.h"
+#include "../include/ResourceManager.h"
 #include <assimp/scene.h>
 
 

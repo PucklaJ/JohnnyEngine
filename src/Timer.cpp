@@ -1,5 +1,5 @@
-#include "Timer.h"
-#include "LogManager.h"
+#include "../include/Timer.h"
+#include "../include/LogManager.h"
 
 namespace Johnny
 {

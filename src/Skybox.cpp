@@ -1,11 +1,11 @@
-#include "Skybox.h"
-#include "Shader.h"
-#include "CubeMap3D.h"
-#include "MainClass.h"
-#include "ResourceManager.h"
-#include "Camera3D.h"
-#include "LogManager.h"
-#include "RenderManager.h"
+#include "../include/Skybox.h"
+#include "../include/Shader.h"
+#include "../include/CubeMap3D.h"
+#include "../include/MainClass.h"
+#include "../include/ResourceManager.h"
+#include "../include/Camera3D.h"
+#include "../include/LogManager.h"
+#include "../include/RenderManager.h"
 #include <iostream>
 
 namespace Johnny

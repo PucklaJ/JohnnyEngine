@@ -1,27 +1,26 @@
-#include "MainGame.h"
-#include "InputManager.h"
+#include "../include/MainGame.h"
+#include "../include/InputManager.h"
 #include <iostream>
 #include <string>
 #include <cstdio>
 #include <cstdlib>
-#include "RenderUtil.h"
-#include "errorFunc.h"
-#include "Mesh.h"
-#include "Vertex.h"
-#include "Shader.h"
-#include "ResourceManager.h"
+#include "../include/RenderUtil.h"
+#include "../include/Mesh.h"
+#include "../include/Vertex.h"
+#include "../include/Shader.h"
+#include "../include/ResourceManager.h"
 #include <cmath>
 #include <ctime>
-#include "Camera.h"
-#include "Light.h"
-#include "Texture.h"
-#include "OBJLoader.h"
+#include "../include/Camera.h"
+#include "../include/Light.h"
+#include "../include/Texture.h"
+#include "../include/OBJLoader.h"
 #include <sstream>
-#include "RenderBuffer.h"
-#include "ShadowMap.h"
-#include "Entity.h"
-#include "RenderManager.h"
-#include "FrameBuffer.h"
+#include "../include/RenderBuffer.h"
+#include "../include/ShadowMap.h"
+#include "../include/Entity.h"
+#include "../include/RenderManager.h"
+#include "../include/FrameBuffer.h"
 #define CENT SDL_WINDOWPOS_CENTERED
 
 void fatalError(std::string errorString)

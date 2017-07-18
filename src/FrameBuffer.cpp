@@ -1,8 +1,8 @@
-#include "FrameBuffer.h"
-#include "Texture.h"
-#include "RenderBuffer.h"
+#include "../include/FrameBuffer.h"
+#include "../include/Texture.h"
+#include "../include/RenderBuffer.h"
 #include <iostream>
-#include "LogManager.h"
+#include "../include/LogManager.h"
 
 namespace Johnny
 {

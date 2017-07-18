@@ -1,11 +1,11 @@
-#include "RenderManager.h"
-#include "Shader.h"
-#include "Actor.h"
-#include "ResourceManager.h"
-#include "Light3D.h"
-#include "OBJLoader.h"
-#include "MainClass.h"
-#include "Camera3D.h"
+#include "../include/RenderManager.h"
+#include "../include/Shader.h"
+#include "../include/Actor.h"
+#include "../include/ResourceManager.h"
+#include "../include/Light3D.h"
+#include "../include/OBJLoader.h"
+#include "../include/MainClass.h"
+#include "../include/Camera3D.h"
 #include <iostream>
 
 namespace Johnny

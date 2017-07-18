@@ -1,14 +1,14 @@
-#include "ShadowMap3D.h"
-#include "FrameBuffer.h"
-#include "Shader.h"
-#include "MainGame.h"
-#include "Transform3D.h"
+#include "../include/ShadowMap3D.h"
+#include "../include/FrameBuffer.h"
+#include "../include/Shader.h"
+#include "../include/MainGame.h"
+#include "../include/Transform3D.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include "mathematics.h"
-#include "MainClass.h"
+#include "../include/mathematics.h"
+#include "../include/MainClass.h"
 #include <iostream>
-#include "Light3D.h"
+#include "../include/Light3D.h"
 
 
 namespace Johnny

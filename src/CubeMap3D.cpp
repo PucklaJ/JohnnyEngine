@@ -1,5 +1,5 @@
-#include "CubeMap3D.h"
-#include "ResourceManager.h"
+#include "../include/CubeMap3D.h"
+#include "../include/ResourceManager.h"
 #include <iostream>
 
 namespace Johnny

@@ -1,22 +1,22 @@
-#include "ResourceManager.h"
+#include "../include/ResourceManager.h"
 #include <iostream>
-#include "MainClass.h"
+#include "../include/MainClass.h"
 #include <cstdio>
-#include "LogManager.h"
-#include "Texture.h"
-#include "Mesh3D.h"
-#include "mathematics.h"
-#include "stb_image.h"
+#include "../include/LogManager.h"
+#include "../include/Texture.h"
+#include "../include/Mesh3D.h"
+#include "../include/mathematics.h"
+#include "../include/stb_image.h"
 #include <fstream>
 #include <GL/glew.h>
-#include "OBJLoader.h"
-#include "operators.h"
-#include "Model3D.h"
-#include "Light3D.h"
+#include "../include/OBJLoader.h"
+#include "../include/operators.h"
+#include "../include/Model3D.h"
+#include "../include/Light3D.h"
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 #include <assimp/Importer.hpp>
-#include "Entity3D.h"
+#include "../include/Entity3D.h"
 
 namespace Johnny
 {

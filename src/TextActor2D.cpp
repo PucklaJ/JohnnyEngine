@@ -1,7 +1,7 @@
-#include "TextActor2D.h"
-#include "MainClass.h"
+#include "../include/TextActor2D.h"
+#include "../include/MainClass.h"
 #include <iostream>
-#include "Texture.h"
+#include "../include/Texture.h"
 
 namespace Johnny
 {

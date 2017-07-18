@@ -1,6 +1,6 @@
 #ifndef Window_H
 #define Window_H
-#include "Actor.h"
+#include "../include/Actor.h"
 #include <SDL2/SDL_video.h>
 #include <SDL2/SDL_stdinc.h>
 

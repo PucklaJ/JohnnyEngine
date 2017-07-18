@@ -1,6 +1,6 @@
 #pragma once
 #include <chrono>
-#include "SDL2_framerate.h"
+#include "../include/SDL2_framerate.h"
 
 #define NO_FPS_LOCK -1
 

@@ -1,4 +1,4 @@
-#include "Vertex3D.h"
+#include "../include/Vertex3D.h"
 #include <cstdlib>
 
 namespace Johnny

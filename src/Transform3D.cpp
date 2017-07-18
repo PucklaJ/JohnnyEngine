@@ -1,7 +1,7 @@
-#include "Transform3D.h"
+#include "../include/Transform3D.h"
 #include <glm\gtc\type_ptr.hpp>
 #include <glm\gtc\matrix_transform.hpp>
-#include "Camera3D.h"
+#include "../include/Camera3D.h"
 #define MATH_PI 3.14159265f
 
 namespace Johnny

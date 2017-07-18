@@ -1,6 +1,6 @@
-#include "Matrix3.h"
+#include "../include/Matrix3.h"
 /*#include <string>
-#include "operators.h"
+#include "../include/operators.h"
 
 namespace Johnny
 {

@@ -1,9 +1,9 @@
-#include "JoystickManager.h"
-#include "JoystickListener.h"
+#include "../include/JoystickManager.h"
+#include "../include/JoystickListener.h"
 #include <SDL2/SDL_joystick.h>
 #include <iostream>
-#include "LogManager.h"
-#include "operators.h"
+#include "../include/LogManager.h"
+#include "../include/operators.h"
 //#define DEBUG_OUTPUTS
 
 namespace Johnny

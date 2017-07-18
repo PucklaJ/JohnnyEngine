@@ -1,5 +1,5 @@
 #pragma once
-#include "Vector3.h"
+#include "../include/Vector3.h"
 #include <iostream>
 
 #define MAT3_GET(r,c) (r + c * 3)
@@ -41,7 +41,7 @@ namespace Johnny
 }
 
 #include <string>
-#include "operators.h"
+#include "../include/operators.h"
 
 namespace Johnny
 {

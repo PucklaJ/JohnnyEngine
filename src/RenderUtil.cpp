@@ -1,7 +1,7 @@
-#include "RenderUtil.h"
+#include "../include/RenderUtil.h"
 #include <GL\glew.h>
 #include <iostream>
-#include "LogManager.h"
+#include "../include/LogManager.h"
 
 namespace Johnny
 {

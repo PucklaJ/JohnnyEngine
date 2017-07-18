@@ -1,11 +1,11 @@
-#include "Entity3D.h"
-#include "MainClass.h"
-#include "ResourceManager.h"
-#include "Mesh3D.h"
-#include "Shader.h"
+#include "../include/Entity3D.h"
+#include "../include/MainClass.h"
+#include "../include/ResourceManager.h"
+#include "../include/Mesh3D.h"
+#include "../include/Shader.h"
 #include <iostream>
-#include "RenderManager.h"
-#include "Model3D.h"
+#include "../include/RenderManager.h"
+#include "../include/Model3D.h"
 
 namespace Johnny
 {

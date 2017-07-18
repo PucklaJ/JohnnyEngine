@@ -1,6 +1,6 @@
-#include "Window.h"
-#include "MainClass.h"
-#include "Actor.h"
+#include "../include/Window.h"
+#include "../include/MainClass.h"
+#include "../include/Actor.h"
 
 namespace Johnny
 {

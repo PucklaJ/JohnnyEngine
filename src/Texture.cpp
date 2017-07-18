@@ -1,13 +1,13 @@
-#include "Texture.h"
+#include "../include/Texture.h"
 #include <iostream>
-#include "Shader.h"
-#include "Mesh3D.h"
-#include "Vertex3D.h"
-#include "LogManager.h"
+#include "../include/Shader.h"
+#include "../include/Mesh3D.h"
+#include "../include/Vertex3D.h"
+#include "../include/LogManager.h"
 #include <SDL2/SDL.h>
-#include "ResourceManager.h"
-#include "MainClass.h"
-#include "RenderManager.h"
+#include "../include/ResourceManager.h"
+#include "../include/MainClass.h"
+#include "../include/RenderManager.h"
 
 namespace Johnny
 {

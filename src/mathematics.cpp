@@ -1,9 +1,9 @@
-#include "mathematics.h"
+#include "../include/mathematics.h"
 #include <cmath>
 #include <iostream>
 #include <cstdlib>
-#include "Actor.h"
-#include "MainClass.h"
+#include "../include/Actor.h"
+#include "../include/MainClass.h"
 
 namespace Johnny
 {

@@ -1,5 +1,5 @@
 #pragma once
-#include "Actor.h"
+#include "../include/Actor.h"
 #include <string>
 
 namespace Johnny

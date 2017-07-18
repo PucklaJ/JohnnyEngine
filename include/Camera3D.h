@@ -3,7 +3,7 @@
 
 #include <glm/glm.hpp>
 #include <GL\glew.h>
-#include "Actor.h"
+#include "../include/Actor.h"
 
 namespace Johnny
 {

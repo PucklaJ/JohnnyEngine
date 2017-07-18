@@ -1,5 +1,5 @@
-#include "Colors.h"
-#include "mathematics.h"
+#include "../include/Colors.h"
+#include "../include/mathematics.h"
 
 namespace Johnny
 {

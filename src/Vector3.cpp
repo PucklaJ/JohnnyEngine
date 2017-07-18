@@ -1,4 +1,4 @@
-#include "Vector3.h"
+#include "../include/Vector3.h"
 /*#include <cmath>
 
 namespace Johnny

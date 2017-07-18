@@ -1,8 +1,8 @@
-#include "Model3D.h"
+#include "../include/Model3D.h"
 #include <assimp/scene.h>
-#include "Mesh3D.h"
-#include "Shader.h"
-#include "ResourceManager.h"
+#include "../include/Mesh3D.h"
+#include "../include/Shader.h"
+#include "../include/ResourceManager.h"
 #include <iostream>
 
 namespace Johnny

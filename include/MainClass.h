@@ -1,16 +1,16 @@
 #ifndef MAINCLASS_H
 #define MAINCLASS_H
-#include "InputManager.h"
+#include "../include/InputManager.h"
 #include <SDL2/SDL_events.h>
-#include "Actor.h"
-#include "Window.h"
+#include "../include/Actor.h"
+#include "../include/Window.h"
 #include <chrono>
-#include "SDL2_framerate.h"
+#include "../include/SDL2_framerate.h"
 #include <SDL2/SDL_pixels.h>
 #include <SDL2/SDL_mixer.h>
 #include <glm/glm.hpp>
 #include <GL/glew.h>
-#include "Timer.h"
+#include "../include/Timer.h"
 
 #define NO_FPS_LOCK -1
 

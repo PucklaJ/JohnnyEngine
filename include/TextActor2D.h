@@ -1,6 +1,6 @@
 #ifndef TEXTACTOR_H
 #define TEXTACTOR_H
-#include "Actor.h"
+#include "../include/Actor.h"
 #include <GL/glew.h>
 #ifdef __LINUX__
     #include <SDL2/SDL_ttf.h>
@@ -12,7 +12,7 @@
 #endif
 #endif
 #include <string>
-#include "Transform2D.h"
+#include "../include/Transform2D.h"
 
 
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "MainClass.h"
+#include "../include/MainClass.h"
 
 namespace Johnny
 {

@@ -1,6 +1,6 @@
 #pragma once
 #include <GL/glew.h>
-#include "OBJLoader.h"
+#include "../include/OBJLoader.h"
 #include <assimp/scene.h>
 
 

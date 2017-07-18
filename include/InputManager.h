@@ -2,7 +2,7 @@
 #define INPUTMANAGER_H
 
 #include <map>
-#include "Actor.h"
+#include "../include/Actor.h"
 
 using namespace std;
 

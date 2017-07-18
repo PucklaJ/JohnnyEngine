@@ -1,14 +1,14 @@
-#include "Actor.h"
+#include "../include/Actor.h"
 #include <cstdlib>
 #include <algorithm>
-#include "Camera3D.h"
-#include "MainClass.h"
-#include "LogManager.h"
+#include "../include/Camera3D.h"
+#include "../include/MainClass.h"
+#include "../include/LogManager.h"
 #include <sstream>
 #include <string>
 #include <iostream>
 #include <cstdio>
-#include "RenderManager.h"
+#include "../include/RenderManager.h"
 //#define DEBUG_OUTPUTS
 
 

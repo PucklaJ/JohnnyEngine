@@ -1,4 +1,4 @@
-#include "InputManager.h"
+#include "../include/InputManager.h"
 #include <iostream>
 #include <SDL2/SDL_keycode.h>
 #include <SDL2/SDL_mouse.h>

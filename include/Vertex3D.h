@@ -2,7 +2,7 @@
 #define VERTEX_H
 #include <glm/glm.hpp>
 #include <GL/glew.h>
-#include "OBJLoader.h"
+#include "../include/OBJLoader.h"
 
 namespace Johnny
 {

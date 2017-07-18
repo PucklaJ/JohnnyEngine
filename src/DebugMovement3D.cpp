@@ -1,8 +1,8 @@
-#include "DebugMovement3D.h"
-#include "MainClass.h"
-#include "Camera3D.h"
-#include "Timer.h"
-#include "InputManager.h"
+#include "../include/DebugMovement3D.h"
+#include "../include/MainClass.h"
+#include "../include/Camera3D.h"
+#include "../include/Timer.h"
+#include "../include/InputManager.h"
 
 namespace Johnny
 {

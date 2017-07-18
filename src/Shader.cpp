@@ -1,8 +1,8 @@
-#include "Shader.h"
+#include "../include/Shader.h"
 #include <vector>
 #include <iostream>
 #include <glm/gtc/type_ptr.hpp>
-#include "LogManager.h"
+#include "../include/LogManager.h"
 #include <cstdlib>
 
 
