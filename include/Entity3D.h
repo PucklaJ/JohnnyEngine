@@ -24,6 +24,7 @@ namespace Johnny
 		void setModel(Model3D* m) { m_model = m; }
 
 		Model3D* getModel() { return m_model; }
+		Transform3D& getTransform() {return m_transform;}
 	private:
 		Transform3D m_transform;
 		std::string m_fileName = "";

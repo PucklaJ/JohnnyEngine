@@ -1,6 +1,6 @@
 #include "../include/Transform3D.h"
-#include <glm\gtc\type_ptr.hpp>
-#include <glm\gtc\matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include "../include/Camera3D.h"
 #define M_PI 3.14159265f
 

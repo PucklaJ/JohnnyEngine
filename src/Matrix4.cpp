@@ -69,7 +69,7 @@ namespace Johnny
 		result.values[2 + 1 * 4] = -f.y;
 		result.values[2 + 2 * 4] = -f.z;
 
-		return result * translate(-camera.x, -camera.y, -camera.z);
+		return result * translate(-position.x, -position.y, -position.z);
 	}
 
 	template<class T>

@@ -1,5 +1,5 @@
 #pragma once
-#include <SDL2\SDL.h>
+#include <SDL2/SDL.h>
 #include <string>
 
 #define ERROR_OUT(func) if(func<0)Johnny::LogManager::error(SDL_GetError())

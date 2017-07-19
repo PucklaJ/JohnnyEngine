@@ -1,5 +1,5 @@
 #include "../include/RenderUtil.h"
-#include <GL\glew.h>
+#include <GL/glew.h>
 #include <iostream>
 #include "../include/LogManager.h"
 
@@ -43,7 +43,8 @@ namespace Johnny
 
 		//glEnable(GL_FRAMEBUFFER_SRGB);
 
-		ERROR_OUT(SDL_GL_SetSwapInterval(-1));
+		if(SDL_GL_SetSwapInterval(-1)<0)
+			ERROR_OUT(SDL_GL_SetSwapInterval(1));
 
 		return true;
 	}

@@ -2,7 +2,9 @@
 #include <cstdio>
 #include <sstream>
 #include <iostream>
-#include <Windows.h>
+#ifdef _WIN32
+	#include <Windows.h>
+#endif
 #include <SDL2/SDL.h>
 #include "../include/MainClass.h"
 #include "../include/Window.h"
@@ -45,7 +47,11 @@ namespace Johnny
         std::string text = "";
 
         time(&m_timer);
+#ifdef _WIN32
         localtime_s(m_tm,&m_timer);
+#else
+        m_tm = localtime(&m_timer);
+#endif
 
         std::stringstream str;
 
@@ -62,8 +68,11 @@ namespace Johnny
         std::string text = ""; // Hallo
 
         time(&m_timer);
+#ifdef _WIN32
         localtime_s(m_tm,&m_timer);
-
+#else
+        m_tm = localtime(&m_timer);
+#endif
         std::stringstream str;
 
         str << "[" << setTime(m_tm->tm_mday) << ":" << setTime(m_tm->tm_mon+1) << ":" << m_tm->tm_year+1900 << "]";
@@ -84,7 +93,7 @@ namespace Johnny
 		const SDL_MessageBoxColorScheme colorScheme = {
 			{
 				{255,0,0},
-				{255,0,0},
+				{255,255,255},
 				{90,90,90},
 				{128,128,128},
 				{200,200,200}
@@ -118,8 +127,12 @@ namespace Johnny
 
 
 		FILE* file;
+#ifdef _WIN32
 		fopen_s(&file,m_file, "a");
-        fprintf(file,msg.c_str(),"");
+#else
+		file = fopen(m_file,"a");
+#endif
+		fprintf(file,msg.c_str(),"");
         fclose(file);
     }
 	void LogManager::log(int i, bool withTime, bool newLine)
@@ -135,7 +148,11 @@ namespace Johnny
 		std::cerr << msg;
 
 		FILE* file;
+#ifdef _WIN32
 		fopen_s(&file, m_file, "a");
+#else
+		file = fopen(m_file,"a");
+#endif
 		fprintf(file, msg.c_str(), "");
 		fclose(file);
 

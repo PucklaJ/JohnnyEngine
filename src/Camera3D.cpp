@@ -1,9 +1,10 @@
 #include "../include/Camera3D.h"
 #include <glm/gtc/matrix_transform.hpp>
-#include <glm\gtc\type_ptr.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <iostream>
-#define M_PI 3.14159265f
-
+#ifndef M_PI
+	#define M_PI 3.14159265f
+#endif
 
 
 namespace Johnny
@@ -30,17 +31,9 @@ namespace Johnny
 		x = glm::clamp(x, -89.0f, 89.0f);
 
 		m_transform.setRotation(x, y, z);
-		m_lookDirection = glm::vec3(
-			(glm::rotate(
-				glm::rotate(
-					glm::mat4(),
-					y / 180.0f * M_PI,
-					glm::vec3(0.0, 1.0, 0.0)),
-				x / 180.0f * M_PI,
-				glm::vec3(1.0, 0.0, 0.0))) * glm::vec4(0.0, 0.0, -1.0, 1.0)
-		);
+		m_lookDirection = glm::vec3((glm::rotate(glm::rotate(glm::mat4(),y / 180.0f * (GLfloat)M_PI,glm::vec3(0.0, 1.0, 0.0)),x / 180.0f * (GLfloat)M_PI,glm::vec3(1.0, 0.0, 0.0))) * glm::vec4(0.0, 0.0, -1.0, 1.0));
 
-		m_up = glm::vec3(glm::rotate(glm::mat4(), z / 180.0f * M_PI, glm::vec3(0.0, 0.0, -1.0)) * glm::vec4(0.0, 1.0, 0.0, 1.0));
+		m_up = glm::vec3(glm::rotate(glm::mat4(),z / 180.0f * (GLfloat)M_PI, glm::vec3(0.0, 0.0, -1.0)) * glm::vec4(0.0, 1.0, 0.0, 1.0));
 	}
 
 	void Camera3D::addPosition(const glm::vec3 & pos, bool relToLook)

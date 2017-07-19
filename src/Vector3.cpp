@@ -2,7 +2,7 @@
 #define VECTOR3_CPP
 #include "../include/Vector3.h"
 #include <cmath>
-#include "..\include\Vector3.h"
+#include "../include/Vector3.h"
 
 namespace Johnny
 {

@@ -20,7 +20,15 @@
 #include "../include/RenderBuffer.h"
 #include "../include/Mesh3D.h"
 #include "../include/Skybox.h"
+#ifdef _WIN32
 #include <TTF/SDL_ttf.h>
+#endif
+#ifdef __linux__
+#include <SDL2/SDL_ttf.h>
+#endif
+#ifdef __APPLE__
+#include <SDL2_ttf/SDL_ttf.h>
+#endif
 #include "../include/Timer.h"
 //#define DEBUG_OUTPUTS
 

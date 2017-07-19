@@ -2178,6 +2178,8 @@ static int parse_huffman_block(zbuf *a)
             *a->zout++ = *p++;
       }
    }
+
+   return 0;
 }
 
 static int compute_huffman_codes(zbuf *a)
@@ -2848,6 +2850,8 @@ static int parse_png_file(png *z, int scan, int req_comp)
       // end of chunk, read and skip CRC
       get32(s);
    }
+
+   return 0;
 }
 
 static unsigned char *do_png(png *p, int *x, int *y, int *n, int req_comp)
@@ -4045,6 +4049,8 @@ static stbi__uint8 *stbi_process_gif_raster(stbi *s, stbi_gif *g)
          }
       } 
    }
+
+   return 0;
 }
 
 static void stbi_fill_gif_background(stbi_gif *g)
@@ -4160,6 +4166,8 @@ static stbi__uint8 *stbi_gif_load_next(stbi *s, stbi_gif *g, int *comp, int req_
             return epuc("unknown code", "Corrupt GIF");
       }
    }
+
+   return 0;
 }
 
 static stbi_uc *stbi_gif_load(stbi *s, int *x, int *y, int *comp, int req_comp)
@@ -4245,9 +4253,11 @@ static void hdr_convert(float *output, stbi_uc *input, int req_comp)
    } else {
       switch (req_comp) {
          case 4: output[3] = 1; /* fallthrough */
+         /* no break */
          case 3: output[0] = output[1] = output[2] = 0;
                  break;
          case 2: output[1] = 1; /* fallthrough */
+         /* no break */
          case 1: output[0] = 0;
                  break;
       }
