@@ -57,4 +57,15 @@ This is a 3D/2D game engine (currently only 3D supported) which uses SDL (maybe 
 2. In Eclipse
   2.1 Add the libraries to the project
 3. It should compile and link
+
+## Future Plans
+
++ **Full 2D support**
+  - Render 2D textures
+  - 2D translation, rotation, scale
+  - 2D Camera with translating, rotating and scaling
++ **Water**
++ **Sceletal Animation**
++ **Point Shadows**
++ **Add a GUI Library**
     
