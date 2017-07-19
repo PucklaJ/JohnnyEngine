@@ -33,5 +33,13 @@ This is a 3D/2D game engine (currently only 3D supported) which uses SDL (maybe 
 - OpenGL (https://www.opengl.org/)
 - GLEW (http://glew.sourceforge.net/)
 
+#### Windows - Visual Studio
 
+1. Download dependencies from links above
+2. Put the .h/.hpp and .lib files in seperate directories
+3. In Visual Studio
+  - link to the .h/.hpp files
+  - link to the .lib files
+4. Add the files of the engine to the project
+5. It should compile and link
 
