@@ -2,7 +2,7 @@
 
 This is a 3D/2D game engine (currently only 3D supported) which uses SDL (maybe will add other frameworks) and OpenGL.
 
-# Features
+## Features
 
 + **Render 3D Models**
   - Materials with textures
@@ -14,15 +14,24 @@ This is a 3D/2D game engine (currently only 3D supported) which uses SDL (maybe 
   - Translating
   - Rotating
 + **Skybox**
-+ **Lighting**
++ **Lighting** <br/>
   - Pointlights
   - Spotlights
   - Directionallights
-+ **Shadows**
++ **Shadows** <br/>
   - for Directionallights, Spotlights
 + **Gamepad input**
   - Complete simple to use gamepad implemantation
 
-# Setup
+## Setup
+
+### Dependencies
+
+- SDL2 (http://www.libsdl.org)
+- SDL2_ttf (https://www.libsdl.org/projects/SDL_ttf/)
+- assimp (http://assimp.org/)
+- OpenGL (https://www.opengl.org/)
+- GLEW (http://glew.sourceforge.net/)
+
 
 
