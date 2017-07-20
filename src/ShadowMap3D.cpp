@@ -1,7 +1,6 @@
 #include "../include/ShadowMap3D.h"
 #include "../include/FrameBuffer.h"
 #include "../include/Shader.h"
-#include "../include/MainGame.h"
 #include "../include/Transform3D.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
