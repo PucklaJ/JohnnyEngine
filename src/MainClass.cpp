@@ -20,6 +20,7 @@
 #include "../include/RenderBuffer.h"
 #include "../include/Mesh3D.h"
 #include "../include/Skybox.h"
+#include "../include/Settings.h"
 #ifdef _WIN32
 #include <TTF/SDL_ttf.h>
 #endif
@@ -170,6 +171,8 @@ namespace Johnny
 		if (!RenderUtil::initGraphics(0.0f, 0.0f, 0.0f))
 		{
 		}
+
+		Settings::m_initialized = true;
         
         m_nativeResolution = glm::vec2(m_windowWidth, m_windowHeight);
 

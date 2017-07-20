@@ -2,6 +2,7 @@
 #include <GL/glew.h>
 #include <iostream>
 #include "../include/LogManager.h"
+#include "../include/Settings.h"
 
 namespace Johnny
 {
@@ -39,12 +40,19 @@ namespace Johnny
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glEnable(GL_MULTISAMPLE);
+		if (Settings::getb(SettingName::MSAA))
+			glEnable(GL_MULTISAMPLE);
+		else
+			glDisable(GL_MULTISAMPLE);
 
 		//glEnable(GL_FRAMEBUFFER_SRGB);
 
-		if(SDL_GL_SetSwapInterval(-1)<0)
-			ERROR_OUT(SDL_GL_SetSwapInterval(1));
+		if (Settings::getb(SettingName::VSYNC))
+		{
+			if (SDL_GL_SetSwapInterval(-1)<0)
+				ERROR_OUT(SDL_GL_SetSwapInterval(1));
+		}
+		
 
 		return true;
 	}
@@ -52,8 +60,13 @@ namespace Johnny
 	void RenderUtil::initWindow()
 	{
 		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1));
-		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1));
-		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8));
+
+		if (Settings::getb(SettingName::MSAA))
+		{
+			ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1));
+			ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, Settings::geti(SettingName::MSAA_SAMPLES)));
+		}
+		
 
 		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE));
 		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3));
