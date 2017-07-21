@@ -68,4 +68,5 @@ This is a 3D/2D game engine (currently only 3D supported) which uses SDL (maybe 
 + **Sceletal Animation**
 + **Point Shadows**
 + **Add a GUI Library**
++ **Physics with Box2D and Bullet**
     
