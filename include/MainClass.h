@@ -30,6 +30,7 @@ namespace Johnny
 	class Timer;
 
 	class Camera3D;
+	class Camera2D;
 
     class ResourceManager;
     
@@ -38,11 +39,11 @@ namespace Johnny
 	enum InitFlags
 	{
 		INIT_3D = 1 >> 0,
-		INIT_2D = 1 >> 1,
-		JOYSTICK = 1 >> 2,
-		PHYSICS_3D = 1 >> 3,
-		PHYSICS_2D = 1 >> 4,
-		AUDIO = 1 >> 5,
+		INIT_2D = 1 << 1,
+		JOYSTICK = 1 << 2,
+		PHYSICS_3D = 1 << 3,
+		PHYSICS_2D = 1 << 4,
+		AUDIO = 1 << 5,
 		EVERYTHING = ~0
 	};
 
@@ -74,6 +75,7 @@ namespace Johnny
 			Timer* getTimer() { return m_timer; }
 
             Camera3D* getCamera3D();
+			Camera2D* getCamera2D();
             float getScaleW() const {return m_scaleW;}
             float getScaleH() const {return m_scaleH;}
             const glm::vec2& getNativeRes() const {return m_nativeResolution;}
@@ -96,6 +98,7 @@ namespace Johnny
             ResourceManager* m_resourceManager = nullptr;
             Window* m_window = nullptr;
             Camera3D* m_camera3D = nullptr;
+			Camera2D* m_camera2D = nullptr;
             JoystickManager* m_joystickManager = nullptr;
 			Lighting3D* m_lighting3D = nullptr;
 			RenderManager* m_renderManager = nullptr;

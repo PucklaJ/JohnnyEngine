@@ -208,7 +208,7 @@ namespace Johnny
 				return nullptr;
 			}
 
-			Texture* tex = new Texture(pixels, width, height);
+			tex = new Texture(pixels, width, height);
 
 			stbi_image_free(pixels);
 

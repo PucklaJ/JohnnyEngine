@@ -21,6 +21,7 @@
 #include "../include/Mesh3D.h"
 #include "../include/Skybox.h"
 #include "../include/Settings.h"
+#include "../include/Camera2D.h"
 #ifdef _WIN32
 #include <TTF/SDL_ttf.h>
 #endif
@@ -97,6 +98,7 @@ namespace Johnny
 
 	void MainClass::init2D()
 	{
+		m_camera2D = new Camera2D();
 	}
 
 	void MainClass::afterInit()
@@ -127,6 +129,12 @@ namespace Johnny
 		{
 			delete m_lighting3D;
 			m_lighting3D = nullptr;
+		}
+
+		if (m_camera2D)
+		{
+			delete m_camera2D;
+			m_camera2D = nullptr;
 		}
 
 		delete m_frameBufferTex;
@@ -262,7 +270,6 @@ namespace Johnny
 					m_lighting3D->renderShadowMaps(this, RenderManager::DEFAULT_SHADOWMAP_SHADER);
 					render();
 					m_renderManager->render(this);
-
 					
 					m_frameBufferMulti->blit(m_frameBuffer, 0, 0, (GLint)m_nativeResolution.x, (GLint)m_nativeResolution.y, 0, 0, (GLint)m_nativeResolution.x, (GLint)m_nativeResolution.y);
 					m_frameBufferMulti->unbind();
@@ -376,6 +383,11 @@ namespace Johnny
     {
         return m_camera3D;
     }
+
+	Camera2D * MainClass::getCamera2D()
+	{
+		return m_camera2D;
+	}
     
     void MainClass::onResize(int w,int h)
     {

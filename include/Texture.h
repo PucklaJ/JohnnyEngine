@@ -21,7 +21,7 @@ namespace Johnny
 		static Texture* SDL_SurfaceToTexture(SDL_Surface*);
 		static void initTexture2DShader(MainClass*);
 		static void initTexture2DBuffers();
-		static void renderTexture2D(Texture*, const Matrix3f&, GLsizei, GLsizei);
+		static void renderTexture2D(Texture*, const Matrix3f&, GLsizei, GLsizei,GLfloat scaleX = 1.0f,GLfloat scaleY = 1.0f);
 
 		static Shader* getTexture2DShader();
 
@@ -33,6 +33,8 @@ namespace Johnny
 		void unbind(GLuint unit = 0, GLenum target = GL_TEXTURE_2D);
 
 		GLuint getBuffer() { return m_texture; }
+		GLsizei getWidth();
+		GLsizei getHeight();
 
 	protected:
 		static Shader* m_texture2DShader;

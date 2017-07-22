@@ -1,4 +1,5 @@
 #include "../include/Transform2D.h"
+#include "../include/Camera2D.h"
 
 namespace Johnny
 {
@@ -25,6 +26,11 @@ namespace Johnny
 
 	Matrix3f Transform2D::getTransformation() const
 	{
-		return /*Matrix3f::translate(m_translation) * */Matrix3f::rotate(m_rotation) * Matrix3f::scale(m_scale);
+		return Matrix3f::translate(m_translation) * Matrix3f::rotate(m_rotation) * Matrix3f::scale(m_scale);//Matrix3f::identity();
+	}
+
+	Matrix3f Transform2D::getProjectedTransformation(const Camera2D* cam) const
+	{
+		return cam->getViewMatrix() * getTransformation();
 	}
 }

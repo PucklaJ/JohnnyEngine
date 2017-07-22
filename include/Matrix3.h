@@ -11,6 +11,7 @@ namespace Johnny
 	template<class T> Matrix3<T> operator*(const Matrix3<T>&, const Matrix3<T>&);
 	template<class T> Matrix3<T> operator*(const Matrix3<T>&, const T&);
 	template<class T> std::ostream& operator<<(std::ostream&, const Matrix3<T>&);
+	template<class T> Vector3<T> operator*<>(const Matrix3<T>&, const Vector3<T>&);
 
 	template<class T>
 	class Matrix3
@@ -24,6 +25,7 @@ namespace Johnny
 		static Matrix3 scale(const Vector2<T>&);
 		static Matrix3 camera(const Vector2<T>&,const T&,const T&);
 
+
 		Matrix3() = default;
 		Matrix3(const T&);
 		Matrix3(const Matrix3&);
@@ -36,6 +38,7 @@ namespace Johnny
 
 		Matrix3& multiply(const Matrix3&);
 		Matrix3& multiply(const T&);
+		Vector3<T> multiply(const Vector3<T>&) const;
 
 		void print();
 
@@ -44,6 +47,7 @@ namespace Johnny
 
 		friend Matrix3<T> operator*<>(const Matrix3<T>&, const Matrix3<T>&);
 		friend Matrix3<T> operator*<>(const Matrix3<T>&, const T&);
+		friend Vector3<T> operator*<>(const Matrix3<T>&,const Vector3<T>&);
 
 		friend std::ostream& operator<< <>(std::ostream&, const Matrix3<T>&);
 	};

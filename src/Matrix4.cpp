@@ -37,12 +37,12 @@ namespace Johnny
 	{
 		Matrix4<T> mat(1);
 
-		mat.values(MAT4_GET(0, 0)) = (T)2 / (right-left);
-		mat.values(MAT4_GET(1, 1)) = (T)2 / (top-bottom);
-		mat.values(MAT4_GET(2, 2)) = (T)-2 / (far-near);
-		mat.values(MAT4_GET(0, 3)) = - ((right+left)/(right-left));
-		mat.values(MAT4_GET(1, 3)) = - ((top+bottom)/(top-bottom));
-		mat.values(MAT4_GET(2, 3)) = - ((far+near)/(far-near));
+		mat.values[MAT4_GET(0, 0)] = (T)2 / (right-left);
+		mat.values[MAT4_GET(1, 1)] = (T)2 / (top-bottom);
+		mat.values[MAT4_GET(2, 2)] = (T)-2 / (far-near);
+		mat.values[MAT4_GET(0, 3)] = - ((right+left)/(right-left));
+		mat.values[MAT4_GET(1, 3)] = - ((top+bottom)/(top-bottom));
+		mat.values[MAT4_GET(2, 3)] = - ((far+near)/(far-near));
 
 		return mat;
 	}

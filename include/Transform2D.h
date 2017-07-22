@@ -5,6 +5,8 @@
 
 namespace Johnny
 {
+	class Camera2D;
+
 	class Transform2D
 	{
 	public:
@@ -24,6 +26,7 @@ namespace Johnny
 		void setScale(const GLfloat& scaleX,const GLfloat& scaleY) { m_scale = Vector2f(scaleX,scaleY); }
 
 		Matrix3f getTransformation() const;
+		Matrix3f getProjectedTransformation(const Camera2D*) const;
 	private:
 		Vector2f m_translation;
 		GLfloat m_rotation;

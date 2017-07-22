@@ -4,6 +4,7 @@
 #include "../include/Matrix4.h"
 #include <string>
 #include "../include/mathematics_functions.h"
+#include <GL/glew.h>
 
 namespace Johnny
 {
@@ -75,8 +76,8 @@ namespace Johnny
 
 	template<class T>
 	Matrix3<T> Matrix3<T>::camera(const Vector2<T>& position, const T& zoom, const T& rotation)
-	{
-		return translate(position*(T)-1) * rotate(rotation) * scale(zoom, zoom);
+	{		
+		return  translate(position*(T)-1) * rotate(rotation) * scale(zoom, zoom);
 	}
 
 	template<class T>
@@ -134,6 +135,18 @@ namespace Johnny
 	}
 
 	template<class T>
+	Vector3<T> Matrix3<T>::multiply(const Vector3<T>& v) const
+	{
+		Vector3<T> v1(v);
+
+		v1.x = values[MAT3_GET(0, 0)] * v1.x + values[MAT3_GET(0, 1)] * v1.y + values[MAT3_GET(0, 2)] * v1.z;
+		v1.y = values[MAT3_GET(1, 0)] * v1.x + values[MAT3_GET(1, 1)] * v1.y + values[MAT3_GET(1, 2)] * v1.z;
+		v1.z = values[MAT3_GET(2, 0)] * v1.x + values[MAT3_GET(2, 1)] * v1.y + values[MAT3_GET(2, 2)] * v1.z;
+
+		return v1;
+	}
+
+	template<class T>
 	inline void Matrix3<T>::print()
 	{
 		std::cout << *this;
@@ -161,6 +174,12 @@ namespace Johnny
 	Matrix3<T> operator*(const Matrix3<T>& mat, const T& v)
 	{
 		return Matrix3<T>(mat).multiply(v);
+	}
+
+	template<class T>
+	Vector3<T> operator*<>(const Matrix3<T>& mat, const Vector3<T>& v)
+	{
+		return mat.multiply(v);
 	}
 
 	template<class T>

@@ -8,6 +8,7 @@
 #include "../include/ResourceManager.h"
 #include "../include/MainClass.h"
 #include "../include/RenderManager.h"
+#include "../include/Matrix4.h"
 
 namespace Johnny
 {
@@ -79,6 +80,10 @@ namespace Johnny
 			m_texture2DShader->addUniform("height");
 			m_texture2DShader->addUniform("transform");
 			m_texture2DShader->addUniform("textureAddress");
+			m_texture2DShader->addUniform("viewportWidth");
+			m_texture2DShader->addUniform("viewportHeight");
+			m_texture2DShader->addUniform("scaleX");
+			m_texture2DShader->addUniform("scaleY");
 
 			mainClass->getRenderManager()->addShader(m_texture2DShader);
 		}
@@ -119,17 +124,18 @@ namespace Johnny
 		}
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation, GLsizei w, GLsizei h)
+	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation, GLsizei w, GLsizei h,GLfloat scaleX,GLfloat scaleY)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
-			GLint params[4];
-			glGetIntegerv(GL_VIEWPORT, params);
-
 			m_texture2DShader->bind();
 			m_texture2DShader->setUniformMat3("transform", transformation);
-			m_texture2DShader->setUniformf("width", (GLfloat)w / (GLfloat)params[2] * 2.0f);
-			m_texture2DShader->setUniformf("height", (GLfloat)h / (GLfloat)params[3] * 2.0f);
+			m_texture2DShader->setUniformf("width", (GLfloat)w);
+			m_texture2DShader->setUniformf("height", (GLfloat)h);
+			m_texture2DShader->setUniformf("viewportWidth", (GLfloat)MainClass::getInstance()->getNativeRes().x);
+			m_texture2DShader->setUniformf("viewportHeight", (GLfloat)MainClass::getInstance()->getNativeRes().y);
+			m_texture2DShader->setUniformf("scaleX", scaleX);
+			m_texture2DShader->setUniformf("scaleY", scaleY);
 			tex->bind(m_texture2DShader);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -208,6 +214,26 @@ namespace Johnny
 			glActiveTexture(GL_TEXTURE0 + unit);
 			glBindTexture(target, 0);
 		}
+	}
+
+	GLsizei Texture::getWidth()
+	{
+		GLsizei w;
+		glBindTexture(GL_TEXTURE_2D, m_texture);
+		glGetTexLevelParameteriv(GL_TEXTURE_2D,0,GL_TEXTURE_WIDTH,&w);
+		glBindTexture(GL_TEXTURE_2D, 0);
+
+		return w;
+	}
+
+	GLsizei Texture::getHeight()
+	{
+		GLsizei h;
+		glBindTexture(GL_TEXTURE_2D, m_texture);
+		glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &h);
+		glBindTexture(GL_TEXTURE_2D, 0);
+
+		return h;
 	}
 
 }
