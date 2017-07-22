@@ -28,7 +28,7 @@ namespace Johnny
 
 		Matrix3() = default;
 		Matrix3(const T&);
-		Matrix3(const Matrix3&);
+		Matrix3(const Matrix3 & );
 
 		union
 		{

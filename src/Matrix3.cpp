@@ -43,16 +43,6 @@ namespace Johnny
 		mat.values[MAT3_GET(1, 0)] = sina;
 		mat.values[MAT3_GET(0, 1)] = -sina;
 
-		/*Matrix4<T> mat1 = Matrix4<T>::rotate(angle, Vector3<T>(0, 0, 1));
-
-		for (unsigned int r = 0; r < 3; r++)
-		{
-			for (unsigned int c = 0; c < 3; c++)
-			{
-				mat.values[MAT3_GET(r, c)] = mat1.values[MAT4_GET(r, c)];
-			}
-		}*/
-
 
 		return mat;
 	}
@@ -77,7 +67,7 @@ namespace Johnny
 	template<class T>
 	Matrix3<T> Matrix3<T>::camera(const Vector2<T>& position, const T& zoom, const T& rotation)
 	{		
-		return  translate(position*(T)-1) * rotate(rotation) * scale(zoom, zoom);
+		return  translate(position*(T)-1) * scale(zoom, zoom) * rotate(rotation) * translate(Vector2<T>(1280 / 2, 720 / 2));
 	}
 
 	template<class T>
