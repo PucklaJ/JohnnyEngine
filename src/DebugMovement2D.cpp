@@ -23,19 +23,19 @@ namespace Johnny
 	{
 		if (m_mainClass->getInputManager()->isPressed(Keys::W))
 		{
-			m_mainClass->getCamera2D()->addPosition(0.0f, m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(), false);
+			m_mainClass->getCamera2D()->addPosition(0.0f, m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(), true);
 		}
 		else if (m_mainClass->getInputManager()->isPressed(Keys::S))
 		{
-			m_mainClass->getCamera2D()->addPosition(0.0f, -m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(), false);
+			m_mainClass->getCamera2D()->addPosition(0.0f, -m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(), true);
 		}
 		else if (m_mainClass->getInputManager()->isPressed(Keys::A))
 		{
-			m_mainClass->getCamera2D()->addPosition(-m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(),0.0f, false);
+			m_mainClass->getCamera2D()->addPosition(-m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(),0.0f, true);
 		}
 		else if (m_mainClass->getInputManager()->isPressed(Keys::D))
 		{
-			m_mainClass->getCamera2D()->addPosition(m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(),0.0f, false);
+			m_mainClass->getCamera2D()->addPosition(m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(),0.0f, true);
 		}
 
 		if (m_mainClass->getInputManager()->isPressed(Keys::J))

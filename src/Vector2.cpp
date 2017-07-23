@@ -2,6 +2,7 @@
 #define VECTOR2_CPP
 #include "../include/Vector2.h"
 #include <cmath>
+#include "../include/mathematics_functions.h"
 
 namespace Johnny
 {
@@ -82,6 +83,11 @@ namespace Johnny
 		y /= s;
 
 		return *this;
+	}
+	template<class T>
+	T Vector2<T>::angle() const
+	{
+		return (T)toDegrees(atan2(y,x));
 	}
 	template<class T>
 	T Vector2<T>::dot(const Vector2<T>& v) const

@@ -2,6 +2,8 @@
 #include "../include/MainClass.h"
 #include <iostream>
 #include "../include/Texture.h"
+#include "../include/Camera2D.h"
+#include "../include/Transform2D.h"
 
 namespace Johnny
 {
@@ -42,7 +44,7 @@ namespace Johnny
 
 	bool TextActor2D::render()
 	{
-		Texture::renderTexture2D(m_texture, m_isAffectedByCamera ? m_transform.getProjectedTransformation(m_mainClass->getCamera2D()) : m_transform.getTransformation(), m_textureWidth, m_textureHeight,m_transform.getScale().x,m_transform.getScale().y);
+		//Texture::renderTexture2D(m_texture, m_isAffectedByCamera ? m_transform.getProjectedTransformation(m_mainClass->getCamera2D()) : m_transform.getTransformation(), m_textureWidth, m_textureHeight,m_transform.getScale().x,m_transform.getScale().y);
 
 		return true;
 	}

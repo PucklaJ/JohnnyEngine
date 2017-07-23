@@ -45,6 +45,8 @@ namespace Johnny
 		Vector2& divide(const Vector2&);
 		Vector2& divide(const T&);
 
+		T angle() const;
+
 		T dot(const Vector2&) const;
 		T distance(const Vector2&,bool squared = false) const;
 

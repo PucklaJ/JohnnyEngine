@@ -30,12 +30,7 @@ namespace Johnny
 
 	void Camera2D::addPosition(const Vector2f & pos, bool relToLook)
 	{
-		Vector3f v;
-
-		if (relToLook)
-			v = Matrix3f::rotate(m_transform.getRotation())*Vector3f(pos.x, pos.y, 1.0f);
-
-		m_transform.setTranslation(m_transform.getTranslation() + (relToLook ? Vector2f(v.x,v.y) : pos));
+		m_transform.setTranslation(m_transform.getTranslation() + (relToLook ? Matrix3f::rotate(-m_transform.getRotation())*pos : pos));
 	}
 
 	void Camera2D::addPosition(GLfloat x, GLfloat y, bool relToLook)

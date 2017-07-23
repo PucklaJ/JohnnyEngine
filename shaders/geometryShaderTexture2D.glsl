@@ -1,6 +1,6 @@
 #version 330
 
-#define TRANS(vx,vy) ( ( vec2( transform*vec3( vx,vy,1.0 ) )+vec2( width/2.0*scaleX,height/2.0*scaleY) ) / vec2( viewportWidth/2.0,viewportHeight/2.0 )/*+vec2( -1,-1 )*/ )
+#define TRANS(vx,vy) ( ( vec2( transform*vec3( vx,vy,1.0 ) )/*+vec2( width/2.0*scaleX,height/2.0*scaleY)*/ ) / vec2( viewportWidth/2.0,viewportHeight/2.0 ))
 
 layout(points) in;
 layout(triangle_strip,max_vertices = 6) out;

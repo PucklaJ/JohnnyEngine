@@ -43,7 +43,6 @@ namespace Johnny
 		mat.values[MAT3_GET(1, 0)] = sina;
 		mat.values[MAT3_GET(0, 1)] = -sina;
 
-
 		return mat;
 	}
 
@@ -67,7 +66,35 @@ namespace Johnny
 	template<class T>
 	Matrix3<T> Matrix3<T>::camera(const Vector2<T>& position, const T& zoom, const T& rotation)
 	{		
-		return  translate(position*(T)-1) * scale(zoom, zoom) * rotate(rotation) * translate(Vector2<T>(1280 / 2, 720 / 2));
+		return   rotate(rotation) * scale(zoom, zoom) * translate(position*(T)-1);
+	}
+
+	template<class T>
+	Matrix3<T> Matrix3<T>::lookAt(const Vector3<T>& position, const Vector3<T>& middle, const Vector3<T>& up)
+	{
+		// Src: https://github.com/TheCherno/Sparky/blob/master/Sparky-core/src/sp/maths/mat4.cpp
+
+		Matrix3<T> result(1);
+		Vector3<T> f = (middle - position);
+		f.normalise();
+		Vector3<T> up1 = up;
+		up1.normalise();
+		Vector3<T> s = f.cross(up);
+		Vector3<T> u = s.cross(f);
+
+		result.values[0 + 0 * 3] = s.x;
+		result.values[0 + 1 * 3] = s.y;
+		result.values[0 + 2 * 3] = s.z;
+
+		result.values[1 + 0 * 3] = u.x;
+		result.values[1 + 1 * 3] = u.y;
+		result.values[1 + 2 * 3] = u.z;
+
+		result.values[2 + 0 * 3] = -f.x;
+		result.values[2 + 1 * 3] = -f.y;
+		result.values[2 + 2 * 3] = -f.z;
+
+		return result * translate(-position.x, -position.y);
 	}
 
 	template<class T>
@@ -129,9 +156,9 @@ namespace Johnny
 	{
 		Vector3<T> v1(v);
 
-		v1.x = values[MAT3_GET(0, 0)] * v1.x + values[MAT3_GET(0, 1)] * v1.y + values[MAT3_GET(0, 2)] * v1.z;
-		v1.y = values[MAT3_GET(1, 0)] * v1.x + values[MAT3_GET(1, 1)] * v1.y + values[MAT3_GET(1, 2)] * v1.z;
-		v1.z = values[MAT3_GET(2, 0)] * v1.x + values[MAT3_GET(2, 1)] * v1.y + values[MAT3_GET(2, 2)] * v1.z;
+		v1.x = values[MAT3_GET(0, 0)] * v.x + values[MAT3_GET(0, 1)] * v.y + values[MAT3_GET(0, 2)] * v.z;
+		v1.y = values[MAT3_GET(1, 0)] * v.x + values[MAT3_GET(1, 1)] * v.y + values[MAT3_GET(1, 2)] * v.z;
+		v1.z = values[MAT3_GET(2, 0)] * v.x + values[MAT3_GET(2, 1)] * v.y + values[MAT3_GET(2, 2)] * v.z;
 
 		return v1;
 	}
@@ -166,8 +193,16 @@ namespace Johnny
 		return Matrix3<T>(mat).multiply(v);
 	}
 
+	template <class T>
+	Vector2<T> operator*(const Matrix3<T>& mat, const Vector2<T>& v)
+	{
+		Vector3<T> v1(mat*Vector3<T>(v.x,v.y,1));
+
+		return Vector2<T>(v1.x / v1.z, v1.y / v1.z);
+	}
+
 	template<class T>
-	Vector3<T> operator*<>(const Matrix3<T>& mat, const Vector3<T>& v)
+	Vector3<T> operator*(const Matrix3<T>& mat, const Vector3<T>& v)
 	{
 		return mat.multiply(v);
 	}

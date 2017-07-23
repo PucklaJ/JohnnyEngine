@@ -82,8 +82,8 @@ namespace Johnny
 			m_texture2DShader->addUniform("textureAddress");
 			m_texture2DShader->addUniform("viewportWidth");
 			m_texture2DShader->addUniform("viewportHeight");
-			m_texture2DShader->addUniform("scaleX");
-			m_texture2DShader->addUniform("scaleY");
+			//m_texture2DShader->addUniform("scaleX");
+			//m_texture2DShader->addUniform("scaleY");
 
 			mainClass->getRenderManager()->addShader(m_texture2DShader);
 		}
@@ -134,8 +134,8 @@ namespace Johnny
 			m_texture2DShader->setUniformf("height", (GLfloat)h);
 			m_texture2DShader->setUniformf("viewportWidth", (GLfloat)MainClass::getInstance()->getNativeRes().x);
 			m_texture2DShader->setUniformf("viewportHeight", (GLfloat)MainClass::getInstance()->getNativeRes().y);
-			m_texture2DShader->setUniformf("scaleX", scaleX);
-			m_texture2DShader->setUniformf("scaleY", scaleY);
+			//m_texture2DShader->setUniformf("scaleX", scaleX);
+			//m_texture2DShader->setUniformf("scaleY", scaleY);
 			tex->bind(m_texture2DShader);
 
 			glBindVertexArray(m_texture2D_vao);

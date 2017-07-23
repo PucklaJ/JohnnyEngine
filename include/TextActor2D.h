@@ -38,6 +38,7 @@ namespace Johnny
         const SDL_Color& getColor() const {return m_color;}
         TTF_Font* getFont() {return m_font;}
 		Transform2D& getTransform() { return m_transform; }
+		Texture* getTexture() { return m_texture; }
         
     private:
         void generateText();
