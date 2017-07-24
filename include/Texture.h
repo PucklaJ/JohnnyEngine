@@ -5,6 +5,7 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include "Matrix3.h"
+#include "Vector2.h"
 
 
 
@@ -13,6 +14,7 @@ namespace Johnny
 	class MainClass;
 	class Shader;
 	class Mesh3D;
+	class Camera2D;
 
 	class Texture
 	{
@@ -21,7 +23,8 @@ namespace Johnny
 		static Texture* SDL_SurfaceToTexture(SDL_Surface*);
 		static void initTexture2DShader(MainClass*);
 		static void initTexture2DBuffers();
-		static void renderTexture2D(Texture*, const Matrix3f&, GLsizei, GLsizei,GLfloat scaleX = 1.0f,GLfloat scaleY = 1.0f);
+		static void renderTexture2D(Texture*, const Matrix3f&);
+		static void renderTexture2D(Texture*, const Vector2f&, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr);
 
 		static Shader* getTexture2DShader();
 
@@ -42,6 +45,8 @@ namespace Johnny
 		static GLuint m_texture2D_vao;
 
 		GLuint m_texture = 0;
+		GLsizei m_width = 0;
+		GLsizei m_height = 0;
 
 	};
 }

@@ -9,6 +9,7 @@
 #include "../include/MainClass.h"
 #include "../include/RenderManager.h"
 #include "../include/Matrix4.h"
+#include "../include/Camera2D.h"
 
 namespace Johnny
 {
@@ -82,8 +83,6 @@ namespace Johnny
 			m_texture2DShader->addUniform("textureAddress");
 			m_texture2DShader->addUniform("viewportWidth");
 			m_texture2DShader->addUniform("viewportHeight");
-			//m_texture2DShader->addUniform("scaleX");
-			//m_texture2DShader->addUniform("scaleY");
 
 			mainClass->getRenderManager()->addShader(m_texture2DShader);
 		}
@@ -124,18 +123,16 @@ namespace Johnny
 		}
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation, GLsizei w, GLsizei h,GLfloat scaleX,GLfloat scaleY)
+	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
 			m_texture2DShader->bind();
 			m_texture2DShader->setUniformMat3("transform", transformation);
-			m_texture2DShader->setUniformf("width", (GLfloat)w);
-			m_texture2DShader->setUniformf("height", (GLfloat)h);
+			m_texture2DShader->setUniformf("width", (GLfloat)tex->getWidth());
+			m_texture2DShader->setUniformf("height", (GLfloat)tex->getHeight());
 			m_texture2DShader->setUniformf("viewportWidth", (GLfloat)MainClass::getInstance()->getNativeRes().x);
 			m_texture2DShader->setUniformf("viewportHeight", (GLfloat)MainClass::getInstance()->getNativeRes().y);
-			//m_texture2DShader->setUniformf("scaleX", scaleX);
-			//m_texture2DShader->setUniformf("scaleY", scaleY);
 			tex->bind(m_texture2DShader);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -145,6 +142,35 @@ namespace Johnny
 			glBindVertexArray(0);
 		}
 
+	}
+
+	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam)
+	{
+		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
+		{
+			Vector2f newPos = position + Vector2f((GLfloat)tex->getWidth() / 2.0f * scale.x, (GLfloat)tex->getHeight() / 2.0f * scale.y);
+			Matrix3f transformation = cam ? (cam->getViewMatrix()*Matrix3f::translate(newPos)) : Matrix3f::translate(newPos);
+
+			if (scale.x != 1.0f || scale.y != 1.0f)
+				transformation *= Matrix3f::scale(scale);
+			if (rotation != 0.0f && (GLint)rotation % 360 != 0)
+				transformation *= Matrix3f::rotate(rotation);
+				
+
+			m_texture2DShader->bind();
+			m_texture2DShader->setUniformMat3("transform", transformation);
+			m_texture2DShader->setUniformf("width", (GLfloat)tex->getWidth());
+			m_texture2DShader->setUniformf("height", (GLfloat)tex->getHeight());
+			m_texture2DShader->setUniformf("viewportWidth", (GLfloat)MainClass::getInstance()->getNativeRes().x);
+			m_texture2DShader->setUniformf("viewportHeight", (GLfloat)MainClass::getInstance()->getNativeRes().y);
+			tex->bind(m_texture2DShader);
+
+			glBindVertexArray(m_texture2D_vao);
+
+			glDrawArrays(GL_POINTS, 0, 1);
+
+			glBindVertexArray(0);
+		}
 	}
 
 	Shader* Texture::getTexture2DShader()
@@ -218,22 +244,28 @@ namespace Johnny
 
 	GLsizei Texture::getWidth()
 	{
-		GLsizei w;
-		glBindTexture(GL_TEXTURE_2D, m_texture);
-		glGetTexLevelParameteriv(GL_TEXTURE_2D,0,GL_TEXTURE_WIDTH,&w);
-		glBindTexture(GL_TEXTURE_2D, 0);
+		if (m_width == 0)
+		{
+			glBindTexture(GL_TEXTURE_2D, m_texture);
+			glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &m_width);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+		
 
-		return w;
+		return m_width;
 	}
 
 	GLsizei Texture::getHeight()
 	{
-		GLsizei h;
-		glBindTexture(GL_TEXTURE_2D, m_texture);
-		glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &h);
-		glBindTexture(GL_TEXTURE_2D, 0);
+		if (m_height == 0)
+		{
+			glBindTexture(GL_TEXTURE_2D, m_texture);
+			glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &m_height);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
 
-		return h;
+
+		return m_height;
 	}
 
 }
