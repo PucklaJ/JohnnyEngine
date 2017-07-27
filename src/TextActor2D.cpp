@@ -108,7 +108,7 @@ namespace Johnny
 		m_transform.setScale(m_transform.getScale() + Vector2f(x, y));
 	}
     
-	const Vector2f& TextActor2D::getPosition() const
+	Vector2f TextActor2D::getPosition() const
 	{
 		if (m_texture)
 			return m_transform.getTranslation() - Vector2f((GLfloat)m_texture->getWidth() / 2.0f, (GLfloat)m_texture->getHeight() / 2.0f)*m_transform.getScale();

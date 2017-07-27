@@ -99,6 +99,8 @@ namespace Johnny
 	void MainClass::init2D()
 	{
 		m_camera2D = new Camera2D();
+		Texture::initTexture2DBuffers();
+		Texture::initTexture2DShader(this);
 	}
 
 	void MainClass::afterInit()
@@ -164,6 +166,7 @@ namespace Johnny
 		{
 			LogManager::error(std::string("Initializing SDL_ttf: ") + TTF_GetError());
 		}
+
 		RenderUtil::initWindow();
 
         m_window = new Window(this,m_windowTitle,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,m_windowWidth,m_windowHeight,SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | m_initWindowFlags);

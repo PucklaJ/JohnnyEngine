@@ -70,6 +70,7 @@ namespace Johnny
 			{
 				m_msaa = value;
 			}
+			break;
 		default:return false;
 		}
 

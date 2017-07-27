@@ -11,8 +11,8 @@ namespace Johnny
 	template<class T> Matrix3<T> operator*(const Matrix3<T>&, const Matrix3<T>&);
 	template<class T> Matrix3<T> operator*(const Matrix3<T>&, const T&);
 	template<class T> std::ostream& operator<<(std::ostream&, const Matrix3<T>&);
-	template<class T> Vector3<T> operator*<>(const Matrix3<T>&, const Vector3<T>&);
-	template<class T> Vector2<T> operator*<>(const Matrix3<T>&, const Vector2<T>&);
+	template<class T> Vector3<T> operator*(const Matrix3<T>&, const Vector3<T>&);
+	template<class T> Vector2<T> operator*(const Matrix3<T>&, const Vector2<T>&);
 
 	template<class T>
 	class Matrix3

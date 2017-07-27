@@ -49,7 +49,7 @@ namespace Johnny
         const SDL_Color& getColor() const {return m_color;}
         TTF_Font* getFont() {return m_font;}
 		Texture* getTexture() { return m_texture; }
-		const Vector2f& getPosition() const;
+		Vector2f getPosition() const;
 		const GLfloat& getRotation() const { return m_transform.getRotation(); }
 		const Vector2f& getScale() const { return m_transform.getScale(); }
         

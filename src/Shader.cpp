@@ -140,7 +140,7 @@ namespace Johnny
 	{
 		GLuint uniLoc = glGetUniformLocation(m_program, uniform.c_str());
 
-		if (uniLoc == -1)
+		if (uniLoc == (GLuint)-1)
 		{
 			if (endIfNotThere)
 			{

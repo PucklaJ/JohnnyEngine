@@ -1,4 +1,4 @@
-#include "..\include\Camera2D.h"
+#include "../include/Camera2D.h"
 #include <iostream>
 
 namespace Johnny
