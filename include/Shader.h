@@ -5,9 +5,75 @@
 #include <glm/glm.hpp>
 #include "Matrix3.h"
 #include "Matrix4.h"
+#include <map>
+#include <vector>
 
 namespace Johnny
 {
+	enum UBOTypes
+	{
+		FLOAT,
+		INT,
+		VEC2,
+		VEC3,
+		VEC4,
+		MAT2,
+		MAT3,
+		MAT4,
+		ARRAY_FLOAT,
+		ARRAY_INT,
+		ARRAY_VEC2,
+		ARRAY_VEC3,
+		ARRAY_VEC4,
+		ARRAY_MAT2,
+		ARRAY_MAT3,
+		ARRAY_MAT4
+	};
+
+	// I000 VVVV MMMM MMMM MMMM MMMM
+
+	inline GLsizei getSize(UBOTypes type,unsigned int arraySize)
+	{
+		switch(type)
+		{
+		case FLOAT: return sizeof(GLfloat);
+		case INT:   return sizeof(GLint);
+		case VEC2:  return 2*sizeof(GLfloat);
+		case VEC3:  return 4*sizeof(GLfloat);
+		case VEC4:  return 4*sizeof(GLfloat);
+		case MAT2:  return 2*16;
+		case MAT3:  return 3*16;
+		case MAT4:  return 4*16;
+		case ARRAY_MAT2:  return arraySize*2*16;
+		case ARRAY_MAT3:  return arraySize*3*16;
+		case ARRAY_MAT4:  return arraySize*4*16;
+		default: return arraySize*16;
+		}
+	}
+
+	class UniformBuffer
+	{
+	public:
+		UniformBuffer();
+		~UniformBuffer();
+
+		void addVariable(UBOTypes);
+		void addArray(UBOTypes,unsigned int);
+		void map();
+		void unmap();
+		void setVariable(UBOTypes,unsigned int,GLvoid*);
+		void createBuffer(GLuint);
+	private:
+		void m_setVariable(UBOTypes,GLsizei,GLvoid*,unsigned int);
+
+		GLuint m_buffer = 0;
+		std::vector<UBOTypes> m_types;
+		std::map<unsigned int,unsigned int> m_arraySizes;
+		GLvoid* m_data = nullptr;
+		GLvoid* m_bufferMap = nullptr;
+		GLsizei m_bufferSize = 0;
+	};
+
 	class Shader
 	{
 	public:

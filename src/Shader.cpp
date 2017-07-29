@@ -4,10 +4,348 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "../include/LogManager.h"
 #include <cstdlib>
+#include "../include/operators.h"
 
 
 namespace Johnny
 {
+	UniformBuffer::UniformBuffer()
+	{
+
+	}
+
+	UniformBuffer::~UniformBuffer()
+	{
+		if(m_buffer != 0)
+			glDeleteBuffers(1,&m_buffer);
+
+		if(m_data)
+			delete[] ((GLbyte*)m_data);
+	}
+
+	void UniformBuffer::createBuffer(GLuint bindingPoint)
+	{
+		glCreateBuffers(1,&m_buffer);
+		if(m_buffer == 0)
+		{
+			LogManager::error("UniformBuffer couldn't be created");
+			return;
+		}
+
+		GLsizei size = 0;
+		GLsizei curSize = 0;
+		GLsizei curChunkSpace = 16;
+		unsigned int arraySize = 0;
+
+		for(unsigned int i = 0;i<m_types.size();i++)
+		{
+			if(m_arraySizes.find(i) != m_arraySizes.end())
+				arraySize = m_arraySizes[i];
+
+			curSize = getSize(m_types[i],arraySize);
+			if(curSize > curChunkSpace)
+			{
+				if(curChunkSpace == 16)
+					size += curSize;
+				else
+					size += curChunkSpace + curSize;
+
+				curChunkSpace = 16;
+			}
+			else
+			{
+				curChunkSpace -= curSize;
+				size += curSize;
+			}
+
+			if(curChunkSpace == 0)
+				curChunkSpace = 16;
+		}
+
+		if(curChunkSpace < 16)
+			size += curChunkSpace;
+
+		m_bufferSize = size;
+
+		GLbyte* newData = new GLbyte[size];
+
+		glGetError();
+		glNamedBufferStorage(m_buffer,size,newData,GL_MAP_WRITE_BIT | GL_MAP_READ_BIT | GL_DYNAMIC_STORAGE_BIT);
+
+		std::string errorStr = "Failed to allocate the buffer: ";
+		GLenum error = glGetError();
+
+		switch(error)
+		{
+		case GL_NO_ERROR:
+			break;
+		case GL_INVALID_ENUM:
+			LogManager::error(errorStr + "Invalid Enum");
+			break;
+		case GL_INVALID_VALUE:
+			LogManager::error(errorStr + "Size is negative");
+			break;
+		case GL_INVALID_OPERATION:
+			LogManager::error(errorStr + "Buffer isn't valid");
+			break;
+		case GL_OUT_OF_MEMORY:
+			LogManager::error(errorStr + "Out of Memory");
+			break;
+		default:
+			LogManager::error(errorStr + std::to_string(error));
+			break;
+		}
+
+		glBindBufferBase(GL_UNIFORM_BUFFER,bindingPoint,m_buffer);
+
+		error = glGetError();
+		errorStr = std::string("Failed to bind UniformBuffer to BindingPoint ") + std::to_string(bindingPoint) + ": ";
+
+		GLint maxBindings = 0;
+
+		switch(error)
+		{
+		case GL_NO_ERROR:
+			break;
+		case GL_INVALID_ENUM:
+			LogManager::error(errorStr + "Invalid Enum");
+			break;
+		case GL_INVALID_VALUE:
+			glGetIntegerv(GL_MAX_UNIFORM_BUFFER_BINDINGS,&maxBindings);
+			LogManager::error(errorStr + "BindingPoint is too big (MAX: " + std::to_string(maxBindings) + ")");
+			break;
+		default:
+			LogManager::error(errorStr + std::to_string(error));
+			break;
+		}
+
+		delete[] newData;
+
+	}
+
+	void UniformBuffer::addVariable(UBOTypes type)
+	{
+		m_types.push_back(type);
+	}
+
+	void UniformBuffer::addArray(UBOTypes type,unsigned int arraySize)
+	{
+		m_types.push_back(type);
+		m_arraySizes[m_types.size()-1] = arraySize;
+	}
+
+	void UniformBuffer::map()
+	{
+		if(m_buffer == 0)
+			return;
+		glGetError();
+		m_bufferMap = glMapNamedBuffer(m_buffer,GL_READ_WRITE);
+		if(m_bufferMap == nullptr)
+		{
+			GLenum error = glGetError();
+			std::string errorStr = "Failed to map UniformBuffer: ";
+
+			switch(error)
+			{
+			case GL_INVALID_OPERATION:
+				LogManager::error(errorStr + "Buffer is already mapped");
+				break;
+			case GL_OUT_OF_MEMORY:
+				LogManager::error(errorStr + "Out of Memory");
+				break;
+			case GL_INVALID_ENUM:
+				LogManager::error(errorStr + "Invalid Enum");
+				break;
+			case GL_NO_ERROR:
+				LogManager::error(errorStr + "Couldn't identify error");
+				break;
+			default:
+				LogManager::error(errorStr + std::to_string(error));
+				break;
+			}
+			return;
+		}
+		m_data = new GLbyte[m_bufferSize];
+		memcpy(m_data,m_bufferMap,m_bufferSize);
+	}
+
+	void UniformBuffer::unmap()
+	{
+		if(m_buffer == 0)
+			return;
+
+		memcpy(m_bufferMap,m_data,m_bufferSize);
+		glUnmapNamedBuffer(m_buffer);
+		delete[] ((GLbyte*)m_data);
+		m_data = nullptr;
+	}
+
+	void UniformBuffer::setVariable(UBOTypes type,unsigned int index,GLvoid* data)
+	{
+		if(m_buffer == 0)
+			return;
+
+		GLsizei offset = 0;
+		GLsizei curSize = 0;
+		GLsizei curChunkSpace = 16;
+		GLuint numTypes = 0;
+		unsigned int arraySize = 0;
+		unsigned int ArraySize = 0;
+
+		for(unsigned int i = 0;i<m_types.size();i++)
+		{
+			if(m_types[i] == type)
+			{
+				if(index == numTypes)
+				{
+					if(m_arraySizes.find(i) != m_arraySizes.end())
+						ArraySize = m_arraySizes[i];
+					break;
+				}
+				else
+				{
+					numTypes++;
+				}
+
+			}
+
+			if(m_arraySizes.find(i) != m_arraySizes.end())
+				arraySize = m_arraySizes[i];
+
+			curSize = getSize(m_types[i],arraySize);
+			if(curSize > curChunkSpace)
+			{
+				if(curChunkSpace == 16)
+					offset += curSize;
+				else
+					offset += curChunkSpace + curSize;
+
+				curChunkSpace = 16;
+			}
+			else
+			{
+				curChunkSpace -= curSize;
+				offset += curSize;
+			}
+
+			if(curChunkSpace == 0)
+				curChunkSpace = 16;
+		}
+
+		if(curChunkSpace < 16 && getSize(type,ArraySize) > curChunkSpace)
+			offset += curChunkSpace;
+
+		m_setVariable(type,offset,data,ArraySize);
+	}
+
+	void UniformBuffer::m_setVariable(UBOTypes type,GLsizei offset,GLvoid* data,unsigned int arraySize)
+	{
+		GLsizei addOffset = offset;
+
+		switch(type)
+		{
+		case FLOAT:
+			*((GLfloat*)m_data+offset) = *((GLfloat*)data);
+			break;
+		case INT:
+			*((GLint*)m_data+offset) = *((GLint*)data);
+			break;
+		case VEC2:
+			((GLfloat*)m_data+offset)[0] = ((GLfloat*)data)[0];
+			((GLfloat*)m_data+offset)[1] = ((GLfloat*)data)[1];
+			break;
+		case VEC3:
+			((GLfloat*)m_data+offset)[0] = ((GLfloat*)data)[0];
+			((GLfloat*)m_data+offset)[1] = ((GLfloat*)data)[1];
+			((GLfloat*)m_data+offset)[2] = ((GLfloat*)data)[2];
+			break;
+		case VEC4:
+			((GLfloat*)m_data+offset)[0] = ((GLfloat*)data)[0];
+			((GLfloat*)m_data+offset)[1] = ((GLfloat*)data)[1];
+			((GLfloat*)m_data+offset)[2] = ((GLfloat*)data)[2];
+			((GLfloat*)m_data+offset)[3] = ((GLfloat*)data)[3];
+			break;
+		case MAT2:
+			((GLfloat*)m_data+offset)[0] = ((GLfloat*)data)[0];
+			((GLfloat*)m_data+offset)[1] = ((GLfloat*)data)[1];
+			((GLfloat*)m_data+offset+16)[0] = ((GLfloat*)data)[2];
+			((GLfloat*)m_data+offset+16)[1] = ((GLfloat*)data)[3];
+			break;
+		case MAT3:
+			for(unsigned int i = 0;i<3;i++)
+			{
+				for(unsigned int j =0;j<3;j++)
+				{
+					*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i*3+j];
+					addOffset += sizeof(GLfloat);
+				}
+				addOffset += sizeof(GLfloat);
+			}
+			break;
+		case MAT4:
+			for(unsigned int i = 0;i<4;i++)
+			{
+				for(unsigned int j = 0;j<4;j++)
+				{
+					*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i*4+j];
+					addOffset += sizeof(GLfloat);
+				}
+			}
+			break;
+		case ARRAY_FLOAT:
+			for(unsigned int i = 0;i<arraySize;i++)
+			{
+				*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i];
+				addOffset += 16;
+			}
+			break;
+		case ARRAY_INT:
+			for(unsigned int i = 0;i<arraySize;i++)
+			{
+				*((GLint*)m_data+addOffset) = ((GLint*)data)[i];
+				addOffset += 16;
+			}
+			break;
+		case ARRAY_VEC2:
+			for(unsigned int i = 0;i<arraySize;i++)
+			{
+				for(unsigned int j = 0;j<2;j++)
+				{
+					*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i*2+j];
+					addOffset += sizeof(GLfloat);
+				}
+
+				addOffset += 2*sizeof(GLfloat);
+			}
+			break;
+		case ARRAY_VEC3:
+			for(unsigned int i = 0;i<arraySize;i++)
+			{
+				for(unsigned int j = 0;j<3;j++)
+				{
+					*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i*3+j];
+					addOffset += sizeof(GLfloat);
+				}
+
+				addOffset += sizeof(GLfloat);
+			}
+			break;
+		case ARRAY_VEC4:
+			for(unsigned int i = 0;i<arraySize;i++)
+			{
+				for(unsigned int j = 0;j<4;j++)
+				{
+					*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i*4+j];
+					addOffset += sizeof(GLfloat);
+				}
+			}
+			break;
+
+		default: break;
+		}
+
+	}
+
 	Shader::Shader()
 	{
 		m_program = glCreateProgram();
