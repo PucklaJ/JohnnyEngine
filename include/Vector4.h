@@ -65,6 +65,8 @@ namespace Johnny
 		Vector4& operator*=(const Vector4&);
 		Vector4& operator/=(const Vector4&);
 
+		T& operator[](unsigned int);
+
 		friend const Vector4<T> operator+<>(const Vector4<T>&, const Vector4<T>&);
 		friend const Vector4<T> operator-<>(const Vector4<T>&, const Vector4<T>&);
 		friend const Vector4<T> operator*<>(const Vector4<T>&, const Vector4<T>&);

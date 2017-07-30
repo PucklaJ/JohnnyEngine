@@ -11,6 +11,7 @@ namespace Johnny
 	template<class T> class Matrix4;
 	template<class T> Matrix4<T> operator*(const Matrix4<T>&, const Matrix4<T>&);
 	template<class T> Matrix4<T> operator*(const Matrix4<T>&, const T&);
+	template<class T> Vector4<T> operator*(const Matrix4<T>&,const Vector4<T>&);
 	template<class T> std::ostream& operator<<(std::ostream&, const Matrix4<T>&);
 
 	template<class T>
@@ -39,14 +40,18 @@ namespace Johnny
 
 		Matrix4& multiply(const Matrix4&);
 		Matrix4& multiply(const T&);
+		Vector4<T> multiply(const Vector4<T>&) const;
 
 		void print();
 
 		Matrix4& operator*=(const Matrix4&);
 		Matrix4& operator*=(const T&);
 
+		Vector4<T>& operator[](unsigned int);
+
 		friend Matrix4<T> operator*<>(const Matrix4<T>&, const Matrix4<T>&);
 		friend Matrix4<T> operator*<>(const Matrix4<T>&, const T&);
+		friend Vector4<T> operator*<>(const Matrix4<T>&,const Vector4<T>&);
 
 		friend std::ostream& operator<< <>(std::ostream&, const Matrix4<T>&);
 	};

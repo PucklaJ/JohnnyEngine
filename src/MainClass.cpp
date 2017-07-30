@@ -454,7 +454,7 @@ namespace Johnny
     
     void MainClass::setAmbientLight3D(const SDL_Color& col)
     {
-		Lighting3D::ambientLight = glm::vec4((float)col.r / 255.0f,(float)col.g / 255.0f, (float)col.b / 255.0f, (float)col.a / 255.0f);
+		Lighting3D::ambientLight = Vector4f((GLfloat)col.r / 255.0f,(GLfloat)col.g / 255.0f, (GLfloat)col.b / 255.0f, (GLfloat)col.a / 255.0f);
     }
     
     void MainClass::setNativeRes(const glm::vec2& v)

@@ -7,7 +7,7 @@
 
 namespace Johnny
 {
-	glm::vec4 Lighting3D::ambientLight = glm::vec4(1.0, 1.0, 1.0, 1.0);
+	Vector4f Lighting3D::ambientLight = Vector4f(1.0f, 1.0f, 1.0f, 1.0f);
 
 	void PointLight3D::load(Shader* s, PointLight3D* lights, unsigned int size, const std::string & name, GLuint shadowMapStartIndex)
 	{
@@ -17,7 +17,7 @@ namespace Johnny
 		}
 	}
 
-	PointLight3D::PointLight3D(const glm::vec3& _position, const glm::vec3& _diffuse, const glm::vec3& _specular, GLfloat _quadratic, GLfloat _linear, GLfloat _constant) :
+	PointLight3D::PointLight3D(const Vector3f& _position, const Vector3f& _diffuse, const Vector3f& _specular, GLfloat _quadratic, GLfloat _linear, GLfloat _constant) :
 		position(_position),
 		diffuse(_diffuse),
 		specular(_specular),
@@ -71,7 +71,7 @@ namespace Johnny
 		}
 	}
 
-	DirectionalLight3D::DirectionalLight3D(const glm::vec3& _direction, const glm::vec3 & _diffuse, const glm::vec3 & _specular) :
+	DirectionalLight3D::DirectionalLight3D(const Vector3f& _direction, const Vector3f & _diffuse, const Vector3f & _specular) :
 		direction(_direction),
 		diffuse(_diffuse),
 		specular(_specular)
@@ -119,7 +119,7 @@ namespace Johnny
 		}
 	}
 
-	SpotLight3D::SpotLight3D(const glm::vec3& _position, const glm::vec3& _direction, GLfloat _innerCutOff, GLfloat _outerCutOff, const glm::vec3 & _diffuse, const glm::vec3 & _specular, GLfloat _quadratic, GLfloat _linear, GLfloat _constant) :
+	SpotLight3D::SpotLight3D(const Vector3f& _position, const Vector3f& _direction, GLfloat _innerCutOff, GLfloat _outerCutOff, const Vector3f & _diffuse, const Vector3f & _specular, GLfloat _quadratic, GLfloat _linear, GLfloat _constant) :
 		position(_position),
 		diffuse(_diffuse),
 		specular(_specular),

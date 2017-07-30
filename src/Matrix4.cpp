@@ -52,24 +52,68 @@ namespace Johnny
 	{
 		// Src: https://github.com/TheCherno/Sparky/blob/master/Sparky-core/src/sp/maths/mat4.cpp
 
-		Matrix4<T> result(1);
-		Vector3<T> f = (middle - position).normalise();
-		Vector3<T> s = f.cross(up.normalise());
+		/*Matrix4<T> Result(1);
+		Vector3<T> f = Vector3<T>(middle - position).normalise();
+		Vector3<T> s = f.cross(up);
 		Vector3<T> u = s.cross(f);
 
-		result.values[0 + 0 * 4] = s.x;
-		result.values[0 + 1 * 4] = s.y;
-		result.values[0 + 2 * 4] = s.z;
+		Result.values[0 + 0 * 4] = s.x;
+		Result.values[1 + 0 * 4] = s.y;
+		Result.values[2 + 0 * 4] = s.z;
 			   
-		result.values[1 + 0 * 4] = u.x;
-		result.values[1 + 1 * 4] = u.y;
-		result.values[1 + 2 * 4] = u.z;
+		Result.values[0 + 1 * 4] = u.x;
+		Result.values[1 + 1 * 4] = u.y;
+		Result.values[2 + 1 * 4] = u.z;
 			   
-		result.values[2 + 0 * 4] = -f.x;
-		result.values[2 + 1 * 4] = -f.y;
-		result.values[2 + 2 * 4] = -f.z;
+		Result.values[0 + 2 * 4] = f.x;
+		Result.values[1 + 2 * 4] = f.y;
+		Result.values[2 + 2 * 4] = f.z;
 
-		return result * translate(-position.x, -position.y, -position.z);
+		Result.values[0 + 3 * 4] = -position.x;
+		Result.values[1 + 3 * 4] = -position.y;
+		Result.values[2 + 3 * 4] = -position.z;
+
+
+		 * tvec3<T, P> const f(normalize(center - eye));
+		tvec3<T, P> const s(normalize(cross(f, up)));
+		tvec3<T, P> const u(cross(s, f));
+
+		tmat4x4<T, P> Result(1);
+		Result[0][0] = s.x;
+		Result[1][0] = s.y;
+		Result[2][0] = s.z;
+		Result[0][1] = u.x;
+		Result[1][1] = u.y;
+		Result[2][1] = u.z;
+		Result[0][2] =-f.x;
+		Result[1][2] =-f.y;
+		Result[2][2] =-f.z;
+		Result[3][0] =-dot(s, eye);
+		Result[3][1] =-dot(u, eye);
+		Result[3][2] = dot(f, eye);
+		return Result;*/
+
+
+		Vector3<T> f = Vector3<T>(middle - position).normalise();
+		Vector3<T> s = f.cross(up).normalise();
+		Vector3<T> u = s.cross(f);
+
+		Matrix4<T> Result(1);
+		Result.values[MAT4_GET(0,0)] = s.x;
+		Result.values[MAT4_GET(0,1)] = s.y;
+		Result.values[MAT4_GET(0,2)] = s.z;
+		Result.values[MAT4_GET(1,0)] = u.x;
+		Result.values[MAT4_GET(1,1)] = u.y;
+		Result.values[MAT4_GET(1,2)] = u.z;
+		Result.values[MAT4_GET(2,0)] =-f.x;
+		Result.values[MAT4_GET(2,1)] =-f.y;
+		Result.values[MAT4_GET(2,2)] =-f.z;
+		Result.values[MAT4_GET(0,3)] =-s.dot(position);
+		Result.values[MAT4_GET(1,3)] =-u.dot(position);
+		Result.values[MAT4_GET(2,3)] = f.dot(position);
+		return Result;
+
+		return Result;
 	}
 
 	template<class T>
@@ -91,11 +135,11 @@ namespace Johnny
 	}
 
 	template<class T>
-	Matrix4<T> Matrix4<T>::rotate(const T& angle, const Vector3<T>& axis)
+	Matrix4<T> Matrix4<T>::rotate(const T& angle, const Vector3<T>& v)
 	{
 		// Src: https://github.com/TheCherno/Sparky/blob/master/Sparky-core/src/sp/maths/mat4.cpp
 
-		Matrix4<T> result(1);
+		/*Matrix4<T> result(1);
 
 		T r = toRadians(angle);
 		T c = (T)cos((double)r);
@@ -118,7 +162,34 @@ namespace Johnny
 		result.values[2 + 1 * 4] = y * z * omc - x * s;
 		result.values[2 + 2 * 4] = z * z * omc + c;
 
-		return result;
+		return result;*/
+
+		const T a = toRadians(angle);
+		const T c = cos(a);
+		const T s = sin(a);
+
+		Vector3<T> axis(v);axis.normalise();
+		Vector3<T> temp(axis*(T(1) - c));
+
+		Matrix4<T> Rotate(1);
+		Rotate.values[MAT4_GET(0,0)] = c + temp.x * axis.x;
+		Rotate.values[MAT4_GET(1,0)] = temp.x * axis.y + s * axis.z;
+		Rotate.values[MAT4_GET(2,0)] = temp.x * axis.z - s * axis.y;
+
+		Rotate.values[MAT4_GET(0,1)] = temp.y * axis.x - s * axis.z;
+		Rotate.values[MAT4_GET(1,1)] = c + temp.y * axis.y;
+		Rotate.values[MAT4_GET(2,1)] = temp.y * axis.z + s * axis.x;
+
+		Rotate.values[MAT4_GET(0,2)] = temp.z * axis.x + s * axis.y;
+		Rotate.values[MAT4_GET(1,2)] = temp.z * axis.y - s * axis.x;
+		Rotate.values[MAT4_GET(2,2)] = c + temp.z * axis.z;
+
+		/*Matrix4<T> Result(0);
+		Result[0] = m[0] * Rotate[0][0] + m[1] * Rotate[0][1] + m[2] * Rotate[0][2];
+		Result[1] = m[0] * Rotate[1][0] + m[1] * Rotate[1][1] + m[2] * Rotate[1][2];
+		Result[2] = m[0] * Rotate[2][0] + m[1] * Rotate[2][1] + m[2] * Rotate[2][2];
+		Result[3] = m[3];*/
+		return Rotate;
 	}
 
 	template<class T>
@@ -136,7 +207,7 @@ namespace Johnny
 	template<class T>
 	Matrix4<T> Matrix4<T>::scale(const Vector3<T>& v)
 	{
-		scale(v.x,v.y,v.z);
+		return scale(v.x,v.y,v.z);
 	}
 
 	template<class T>
@@ -195,6 +266,19 @@ namespace Johnny
 	}
 
 	template<class T>
+	Vector4<T> Matrix4<T>::multiply(const Vector4<T>& v) const
+	{
+		Vector4<T> v1(v);
+
+		v1.x = values[MAT4_GET(0,0)] * v.x + values[MAT4_GET(0,1)] * v.y + values[MAT4_GET(0,2)] * v.z + values[MAT4_GET(0,3)] * v.w;
+		v1.y = values[MAT4_GET(1,0)] * v.x + values[MAT4_GET(1,1)] * v.y + values[MAT4_GET(1,2)] * v.z + values[MAT4_GET(1,3)] * v.w;
+		v1.z = values[MAT4_GET(2,0)] * v.x + values[MAT4_GET(2,1)] * v.y + values[MAT4_GET(2,2)] * v.z + values[MAT4_GET(2,3)] * v.w;
+		v1.w = values[MAT4_GET(3,0)] * v.x + values[MAT4_GET(3,1)] * v.y + values[MAT4_GET(3,2)] * v.z + values[MAT4_GET(3,3)] * v.w;
+
+		return v1;
+	}
+
+	template<class T>
 	inline void Matrix4<T>::print()
 	{
 		std::cout << *this;
@@ -213,6 +297,12 @@ namespace Johnny
 	}
 
 	template<class T>
+	Vector4<T>& Matrix4<T>::operator[](unsigned int i)
+	{
+		return columns[i];
+	}
+
+	template<class T>
 	Matrix4<T> operator*(const Matrix4<T>& mat1, const Matrix4<T>& mat2)
 	{
 		return Matrix4<T>(mat1).multiply(mat2);
@@ -222,6 +312,12 @@ namespace Johnny
 	Matrix4<T> operator*(const Matrix4<T>& mat, const T& v)
 	{
 		return Matrix4<T>(mat).multiply(v);
+	}
+
+	template<class T>
+	Vector4<T> operator*(const Matrix4<T>& mat,const Vector4<T>& v)
+	{
+		return mat.multiply(v);
 	}
 
 	template<class T>

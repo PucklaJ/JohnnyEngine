@@ -146,6 +146,19 @@ namespace Johnny
 	}
 
 	template<class T>
+	T& Vector4<T>::operator[](unsigned int i)
+	{
+		switch(i)
+		{
+		case 0: return x;
+		case 1: return y;
+		case 2: return z;
+		case 3: return w;
+		default: throw "operator[] unsigned int must be 0,1,2,3";
+		}
+	}
+
+	template<class T>
 	const Vector4<T> operator+(const Vector4<T>& v1, const Vector4<T>& v2)
 	{
 		return Vector4<T>(v1).add(v2);

@@ -21,6 +21,14 @@ namespace Johnny
 		z = v.z;
 	}
 	template<class T>
+	Vector3<T>::Vector3(const Vector4<T>& v)
+	{
+		x = v.x/v.w;
+		y = v.y/v.w;
+		z = v.z/v.w;
+	}
+
+	template<class T>
 	T Vector3<T>::length(bool squared) const
 	{
 		if (squared)
@@ -98,12 +106,18 @@ namespace Johnny
 	{
 		Vector3<T> v1(*this);
 
-		v1.x = v1.y * v.z - v1.z * v.y;
-		v1.y = v1.z * v.x - v1.x * v.z;
-		v1.z = v1.x * v.y - v1.y * v.x;
+		v1.x = y * v.z - z * v.y;
+		v1.y = z * v.x - x * v.z;
+		v1.z = x * v.y - y * v.x;
 
 		return v1;
 	}
+	template<class T>
+	T Vector3<T>::dot(const Vector3<T>& v)
+	{
+		return x*v.x+y*v.y+z*v.z;
+	}
+
 	template<class T>
 	T Vector3<T>::distance(const Vector3<T>& v, bool squared) const
 	{
@@ -129,35 +143,74 @@ namespace Johnny
 		return multiply(v2);
 	}
 	template<class T>
+	Vector3<T>& Vector3<T>::operator*=(const T& s)
+	{
+		return multiply(s);
+	}
+	template<class T>
 	Vector3<T>& Vector3<T>::operator/=(const Vector3<T>& v2)
 	{
 		return divide(v2);
 	}
 	template<class T>
-	const Vector3<T> operator+(const Vector3<T>& v1, const Vector3<T>& v2)
+	Vector3<T> operator+(const Vector3<T>& v1, const Vector3<T>& v2)
 	{
 		return Vector3<T>(v1).add(v2);
 	}
 	template<class T>
-	const Vector3<T> operator-(const Vector3<T>& v1, const Vector3<T>& v2)
+	Vector3<T> operator-(const Vector3<T>& v1, const Vector3<T>& v2)
 	{
 		return Vector3<T>(v1).subtract(v2);
 	}
 	template<class T>
-	const Vector3<T> operator*(const Vector3<T>& v1, const Vector3<T>& v2)
+	Vector3<T> operator*(const Vector3<T>& v1, const Vector3<T>& v2)
 	{
 		return Vector3<T>(v1).multiply(v2);
 	}
 	template<class T>
-	const Vector3<T> operator/(const Vector3<T>& v1, const Vector3<T>& v2)
+	Vector3<T> operator*(const Vector3<T>& v, const T& s)
+	{
+		return Vector3<T>(v).multiply(s);
+	}
+
+	template<class T>
+	Vector3<T> operator/(const Vector3<T>& v1, const Vector3<T>& v2)
 	{
 		return Vector3<T>(v1).divide(v2);
+	}
+	template<class T>
+	Vector3<T> operator-(const Vector3<T>& v)
+	{
+		Vector3<T> v1(v);
+		return v1.multiply((T)-1);
 	}
 	template<class T>
 	std::ostream& operator<<(std::ostream& os, const Vector3<T>& v)
 	{
 		os << "(" << v.x << ";" << v.y << ";" << v.z << ")";
 		return os;
+	}
+	template<class T>
+	Vector3<T>& Vector3<T>::operator=(const Vector4<T>& v2)
+	{
+		*this = Vector3<T>(v2);
+		return *this;
+	}
+	template<class T>
+	T& Vector3<T>::operator[](unsigned int i)
+	{
+		switch(i)
+		{
+		case 0:
+			return x;
+		case 1:
+			return y;
+		case 2:
+			return z;
+		default:
+			throw "operator[] unsigned int must be 0,1,2";
+			break;
+		}
 	}
 }
 

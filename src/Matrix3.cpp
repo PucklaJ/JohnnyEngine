@@ -182,6 +182,12 @@ namespace Johnny
 	}
 
 	template<class T>
+	Vector3<T>& Matrix3<T>::operator[](unsigned int i)
+	{
+		return columns[i];
+	}
+
+	template<class T>
 	Matrix3<T> operator*(const Matrix3<T>& mat1, const Matrix3<T>& mat2)
 	{
 		return Matrix3<T>(mat1).multiply(mat2);

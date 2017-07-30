@@ -6,6 +6,7 @@
 #include "../include/Camera3D.h"
 #include "../include/LogManager.h"
 #include "../include/RenderManager.h"
+#include "../include/Matrix4.h"
 #include <iostream>
 
 namespace Johnny

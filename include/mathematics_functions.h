@@ -74,4 +74,10 @@ namespace Johnny
 	{
 		return sizeof(var) / sizeof(*var);
 	}
+
+	template<class T>
+	inline T clamp(const T& var,const T& min,const T& max)
+	{
+		return (var > max ? max : (var < min ? min : var));
+	}
 }

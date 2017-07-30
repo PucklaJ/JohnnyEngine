@@ -1,14 +1,17 @@
 #pragma once
 #include <GL/glew.h>
 #include <iostream>
+#include "Vector4.h"
 
 namespace Johnny
 {
 	template<class T> class Vector3;
-	template<class T> const Vector3<T> operator+(const Vector3<T>&, const Vector3<T>&);
-	template<class T> const Vector3<T> operator-(const Vector3<T>&, const Vector3<T>&);
-	template<class T> const Vector3<T> operator*(const Vector3<T>&, const Vector3<T>&);
-	template<class T> const Vector3<T> operator/(const Vector3<T>&, const Vector3<T>&);
+	template<class T> Vector3<T> operator+(const Vector3<T>&, const Vector3<T>&);
+	template<class T> Vector3<T> operator-(const Vector3<T>&, const Vector3<T>&);
+	template<class T> Vector3<T> operator*(const Vector3<T>&, const Vector3<T>&);
+	template<class T> Vector3<T> operator*(const Vector3<T>&, const T&);
+	template<class T> Vector3<T> operator/(const Vector3<T>&, const Vector3<T>&);
+	template<class T> Vector3<T> operator-(const Vector3<T>&);
 
 	template<class T> std::ostream& operator<<(std::ostream&, const Vector3<T>&);
 
@@ -19,6 +22,9 @@ namespace Johnny
 		Vector3() = default;
 		Vector3(const T&, const T&, const T&);
 		Vector3(const Vector3&);
+		Vector3(const Vector4<T>&);
+
+
 
 		union
 		{
@@ -41,6 +47,8 @@ namespace Johnny
 			T depth;
 		};
 
+
+
 		T length(bool squared = false) const;
 		Vector3& normalise();
 
@@ -52,17 +60,25 @@ namespace Johnny
 		Vector3& divide(const T&);
 
 		Vector3 cross(const Vector3&);
+		T dot(const Vector3&);
 		T distance(const Vector3&, bool squared = false) const;
 
 		Vector3& operator+=(const Vector3&);
 		Vector3& operator-=(const Vector3&);
 		Vector3& operator*=(const Vector3&);
+		Vector3& operator*=(const T&);
 		Vector3& operator/=(const Vector3&);
 
-		friend const Vector3<T> operator+<>(const Vector3<T>&, const Vector3<T>&);
-		friend const Vector3<T> operator-<>(const Vector3<T>&, const Vector3<T>&);
-		friend const Vector3<T> operator*<>(const Vector3<T>&, const Vector3<T>&);
-		friend const Vector3<T> operator/<>(const Vector3<T>&, const Vector3<T>&);
+		Vector3& operator=(const Vector4<T>&);
+
+		T& operator[](unsigned int);
+
+		friend Vector3<T> operator+<>(const Vector3<T>&, const Vector3<T>&);
+		friend Vector3<T> operator-<>(const Vector3<T>&, const Vector3<T>&);
+		friend Vector3<T> operator*<>(const Vector3<T>&, const Vector3<T>&);
+		friend Vector3<T> operator*<>(const Vector3<T>&, const T&);
+		friend Vector3<T> operator/<>(const Vector3<T>&, const Vector3<T>&);
+		friend Vector3<T> operator-<>(const Vector3<T>&);
 
 		friend std::ostream& operator<< <>(std::ostream&, const Vector3<T>&);
 	};

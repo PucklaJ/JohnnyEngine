@@ -359,7 +359,7 @@ namespace Johnny
 				{
 					for(unsigned int j =0;j<3;j++)
 					{
-						*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*3+j+a*3*3*4];
+						*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*3+j+a*3*3];
 						addOffset += sizeof(GLfloat);
 					}
 					addOffset += sizeof(GLfloat);
@@ -373,7 +373,7 @@ namespace Johnny
 				{
 					for(unsigned int j = 0;j<4;j++)
 					{
-						*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*4+j+a*4*4*4];
+						*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*4+j+a*4*4];
 						addOffset += sizeof(GLfloat);
 					}
 				}
@@ -580,13 +580,31 @@ namespace Johnny
 			glUniform2f(getUniformLocation(name), vec.x, vec.y);
 	}
 
+	void Shader::setUniformVec2(const std::string& name, const Vector2f& vec)
+	{
+		if (m_program != 0)
+			glUniform2f(getUniformLocation(name), vec.x, vec.y);
+	}
+
 	void Shader::setUniformVec3(const std::string & name, const glm::vec3 & vec)
 	{
 		if (m_program != 0)
 			glUniform3f(getUniformLocation(name), vec.x, vec.y, vec.z);
 	}
 
+	void Shader::setUniformVec3(const std::string & name, const Vector3f& vec)
+	{
+		if (m_program != 0)
+			glUniform3f(getUniformLocation(name), vec.x, vec.y, vec.z);
+	}
+
 	void Shader::setUniformVec4(const std::string & name, const glm::vec4 & vec)
+	{
+		if (m_program != 0)
+			glUniform4f(getUniformLocation(name), vec.x, vec.y, vec.z, vec.w);
+	}
+
+	void Shader::setUniformVec4(const std::string & name, const Vector4f& vec)
 	{
 		if (m_program != 0)
 			glUniform4f(getUniformLocation(name), vec.x, vec.y, vec.z, vec.w);

@@ -137,7 +137,7 @@ namespace Johnny
     }
 	void LogManager::log(int i, bool withTime, bool newLine)
 	{
-		log(std::string("") + i, withTime, newLine);
+		log(std::to_string(i), withTime, newLine);
 	}
 	void LogManager::error(const std::string & text, bool withTime, bool newLine, bool messageBox)
 	{

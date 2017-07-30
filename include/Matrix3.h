@@ -47,6 +47,8 @@ namespace Johnny
 		Matrix3& operator*=(const Matrix3&);
 		Matrix3& operator*=(const T&);
 
+		Vector3<T>& operator[](unsigned int);
+
 		friend Matrix3<T> operator*<>(const Matrix3<T>&, const Matrix3<T>&);
 		friend Matrix3<T> operator*<>(const Matrix3<T>&, const T&);
 		friend Vector3<T> operator*<>(const Matrix3<T>&,const Vector3<T>&);

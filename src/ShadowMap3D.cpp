@@ -84,16 +84,22 @@ namespace Johnny
 	{
 		glm::mat4 lightProjection;
 		glm::mat4 lightView;
+		glm::vec3 direction;
+		glm::vec3 position;
 
 		if (m_curLight == SHADOW_DIR)
 		{
-			lightView = glm::lookAt(-m_directionalLight->direction*4.582f, -m_directionalLight->direction*4.582f + m_directionalLight->direction, glm::vec3(0.0, 1.0, 0.0));
+			direction = glm::vec3(m_directionalLight->direction.x,m_directionalLight->direction.y,m_directionalLight->direction.z);
+
+			lightView = glm::lookAt(-direction*4.582f, -direction*4.582f + direction, glm::vec3(0.0, 1.0, 0.0));
 			lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.1f, 100.0f);
 		}
 		else if (m_curLight == SHADOW_SPOT)
 		{
+			direction = glm::vec3(m_spotLight->direction.x,m_spotLight->direction.y,m_spotLight->direction.z);
+			position = glm::vec3(m_spotLight->position.x,m_spotLight->position.y,m_spotLight->position.z);
 
-			lightView = glm::lookAt(m_spotLight->position, m_spotLight->position + m_spotLight->direction, glm::vec3(0.0, 1.0, 0.0));
+			lightView = glm::lookAt(position, position + direction, glm::vec3(0.0, 1.0, 0.0));
 			lightProjection = glm::perspective(/*m_spotLight->outerCutOff * (float)M_PI / 180.0f*/Transform3D::getFOV() / 180.0f * (float)M_PI, /*(float)m_width / (float)m_height*/MainClass::getInstance()->getNativeRes().x / MainClass::getInstance()->getNativeRes().y, glm::clamp(Transform3D::getNearPlane(), 1.0f, 10.0f), glm::clamp(Transform3D::getFarPlane(), 100.0f, 1000.0f));
 		}
 

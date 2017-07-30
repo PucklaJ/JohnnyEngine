@@ -5,6 +5,9 @@
 #include <glm/glm.hpp>
 #include "Matrix3.h"
 #include "Matrix4.h"
+#include "Vector3.h"
+#include "Vector2.h"
+#include "Vector4.h"
 #include <map>
 #include <vector>
 
@@ -94,8 +97,11 @@ namespace Johnny
 		void setUniformi(const std::string&,GLint);
 		void setUniformf(const std::string&,GLfloat);
 		void setUniformVec2(const std::string&,const glm::vec2&);
+		void setUniformVec2(const std::string&,const Vector2f&);
 		void setUniformVec3(const std::string&,const glm::vec3&);
-		void setUniformVec4(const std::string&, const glm::vec4&);
+		void setUniformVec3(const std::string&,const Vector3f&);
+		void setUniformVec4(const std::string&,const glm::vec4&);
+		void setUniformVec4(const std::string&,const Vector4f&);
 		void setUniformMat4(const std::string&,const glm::mat4&);
 		void setUniformMat4(const std::string&, const Matrix4f&);
 		void setUniformMat3(const std::string&, const glm::mat3&);
