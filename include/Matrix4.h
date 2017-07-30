@@ -4,6 +4,7 @@
 #include <iostream>
 
 #define MAT4_GET(r,c) (r + c * 4)
+#define INIT_IDENTITY = {1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1}
 
 namespace Johnny
 {
@@ -32,7 +33,7 @@ namespace Johnny
 
 		union
 		{
-			T values[4 * 4];
+			T values[4 * 4] INIT_IDENTITY;
 			Vector4<T> columns[4];
 		};
 

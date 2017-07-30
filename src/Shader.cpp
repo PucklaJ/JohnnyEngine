@@ -67,7 +67,9 @@ namespace Johnny
 
 		m_bufferSize = size;
 
-		GLbyte* newData = new GLbyte[size];
+		GLvoid* newData = new GLbyte[size];
+
+		memset(newData,0,size);
 
 		glGetError();
 		glNamedBufferStorage(m_buffer,size,newData,GL_MAP_WRITE_BIT | GL_MAP_READ_BIT | GL_DYNAMIC_STORAGE_BIT);
@@ -112,14 +114,14 @@ namespace Johnny
 			break;
 		case GL_INVALID_VALUE:
 			glGetIntegerv(GL_MAX_UNIFORM_BUFFER_BINDINGS,&maxBindings);
-			LogManager::error(errorStr + "BindingPoint is too big (MAX: " + std::to_string(maxBindings) + ")");
+			LogManager::error(errorStr + "BindingPoint is too big (MAX: " + std::to_string(maxBindings-1) + ")");
 			break;
 		default:
 			LogManager::error(errorStr + std::to_string(error));
 			break;
 		}
 
-		delete[] newData;
+		delete[] (GLbyte*)newData;
 
 	}
 
@@ -175,6 +177,7 @@ namespace Johnny
 			return;
 
 		memcpy(m_bufferMap,m_data,m_bufferSize);
+
 		glUnmapNamedBuffer(m_buffer);
 		delete[] ((GLbyte*)m_data);
 		m_data = nullptr;
@@ -245,38 +248,38 @@ namespace Johnny
 		switch(type)
 		{
 		case FLOAT:
-			*((GLfloat*)m_data+offset) = *((GLfloat*)data);
+			*((GLfloat*)(m_data+offset)) = *((GLfloat*)data);
 			break;
 		case INT:
-			*((GLint*)m_data+offset) = *((GLint*)data);
+			*((GLint*)(m_data+offset)) = *((GLint*)data);
 			break;
 		case VEC2:
-			((GLfloat*)m_data+offset)[0] = ((GLfloat*)data)[0];
-			((GLfloat*)m_data+offset)[1] = ((GLfloat*)data)[1];
+			((GLfloat*)(m_data+offset))[0] = ((GLfloat*)data)[0];
+			((GLfloat*)(m_data+offset))[1] = ((GLfloat*)data)[1];
 			break;
 		case VEC3:
-			((GLfloat*)m_data+offset)[0] = ((GLfloat*)data)[0];
-			((GLfloat*)m_data+offset)[1] = ((GLfloat*)data)[1];
-			((GLfloat*)m_data+offset)[2] = ((GLfloat*)data)[2];
+			((GLfloat*)(m_data+offset))[0] = ((GLfloat*)data)[0];
+			((GLfloat*)(m_data+offset))[1] = ((GLfloat*)data)[1];
+			((GLfloat*)(m_data+offset))[2] = ((GLfloat*)data)[2];
 			break;
 		case VEC4:
-			((GLfloat*)m_data+offset)[0] = ((GLfloat*)data)[0];
-			((GLfloat*)m_data+offset)[1] = ((GLfloat*)data)[1];
-			((GLfloat*)m_data+offset)[2] = ((GLfloat*)data)[2];
-			((GLfloat*)m_data+offset)[3] = ((GLfloat*)data)[3];
+			((GLfloat*)(m_data+offset))[0] = ((GLfloat*)data)[0];
+			((GLfloat*)(m_data+offset))[1] = ((GLfloat*)data)[1];
+			((GLfloat*)(m_data+offset))[2] = ((GLfloat*)data)[2];
+			((GLfloat*)(m_data+offset))[3] = ((GLfloat*)data)[3];
 			break;
 		case MAT2:
-			((GLfloat*)m_data+offset)[0] = ((GLfloat*)data)[0];
-			((GLfloat*)m_data+offset)[1] = ((GLfloat*)data)[1];
-			((GLfloat*)m_data+offset+16)[0] = ((GLfloat*)data)[2];
-			((GLfloat*)m_data+offset+16)[1] = ((GLfloat*)data)[3];
+			((GLfloat*)(m_data+offset))[0] = ((GLfloat*)data)[0];
+			((GLfloat*)(m_data+offset))[1] = ((GLfloat*)data)[1];
+			((GLfloat*)(m_data+offset+16))[0] = ((GLfloat*)data)[2];
+			((GLfloat*)(m_data+offset+16))[1] = ((GLfloat*)data)[3];
 			break;
 		case MAT3:
 			for(unsigned int i = 0;i<3;i++)
 			{
 				for(unsigned int j =0;j<3;j++)
 				{
-					*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i*3+j];
+					*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*3+j];
 					addOffset += sizeof(GLfloat);
 				}
 				addOffset += sizeof(GLfloat);
@@ -287,7 +290,7 @@ namespace Johnny
 			{
 				for(unsigned int j = 0;j<4;j++)
 				{
-					*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i*4+j];
+					*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*4+j];
 					addOffset += sizeof(GLfloat);
 				}
 			}
@@ -295,14 +298,14 @@ namespace Johnny
 		case ARRAY_FLOAT:
 			for(unsigned int i = 0;i<arraySize;i++)
 			{
-				*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i];
+				*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i];
 				addOffset += 16;
 			}
 			break;
 		case ARRAY_INT:
 			for(unsigned int i = 0;i<arraySize;i++)
 			{
-				*((GLint*)m_data+addOffset) = ((GLint*)data)[i];
+				*((GLint*)(m_data+addOffset)) = ((GLint*)data)[i];
 				addOffset += 16;
 			}
 			break;
@@ -311,7 +314,7 @@ namespace Johnny
 			{
 				for(unsigned int j = 0;j<2;j++)
 				{
-					*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i*2+j];
+					*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*2+j];
 					addOffset += sizeof(GLfloat);
 				}
 
@@ -323,7 +326,7 @@ namespace Johnny
 			{
 				for(unsigned int j = 0;j<3;j++)
 				{
-					*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i*3+j];
+					*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*3+j];
 					addOffset += sizeof(GLfloat);
 				}
 
@@ -335,13 +338,49 @@ namespace Johnny
 			{
 				for(unsigned int j = 0;j<4;j++)
 				{
-					*((GLfloat*)m_data+addOffset) = ((GLfloat*)data)[i*4+j];
+					*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*4+j];
 					addOffset += sizeof(GLfloat);
 				}
 			}
 			break;
-
-		default: break;
+		case ARRAY_MAT2:
+			for(unsigned int i = 0;i<arraySize;i++)
+			{
+				((GLfloat*)(m_data+offset+i*2*16))[0] = ((GLfloat*)data)[0+i*4];
+				((GLfloat*)(m_data+offset+i*2*16))[1] = ((GLfloat*)data)[1+i*4];
+				((GLfloat*)(m_data+offset+16+i*2*16))[0] = ((GLfloat*)data)[2+i*4];
+				((GLfloat*)(m_data+offset+16+i*2*16))[1] = ((GLfloat*)data)[3+i*4];
+			}
+			break;
+		case ARRAY_MAT3:
+			for(unsigned int a = 0;a<arraySize;a++)
+			{
+				for(unsigned int i = 0;i<3;i++)
+				{
+					for(unsigned int j =0;j<3;j++)
+					{
+						*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*3+j+a*3*3*4];
+						addOffset += sizeof(GLfloat);
+					}
+					addOffset += sizeof(GLfloat);
+				}
+			}
+			break;
+		case ARRAY_MAT4:
+			for(unsigned int a = 0;a<arraySize;a++)
+			{
+				for(unsigned int i = 0;i<4;i++)
+				{
+					for(unsigned int j = 0;j<4;j++)
+					{
+						*((GLfloat*)(m_data+addOffset)) = ((GLfloat*)data)[i*4+j+a*4*4*4];
+						addOffset += sizeof(GLfloat);
+					}
+				}
+			}
+			break;
+		default:
+			break;
 		}
 
 	}
@@ -472,6 +511,36 @@ namespace Johnny
 	{
 		if (m_program != 0)
 			glUseProgram(m_program);
+	}
+
+	void Shader::attachUniformBuffer(const std::string& blockName,GLuint bindingPoint)
+	{
+		if(m_program == 0)
+			return;
+
+		GLuint index = getUniformBlockIndex(blockName);
+		if(index == GL_INVALID_INDEX)
+			LogManager::error(std::string("Couldn't find UniformBlock: " + blockName));
+
+		glGetError();
+		glUniformBlockBinding(m_program,index,bindingPoint);
+
+		GLenum error = glGetError();
+		std::string errorStr = "Couldn't bind UniformBlock to BindingPoint " + std::to_string(bindingPoint) + ": ";
+		GLint maxBinding = 0;
+
+		switch(error)
+		{
+		case GL_NO_ERROR:
+			break;
+		case GL_INVALID_VALUE:
+			glGetIntegerv(GL_MAX_UNIFORM_BUFFER_BINDINGS,&maxBinding);
+			LogManager::error(errorStr + (index == 0 ? "UniformBlock is invalid" : ("BindingPoint is too big (MAX: " + std::to_string(maxBinding-1) + ")")));
+			break;
+		default:
+			LogManager::error(errorStr + std::to_string(error));
+			break;
+		}
 	}
 
 	void Shader::addUniform(const std::string & uniform, bool endIfNotThere)
@@ -631,6 +700,23 @@ namespace Johnny
 		else
 		{
 			return 0;
+		}
+	}
+
+	GLuint Shader::getUniformBlockIndex(const std::string& blockName)
+	{
+		if(m_program == 0)
+			return 0;
+
+		if(m_uniformBlockIndices.find(blockName) != m_uniformBlockIndices.end())
+			return m_uniformBlockIndices[blockName];
+		else
+		{
+			GLuint index = glGetUniformBlockIndex(m_program,blockName.c_str());
+			if(index != GL_INVALID_INDEX)
+				m_uniformBlockIndices[blockName] = index;
+
+			return index;
 		}
 	}
 

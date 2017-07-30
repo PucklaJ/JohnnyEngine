@@ -63,6 +63,8 @@ namespace Johnny
 		void unmap();
 		void setVariable(UBOTypes,unsigned int,GLvoid*);
 		void createBuffer(GLuint);
+
+		GLsizei getBufferSize() const {return m_bufferSize;}
 	private:
 		void m_setVariable(UBOTypes,GLsizei,GLvoid*,unsigned int);
 
@@ -87,6 +89,7 @@ namespace Johnny
 		void link();
 		void bind();
 
+		void attachUniformBuffer(const std::string&,GLuint);
 		void addUniform(const std::string&,bool endIfNOtThere = true);
 		void setUniformi(const std::string&,GLint);
 		void setUniformf(const std::string&,GLfloat);
@@ -110,6 +113,7 @@ namespace Johnny
 	private:
 		void addProgram(const std::string&,GLuint);
 		GLuint getUniformLocation(const std::string&);
+		GLuint getUniformBlockIndex(const std::string&);
 
 		std::map<std::string, GLuint> m_uniforms;
 
@@ -120,5 +124,7 @@ namespace Johnny
 
 		bool m_shadowMap = false;
 		bool m_loadDefaultUniforms = true;
+
+		std::map<std::string,GLuint> m_uniformBlockIndices;
 	};
 }
