@@ -13,6 +13,10 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 + **3D Camera**
   - Translating
   - Rotating
++ **2D Camera**
+  - Translating
+  - Rotating
+  - Zooming
 + **Skybox** <br>
 + **Lighting** <br>
   - Pointlights
