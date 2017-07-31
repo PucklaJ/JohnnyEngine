@@ -1,6 +1,6 @@
-# 3DEngine
+# JohnnyEngine
 
-This is a 3D/2D game engine (currently only 3D supported) which uses SDL (maybe will add other frameworks) and OpenGL.
+This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and OpenGL.
 
 ## Features
 
@@ -13,12 +13,12 @@ This is a 3D/2D game engine (currently only 3D supported) which uses SDL (maybe 
 + **3D Camera**
   - Translating
   - Rotating
-+ **Skybox**
-+ **Lighting** <br/>
++ **Skybox** <br>
++ **Lighting** <br>
   - Pointlights
   - Spotlights
   - Directionallights
-+ **Shadows** <br/>
++ **Shadows** <br>
   - for Directionallights, Spotlights
 + **Gamepad input**
   - Complete simple to use gamepad implemantation
@@ -61,9 +61,7 @@ This is a 3D/2D game engine (currently only 3D supported) which uses SDL (maybe 
 ## Future Plans
 
 + **Full 2D support**
-  - Render 2D textures
-  - 2D translation, rotation, scale
-  - 2D Camera with translating, rotating and scaling
+  - Sprite2D class to easily program a 2D game
 + **Water**
 + **Sceletal Animation**
 + **Point Shadows**
