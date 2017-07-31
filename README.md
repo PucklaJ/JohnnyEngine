@@ -7,7 +7,7 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 + **Render 3D Models**
   - Materials with textures
 + **Loading 3D Models**
-  - Fileformats: .obj, .dae, .fbx, .stl, .blend ...
+  - Fileformats: .obj, .dae, .fbx, .stl, .blend ...
 + **Render 2D textures**
 + **Render 2D text**
 + **3D Camera**
@@ -17,13 +17,13 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
   - Translating
   - Rotating
   - Zooming
-+ **Skybox** <br>
-+ **Lighting** <br>
-  - Pointlights
++ **Skybox**
++ **Lighting**
+  - Pointlights
   - Spotlights
   - Directionallights
-+ **Shadows** <br>
-  - for Directionallights, Spotlights
++ **Shadows**
+  - for Directionallights, Spotlights
 + **Gamepad input**
   - Complete simple to use gamepad implemantation
 
