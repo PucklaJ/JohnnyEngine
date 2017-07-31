@@ -36,6 +36,8 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 - [assimp](http://assimp.org/)
 - [OpenGL](https://www.opengl.org/)
 - [GLEW](http://glew.sourceforge.net/)
+- [stb](https://github.com/nothings/stb)
+  - (Already included)
 
 #### Windows - Visual Studio
 
