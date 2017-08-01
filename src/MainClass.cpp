@@ -105,6 +105,7 @@ namespace Johnny
 
 	void MainClass::afterInit()
 	{
+        RenderManager::loadDefaultShaders(m_resourceManager,m_lighting3D);
 		addChild(m_skybox);
 	}
 

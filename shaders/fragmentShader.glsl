@@ -78,13 +78,20 @@ out vec4 fragColor;
 
 #if NUM_POINT_LIGHTS > 0
 uniform PointLight pointLights[NUM_POINT_LIGHTS];
+#else
+uniform PointLight pointLights[1];
 #endif
 #if NUM_DIRECTIONAL_LIGHTS > 0
 uniform DirectionalLight directionalLights[NUM_DIRECTIONAL_LIGHTS];
+#else
+uniform DirectionalLight directionalLights[1];
 #endif
 #if NUM_SPOT_LIGHTS > 0
 uniform SpotLight spotLights[NUM_SPOT_LIGHTS];
+#else
+uniform SpotLight spotLights[1];
 #endif
+
 uniform vec4 ambientLight;
 uniform vec3 eyePosition;
 uniform Material material;
@@ -110,25 +117,23 @@ void main()
 	
 	vec4 resultingColor;
 
-	#if NUM_POINT_LIGHTS > 0
 	for(int i = 0;i<NUM_POINT_LIGHTS;i++)
 		resultingColor += vec4(calculatePointLight(pointLights[i],vertexPositionOut,vertexNormalOut),1.0);
-	#endif
-	#if NUM_DIRECTIONAL_LIGHTS > 0
+        
+
 	for(int i = 0;i<NUM_DIRECTIONAL_LIGHTS;i++)
 		resultingColor += vec4(calculateDirectionalLight(directionalLights[i],vertexPositionOut,vertexNormalOut),1.0);
-	#endif
-	#if NUM_SPOT_LIGHTS > 0
+
+
 	for(int i = 0;i<NUM_SPOT_LIGHTS;i++)
 		resultingColor += vec4(calculateSpotLight(spotLights[i],vertexPositionOut,vertexNormalOut),1.0);
-	#endif
+
 	
-	#if NUM_POINT_LIGHTS <= 0 && NUM_DIRECTIONAL_LIGHTS <= 0 && NUM_SPOT_LIGHTS <= 0
 
-	resultingColor.xyz = ambientColor.xyz * ambientColor.w * eyePosition / eyePosition;
+    if(NUM_POINT_LIGHTS == 0 && NUM_SPOT_LIGHTS == 0 && NUM_DIRECTIONAL_LIGHTS == 0)
+        resultingColor.xyz = ambientColor.xyz * ambientColor.w * eyePosition / eyePosition;
 
-	#endif
-
+	
 	resultingColor.w = material.transperancy;
 
 	fragColor = resultingColor;

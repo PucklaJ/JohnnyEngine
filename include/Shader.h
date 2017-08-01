@@ -93,7 +93,7 @@ namespace Johnny
 		void bind();
 
 		void attachUniformBuffer(const std::string&,GLuint);
-		void addUniform(const std::string&,bool endIfNOtThere = true);
+		bool addUniform(const std::string&,bool endIfNOtThere = true);
 		void setUniformi(const std::string&,GLint);
 		void setUniformf(const std::string&,GLfloat);
 		void setUniformVec2(const std::string&,const glm::vec2&);

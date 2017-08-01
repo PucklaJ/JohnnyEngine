@@ -44,7 +44,10 @@ namespace Johnny
 
 	bool Skybox::init()
 	{
-		m_cubeMap = new CubeMap3D(m_textures[SkyboxTex::TOP], m_textures[SkyboxTex::BOTTOM], m_textures[SkyboxTex::LEFT], m_textures[SkyboxTex::RIGHT], m_textures[SkyboxTex::FRONT], m_textures[SkyboxTex::BACK], m_mainClass->getResourceManager());
+        if(!m_texturesSet)
+            return true;
+            
+            m_cubeMap = new CubeMap3D(m_textures[SkyboxTex::TOP], m_textures[SkyboxTex::BOTTOM], m_textures[SkyboxTex::LEFT], m_textures[SkyboxTex::RIGHT], m_textures[SkyboxTex::FRONT], m_textures[SkyboxTex::BACK], m_mainClass->getResourceManager());
 
 		if (SKYBOX_SHADER == nullptr)
 		{
@@ -133,17 +136,20 @@ namespace Johnny
 
 	bool Skybox::render()
 	{
-		glm::mat4 projectionMatrix = m_mainClass->getCamera3D()->getViewMatrix();
-		projectionMatrix[3][0] = 0;
-		projectionMatrix[3][1] = 0;
-		projectionMatrix[3][2] = 0;
-		projectionMatrix = Transform3D::getProjectionMatrix() * projectionMatrix;
+        if(m_texturesSet)
+        {
+            glm::mat4 projectionMatrix = m_mainClass->getCamera3D()->getViewMatrix();
+            projectionMatrix[3][0] = 0;
+            projectionMatrix[3][1] = 0;
+            projectionMatrix[3][2] = 0;
+            projectionMatrix = Transform3D::getProjectionMatrix() * projectionMatrix;
 
-		SKYBOX_SHADER->setUniformMat4("projectionMatrix", projectionMatrix);
-		m_cubeMap->bind(SKYBOX_SHADER, "cubeMap", 0, GL_TEXTURE_CUBE_MAP);
-		SKYBOX_MESH->render();
-		m_cubeMap->unbind(0, GL_TEXTURE_CUBE_MAP);
-
+            SKYBOX_SHADER->setUniformMat4("projectionMatrix", projectionMatrix);
+            m_cubeMap->bind(SKYBOX_SHADER, "cubeMap", 0, GL_TEXTURE_CUBE_MAP);
+            SKYBOX_MESH->render();
+            m_cubeMap->unbind(0, GL_TEXTURE_CUBE_MAP);
+        }
+		
 		return true;
 	}
 
@@ -155,6 +161,7 @@ namespace Johnny
 	void Skybox::setTexture(short which, const std::string& fileName)
 	{
 		m_textures[which] = fileName;
+        m_texturesSet = true;
 	}
 
 	SkyboxMesh::SkyboxMesh()

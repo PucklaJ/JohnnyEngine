@@ -543,9 +543,11 @@ namespace Johnny
 		}
 	}
 
-	void Shader::addUniform(const std::string & uniform, bool endIfNotThere)
+	bool Shader::addUniform(const std::string & uniform, bool endIfNotThere)
 	{
 		GLuint uniLoc = glGetUniformLocation(m_program, uniform.c_str());
+
+        m_uniforms.insert(std::pair<std::string, GLuint>(uniform, uniLoc));
 
 		if (uniLoc == (GLuint)-1)
 		{
@@ -553,85 +555,147 @@ namespace Johnny
 			{
 				LogManager::error("Couldn't find uniform: " + uniform);
 				shutdownProgram();
+                return false;
 			}
 
 		}
 		else
 		{
-			m_uniforms.insert(std::pair<std::string, GLuint>(uniform, uniLoc));
+            
+            return true;
 		}
 	}
 
 	void Shader::setUniformi(const std::string & name, GLint i)
 	{
 		if (m_program != 0)
-			glUniform1i(getUniformLocation(name), i);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniform1i(loc, i);
+        }
 	}
 
 	void Shader::setUniformf(const std::string & name, GLfloat f)
 	{
 		if (m_program != 0)
-			glUniform1f(getUniformLocation(name), f);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniform1f(loc, f);
+        }
 	}
 
 	void Shader::setUniformVec2(const std::string& name, const glm::vec2& vec)
 	{
 		if (m_program != 0)
-			glUniform2f(getUniformLocation(name), vec.x, vec.y);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniform2f(loc, vec.x,vec.y);
+        }
 	}
 
 	void Shader::setUniformVec2(const std::string& name, const Vector2f& vec)
 	{
 		if (m_program != 0)
-			glUniform2f(getUniformLocation(name), vec.x, vec.y);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniform2f(loc, vec.x,vec.y);
+        }
 	}
 
 	void Shader::setUniformVec3(const std::string & name, const glm::vec3 & vec)
 	{
 		if (m_program != 0)
-			glUniform3f(getUniformLocation(name), vec.x, vec.y, vec.z);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniform3f(loc, vec.x,vec.y,vec.z);
+        }
 	}
 
 	void Shader::setUniformVec3(const std::string & name, const Vector3f& vec)
 	{
 		if (m_program != 0)
-			glUniform3f(getUniformLocation(name), vec.x, vec.y, vec.z);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniform3f(loc, vec.x,vec.y,vec.z);
+        }
 	}
 
 	void Shader::setUniformVec4(const std::string & name, const glm::vec4 & vec)
 	{
 		if (m_program != 0)
-			glUniform4f(getUniformLocation(name), vec.x, vec.y, vec.z, vec.w);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniform4f(loc, vec.x,vec.y,vec.z,vec.w);
+        }
 	}
 
 	void Shader::setUniformVec4(const std::string & name, const Vector4f& vec)
 	{
 		if (m_program != 0)
-			glUniform4f(getUniformLocation(name), vec.x, vec.y, vec.z, vec.w);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniform4f(loc, vec.x,vec.y,vec.z,vec.w);
+        }
 	}
 
 	void Shader::setUniformMat4(const std::string & name, const glm::mat4 & mat)
 	{
 		if (m_program != 0)
-			glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &mat[0][0]);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniformMatrix4fv(loc,1,GL_FALSE, &mat[0][0]);
+        }
 	}
 
 	void Shader::setUniformMat4(const std::string& name, const Matrix4f& mat)
 	{
 		if (m_program != 0)
-			glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, mat.values);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniformMatrix4fv(loc,1,GL_FALSE, mat.values);
+        }
 	}
 
 	void Shader::setUniformMat3(const std::string& name, const glm::mat3& mat)
 	{
 		if (m_program != 0)
-			glUniformMatrix3fv(getUniformLocation(name), 1, GL_FALSE, &mat[0][0]);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniformMatrix3fv(loc,1,GL_FALSE, &mat[0][0]);
+        }
 	}
 
 	void Shader::setUniformMat3(const std::string& name, const Matrix3f& mat)
 	{
 		if (m_program != 0)
-			glUniformMatrix3fv(getUniformLocation(name), 1, GL_FALSE, mat.values);
+        {
+            GLuint loc = getUniformLocation(name);
+            
+            if(loc != 4294967295)
+                glUniformMatrix3fv(loc,1,GL_FALSE,mat.values);
+        }
 	}
 
 	void Shader::addProgram(const std::string & text, GLuint type)
@@ -704,11 +768,19 @@ namespace Johnny
 	{
 		if (m_program != 0)
 		{
+            
 			std::map<std::string, GLuint>::iterator it = m_uniforms.find(name);
+            
 			if (it == m_uniforms.end())
 			{
-				addUniform(name, false);
-				return m_uniforms[name];
+				if(addUniform(name, false))
+                    return m_uniforms[name];
+                else
+                {
+                    std::cout << "Error" << std::endl;
+                    return 4294967295;
+                }
+                    
 			}
 			else
 			{
@@ -717,7 +789,7 @@ namespace Johnny
 		}
 		else
 		{
-			return 0;
+			return 4294967295;
 		}
 	}
 
