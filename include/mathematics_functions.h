@@ -6,6 +6,8 @@
 #include <math.h>
 #include <cstdlib>
 #include <vector>
+#include <glm/glm.hpp>
+#include <algorithm>
 
 namespace Johnny
 {
@@ -80,4 +82,7 @@ namespace Johnny
 	{
 		return (var > max ? max : (var < min ? min : var));
 	}
+    
+    extern void print(const glm::mat3&);
+    extern void print(const glm::mat4&);
 }

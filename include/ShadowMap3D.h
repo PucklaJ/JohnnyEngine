@@ -1,6 +1,6 @@
 #pragma once
 #include "../include/Texture.h"
-#include <glm/glm.hpp>
+#include "../include/Matrix4.h"
 #include <string>
 
 #define SHADOW_POINT 1
@@ -44,7 +44,7 @@ namespace Johnny
 		SpotLight3D* m_spotLight = nullptr;
 		GLuint m_curLight = 0;
 
-		glm::mat4 m_lightSpaceMatrix;
+		Matrix4f m_lightSpaceMatrix;
 	};
 
 }

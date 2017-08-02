@@ -672,7 +672,7 @@ namespace Johnny
             GLuint loc = getUniformLocation(name);
             
             if(loc != 4294967295)
-                glUniformMatrix4fv(loc,1,GL_FALSE, mat.values);
+                glUniformMatrix4fv(loc,1,GL_FALSE, &mat.values[0]);
         }
 	}
 
@@ -694,7 +694,7 @@ namespace Johnny
             GLuint loc = getUniformLocation(name);
             
             if(loc != 4294967295)
-                glUniformMatrix3fv(loc,1,GL_FALSE,mat.values);
+                glUniformMatrix3fv(loc,1,GL_FALSE, &mat.values[0]);
         }
 	}
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "../include/Vector4.h"
 #include "../include/Vector3.h"
+#include <glm/glm.hpp>
 #include <iostream>
 
 #define MAT4_GET(r,c) (r + c * 4)
@@ -37,6 +38,8 @@ namespace Johnny
 			T values[4 * 4] INIT_IDENTITY;
 			Vector4<T> columns[4];
 		};
+        
+        glm::mat4 toGLM() const;
 
 		Matrix4& multiply(const Matrix4&);
 		Matrix4& multiply(const T&);
@@ -55,6 +58,9 @@ namespace Johnny
 
 		friend std::ostream& operator<< <>(std::ostream&, const Matrix4<T>&);
 	};
+    
+    template<class T>
+    extern Matrix4<T> toMy(const glm::mat4&);
 
 	typedef Matrix4<GLfloat> Matrix4f;
 	typedef Matrix4<GLdouble> Matrix4d;

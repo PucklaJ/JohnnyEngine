@@ -1,6 +1,7 @@
 #pragma once
 #include "../include/Vector3.h"
 #include "../include/Vector2.h"
+#include <glm/glm.hpp>
 #include <iostream>
 
 #define MAT3_GET(r,c) (r + c * 3)
@@ -37,6 +38,8 @@ namespace Johnny
 			T values[3 * 3];
 			Vector3<T> columns[3];
 		};
+        
+        glm::mat3 toGLM();
 
 		Matrix3& multiply(const Matrix3&);
 		Matrix3& multiply(const T&);
@@ -56,6 +59,9 @@ namespace Johnny
 
 		friend std::ostream& operator<< <>(std::ostream&, const Matrix3<T>&);
 	};
+    
+    template<class T>
+    Matrix3<T> toMy(const glm::mat3&);
 
 	typedef Matrix3<GLfloat> Matrix3f;
 	typedef Matrix3<GLdouble> Matrix3d;

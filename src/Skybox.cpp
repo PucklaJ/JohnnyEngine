@@ -138,11 +138,11 @@ namespace Johnny
 	{
         if(m_texturesSet)
         {
-            glm::mat4 projectionMatrix = m_mainClass->getCamera3D()->getViewMatrix();
+            glm::mat4 projectionMatrix = m_mainClass->getCamera3D()->getViewMatrix().toGLM();
             projectionMatrix[3][0] = 0;
             projectionMatrix[3][1] = 0;
             projectionMatrix[3][2] = 0;
-            projectionMatrix = Transform3D::getProjectionMatrix() * projectionMatrix;
+            projectionMatrix = Transform3D::getProjectionMatrix().toGLM() * projectionMatrix;
 
             SKYBOX_SHADER->setUniformMat4("projectionMatrix", projectionMatrix);
             m_cubeMap->bind(SKYBOX_SHADER, "cubeMap", 0, GL_TEXTURE_CUBE_MAP);

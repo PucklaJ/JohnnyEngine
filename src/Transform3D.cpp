@@ -2,17 +2,17 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include "../include/Camera3D.h"
-#define M_PI 3.14159265f
+#include "../include/mathematics.h"
 
 namespace Johnny
 {
-	float Transform3D::zFar;
-	float Transform3D::zNear;
-	float Transform3D::width;
-	float Transform3D::height;
-	float Transform3D::fov;
+	GLfloat Transform3D::zFar;
+	GLfloat Transform3D::zNear;
+	GLfloat Transform3D::width;
+	GLfloat Transform3D::height;
+	GLfloat Transform3D::fov;
 
-	void Transform3D::setProjection(float fov, float width, float height, float zNear, float zFar)
+	void Transform3D::setProjection(GLfloat fov, GLfloat width, GLfloat height, GLfloat zNear, GLfloat zFar)
 	{
 		Transform3D::fov = fov;
 		Transform3D::width = width;
@@ -21,16 +21,17 @@ namespace Johnny
 		Transform3D::zFar = zFar;
 	}
 
-	glm::mat4 Transform3D::getProjectionMatrix()
+	Matrix4f Transform3D::getProjectionMatrix()
 	{
-		return glm::perspective(fov, width / height, zNear, zFar);
-	}
+        return Matrix4f::perspective(fov,width / height,zFar,zNear);
+    }
 
-	Transform3D::Transform3D()
+	Transform3D::Transform3D() :
+        m_translation(0.0f,0.0f,0.0f),
+        m_rotation(0.0f,0.0f,0.0f),
+        m_scale(1.0f,1.0f,1.0f)
 	{
-		m_translation = glm::vec3(0.0f, 0.0f, 0.0f);
-		m_rotation = glm::vec3(0.0f, 0.0f, 0.0f);
-		m_scale = glm::vec3(1.0f, 1.0f, 1.0f);
+		
 	}
 
 
@@ -38,32 +39,19 @@ namespace Johnny
 	{
 	}
 
-	void Transform3D::setTranslation(const glm::vec3 & vec)
+	void Transform3D::setTranslation(const Vector3f& vec)
 	{
 		m_translation = vec;
 	}
 
-	void Transform3D::setTranslation(float x, float y, float z)
+	void Transform3D::setTranslation(GLfloat x, GLfloat y, GLfloat z)
 	{
-		m_translation = glm::vec3(x, y, z);
+		setTranslation(Vector3f(x,y,z));
 	}
 
-	glm::mat4 Transform3D::getTransformation() const
+	Matrix4f Transform3D::getTransformation() const
 	{
-		glm::mat4 translationMatrix;
-		glm::mat4 rotationMatrix;
-		glm::mat4 scaleMatrix;
-
-		/*float m[16];
-
-		m[0] = 1;	m[1] = 0; m[2] = 0; m[3] = m_translation.x;
-		m[4] = 0;	m[5] = 1; m[6] = 0; m[7] = m_translation.y;
-		m[8] = 0;	m[9] = 0; m[10] = 1; m[11] = m_translation.z;
-		m[12] = 0;	m[13] = 0; m[14] = 0; m[15] = 1;
-
-		translationMatrix = glm::make_mat4(m);*/
-
-		glm::mat4 rxm, rym, rzm;
+		/*glm::mat4 rxm, rym, rzm;
 
 		float x = m_rotation.x;
 		float y = m_rotation.y;
@@ -94,78 +82,43 @@ namespace Johnny
 		rym = glm::make_mat4(ry);
 		rzm = glm::make_mat4(rz);
 
-		rotationMatrix = rzm * rym * rxm;
+		rotationMatrix = rzm * rym * rxm;*/
 
-		/*float sx = m_scale.x;
-		float sy = m_scale.y;
-		float sz = m_scale.z;
-
-		float s[16];
-
-		s[0] = sx;	s[1] = 0; s[2] = 0; s[3] = 0;
-		s[4] = 0;	s[5] = sy; s[6] = 0; s[7] = 0;
-		s[8] = 0;	s[9] = 0; s[10] = sz; s[11] = 0;
-		s[12] = 0;	s[13] = 0; s[14] = 0; s[15] = 1;
-
-		scaleMatrix = glm::make_mat4(s);*/
-
-
-		translationMatrix = glm::translate(glm::mat4(), m_translation);
-
-		/*rotationMatrix = glm::rotate(glm::mat4(), m_rotation.x / 180.0f*M_PI, glm::vec3(1.0, 0.0, 0.0));
-		rotationMatrix = glm::rotate(rotationMatrix, m_rotation.y/180.0f*M_PI, glm::vec3(0.0, 1.0, 0.0));
-		rotationMatrix = glm::rotate(rotationMatrix, m_rotation.z / 180.0f*M_PI, glm::vec3(0.0, 0.0, 1.0));*/
-
-		scaleMatrix = glm::scale(glm::mat4(), m_scale);
-
-		return translationMatrix * rotationMatrix * scaleMatrix;
+		return Matrix4f::translate(m_translation) * (Matrix4f::rotate(m_rotation.y,Vector3f(0.0f,1.0f,0.0f))*
+                                                                    Matrix4f::rotate(m_rotation.x,Vector3f(1.0f,0.0f,0.0f))*
+                                                                    Matrix4f::rotate(m_rotation.z,Vector3f(0.0f,0.0f,-1.0f)))*
+               Matrix4f::scale(m_scale);
 	}
 
-	glm::mat4 Transform3D::getProjectedTransformation(Camera3D* cam) const
+	Matrix4f Transform3D::getProjectedTransformation(Camera3D* cam) const
 	{
-		glm::mat4 trans = getTransformation();
-		glm::mat4 proj;
-
-		float ar = width / height;
-
-		/*float tanHalfFov = (float)tan(fov / 180.0f*M_PI / 2.0f);
-		float zRange = zNear - zFar;
-
-		float pr[16];
-
-		pr[0] = 1.0f / (tanHalfFov * ar);	pr[1] = 0; 				   pr[2] = 0; 					  pr[3] = 0;
-		pr[4] = 0;							pr[5] = 1.0f / tanHalfFov; pr[6] = 0; 					  pr[7] = 0;
-		pr[8] = 0;							pr[9] = 0; 				   pr[10] = (-zNear - zFar) / zRange; pr[11] = 2.0f * zFar * zNear / zRange;
-		pr[12] = 0;							pr[13] = 0; 			   pr[14] = 1; 					  pr[15] = 0;
-
-		proj = glm::make_mat4(pr);*/
-
-		proj = glm::perspective(fov / 180.0f * M_PI, ar, zNear, zFar);
-
 		if (cam == nullptr)
-			return proj*trans;
+			return getProjectionMatrix()*getTransformation();
 		else
-			return proj*cam->getViewMatrix()*trans;
+        {
+            return getProjectionMatrix()*cam->getViewMatrix()*getTransformation();
+        }
+			
 	}
 
-	void Transform3D::setRotation(const glm::vec3 & vec)
+	void Transform3D::setRotation(const Vector3f& vec)
 	{
 		m_rotation = vec;
 	}
 
-	void Transform3D::setRotation(float x, float y, float z)
+	void Transform3D::setRotation(GLfloat x, GLfloat y, GLfloat z)
 	{
-		m_rotation = glm::vec3(x, y, z);
+		setRotation(Vector3f(x,y,z));
 	}
 
-	void Transform3D::setScale(const glm::vec3 & vec)
+	void Transform3D::setScale(const Vector3f& vec)
 	{
 		m_scale = vec;
 	}
 
-	void Transform3D::setScale(float x, float y, float z)
+	void Transform3D::setScale(GLfloat x, GLfloat y, GLfloat z)
 	{
-		m_scale = glm::vec3(x, y, z);
+		setScale(Vector3f(x,y,z));
 	}
 
 }

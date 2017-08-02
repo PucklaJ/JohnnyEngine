@@ -7,6 +7,7 @@
 	#define _USE_MATH_DEFINES 1
 #endif
 #include "../include/mathematics_functions.h"
+#include <glm/glm.hpp>
 
 namespace Johnny
 {
@@ -230,6 +231,22 @@ namespace Johnny
 		for (unsigned int i = 0; i < 16; i++)
 			values[i] = mat.values[i];
 	}
+    
+    template<class T>
+    glm::mat4 Matrix4<T>::toGLM() const
+    {
+        glm::mat4 matrix;
+        
+        for(unsigned int x = 0;x<4;x++)
+        {
+            for(unsigned int y = 0;y<4;y++)
+            {
+                matrix[y][x] = values[MAT4_GET(x,y)];
+            }
+        }
+        
+        return matrix;
+    }
 
 	template<class T>
 	Matrix4<T>& Matrix4<T>::multiply(const Matrix4<T>& mat)
@@ -335,6 +352,22 @@ namespace Johnny
 
 		return os;
 	}
+    
+    template<class T>
+    Matrix4<T> toMy(const glm::mat4& matrix)
+    {
+        Matrix4<T> mat(1);
+        
+        for(unsigned int x = 0;x<4;x++)
+        {
+            for(unsigned int y = 0;y<4;y++)
+            {
+                mat.values[MAT4_GET(y,x)] = matrix[x][y];
+            }
+        }
+        
+        return mat;
+    }
 }
 
 #endif

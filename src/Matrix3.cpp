@@ -5,6 +5,7 @@
 #include <string>
 #include "../include/mathematics_functions.h"
 #include <GL/glew.h>
+#include <glm/glm.hpp>
 
 namespace Johnny
 {
@@ -116,6 +117,22 @@ namespace Johnny
 		for (unsigned int i = 0; i < 9; i++)
 			values[i] = mat.values[i];
 	}
+    
+    template<class T>
+    glm::mat3 Matrix3<T>::toGLM()
+    {
+        glm::mat3 matrix;
+        
+        for(unsigned int x = 0;x<3;x++)
+        {
+            for(unsigned int y = 0;y<3;y++)
+            {
+                matrix[y][x] = values[MAT3_GET(y,x)];
+            }
+        }
+        
+        return matrix;
+    }
 
 	template<class T>
 	Matrix3<T>& Matrix3<T>::multiply(const Matrix3<T>& mat)
@@ -228,6 +245,22 @@ namespace Johnny
 
 		return os;
 	}
+    
+    template<class T>
+    Matrix3<T> toMy(const glm::mat3& matrix)
+    {
+        Matrix3<T> mat(1);
+        
+        for(unsigned int x = 0;x<3;x++)
+        {
+            for(unsigned int y = 0;y<3;y++)
+            {
+                mat.values[MAT3_GET(y,x)] = matrix[y][x];
+            }
+        }
+        
+        return mat;
+    }
 }
 
 #endif

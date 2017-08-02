@@ -59,8 +59,9 @@ namespace Johnny
 	bool Entity3D::render()
 	{
 		if (!m_shader->isShadowMap())
-			m_shader->setUniformMat4("transform",m_isAffectedByCamera ? m_transform.getProjectedTransformation(m_mainClass->getCamera3D()) : m_transform.getTransformation());
-		m_shader->setUniformMat4("worldMatrix", m_transform.getTransformation());
+            m_shader->setUniformMat4("transform",m_isAffectedByCamera ? m_transform.getProjectedTransformation(m_mainClass->getCamera3D()) : m_transform.getTransformation());
+			
+		m_shader->setUniformMat4("worldMatrix", m_transform.getTransformation().toGLM());
 
 		m_model->render(m_shader);
 

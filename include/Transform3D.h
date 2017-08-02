@@ -1,5 +1,6 @@
 #pragma once
-#include <glm/glm.hpp>
+#include "Vector3.h"
+#include "Matrix4.h"
 
 namespace Johnny
 {
@@ -8,41 +9,41 @@ namespace Johnny
 	class Transform3D
 	{
 	public:
-		static glm::mat4 getProjectionMatrix();
+		static Matrix4f getProjectionMatrix();
 
 		Transform3D();
 		~Transform3D();
 
-		const glm::vec3& getTranslation() const { return m_translation; }
-		void setTranslation(const glm::vec3&);
-		void setTranslation(float, float, float);
+		const Vector3f& getTranslation() const { return m_translation; }
+		void setTranslation(const Vector3f&);
+		void setTranslation(GLfloat, GLfloat, GLfloat);
 
-		const glm::vec3& getRotation() const { return m_rotation; }
-		void setRotation(const glm::vec3&);
-		void setRotation(float, float, float);
+		const Vector3f& getRotation() const { return m_rotation; }
+		void setRotation(const Vector3f&);
+		void setRotation(GLfloat, GLfloat, GLfloat);
 
-		const glm::vec3& getScale() const { return m_scale; }
-		void setScale(const glm::vec3&);
-		void setScale(float, float, float);
+		const Vector3f& getScale() const { return m_scale; }
+		void setScale(const Vector3f&);
+		void setScale(GLfloat, GLfloat, GLfloat);
 
-		glm::mat4 getTransformation() const;
+		Matrix4f getTransformation() const;
 
-		glm::mat4 getProjectedTransformation(Camera3D* cam = nullptr) const;
+		Matrix4f getProjectedTransformation(Camera3D* cam = nullptr) const;
 
-		static void setProjection(float, float, float, float, float);
-		static float getNearPlane() { return zNear; }
-		static float getFarPlane() { return zFar; }
-		static float getFOV() { return fov; }
+		static void setProjection(GLfloat, GLfloat, GLfloat, GLfloat, GLfloat);
+		static GLfloat getNearPlane() { return zNear; }
+		static GLfloat getFarPlane() { return zFar; }
+		static GLfloat getFOV() { return fov; }
 
 	private:
-		static float zNear;
-		static float zFar;
-		static float width;
-		static float height;
-		static float fov;
+		static GLfloat zNear;
+		static GLfloat zFar;
+		static GLfloat width;
+		static GLfloat height;
+		static GLfloat fov;
 
-		glm::vec3 m_translation;
-		glm::vec3 m_rotation;
-		glm::vec3 m_scale;
+		Vector3f m_translation;
+		Vector3f m_rotation;
+		Vector3f m_scale;
 	};
 }

@@ -1,16 +1,16 @@
 #ifndef MAINCLASS_H
 #define MAINCLASS_H
-#include "../include/InputManager.h"
+#include "InputManager.h"
 #include <SDL2/SDL_events.h>
-#include "../include/Actor.h"
-#include "../include/Window.h"
+#include "Actor.h"
+#include "Window.h"
 #include <chrono>
-#include "../include/SDL2_framerate.h"
+#include "SDL2_framerate.h"
 #include <SDL2/SDL_pixels.h>
 #include <SDL2/SDL_mixer.h>
-#include <glm/glm.hpp>
 #include <GL/glew.h>
-#include "../include/Timer.h"
+#include "Timer.h"
+#include "Vector2.h"
 
 #define NO_FPS_LOCK -1
 
@@ -56,7 +56,7 @@ namespace Johnny
             void run();
 
             void setAmbientLight3D(const SDL_Color&);
-            void setNativeRes(const glm::vec2& v);
+            void setNativeRes(const Vector2f& v);
             void setBackgroundColor(const SDL_Color&);
 
 			void renderSceneForShadowMap(Shader*);
@@ -78,7 +78,7 @@ namespace Johnny
 			Camera2D* getCamera2D();
             float getScaleW() const {return m_scaleW;}
             float getScaleH() const {return m_scaleH;}
-            const glm::vec2& getNativeRes() const {return m_nativeResolution;}
+            const Vector2f& getNativeRes() const {return m_nativeResolution;}
             const SDL_Color& getBackgroundColor() const {return m_backgroundColor;}
             
             virtual bool render() override;
@@ -139,7 +139,7 @@ namespace Johnny
             
             SDL_Color m_backgroundColor;
         
-            glm::vec2 m_nativeResolution;
+            Vector2f m_nativeResolution;
 			Uint32 m_initWindowFlags = 0;
 			Uint32 m_initFlags = 0;
     };

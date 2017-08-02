@@ -2,7 +2,6 @@
 #define VECTOR3_CPP
 #include "../include/Vector3.h"
 #include <cmath>
-#include "../include/Vector3.h"
 
 namespace Johnny
 {
@@ -36,6 +35,12 @@ namespace Johnny
 		else
 			return sqrt(x*x + y*y + z*z);
 	}
+    template<class T>
+    glm::vec3 Vector3<T>::toGLM() const
+    {
+        return glm::vec3(x,y,z);
+    }
+    
 	template<class T>
 	Vector3<T>& Vector3<T>::normalise()
 	{
@@ -47,6 +52,12 @@ namespace Johnny
 
 		return *this;
 	}
+    template<class T>
+    Vector3<T> Vector3<T>::normaliseConst() const
+    {
+        return Vector3<T>(*this).normalise();
+    }
+    
 	template<class T>
 	Vector3<T>& Vector3<T>::add(const Vector3<T>& v)
 	{
@@ -212,6 +223,11 @@ namespace Johnny
 			break;
 		}
 	}
+    template<class T>
+    Vector3<T> toMy(const glm::vec3& v)
+    {
+        return Vector3<T>((T)v.x,(T)v.y,(T)v.z);
+    }
 }
 
 #endif

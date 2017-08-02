@@ -14,7 +14,8 @@ namespace Johnny
 {
 	ShadowMap3D::ShadowMap3D(GLsizei width, GLsizei height) : Texture(nullptr, width, height, GL_DEPTH_COMPONENT, GL_DEPTH_COMPONENT, GL_FLOAT),
 		m_width(width),
-		m_height(height)
+		m_height(height),
+        m_lightSpaceMatrix(1)
 	{
 		m_frameBuffer = new FrameBuffer();
 		m_frameBuffer->bind();
@@ -82,25 +83,28 @@ namespace Johnny
 
 	void ShadowMap3D::configureMatricesAndShader(Shader* s)
 	{
-		glm::mat4 lightProjection;
-		glm::mat4 lightView;
-		glm::vec3 direction;
-		glm::vec3 position;
+		Matrix4f lightProjection(1);
+		Matrix4f lightView(1);
+		Vector3f direction;
+		Vector3f position;
 
 		if (m_curLight == SHADOW_DIR)
 		{
-			direction = glm::vec3(m_directionalLight->direction.x,m_directionalLight->direction.y,m_directionalLight->direction.z);
+			direction = m_directionalLight->direction;
 
-			lightView = glm::lookAt(-direction*4.582f, -direction*4.582f + direction, glm::vec3(0.0, 1.0, 0.0));
-			lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.1f, 100.0f);
-		}
+			lightView = Matrix4f::lookAt(-direction*4.582f, -direction*4.582f + direction, Vector3f(0.0f, 1.0f, 0.0f));
+			lightProjection = toMy<GLfloat>(glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.1f, 100.0f));
+        }
 		else if (m_curLight == SHADOW_SPOT)
 		{
-			direction = glm::vec3(m_spotLight->direction.x,m_spotLight->direction.y,m_spotLight->direction.z);
-			position = glm::vec3(m_spotLight->position.x,m_spotLight->position.y,m_spotLight->position.z);
+			direction = m_spotLight->direction;
+			position = m_spotLight->position;
 
-			lightView = glm::lookAt(position, position + direction, glm::vec3(0.0, 1.0, 0.0));
-			lightProjection = glm::perspective(/*m_spotLight->outerCutOff * (float)M_PI / 180.0f*/Transform3D::getFOV() / 180.0f * (float)M_PI, /*(float)m_width / (float)m_height*/MainClass::getInstance()->getNativeRes().x / MainClass::getInstance()->getNativeRes().y, glm::clamp(Transform3D::getNearPlane(), 1.0f, 10.0f), glm::clamp(Transform3D::getFarPlane(), 100.0f, 1000.0f));
+			lightView = Matrix4f::lookAt(position, position + direction, Vector3f(0.0f, 1.0f, 0.0f));
+			lightProjection = Matrix4f::perspective(/*m_spotLight->outerCutOff * (float)M_PI / 180.0f*/Transform3D::getFOV(),
+                                                    /*(float)m_width / (float)m_height*/MainClass::getInstance()->getNativeRes().x / MainClass::getInstance()->getNativeRes().y,
+                                                    clamp(Transform3D::getFarPlane(), 100.0f, 1000.0f),
+                                                    clamp(Transform3D::getNearPlane(), 1.0f, 10.0f));
 		}
 
 		m_lightSpaceMatrix = lightProjection * lightView;

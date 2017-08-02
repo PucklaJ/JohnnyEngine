@@ -186,7 +186,7 @@ namespace Johnny
 
 		Settings::m_initialized = true;
         
-        m_nativeResolution = glm::vec2(m_windowWidth, m_windowHeight);
+        m_nativeResolution = Vector2f(m_windowWidth, m_windowHeight);
 
         m_scaleW = m_windowWidth/m_nativeResolution.x;
         m_scaleH = m_windowHeight/m_nativeResolution.y;
@@ -458,7 +458,7 @@ namespace Johnny
 		Lighting3D::ambientLight = Vector4f((GLfloat)col.r / 255.0f,(GLfloat)col.g / 255.0f, (GLfloat)col.b / 255.0f, (GLfloat)col.a / 255.0f);
     }
     
-    void MainClass::setNativeRes(const glm::vec2& v)
+    void MainClass::setNativeRes(const Vector2f& v)
     {
         m_nativeResolution = v;
 

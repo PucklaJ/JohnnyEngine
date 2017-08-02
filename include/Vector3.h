@@ -2,6 +2,7 @@
 #include <GL/glew.h>
 #include <iostream>
 #include "Vector4.h"
+#include <glm/glm.hpp>
 
 namespace Johnny
 {
@@ -46,11 +47,12 @@ namespace Johnny
 			T b;
 			T depth;
 		};
-
-
+        
+        glm::vec3 toGLM() const;
 
 		T length(bool squared = false) const;
 		Vector3& normalise();
+        Vector3 normaliseConst() const;
 
 		Vector3& add(const Vector3&);
 		Vector3& subtract(const Vector3&);
@@ -82,6 +84,9 @@ namespace Johnny
 
 		friend std::ostream& operator<< <>(std::ostream&, const Vector3<T>&);
 	};
+    
+    template<class T>
+    extern Vector3<T> toMy(const glm::vec3&);
 
 	typedef Vector3<GLfloat> Vector3f;
 	typedef Vector3<GLdouble> Vector3d;

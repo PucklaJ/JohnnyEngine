@@ -27,6 +27,8 @@ namespace Johnny
 	{
 		if (m_mainClass->getInputManager()->isPressed(Keys::LSHIFT))
 			m_moveSpeed *= 5.0f;
+        else if(m_mainClass->getInputManager()->isPressed(Keys::LCTRL))
+            m_moveSpeed /= 5.0f;
 
 		if (m_mainClass->getInputManager()->isPressed(Keys::W))
 		{
@@ -55,6 +57,8 @@ namespace Johnny
 
 		if (m_mainClass->getInputManager()->isPressed(Keys::LSHIFT))
 			m_moveSpeed /= 5.0f;
+        else if(m_mainClass->getInputManager()->isPressed(Keys::LCTRL))
+            m_moveSpeed *= 5.0f;
 
 
 		if (m_mainClass->getInputManager()->justPressed(Keys::ESCAPE))
