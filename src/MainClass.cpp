@@ -186,7 +186,7 @@ namespace Johnny
 
 		Settings::m_initialized = true;
         
-        m_nativeResolution = Vector2f(m_windowWidth, m_windowHeight);
+        m_nativeResolution = Vector2f((GLfloat)m_windowWidth, (GLfloat)m_windowHeight);
 
         m_scaleW = m_windowWidth/m_nativeResolution.x;
         m_scaleH = m_windowHeight/m_nativeResolution.y;

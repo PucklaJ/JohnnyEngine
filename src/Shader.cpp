@@ -554,10 +554,9 @@ namespace Johnny
 			if (endIfNotThere)
 			{
 				LogManager::error("Couldn't find uniform: " + uniform);
-				shutdownProgram();
-                return false;
+				shutdownProgram();   
 			}
-
+			return false;
 		}
 		else
 		{
@@ -777,7 +776,6 @@ namespace Johnny
                     return m_uniforms[name];
                 else
                 {
-                    std::cout << "Error" << std::endl;
                     return 4294967295;
                 }
                     

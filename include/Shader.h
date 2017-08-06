@@ -74,7 +74,7 @@ namespace Johnny
 		GLuint m_buffer = 0;
 		std::vector<UBOTypes> m_types;
 		std::map<unsigned int,unsigned int> m_arraySizes;
-		GLvoid* m_data = nullptr;
+		GLbyte* m_data = nullptr;
 		GLvoid* m_bufferMap = nullptr;
 		GLsizei m_bufferSize = 0;
 	};
