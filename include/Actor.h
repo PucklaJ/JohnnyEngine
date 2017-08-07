@@ -3,7 +3,6 @@
 #include <vector>
 #include <SDL2/SDL_rect.h>
 #include <SDL2/SDL_render.h>
-#include "../include/Transform3D.h"
 
 #define NORM_W 1280.0
 #define NORM_H 720.0

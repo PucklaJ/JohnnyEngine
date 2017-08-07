@@ -153,7 +153,7 @@ namespace Johnny
 		{
 			Assimp::Importer loader;
 			std::string fileExtension = file.substr(file.find_last_of('.') + 1);
-			bool switchZAndY = fileExtension == "blend" ? true : (fileExtension == "dae" ? true : (fileExtension == "stl" ? true : false));
+			bool switchZAndY = fileExtension == "blend" ? true : (fileExtension == "stl" ? true : false);
 
 			const aiScene* sceneAi = loader.ReadFile("res/models/" + file, aiProcess_Triangulate | aiProcess_FlipUVs);
 

@@ -123,11 +123,12 @@ namespace Johnny
 		}
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation)
+	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation, bool bindShader)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
-			m_texture2DShader->bind();
+			if(bindShader)
+				m_texture2DShader->bind();
 			m_texture2DShader->setUniformMat3("transform", transformation);
 			m_texture2DShader->setUniformf("width", (GLfloat)tex->getWidth());
 			m_texture2DShader->setUniformf("height", (GLfloat)tex->getHeight());
@@ -144,7 +145,7 @@ namespace Johnny
 
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam)
+	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam, bool bindShader)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
@@ -157,7 +158,8 @@ namespace Johnny
 				transformation *= Matrix3f::rotate(rotation);
 				
 
-			m_texture2DShader->bind();
+			if(bindShader)
+				m_texture2DShader->bind();
 			m_texture2DShader->setUniformMat3("transform", transformation);
 			m_texture2DShader->setUniformf("width", (GLfloat)tex->getWidth());
 			m_texture2DShader->setUniformf("height", (GLfloat)tex->getHeight());

@@ -23,8 +23,8 @@ namespace Johnny
 		static Texture* SDL_SurfaceToTexture(SDL_Surface*);
 		static void initTexture2DShader(MainClass*);
 		static void initTexture2DBuffers();
-		static void renderTexture2D(Texture*, const Matrix3f&);
-		static void renderTexture2D(Texture*, const Vector2f&, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr);
+		static void renderTexture2D(Texture*, const Matrix3f&, bool bindShader = true);
+		static void renderTexture2D(Texture*, const Vector2f&, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr, bool bindShader = true);
 
 		static Shader* getTexture2DShader();
 

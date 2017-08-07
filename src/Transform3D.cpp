@@ -90,7 +90,7 @@ namespace Johnny
                Matrix4f::scale(m_scale);
 	}
 
-	Matrix4f Transform3D::getProjectedTransformation(Camera3D* cam) const
+	Matrix4f Transform3D::getProjectedTransformation(const Camera3D* cam) const
 	{
 		if (cam == nullptr)
 			return getProjectionMatrix()*getTransformation();
@@ -119,6 +119,39 @@ namespace Johnny
 	void Transform3D::setScale(GLfloat x, GLfloat y, GLfloat z)
 	{
 		setScale(Vector3f(x,y,z));
+	}
+
+	TransformableObject3D::TransformableObject3D()
+	{
+	}
+
+	TransformableObject3D::~TransformableObject3D()
+	{
+	}
+
+	void TransformableObject3D::setRotation(GLfloat x, GLfloat y, GLfloat z)
+	{
+		setRotation(Vector3f(x, y, z));
+	}
+
+	void TransformableObject3D::addPosition(const Vector3f& pos)
+	{
+		m_transform.setTranslation(m_transform.getTranslation() + pos);
+	}
+
+	void TransformableObject3D::addPosition(GLfloat x, GLfloat y, GLfloat z)
+	{
+		addPosition(Vector3f(x, y, z));
+	}
+
+	Matrix4f TransformableObject3D::getTransformation() const
+	{
+		return m_transform.getTransformation();
+	}
+
+	Matrix4f TransformableObject3D::getProjectedTransformation(const Camera3D* cam) const
+	{
+		return m_transform.getProjectedTransformation(cam);
 	}
 
 }

@@ -47,7 +47,7 @@ namespace Johnny
 			m_mainClass->getCamera2D()->addRotation(m_rotateSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds());
 		}
 
-		m_mainClass->getCamera2D()->addScale((float)m_mainClass->getInputManager()->getMouse().wheel_y*m_zoomSpeed*m_mainClass->getTimer()->getDeltaTimeInSeconds());
+		m_mainClass->getCamera2D()->addZoom((float)m_mainClass->getInputManager()->getMouse().wheel_y*m_zoomSpeed*m_mainClass->getTimer()->getDeltaTimeInSeconds());
 
 		return true;
 	}

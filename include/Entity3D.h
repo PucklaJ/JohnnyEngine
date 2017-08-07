@@ -1,5 +1,6 @@
 #pragma once
 #include "../include/Actor.h"
+#include "../include/Transform3D.h"
 #include <string>
 
 namespace Johnny
@@ -8,7 +9,7 @@ namespace Johnny
 	class Shader;
 	class Mesh3D;
 
-	class Entity3D : public Actor
+	class Entity3D : public Actor, public TransformableObject3D
 	{
 	public:
 		Entity3D(const std::string&);
@@ -24,9 +25,7 @@ namespace Johnny
 		void setModel(Model3D* m) { m_model = m; }
 
 		Model3D* getModel() { return m_model; }
-		Transform3D& getTransform() {return m_transform;}
 	private:
-		Transform3D m_transform;
 		std::string m_fileName = "";
 		Model3D* m_model = nullptr;
 	};
