@@ -38,8 +38,19 @@ namespace Johnny
 	{
 	public:
 		static const Vector2f& getCenter();
+		static bool getYAxisFlipped();
+		static bool getXAxisFlipped();
+		static const Vector2f& getViewportSize();
 
 		static void setCenter(const Vector2f&);
+		static void setYAxisFlipped(bool);
+		static void setXAxisFlipped(bool);
+		static void setViewportSize(const Vector2f&);
+
+		static Vector2f toCoords(const Vector2f&, const Vector2f& viewport = Vector2f(-1.0f,-1.0f));
+		static Vector2f toCoords(const Vector2f&, bool,bool);
+		static Vector2f fromCoords(const Vector2f&, const Vector2f& viewport = Vector2f(-1.0f,-1.0f));
+		static Vector2f fromCoords(const Vector2f&, bool, bool);
 
 		TransformableObject2D();
 		virtual ~TransformableObject2D();
@@ -71,6 +82,9 @@ namespace Johnny
 		bool m_affectedByCenter = true;
 	private:
 		static Vector2f center;
+		static Vector2f viewportSize;
+		static bool yAxisFlipped;
+		static bool xAxisFlipped;
 		static std::vector<TransformableObject2D*> objects;
 	};
 }

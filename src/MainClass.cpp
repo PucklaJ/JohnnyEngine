@@ -101,6 +101,7 @@ namespace Johnny
 		m_camera2D = new Camera2D();
 		Texture::initTexture2DBuffers();
 		Texture::initTexture2DShader(this);
+		TransformableObject2D::setViewportSize(m_nativeResolution);
 		TransformableObject2D::setCenter(m_nativeResolution * -0.5f);
 	}
 
@@ -487,6 +488,7 @@ namespace Johnny
 
 		Transform3D::setProjection(Transform3D::getFOV(), getNativeRes().x, getNativeRes().y, Transform3D::getNearPlane(), Transform3D::getFarPlane());
 
+		TransformableObject2D::setViewportSize(m_nativeResolution);
 		TransformableObject2D::setCenter(m_nativeResolution * -0.5f);
 
 		onResize(m_window->getResolution().x,m_window->getResolution().y);

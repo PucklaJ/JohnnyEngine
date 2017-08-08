@@ -10,6 +10,7 @@
 #include "../include/RenderManager.h"
 #include "../include/Matrix4.h"
 #include "../include/Camera2D.h"
+#include "../include/Transform2D.h"
 
 namespace Johnny
 {
@@ -149,7 +150,7 @@ namespace Johnny
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
-			Vector2f newPos = position + Vector2f((GLfloat)tex->getWidth() / 2.0f * scale.x, (GLfloat)tex->getHeight() / 2.0f * scale.y);
+			Vector2f newPos = TransformableObject2D::fromCoords(position) + Vector2f((GLfloat)tex->getWidth() / 2.0f * scale.x, (GLfloat)tex->getHeight() / 2.0f * scale.y) + TransformableObject2D::getCenter();
 			Matrix3f transformation = cam ? (cam->getViewMatrix()*Matrix3f::translate(newPos)) : Matrix3f::translate(newPos);
 
 			if (scale.x != 1.0f || scale.y != 1.0f)
