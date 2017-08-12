@@ -95,10 +95,11 @@ void main()
 {
 	calculateOffsets();
 
-	vec3 col = normalProcessing();
+	//vec3 col = normalProcessing();
+	//vec3 col = edgeDetectionProcessing();
 
-	//float value = texture(frameBuffer,vertexUVOut).r;
-	//vec3 col = vec3(value,value,value);
+	vec4 value = texture(frameBuffer,vertexUVOut);
+	vec3 col = value.xyz;
 
 	fragColor = vec4(col,1.0);
 }

@@ -45,13 +45,13 @@ namespace Johnny
 
 		stream >> prefix;
 
-		s->setUniformVec3(prefix + "position", position);
-		s->setUniformVec3(prefix + "diffuse", diffuse);
-		s->setUniformVec3(prefix + "specular", specular);
-		s->setUniformf(prefix + "quadratic", quadratic);
-		s->setUniformf(prefix + "linear", linear);
-		s->setUniformf(prefix + "constant", constant);
-		s->setUniformi(prefix + "castsShadow", castsShadow);
+		s->setUniform(prefix + "position", position);
+		s->setUniform(prefix + "diffuse", diffuse);
+		s->setUniform(prefix + "specular", specular);
+		s->setUniform(prefix + "quadratic", quadratic);
+		s->setUniform(prefix + "linear", linear);
+		s->setUniform(prefix + "constant", constant);
+		s->setUniform(prefix + "castsShadow", castsShadow);
 		if (shadowMap)
 			shadowMap->load(s, shadowMapIndex, prefix + "shadowMap.lightSpaceMatrix", prefix + "shadowMap.texture");
 	}
@@ -96,10 +96,10 @@ namespace Johnny
 
 		stream >> prefix;
 
-		s->setUniformVec3(prefix + "direction", direction);
-		s->setUniformVec3(prefix + "diffuse", diffuse);
-		s->setUniformVec3(prefix + "specular", specular);
-		s->setUniformi(prefix + "castsShadow", castsShadow);
+		s->setUniform(prefix + "direction", direction);
+		s->setUniform(prefix + "diffuse", diffuse);
+		s->setUniform(prefix + "specular", specular);
+		s->setUniform(prefix + "castsShadow", castsShadow);
 		if (shadowMap)
 			shadowMap->load(s, shadowMapIndex, prefix + "shadowMap.lightSpaceMatrix", prefix + "shadowMap.texture");
 	}
@@ -149,16 +149,16 @@ namespace Johnny
 
 		stream >> prefix;
 
-		s->setUniformVec3(prefix + "position", position);
-		s->setUniformVec3(prefix + "direction", direction);
-		s->setUniformVec3(prefix + "diffuse", diffuse);
-		s->setUniformVec3(prefix + "specular", specular);
-		s->setUniformf(prefix + "innerCutOff", cos(innerCutOff / 180.0f * (GLfloat)M_PI));
-		s->setUniformf(prefix + "outerCutOff", cos(outerCutOff / 180.0f * (GLfloat)M_PI));
-		s->setUniformf(prefix + "quadratic", quadratic);
-		s->setUniformf(prefix + "linear", linear);
-		s->setUniformf(prefix + "constant", constant);
-		s->setUniformi(prefix + "castsShadow", castsShadow);
+		s->setUniform(prefix + "position", position);
+		s->setUniform(prefix + "direction", direction);
+		s->setUniform(prefix + "diffuse", diffuse);
+		s->setUniform(prefix + "specular", specular);
+		s->setUniform(prefix + "innerCutOff", cos(innerCutOff / 180.0f * (GLfloat)M_PI));
+		s->setUniform(prefix + "outerCutOff", cos(outerCutOff / 180.0f * (GLfloat)M_PI));
+		s->setUniform(prefix + "quadratic", quadratic);
+		s->setUniform(prefix + "linear", linear);
+		s->setUniform(prefix + "constant", constant);
+		s->setUniform(prefix + "castsShadow", castsShadow);
 		if (shadowMap)
 			shadowMap->load(s, shadowMapIndex, prefix + "shadowMap.lightSpaceMatrix", prefix + "shadowMap.texture");
 	}

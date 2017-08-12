@@ -144,7 +144,7 @@ namespace Johnny
             projectionMatrix[3][2] = 0;
             projectionMatrix = Transform3D::getProjectionMatrix().toGLM() * projectionMatrix;
 
-            SKYBOX_SHADER->setUniformMat4("projectionMatrix", projectionMatrix);
+            SKYBOX_SHADER->setUniform("projectionMatrix", projectionMatrix);
             m_cubeMap->bind(SKYBOX_SHADER, "cubeMap", 0, GL_TEXTURE_CUBE_MAP);
             SKYBOX_MESH->render();
             m_cubeMap->unbind(0, GL_TEXTURE_CUBE_MAP);

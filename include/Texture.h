@@ -6,7 +6,7 @@
 #include <SDL2/SDL.h>
 #include "Matrix3.h"
 #include "Vector2.h"
-
+#include "Geometry.h"
 
 
 namespace Johnny
@@ -23,8 +23,8 @@ namespace Johnny
 		static Texture* SDL_SurfaceToTexture(SDL_Surface*);
 		static void initTexture2DShader(MainClass*);
 		static void initTexture2DBuffers();
-		static void renderTexture2D(Texture*, const Matrix3f&, bool bindShader = true);
-		static void renderTexture2D(Texture*, const Vector2f&, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr, bool bindShader = true);
+		static void renderTexture2D(Texture*, const Matrix3f&,const TextureRegion* srcRegion = nullptr, bool bindShader = true);
+		static void renderTexture2D(Texture*, const Vector2f&, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true);
 
 		static Shader* getTexture2DShader();
 

@@ -11,6 +11,7 @@
 #include "../include/Matrix4.h"
 #include "../include/Camera2D.h"
 #include "../include/Transform2D.h"
+#include "../include/Geometry.h"
 
 namespace Johnny
 {
@@ -78,12 +79,11 @@ namespace Johnny
 
 			m_texture2DShader->link();
 
-			m_texture2DShader->addUniform("width");
-			m_texture2DShader->addUniform("height");
+			m_texture2DShader->addUniform("textureSize");
 			m_texture2DShader->addUniform("transform");
 			m_texture2DShader->addUniform("textureAddress");
-			m_texture2DShader->addUniform("viewportWidth");
-			m_texture2DShader->addUniform("viewportHeight");
+			m_texture2DShader->addUniform("viewportSize");
+			m_texture2DShader->addUniform("textureRegion");
 
 			mainClass->getRenderManager()->addShader(m_texture2DShader);
 		}
@@ -124,17 +124,16 @@ namespace Johnny
 		}
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation, bool bindShader)
+	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation,const TextureRegion* srcRegion,bool bindShader)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
 			if(bindShader)
 				m_texture2DShader->bind();
-			m_texture2DShader->setUniformMat3("transform", transformation);
-			m_texture2DShader->setUniformf("width", (GLfloat)tex->getWidth());
-			m_texture2DShader->setUniformf("height", (GLfloat)tex->getHeight());
-			m_texture2DShader->setUniformf("viewportWidth", (GLfloat)MainClass::getInstance()->getNativeRes().x);
-			m_texture2DShader->setUniformf("viewportHeight", (GLfloat)MainClass::getInstance()->getNativeRes().y);
+			m_texture2DShader->setUniform("transform", transformation);
+			m_texture2DShader->setUniform("textureSize", Vector2f((GLfloat)tex->getWidth(), (GLfloat)tex->getHeight()));
+			m_texture2DShader->setUniform("viewportSize", MainClass::getInstance()->getNativeRes());
+			m_texture2DShader->setUniform("textureRegion", srcRegion ? *srcRegion : TextureRegion(0, 0, tex->getWidth(), tex->getHeight()));
 			tex->bind(m_texture2DShader);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -146,7 +145,7 @@ namespace Johnny
 
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam, bool bindShader)
+	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam,const TextureRegion* srcRegion, bool bindShader)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
@@ -161,11 +160,11 @@ namespace Johnny
 
 			if(bindShader)
 				m_texture2DShader->bind();
-			m_texture2DShader->setUniformMat3("transform", transformation);
-			m_texture2DShader->setUniformf("width", (GLfloat)tex->getWidth());
-			m_texture2DShader->setUniformf("height", (GLfloat)tex->getHeight());
-			m_texture2DShader->setUniformf("viewportWidth", (GLfloat)MainClass::getInstance()->getNativeRes().x);
-			m_texture2DShader->setUniformf("viewportHeight", (GLfloat)MainClass::getInstance()->getNativeRes().y);
+			m_texture2DShader->setUniform("transform", transformation);
+			m_texture2DShader->setUniform("textureSize", Vector2i(tex->getWidth(), tex->getHeight()));
+			m_texture2DShader->setUniform("viewportSize", MainClass::getInstance()->getNativeRes());
+			m_texture2DShader->setUniform("textureRegion", srcRegion ? *srcRegion : TextureRegion(0,0,tex->getWidth(),tex->getHeight()));
+			//m_texture2DShader->setUniform("scale", scale);
 			tex->bind(m_texture2DShader);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -231,7 +230,7 @@ namespace Johnny
 			glActiveTexture(GL_TEXTURE0 + unit);
 			glBindTexture(target, m_texture);
 
-			s->setUniformi(name, (GLint)unit);
+			s->setUniform(name, (GLint)unit);
 		}
 
 	}

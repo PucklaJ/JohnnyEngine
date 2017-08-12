@@ -60,9 +60,7 @@ namespace Johnny
 		virtual void setRotation(const GLfloat&);
 		virtual void setScale(const Vector2f&);
 		virtual void setScale(const GLfloat&, const GLfloat&);
-		virtual void setSize(const Vector2f& v);
-		virtual void setSize(GLfloat x, GLfloat y) { setSize(Vector2f(x, y)); }
-		 
+
 		virtual void addPosition(const Vector2f&);
 		virtual void addPosition(const GLfloat&, const GLfloat&);
 		virtual void addRotation(const GLfloat& x) { setRotation(m_transform.getRotation() + x); }
@@ -72,11 +70,15 @@ namespace Johnny
 		virtual Vector2f getPosition() const;
 		virtual const GLfloat& getRotation() const { return m_transform.getRotation(); }
 		virtual const Vector2f& getScale() const { return m_transform.getScale(); }
-		virtual const Vector2f& getSize() const { return m_size; }
-
+		
 		Transform2D& getTransform() { return m_transform; }
 
 	protected:
+		virtual void setSize(const Vector2f& v);
+		virtual void setSize(GLfloat x, GLfloat y) { setSize(Vector2f(x, y)); }
+
+		virtual const Vector2f& getSize() const { return m_size; }
+
 		Transform2D m_transform;
 		Vector2f m_size;
 		bool m_affectedByCenter = true;

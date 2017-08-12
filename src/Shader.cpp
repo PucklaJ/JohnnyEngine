@@ -554,7 +554,6 @@ namespace Johnny
 			if (endIfNotThere)
 			{
 				LogManager::error("Couldn't find uniform: " + uniform);
-				shutdownProgram();   
 			}
 			return false;
 		}
@@ -565,7 +564,7 @@ namespace Johnny
 		}
 	}
 
-	void Shader::setUniformi(const std::string & name, GLint i)
+	void Shader::setUniform(const std::string & name, GLint i)
 	{
 		if (m_program != 0)
         {
@@ -576,7 +575,7 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformf(const std::string & name, GLfloat f)
+	void Shader::setUniform(const std::string & name, GLfloat f)
 	{
 		if (m_program != 0)
         {
@@ -587,7 +586,7 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformVec2(const std::string& name, const glm::vec2& vec)
+	void Shader::setUniform(const std::string& name, const glm::vec2& vec)
 	{
 		if (m_program != 0)
         {
@@ -598,7 +597,7 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformVec2(const std::string& name, const Vector2f& vec)
+	void Shader::setUniform(const std::string& name, const Vector2f& vec)
 	{
 		if (m_program != 0)
         {
@@ -609,7 +608,18 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformVec3(const std::string & name, const glm::vec3 & vec)
+	void Shader::setUniform(const std::string& name, const Vector2i& vec)
+	{
+		if (m_program != 0)
+		{
+			GLuint loc = getUniformLocation(name);
+
+			if (loc != 4294967295)
+				glUniform2i(loc, vec.x, vec.y);
+		}
+	}
+
+	void Shader::setUniform(const std::string & name, const glm::vec3 & vec)
 	{
 		if (m_program != 0)
         {
@@ -620,7 +630,7 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformVec3(const std::string & name, const Vector3f& vec)
+	void Shader::setUniform(const std::string & name, const Vector3f& vec)
 	{
 		if (m_program != 0)
         {
@@ -631,7 +641,7 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformVec4(const std::string & name, const glm::vec4 & vec)
+	void Shader::setUniform(const std::string & name, const glm::vec4 & vec)
 	{
 		if (m_program != 0)
         {
@@ -642,7 +652,7 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformVec4(const std::string & name, const Vector4f& vec)
+	void Shader::setUniform(const std::string & name, const Vector4f& vec)
 	{
 		if (m_program != 0)
         {
@@ -653,7 +663,19 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformMat4(const std::string & name, const glm::mat4 & mat)
+	void Shader::setUniform(const std::string& name, const TextureRegion& vec)
+	{
+		if (m_program != 0)
+		{
+			GLuint loc = getUniformLocation(name);
+
+			if (loc != 4294967295)
+				glUniform4f(loc, (GLfloat)vec.x, (GLfloat)vec.y, (GLfloat)vec.width, (GLfloat)vec.height);
+				
+		}
+	}
+
+	void Shader::setUniform(const std::string & name, const glm::mat4 & mat)
 	{
 		if (m_program != 0)
         {
@@ -664,7 +686,7 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformMat4(const std::string& name, const Matrix4f& mat)
+	void Shader::setUniform(const std::string& name, const Matrix4f& mat)
 	{
 		if (m_program != 0)
         {
@@ -675,7 +697,7 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformMat3(const std::string& name, const glm::mat3& mat)
+	void Shader::setUniform(const std::string& name, const glm::mat3& mat)
 	{
 		if (m_program != 0)
         {
@@ -686,7 +708,7 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniformMat3(const std::string& name, const Matrix3f& mat)
+	void Shader::setUniform(const std::string& name, const Matrix3f& mat)
 	{
 		if (m_program != 0)
         {

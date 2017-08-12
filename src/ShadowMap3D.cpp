@@ -72,12 +72,12 @@ namespace Johnny
 
 	void ShadowMap3D::loadMatrix(Shader* s, const std::string& name)
 	{
-		s->setUniformMat4(name, m_lightSpaceMatrix);
+		s->setUniform(name, m_lightSpaceMatrix);
 	}
 
 	void ShadowMap3D::load(Shader* s, GLuint index, const std::string & matrixName, const std::string & textureName)
 	{
-		s->setUniformMat4(matrixName, m_lightSpaceMatrix);
+		s->setUniform(matrixName, m_lightSpaceMatrix);
 		bind(s, textureName, index);
 	}
 

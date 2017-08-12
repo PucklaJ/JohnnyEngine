@@ -52,11 +52,9 @@ namespace Johnny
             
 			SDL_Surface* sur = TTF_RenderText_Blended_Wrapped(m_font, m_text.c_str(), m_color, INT_MAX);
 
-			m_texture = Texture::SDL_SurfaceToTexture(sur);
+			setTexture(Texture::SDL_SurfaceToTexture(sur));
 
             SDL_FreeSurface(sur);
-
-			setSize((GLfloat)m_texture->getWidth(),(GLfloat)m_texture->getHeight());
         }
         
     }

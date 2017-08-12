@@ -42,12 +42,14 @@ namespace Johnny
 
 	bool Sprite2D::update()
 	{
+		updateTweens(m_mainClass->getTimer()->getDeltaTimeInSeconds());
+
 		return true;
 	}
 
 	bool Sprite2D::render()
 	{
-		Texture::renderTexture2D(m_texture, m_isAffectedByCamera ? m_transform.getProjectedTransformation(m_mainClass->getCamera2D()) : m_transform.getTransformation(),false);
+		Texture::renderTexture2D(m_texture, m_isAffectedByCamera ? m_transform.getProjectedTransformation(m_mainClass->getCamera2D()) : m_transform.getTransformation(),&m_srcRegion,false);
 
 		return true;
 	}
@@ -67,7 +69,27 @@ namespace Johnny
 		{
 			m_texture = texture;
 			setSize((GLfloat)m_texture->getWidth(), (GLfloat)m_texture->getHeight());
+			setSrcRegion(TextureRegion(0,0,texture->getWidth(),texture->getHeight()));
 		}
+	}
+
+	void Sprite2D::setSrcRegion(const TextureRegion& r)
+	{
+		m_srcRegion = r;
+	}
+	void Sprite2D::setDrawSize(const Vector2f& vec)
+	{
+		setScale(vec.x / (GLfloat)m_texture->getWidth(),vec.y / (GLfloat)m_texture->getHeight());
+	}
+
+	void Sprite2D::setDrawSize(GLfloat x, GLfloat y)
+	{
+		setDrawSize(Vector2f(x,y));
+	}
+
+	Vector2f Sprite2D::getDrawSize() const
+	{
+		return Vector2f((GLfloat)m_texture->getWidth(),(GLfloat)m_texture->getHeight()) * getScale();
 	}
 }
 

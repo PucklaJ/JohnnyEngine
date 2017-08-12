@@ -14,58 +14,63 @@ namespace Johnny
 	Shader* RenderManager::DEFAULT_SHADOWMAP_SHADER = nullptr;
 	Shader* RenderManager::DEFAULT_POST_PROCESSING_SHADER = nullptr;
 
-	void RenderManager::loadDefaultShaders(ResourceManager* res, Lighting3D* light)
+	void RenderManager::loadDefaultShaders(ResourceManager* res)
 	{
-        if(DEFAULT_SHADER == nullptr)
+        if(DEFAULT_POST_PROCESSING_SHADER == nullptr)
         {
-            DEFAULT_SHADER = new Shader();
-            DEFAULT_SHADOWMAP_SHADER = new Shader();
             DEFAULT_POST_PROCESSING_SHADER = new Shader();
 
-            std::map<std::string, std::string> defineChanges = light->getDefineChanges();
-
-            DEFAULT_SHADER->addVertexShader(res->loadShader("vertexShader.glsl"));
-            DEFAULT_SHADER->addFragmentShader(res->loadShader("fragmentShader.glsl", &defineChanges));
-
-            DEFAULT_SHADOWMAP_SHADER->addVertexShader(res->loadShader("vertexShaderShadowMap.glsl"));
-            DEFAULT_SHADOWMAP_SHADER->addFragmentShader(res->loadShader("fragmentShaderShadowMap.glsl"));
-
             DEFAULT_POST_PROCESSING_SHADER->addVertexShader(res->loadShader("vertexShaderFrameBuffer.glsl"));
-            DEFAULT_POST_PROCESSING_SHADER->addFragmentShader(res->loadShader("fragmentShaderFrameBuffer.glsl"));
-
-
-            DEFAULT_SHADER->addAttribute("vertexPosition", 0);
-            DEFAULT_SHADER->addAttribute("vertexNormal", 1);
-            DEFAULT_SHADER->addAttribute("vertexUV", 2);
+			DEFAULT_POST_PROCESSING_SHADER->addFragmentShader(res->loadShader("fragmentShaderFrameBuffer.glsl"));
 
             DEFAULT_POST_PROCESSING_SHADER->addAttribute("vertexPosition", 0);
             DEFAULT_POST_PROCESSING_SHADER->addAttribute("vertexNormal", 1);
             DEFAULT_POST_PROCESSING_SHADER->addAttribute("vertexUV", 2);
 
-            DEFAULT_SHADOWMAP_SHADER->addAttribute("vertexPosition", 0);
-            DEFAULT_SHADOWMAP_SHADER->addAttribute("vertexNormal", 1);
-            DEFAULT_SHADOWMAP_SHADER->addAttribute("vertexUV", 2);
-
-
-            DEFAULT_SHADER->link();
-
-            DEFAULT_SHADER->addUniform("transform");
-            DEFAULT_SHADER->addUniform("ambientLight");
-            DEFAULT_SHADER->addUniform("worldMatrix",false);
-            DEFAULT_SHADER->addUniform("eyePosition");
-            Material::setUniforms(DEFAULT_SHADER);
-
             DEFAULT_POST_PROCESSING_SHADER->link();
 
-            DEFAULT_POST_PROCESSING_SHADER->addUniform("frameBuffer");
-
-            DEFAULT_SHADOWMAP_SHADER->link();
-
-            DEFAULT_SHADOWMAP_SHADER->addUniform("lightSpaceMatrix");
-            DEFAULT_SHADOWMAP_SHADER->addUniform("worldMatrix");
-
-            DEFAULT_SHADOWMAP_SHADER->setShadowMap(true);
+            DEFAULT_POST_PROCESSING_SHADER->addUniform("frameBuffer");            
         }
+	}
+
+	void RenderManager::loadDefaultShaders3D(ResourceManager* res, Lighting3D* light)
+	{
+		if (DEFAULT_SHADER == nullptr)
+		{
+			DEFAULT_SHADER = new Shader();
+			DEFAULT_SHADOWMAP_SHADER = new Shader();
+
+			std::map<std::string, std::string> defineChanges = light->getDefineChanges();
+
+			DEFAULT_SHADER->addVertexShader(res->loadShader("vertexShader.glsl"));
+			DEFAULT_SHADER->addFragmentShader(res->loadShader("fragmentShader.glsl", &defineChanges));
+
+			DEFAULT_SHADOWMAP_SHADER->addVertexShader(res->loadShader("vertexShaderShadowMap.glsl"));
+			DEFAULT_SHADOWMAP_SHADER->addFragmentShader(res->loadShader("fragmentShaderShadowMap.glsl"));
+
+			DEFAULT_SHADER->addAttribute("vertexPosition", 0);
+			DEFAULT_SHADER->addAttribute("vertexNormal", 1);
+			DEFAULT_SHADER->addAttribute("vertexUV", 2);
+
+			DEFAULT_SHADOWMAP_SHADER->addAttribute("vertexPosition", 0);
+			DEFAULT_SHADOWMAP_SHADER->addAttribute("vertexNormal", 1);
+			DEFAULT_SHADOWMAP_SHADER->addAttribute("vertexUV", 2);
+
+			DEFAULT_SHADER->link();
+
+			DEFAULT_SHADER->addUniform("transform");
+			DEFAULT_SHADER->addUniform("ambientLight");
+			DEFAULT_SHADER->addUniform("worldMatrix", false);
+			DEFAULT_SHADER->addUniform("eyePosition");
+			Material::setUniforms(DEFAULT_SHADER);
+
+			DEFAULT_SHADOWMAP_SHADER->link();
+
+			DEFAULT_SHADOWMAP_SHADER->addUniform("lightSpaceMatrix");
+			DEFAULT_SHADOWMAP_SHADER->addUniform("worldMatrix");
+
+			DEFAULT_SHADOWMAP_SHADER->setShadowMap(true);
+		}
 	}
 
 	void RenderManager::unload()
@@ -132,8 +137,8 @@ namespace Johnny
 			it->first->bind();
 			if (it->first->loadDefaultUniforms())
 			{
-				it->first->setUniformVec4("ambientLight", Lighting3D::ambientLight);
-				it->first->setUniformVec3("eyePosition", m->getCamera3D()->getPosition());
+				it->first->setUniform("ambientLight", Lighting3D::ambientLight);
+				it->first->setUniform("eyePosition", m->getCamera3D()->getPosition());
 				m->getLighting3D()->load(it->first, 3);
 			}
 			for (size_t i = 0; i < actors->size(); i++)

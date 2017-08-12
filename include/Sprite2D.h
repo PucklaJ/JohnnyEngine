@@ -1,12 +1,13 @@
 #pragma once
 #include "Actor.h"
-#include "Transform2D.h"
 #include <string>
 #include "Texture.h"
+#include "Geometry.h"
+#include "Tween.h"
 
 namespace Johnny
 {
-	class Sprite2D : public Actor, public TransformableObject2D
+	class Sprite2D : public Actor, public TweenableObject2D
 	{
 	public:
 		Sprite2D();
@@ -20,13 +21,19 @@ namespace Johnny
 		void quit() override;
 
 		void setTexture(Texture*);
+		void setSrcRegion(const TextureRegion&);
+		void setDrawSize(const Vector2f&);
+		void setDrawSize(GLfloat, GLfloat);
 
 		Texture* getTexture() { return m_texture; }
+		const TextureRegion& getSrcRegion() const { return m_srcRegion; }
+		Vector2f getDrawSize() const;
 
 	protected:
 		Texture* m_texture = nullptr;
 	private:
 		std::string m_fileName = "";
+		TextureRegion m_srcRegion;
 	};
 }
 

@@ -697,14 +697,14 @@ namespace Johnny
 
 	void Material::bind(Shader* s)
 	{
-		s->setUniformVec3("material.ambientColor", ambientColor);
-		s->setUniformVec3("material.diffuseColor", diffuseColor);
-		s->setUniformVec3("material.specularColor", specularColor);
-		s->setUniformf("material.transperancy", transparency);
-		s->setUniformf("material.specularExponent", specularExponent);
-		s->setUniformVec3("material.emittedLight", emittedLight);
-		s->setUniformVec3("material.transmissionFilter", transmissionFilter);
-		s->setUniformi("material.hasTextures", hasTextures);
+		s->setUniform("material.ambientColor", ambientColor);
+		s->setUniform("material.diffuseColor", diffuseColor);
+		s->setUniform("material.specularColor", specularColor);
+		s->setUniform("material.transperancy", transparency);
+		s->setUniform("material.specularExponent", specularExponent);
+		s->setUniform("material.emittedLight", emittedLight);
+		s->setUniform("material.transmissionFilter", transmissionFilter);
+		s->setUniform("material.hasTextures", hasTextures);
 
 		if (ambientTextureT)
 			ambientTextureT->bind(s, "material.ambientTexture", 0);

@@ -107,8 +107,11 @@ namespace Johnny
 
 	void MainClass::afterInit()
 	{
-        RenderManager::loadDefaultShaders(m_resourceManager,m_lighting3D);
-		addChild(m_skybox);
+		if ((m_initFlags & InitFlags::INIT_3D))
+		{
+			addChild(m_skybox);
+			RenderManager::loadDefaultShaders3D(m_resourceManager, m_lighting3D);
+		}
 	}
 
 	void MainClass::m_quit()
@@ -215,6 +218,8 @@ namespace Johnny
 		m_frameBuffer->checkStatus();
 		m_frameBufferMulti->checkStatus();
 		m_frameBufferMesh = Texture::createTexturePlane(2.0,2.0);
+
+		m_renderManager->loadDefaultShaders(m_resourceManager);
         
         // FPS Manager
 		m_timer = new Timer();
@@ -273,7 +278,8 @@ namespace Johnny
 					m_frameBufferMulti->bind();
 					RenderUtil::clearScreen();
 
-					m_lighting3D->renderShadowMaps(this, RenderManager::DEFAULT_SHADOWMAP_SHADER);
+					if(m_lighting3D)
+						m_lighting3D->renderShadowMaps(this, RenderManager::DEFAULT_SHADOWMAP_SHADER);
 					render();
 					m_renderManager->render(this);
 					
