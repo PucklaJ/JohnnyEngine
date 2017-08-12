@@ -180,7 +180,7 @@ namespace Johnny
 		return m_texture2DShader;
 	}
 
-	Texture::Texture(GLubyte* pixels, GLsizei width, GLsizei height, GLint internalFormat, GLenum format, GLenum type, GLenum target) : Texture()
+	Texture::Texture(GLubyte* pixels, GLsizei width, GLsizei height,GLenum filtering, GLint internalFormat, GLenum format, GLenum type, GLenum target) : Texture()
 	{
 		if (m_texture != 0)
 		{
@@ -189,8 +189,8 @@ namespace Johnny
 			glTexParameteri(target, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 			glTexParameteri(target, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-			glTexParameterf(target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-			glTexParameterf(target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+			glTexParameteri(target, GL_TEXTURE_MIN_FILTER, filtering);
+			glTexParameteri(target, GL_TEXTURE_MAG_FILTER, filtering);
 
 			if (target == GL_TEXTURE_2D_MULTISAMPLE)
 				glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, 8, internalFormat, width, height, GL_TRUE);

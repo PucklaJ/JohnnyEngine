@@ -207,8 +207,8 @@ namespace Johnny
 
 		m_frameBuffer = new FrameBuffer();
 		m_frameBufferMulti = new FrameBuffer();
-		m_frameBufferTex = new Texture(nullptr, (GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y, GL_RGB, GL_RGB, GL_UNSIGNED_BYTE, GL_TEXTURE_2D);
-		m_frameBufferTexMulti = new Texture(nullptr, (GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y, GL_RGB, GL_RGB, GL_UNSIGNED_BYTE, GL_TEXTURE_2D_MULTISAMPLE);
+		m_frameBufferTex = new Texture(nullptr, (GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y,Settings::geti(SettingName::BACK_BUFFER_FILTERING), GL_RGB, GL_RGB, GL_UNSIGNED_BYTE, GL_TEXTURE_2D);
+		m_frameBufferTexMulti = new Texture(nullptr, (GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y,Settings::geti(SettingName::BACK_BUFFER_FILTERING), GL_RGB, GL_RGB, GL_UNSIGNED_BYTE, GL_TEXTURE_2D_MULTISAMPLE);
 		m_renderBuffer = new RenderBuffer((GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y, GL_DEPTH24_STENCIL8, GL_RENDERBUFFER, false);
 		m_renderBufferMulti = new RenderBuffer((GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y, GL_DEPTH24_STENCIL8, GL_RENDERBUFFER, true);
 		m_frameBuffer->addTexture(m_frameBufferTex, GL_COLOR_ATTACHMENT0, GL_FRAMEBUFFER, GL_TEXTURE_2D);
@@ -479,8 +479,8 @@ namespace Johnny
 
 		m_frameBuffer = new FrameBuffer();
 		m_frameBufferMulti = new FrameBuffer();
-		m_frameBufferTex = new Texture(nullptr, (GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y, GL_RGB, GL_RGB, GL_UNSIGNED_BYTE, GL_TEXTURE_2D);
-		m_frameBufferTexMulti = new Texture(nullptr, (GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y, GL_RGB, GL_RGB, GL_UNSIGNED_BYTE, GL_TEXTURE_2D_MULTISAMPLE);
+		m_frameBufferTex = new Texture(nullptr, (GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y, Settings::geti(SettingName::BACK_BUFFER_FILTERING), GL_RGB, GL_RGB, GL_UNSIGNED_BYTE, GL_TEXTURE_2D);
+		m_frameBufferTexMulti = new Texture(nullptr, (GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y, Settings::geti(SettingName::BACK_BUFFER_FILTERING), GL_RGB, GL_RGB, GL_UNSIGNED_BYTE, GL_TEXTURE_2D_MULTISAMPLE);
 		m_renderBuffer = new RenderBuffer((GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y, GL_DEPTH24_STENCIL8, GL_RENDERBUFFER, false);
 		m_renderBufferMulti = new RenderBuffer((GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y, GL_DEPTH24_STENCIL8, GL_RENDERBUFFER, true);
 

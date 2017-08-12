@@ -100,6 +100,8 @@ namespace Johnny
 		std::vector<Tween2D*>& getTweens() { return m_tweens; }
 		Tween2D* getTween(int);
 
+		int addTween(Tween2D*);
+
 		void clearTweens();
 		void pauseTween(int);
 		void resumeTween(int);

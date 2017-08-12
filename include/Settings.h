@@ -1,4 +1,5 @@
 #pragma once
+#include <GL/glew.h>
 
 namespace Johnny
 {
@@ -8,7 +9,9 @@ namespace Johnny
 	{
 		VSYNC,
 		MSAA,
-		MSAA_SAMPLES
+		MSAA_SAMPLES,
+		SPRITE2D_FILTERING,
+		BACK_BUFFER_FILTERING
 	};
 
 	class Settings
@@ -23,6 +26,8 @@ namespace Johnny
 		static bool m_vsync;
 		static bool m_msaa;
 		static int m_msaa_samples;
+		static GLenum m_sprite2D_filtering;
+		static GLenum m_back_buffer_filtering;
 
 		static bool m_initialized;
 

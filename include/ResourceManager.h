@@ -48,7 +48,7 @@ namespace Johnny
             ResourceManager();
             virtual ~ResourceManager();
 
-            Texture* loadTexture(const std::string&);
+            Texture* loadTexture(const std::string&,GLenum filtering = GL_LINEAR);
 			TextureData* loadTextureData(const std::string&);
 			std::string loadShader(const std::string&,std::map<std::string,std::string>* defineChanges = nullptr);
 			Mesh3D* loadMesh(const std::string&);

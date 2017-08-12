@@ -364,6 +364,15 @@ namespace Johnny
 		return nullptr;
 	}
 
+	int TweenableObject2D::addTween(Tween2D* t)
+	{
+		m_tweens.push_back(t);
+		t->setParent(this);
+		t->init();
+
+		return t->getID();
+	}
+
 	void TweenableObject2D::clearTweens()
 	{
 		for (size_t i = 0; i<m_tweens.size(); i++)

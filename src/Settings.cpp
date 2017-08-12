@@ -2,7 +2,7 @@
 #include <SDL2/SDL_video.h>
 #include "../include/RenderUtil.h"
 #include "../include/LogManager.h"
-#include <GL/glew.h>
+#include "../include/MainClass.h"
 
 namespace Johnny
 {
@@ -10,6 +10,8 @@ namespace Johnny
 	bool Settings::m_msaa = true;
 	int Settings::m_msaa_samples = 8;
 	bool Settings::m_initialized = false;
+	GLenum Settings::m_sprite2D_filtering = GL_NEAREST;
+	GLenum Settings::m_back_buffer_filtering = GL_LINEAR;
 
 	bool Settings::seti(SettingName name, int value)
 	{
@@ -19,6 +21,16 @@ namespace Johnny
 			if (m_initialized)
 				return false;
 			m_msaa_samples = value;
+			break;
+		case SPRITE2D_FILTERING:
+			if (m_initialized)
+				return false;
+			m_sprite2D_filtering = value;
+			break;
+		case BACK_BUFFER_FILTERING:
+			m_back_buffer_filtering = value;
+			if (m_initialized)
+				MainClass::getInstance()->setNativeRes(MainClass::getInstance()->getNativeRes());
 			break;
 		default:return false;
 		}
@@ -95,6 +107,10 @@ namespace Johnny
 		{
 		case MSAA_SAMPLES:
 			return m_msaa_samples;
+		case SPRITE2D_FILTERING:
+			return m_sprite2D_filtering;
+		case BACK_BUFFER_FILTERING:
+			return m_back_buffer_filtering;
 		default: return 0;
 		}
 	}

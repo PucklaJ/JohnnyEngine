@@ -177,7 +177,7 @@ namespace Johnny
 		return scene;
 	}
 
-	Texture* ResourceManager::loadTexture(const std::string& fileName)
+	Texture* ResourceManager::loadTexture(const std::string& fileName, GLenum filtering)
 	{
 		Texture* tex = nullptr;
 		std::string file = getFileName(fileName);
@@ -208,7 +208,7 @@ namespace Johnny
 				return nullptr;
 			}
 
-			tex = new Texture(pixels, width, height);
+			tex = new Texture(pixels, width, height,filtering);
 
 			stbi_image_free(pixels);
 

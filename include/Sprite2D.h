@@ -34,6 +34,7 @@ namespace Johnny
 	private:
 		std::string m_fileName = "";
 		TextureRegion m_srcRegion;
+		Vector2f m_drawScale;
 	};
 }
 

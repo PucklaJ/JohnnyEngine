@@ -2,22 +2,26 @@
 #include "../include/MainClass.h"
 #include "../include/ResourceManager.h"
 #include "../include/LogManager.h"
+#include "../include/Settings.h"
 
 namespace Johnny
 {
 	Sprite2D::Sprite2D() : Sprite2D(nullptr)
 	{
 		m_castsShadows = false;
+		m_drawScale = Vector2f(1.0f, 1.0f);
 	}
 
 	Sprite2D::Sprite2D(const std::string& fileName) : Actor("Sprite2D"),
 		m_fileName(fileName)
 	{
+		m_drawScale = Vector2f(1.0f, 1.0f);
 	}
 
 	Sprite2D::Sprite2D(Texture* texture) : Actor("Sprite2D")
 	{
 		setTexture(texture);
+		m_drawScale = Vector2f(1.0f, 1.0f);
 	}
 
 	Sprite2D::~Sprite2D()
@@ -34,7 +38,7 @@ namespace Johnny
 
 		if (!m_texture && m_fileName != "")
 		{
-			setTexture(m_mainClass->getResourceManager()->loadTexture(m_fileName));
+			setTexture(m_mainClass->getResourceManager()->loadTexture(m_fileName, Settings::geti(SettingName::SPRITE2D_FILTERING)));
 		}
 
 		return true;
@@ -49,7 +53,11 @@ namespace Johnny
 
 	bool Sprite2D::render()
 	{
+		setScale(getScale() * m_drawScale);
+
 		Texture::renderTexture2D(m_texture, m_isAffectedByCamera ? m_transform.getProjectedTransformation(m_mainClass->getCamera2D()) : m_transform.getTransformation(),&m_srcRegion,false);
+
+		setScale(getScale() / m_drawScale);
 
 		return true;
 	}
@@ -79,7 +87,7 @@ namespace Johnny
 	}
 	void Sprite2D::setDrawSize(const Vector2f& vec)
 	{
-		setScale(vec.x / (GLfloat)m_texture->getWidth(),vec.y / (GLfloat)m_texture->getHeight());
+		m_drawScale = Vector2f(vec.x / (GLfloat)m_texture->getWidth(),vec.y / (GLfloat)m_texture->getHeight());
 	}
 
 	void Sprite2D::setDrawSize(GLfloat x, GLfloat y)
@@ -89,7 +97,7 @@ namespace Johnny
 
 	Vector2f Sprite2D::getDrawSize() const
 	{
-		return Vector2f((GLfloat)m_texture->getWidth(),(GLfloat)m_texture->getHeight()) * getScale();
+		return Vector2f((GLfloat)m_texture->getWidth(),(GLfloat)m_texture->getHeight()) * m_drawScale;
 	}
 }
 

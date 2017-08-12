@@ -28,7 +28,7 @@ namespace Johnny
 
 		static Shader* getTexture2DShader();
 
-		Texture(GLubyte*, GLsizei, GLsizei, GLint internalFormat = GL_RGBA, GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE, GLenum target = GL_TEXTURE_2D);
+		Texture(GLubyte*, GLsizei, GLsizei,GLenum,GLint internalFormat = GL_RGBA, GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE, GLenum target = GL_TEXTURE_2D);
 		Texture();
 		~Texture();
 
