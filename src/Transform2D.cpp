@@ -28,7 +28,7 @@ namespace Johnny
 
 	Matrix3f Transform2D::getTransformation() const
 	{
-		return Matrix3f::translate(m_translation) * Matrix3f::rotate(m_rotation) * Matrix3f::scale(m_scale);//Matrix3f::identity();
+		return Matrix3f::translate(m_translation) * Matrix3f::rotate(m_rotation) * Matrix3f::scale(m_scale);
 	}
 
 	Matrix3f Transform2D::getProjectedTransformation(const Camera2D* cam) const
@@ -152,7 +152,7 @@ namespace Johnny
 		}
 		else
 		{
-			m_transform.setTranslation(fromCoords(pos) + m_size / 2.0f * m_transform.getScale() + center);
+			m_transform.setTranslation(fromCoords(pos) + Vector2f(m_size.x / 2.0f,-m_size.y/2.0f) * m_transform.getScale() + (m_affectedByCenter ? center : Vector2f(0.0f,0.0f)));
 		}
 			
 	}
@@ -173,7 +173,7 @@ namespace Johnny
 			m_transform.setScale(v);
 		else
 		{
-			m_transform.setTranslation(toCoords(m_transform.getTranslation() - m_size / 2.0f * m_transform.getScale() - center));
+			m_transform.setTranslation(toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f,-m_size.y/2.0f) * m_transform.getScale() - (m_affectedByCenter ? center : Vector2f(0.0f, 0.0f))));
 			m_transform.setScale(v);
 			setPosition(m_transform.getTranslation());
 		}
@@ -193,7 +193,7 @@ namespace Johnny
 		}
 		else
 		{
-			m_transform.setTranslation(toCoords(m_transform.getTranslation() - m_size / 2.0f * m_transform.getScale() - center));
+			m_transform.setTranslation(toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) * m_transform.getScale() - (m_affectedByCenter ? center : Vector2f(0.0f, 0.0f))));
 			m_size = v;
 		}
 		
@@ -222,7 +222,7 @@ namespace Johnny
 
 	Vector2f TransformableObject2D::getPosition() const
 	{
-		return m_transform.getTranslation() - m_size / 2.0f * m_transform.getScale() - center;
+		return toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) * m_transform.getScale() - (m_affectedByCenter ? center : Vector2f(0.0f, 0.0f)));
 	}
 
 #define IS_VIEW (viewport.x != -1.0f && viewport.y != -1.0f)

@@ -28,6 +28,8 @@ namespace Johnny
 		Texture* getTexture() { return m_texture; }
 		const TextureRegion& getSrcRegion() const { return m_srcRegion; }
 		Vector2f getDrawSize() const;
+		Vector2f getActualSize() const;
+		Rectangle<GLfloat> getBoundingBox();
 
 	protected:
 		Texture* m_texture = nullptr;

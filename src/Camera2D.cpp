@@ -1,5 +1,6 @@
 #include "../include/Camera2D.h"
 #include <iostream>
+#include "../include/MainClass.h"
 
 namespace Johnny
 {
@@ -30,6 +31,22 @@ namespace Johnny
 	void Camera2D::addZoom(GLfloat x)
 	{
 		setZoom(getZoom() + x);
+	}
+	void Camera2D::setPosition(const Vector2f& pos)
+	{
+		Vector2f pos1(pos);
+		pos1 -= MainClass::getInstance()->getNativeRes() / 2.0f;
+		pos1.y = -pos1.y;
+		m_transform.setTranslation(pos1);
+	}
+
+	Vector2f Camera2D::getPosition() const
+	{
+		Vector2f pos1(m_transform.getTranslation());
+		pos1.y = -pos1.y;
+		pos1 += MainClass::getInstance()->getNativeRes() / 2.0f;
+
+		return pos1;
 	}
 }
 

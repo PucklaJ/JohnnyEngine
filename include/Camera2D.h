@@ -18,5 +18,9 @@ namespace Johnny
 		void addPosition(const Vector2f& pos,bool relToLook = false);
 		void addPosition(GLfloat x, GLfloat y,bool relToLook = false);
 		void addZoom(GLfloat);
+
+		void setPosition(const Vector2f&) override;
+		using TransformableObject2D::setPosition;
+		Vector2f getPosition() const override;
 	};
 }

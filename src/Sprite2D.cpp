@@ -99,6 +99,21 @@ namespace Johnny
 	{
 		return Vector2f((GLfloat)m_texture->getWidth(),(GLfloat)m_texture->getHeight()) * m_drawScale;
 	}
+	Vector2f Sprite2D::getActualSize() const
+	{
+		return getDrawSize() * getScale();
+	}
+	Rectangle<GLfloat> Sprite2D::getBoundingBox()
+	{
+		Rectangle<GLfloat> rect;
+
+		rect.x = getPosition().x;
+		rect.y = getPosition().y;
+		rect.width = getActualSize().x;
+		rect.height = getActualSize().y;
+
+		return rect;
+	}
 }
 
 

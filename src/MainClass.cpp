@@ -22,6 +22,7 @@
 #include "../include/Skybox.h"
 #include "../include/Settings.h"
 #include "../include/Camera2D.h"
+#include "../include/Physics2D.h"
 #ifdef _WIN32
 #include <TTF/SDL_ttf.h>
 #endif
@@ -99,6 +100,7 @@ namespace Johnny
 	void MainClass::init2D()
 	{
 		m_camera2D = new Camera2D();
+		m_camera2D->setPosition(getNativeRes()/2.0f);
 		Texture::initTexture2DBuffers();
 		Texture::initTexture2DShader(this);
 		TransformableObject2D::setViewportSize(m_nativeResolution);
@@ -144,6 +146,12 @@ namespace Johnny
 			delete m_camera2D;
 			m_camera2D = nullptr;
 		}
+		
+		if (m_physics2D)
+		{
+			delete m_physics2D;
+			m_physics2D = nullptr;
+		}
 
 		delete m_frameBufferTex;
 		delete m_frameBufferTexMulti;
@@ -156,8 +164,6 @@ namespace Johnny
         delete m_window;
 
         SDL_Quit();
-
-        delete Colors::m_COLOR_KEY;
     }
 
     void MainClass::m_init()
@@ -232,6 +238,8 @@ namespace Johnny
 			init2D();
 		if ((m_initFlags & InitFlags::JOYSTICK) != 0)
 			activateJoystick();
+		if ((m_initFlags & InitFlags::PHYSICS_2D) != 0)
+			m_physics2D = new Physics2D(this, Vector2f(0.0f, -10.0f), getNativeRes());
 
         LogManager::log("Finished Initializing Engine");
     }
@@ -382,6 +390,8 @@ namespace Johnny
 
     bool MainClass::m_update()
     {
+		if (m_physics2D)
+			m_physics2D->update();
         return Actor::m_update();
     }
 

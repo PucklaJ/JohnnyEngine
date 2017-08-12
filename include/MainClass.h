@@ -35,6 +35,8 @@ namespace Johnny
     class ResourceManager;
     
     class JoystickManager;
+	
+	class Physics2D;
 
 	enum InitFlags
 	{
@@ -73,6 +75,7 @@ namespace Johnny
 			Mesh3D* getBackBufferMesh() { return m_frameBufferMesh; }
 			Skybox* getSkybox() { return m_skybox; }
 			Timer* getTimer() { return m_timer; }
+			Physics2D* getPhysics2D() { return m_physics2D; }
 
             Camera3D* getCamera3D();
 			Camera2D* getCamera2D();
@@ -104,6 +107,7 @@ namespace Johnny
 			RenderManager* m_renderManager = nullptr;
 			Skybox* m_skybox = nullptr;
 			Timer* m_timer = nullptr;
+			Physics2D* m_physics2D = nullptr;
 
         private:
             static MainClass* instance;

@@ -124,6 +124,22 @@ namespace Johnny
 		return divide(v2);
 	}
 	template<class T>
+	Vector2<T>& Vector2<T>::operator*=(const T& s)
+	{
+		x *= s;
+		y *= s;
+
+		return *this;
+	}
+	template<class T>
+	Vector2<T>& Vector2<T>::operator/=(const T& s)
+	{
+		x /= s;
+		y /= s;
+
+		return *this;
+	}
+	template<class T>
 	const Vector2<T> operator+(const Vector2<T>& v1, const Vector2<T>& v2)
 	{
 		return Vector2<T>(v1).add(v2);

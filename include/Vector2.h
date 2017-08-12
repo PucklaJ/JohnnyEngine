@@ -55,6 +55,9 @@ namespace Johnny
 		Vector2& operator*=(const Vector2&);
 		Vector2& operator/=(const Vector2&);
 
+		Vector2& operator*=(const T&);
+		Vector2& operator/=(const T&);
+
 		friend const Vector2<T> operator+<>(const Vector2<T>&, const Vector2<T>&);
 		friend const Vector2<T> operator-<>(const Vector2<T>&, const Vector2<T>&);
 		friend const Vector2<T> operator*<>(const Vector2<T>&, const Vector2<T>&);
