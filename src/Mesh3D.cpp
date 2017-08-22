@@ -5,6 +5,7 @@
 #include <iostream>
 #include "../include/ResourceManager.h"
 #include <assimp/scene.h>
+#include "../include/Shader.h"
 
 
 namespace Johnny
@@ -212,9 +213,8 @@ namespace Johnny
 
 			if (s)
 			{
-				m_material.bind(s);
+				s->getShaderUpdater()->setUniforms(this);
 				glDrawElements(GL_TRIANGLES, m_indexSize, GL_UNSIGNED_INT, 0);
-				m_material.unbind();
 			}
 			else
 			{

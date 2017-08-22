@@ -22,8 +22,10 @@ namespace Johnny
 
 	template<class T>
 	Rectangle<T>::Rectangle(const Vector2<T>& pos, const Vector2<T>& _size) :
-		position(pos),
-		size(_size)
+		x(pos.x),
+        y(pos.y),
+		width(_size.x),
+        height(_size.y)
 	{
 	}
 

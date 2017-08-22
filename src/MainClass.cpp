@@ -113,6 +113,7 @@ namespace Johnny
 		{
 			addChild(m_skybox);
 			RenderManager::loadDefaultShaders3D(m_resourceManager, m_lighting3D);
+            setAllChildrenWithNullShaderToDefaultShader();
 		}
 	}
 

@@ -59,6 +59,7 @@ namespace Johnny
 			SKYBOX_SHADER->addAttribute("position", 0);
 
 			SKYBOX_SHADER->link();
+            SKYBOX_SHADER->setShaderUpdater<ShaderUpdater>();
 
 			SKYBOX_SHADER->addUniform("projectionMatrix");
 			SKYBOX_SHADER->addUniform("cubeMap");

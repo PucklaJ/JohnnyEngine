@@ -250,6 +250,17 @@ namespace Johnny
         }
 
     }
+    
+    void Actor::setAllChildrenWithNullShaderToDefaultShader()
+    {
+        for(size_t i = 0;i<m_children.size();i++)
+        {
+            if(m_children[i]->getShader() == nullptr)
+                m_children[i]->setShader(RenderManager::DEFAULT_SHADER);
+            
+            m_children[i]->setAllChildrenWithNullShaderToDefaultShader();
+        }
+    }
 
     void Actor::removeChildrenAfterLoops()
     {

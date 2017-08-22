@@ -3,6 +3,7 @@
 #include "../include/ResourceManager.h"
 #include "../include/LogManager.h"
 #include "../include/Settings.h"
+#include "../include/Shader.h"
 
 namespace Johnny
 {
@@ -55,8 +56,13 @@ namespace Johnny
 	{
 		setScale(getScale() * m_drawScale);
 
-		Texture::renderTexture2D(m_texture, m_isAffectedByCamera ? m_transform.getProjectedTransformation(m_mainClass->getCamera2D()) : m_transform.getTransformation(),&m_srcRegion,false);
-
+		//Texture::renderTexture2D(m_texture, m_isAffectedByCamera ? m_transform.getProjectedTransformation(m_mainClass->getCamera2D()) : m_transform.getTransformation(),&m_srcRegion,false);
+        
+        m_shader->getShaderUpdater()->setUniforms(&m_transform,m_isAffectedByCamera ? Texture2DShaderUpdater::TRANSFORM_CAMERA : Texture2DShaderUpdater::TRANSFORM_NORMAL);
+        m_shader->getShaderUpdater()->setUniforms(m_texture);
+        m_shader->getShaderUpdater()->setUniforms(&m_srcRegion);
+        m_shader->getShaderUpdater()->setUniforms(this);
+        
 		setScale(getScale() / m_drawScale);
 
 		return true;

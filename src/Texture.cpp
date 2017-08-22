@@ -12,9 +12,49 @@
 #include "../include/Camera2D.h"
 #include "../include/Transform2D.h"
 #include "../include/Geometry.h"
+#include "../include/Sprite2D.h"
 
 namespace Johnny
 {
+    const unsigned int Texture2DShaderUpdater::TRANSFORM_NORMAL=0;
+    const unsigned int Texture2DShaderUpdater::TRANSFORM_CAMERA=1;
+
+    void Texture2DShaderUpdater::update()
+    {
+        GLint viewport[4];
+        glGetIntegerv(GL_VIEWPORT,viewport);
+        
+        m_shader->setUniform("viewportSize", Vector2f(viewport[2],viewport[3]));
+    }
+    
+    void Texture2DShaderUpdater::setUniforms(Transform2D* m,unsigned int index)
+    {
+        switch(index)
+        {
+            case TRANSFORM_NORMAL:
+                m_shader->setUniform("transform",m->getTransformation());
+                break;
+            case TRANSFORM_CAMERA:
+                m_shader->setUniform("transform",m->getProjectedTransformation(MainClass::getInstance()->getCamera2D()));
+                break;
+        }
+    }
+    
+    void Texture2DShaderUpdater::setUniforms(Texture* m,unsigned int index)
+    {
+        m->bind(m_shader);
+    }
+    
+    void Texture2DShaderUpdater::setUniforms(TextureRegion* m,unsigned int index)
+    {
+        m_shader->setUniform("textureRegion", *m);
+    }
+    
+    void Texture2DShaderUpdater::setUniforms(Sprite2D* m,const unsigned int index)
+    {
+        Texture::renderSprite2D();
+    }
+    
 	Shader* Texture::m_texture2DShader = nullptr;
 	GLuint Texture::m_texture2D_vbo = 0;
 	GLuint Texture::m_texture2D_vao = 0;
@@ -78,8 +118,8 @@ namespace Johnny
 			m_texture2DShader->addAttribute("position", 0);
 
 			m_texture2DShader->link();
+            m_texture2DShader->setShaderUpdater<Texture2DShaderUpdater>();
 
-			m_texture2DShader->addUniform("textureSize");
 			m_texture2DShader->addUniform("transform");
 			m_texture2DShader->addUniform("textureAddress");
 			m_texture2DShader->addUniform("viewportSize");
@@ -128,11 +168,13 @@ namespace Johnny
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
+            GLint viewport[4];
+            glGetIntegerv(GL_VIEWPORT,viewport);
+            
 			if(bindShader)
 				m_texture2DShader->bind();
 			m_texture2DShader->setUniform("transform", transformation);
-			m_texture2DShader->setUniform("textureSize", Vector2f((GLfloat)tex->getWidth(), (GLfloat)tex->getHeight()));
-			m_texture2DShader->setUniform("viewportSize", MainClass::getInstance()->getNativeRes());
+			m_texture2DShader->setUniform("viewportSize", Vector2f(viewport[2],viewport[3]));
 			m_texture2DShader->setUniform("textureRegion", srcRegion ? *srcRegion : TextureRegion(0, 0, tex->getWidth(), tex->getHeight()));
 			tex->bind(m_texture2DShader);
 
@@ -161,7 +203,6 @@ namespace Johnny
 			if(bindShader)
 				m_texture2DShader->bind();
 			m_texture2DShader->setUniform("transform", transformation);
-			m_texture2DShader->setUniform("textureSize", Vector2i(tex->getWidth(), tex->getHeight()));
 			m_texture2DShader->setUniform("viewportSize", MainClass::getInstance()->getNativeRes());
 			m_texture2DShader->setUniform("textureRegion", srcRegion ? *srcRegion : TextureRegion(0,0,tex->getWidth(),tex->getHeight()));
 			//m_texture2DShader->setUniform("scale", scale);
@@ -174,6 +215,15 @@ namespace Johnny
 			glBindVertexArray(0);
 		}
 	}
+    
+    void Texture::renderSprite2D()
+    {
+        glBindVertexArray(m_texture2D_vao);
+
+        glDrawArrays(GL_POINTS, 0, 1);
+
+        glBindVertexArray(0);
+    }
 
 	Shader* Texture::getTexture2DShader()
 	{

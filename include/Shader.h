@@ -9,6 +9,7 @@
 #include "Vector2.h"
 #include "Vector4.h"
 #include "Geometry.h"
+#include "ShaderUpdater.h"
 #include <map>
 #include <vector>
 
@@ -118,6 +119,10 @@ namespace Johnny
 		GLuint getProgram() { return m_program; }
 		bool isShadowMap() const { return m_shadowMap; }
 		bool loadDefaultUniforms() { return m_loadDefaultUniforms; }
+        
+        template<class T>
+        void setShaderUpdater();
+        ShaderUpdater* getShaderUpdater() {return m_shaderUpdater;}
 
 	private:
 		void addProgram(const std::string&,GLuint);
@@ -135,5 +140,13 @@ namespace Johnny
 		bool m_loadDefaultUniforms = true;
 
 		std::map<std::string,GLuint> m_uniformBlockIndices;
+        
+        ShaderUpdater* m_shaderUpdater = nullptr;
 	};
+    
+    template<class T>
+    inline void Shader::setShaderUpdater()
+    {
+        m_shaderUpdater = new T(this);
+    }
 }

@@ -115,7 +115,7 @@ namespace Johnny
 			void init3D();
 			void init2D();
 			void activateJoystick();
-
+            
 			void afterInit();
             void m_quit();
 

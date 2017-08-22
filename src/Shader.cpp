@@ -399,6 +399,9 @@ namespace Johnny
 	{
 		if (m_program != 0)
 			glDeleteProgram(m_program);
+        
+        if(m_shaderUpdater)
+            delete m_shaderUpdater;
 	}
 
 	void Shader::addFragmentShader(const std::string & text)
@@ -835,5 +838,5 @@ namespace Johnny
 		if (m_program != 0)
 			glBindAttribLocation(m_program, index, name.c_str());
 	}
-
 }
+

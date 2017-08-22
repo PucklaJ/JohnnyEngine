@@ -29,7 +29,8 @@ namespace Johnny
 
             DEFAULT_POST_PROCESSING_SHADER->link();
 
-            DEFAULT_POST_PROCESSING_SHADER->addUniform("frameBuffer");            
+            DEFAULT_POST_PROCESSING_SHADER->addUniform("frameBuffer");
+            DEFAULT_POST_PROCESSING_SHADER->setShaderUpdater<ShaderUpdater>();
         }
 	}
 
@@ -63,6 +64,8 @@ namespace Johnny
 			DEFAULT_SHADER->addUniform("worldMatrix", false);
 			DEFAULT_SHADER->addUniform("eyePosition");
 			Material::setUniforms(DEFAULT_SHADER);
+            
+            DEFAULT_SHADER->setShaderUpdater<ShaderUpdater>();
 
 			DEFAULT_SHADOWMAP_SHADER->link();
 
@@ -70,6 +73,8 @@ namespace Johnny
 			DEFAULT_SHADOWMAP_SHADER->addUniform("worldMatrix");
 
 			DEFAULT_SHADOWMAP_SHADER->setShadowMap(true);
+            
+            DEFAULT_SHADOWMAP_SHADER->setShaderUpdater<ShaderUpdater>();
 		}
 	}
 
@@ -130,17 +135,19 @@ namespace Johnny
 
 	void RenderManager::render(MainClass* m)
 	{
-		std::vector<Actor*>* actors;
+		std::vector<Actor*>* actors = nullptr;
+        Shader* shader = nullptr;
 		for (std::map < Shader*, std::vector<Actor*>>::iterator it = m_shaderActors.begin(); it != m_shaderActors.end(); it++)
 		{
 			actors = &it->second;
-			it->first->bind();
-			if (it->first->loadDefaultUniforms())
-			{
-				it->first->setUniform("ambientLight", Lighting3D::ambientLight);
-				it->first->setUniform("eyePosition", m->getCamera3D()->getPosition());
-				m->getLighting3D()->load(it->first, 3);
-			}
+			shader = it->first;
+            shader->bind();
+            
+            shader->getShaderUpdater()->update();
+            shader->getShaderUpdater()->setUniforms(m->getLighting3D());
+            shader->getShaderUpdater()->setUniforms(m->getCamera3D());
+            
+            
 			for (size_t i = 0; i < actors->size(); i++)
 			{
 				(*actors)[i]->setShader(it->first, false);

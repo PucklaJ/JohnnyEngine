@@ -7,6 +7,7 @@
 #include "Matrix3.h"
 #include "Vector2.h"
 #include "Geometry.h"
+#include "ShaderUpdater.h"
 
 
 namespace Johnny
@@ -15,6 +16,24 @@ namespace Johnny
 	class Shader;
 	class Mesh3D;
 	class Camera2D;
+    class Sprite2D;
+    
+    class Texture2DShaderUpdater : public ShaderUpdater
+    {
+    public:
+        static const unsigned int TRANSFORM_NORMAL;
+        static const unsigned int TRANSFORM_CAMERA;
+    
+        Texture2DShaderUpdater(Shader* s) : ShaderUpdater(s) {};
+        ~Texture2DShaderUpdater();
+        
+        void update() override;
+        
+        void setUniforms(Transform2D*,const unsigned int index = 0) override;
+        void setUniforms(Texture*,const unsigned int index = 0) override;
+        void setUniforms(TextureRegion*,const unsigned int index = 0) override;
+        void setUniforms(Sprite2D*,const unsigned int index = 0) override;
+    };
 
 	class Texture
 	{
@@ -25,7 +44,8 @@ namespace Johnny
 		static void initTexture2DBuffers();
 		static void renderTexture2D(Texture*, const Matrix3f&,const TextureRegion* srcRegion = nullptr, bool bindShader = true);
 		static void renderTexture2D(Texture*, const Vector2f&, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true);
-
+        static void renderSprite2D();
+        
 		static Shader* getTexture2DShader();
 
 		Texture(GLubyte*, GLsizei, GLsizei,GLenum,GLint internalFormat = GL_RGBA, GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE, GLenum target = GL_TEXTURE_2D);

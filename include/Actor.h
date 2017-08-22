@@ -23,6 +23,8 @@ namespace Johnny
     class Actor
     {
     public:
+        friend class MainClass;
+    
 		static const std::vector<Actor*> getAllActors() { return m_allActors; }
 
             Actor(const char* name = "Actor");
@@ -67,6 +69,7 @@ namespace Johnny
 
 			std::vector<Actor*> getChildrenWithCastsShadow();
     protected:
+            
 
             MainClass* m_mainClass = nullptr;
             bool m_isAffectedByCamera = true;
@@ -77,7 +80,9 @@ namespace Johnny
             const char* m_name = "";
 
     private:
-		static std::vector<Actor*> m_allActors;
+            static std::vector<Actor*> m_allActors;
+            
+            void setAllChildrenWithNullShaderToDefaultShader();
 
             void removeChildrenAfterLoops();
             bool addChildrenBeforeLoops();
