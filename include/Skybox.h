@@ -3,11 +3,23 @@
 #include <glm/glm.hpp>
 #include <GL/glew.h>
 #include <string>
+#include "ShaderUpdater.h"
 
 namespace Johnny
 {
 	class CubeMap3D;
 	class Shader;
+    
+    class SkyboxShaderUpdater : public ShaderUpdater
+    {
+    public:
+        SkyboxShaderUpdater(Shader* s) : ShaderUpdater(s) {}
+        ~SkyboxShaderUpdater(){}
+        
+        void setUniforms(Skybox*,const unsigned int index = 0) override;
+        void setUniforms(Lighting3D*,const unsigned int index = 0) override {}
+        void setUniforms(Camera3D*,const unsigned int index = 0) override;
+    };
 
 	class SkyboxVertex
 	{
@@ -44,6 +56,8 @@ namespace Johnny
 	class Skybox : public Actor
 	{
 	public:
+        friend class SkyboxShaderUpdater;
+        
 		static void clear();
 
 		Skybox();

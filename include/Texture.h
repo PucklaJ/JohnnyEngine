@@ -17,6 +17,8 @@ namespace Johnny
 	class Mesh3D;
 	class Camera2D;
     class Sprite2D;
+    class Camera3D;
+    class Lighting3D;
     
     class Texture2DShaderUpdater : public ShaderUpdater
     {
@@ -28,6 +30,9 @@ namespace Johnny
         ~Texture2DShaderUpdater();
         
         void update() override;
+        
+        void setUniforms(Camera3D*,const unsigned int index = 0) override {}
+        void setUniforms(Lighting3D*,const unsigned int index = 0) override {}
         
         void setUniforms(Transform2D*,const unsigned int index = 0) override;
         void setUniforms(Texture*,const unsigned int index = 0) override;

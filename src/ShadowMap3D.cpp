@@ -8,11 +8,27 @@
 #include "../include/MainClass.h"
 #include <iostream>
 #include "../include/Light3D.h"
+#include "../include/RenderManager.h"
+#include "../include/Entity3D.h"
+#include "../include/Model3D.h"
 
 
 namespace Johnny
 {
-	ShadowMap3D::ShadowMap3D(GLsizei width, GLsizei height) : Texture(nullptr, width, height, GL_DEPTH_COMPONENT, GL_DEPTH_COMPONENT, GL_FLOAT),
+    void ShadowMap3DShaderUpdater::setUniforms(Transform3D* m,const unsigned int index)
+    {
+        if(index == ShaderUpdater::TRANSFORM_WORLD)
+        {
+            m_shader->setUniform("worldMatrix",m->getTransformation());
+        }
+    }
+    
+    void ShadowMap3DShaderUpdater::setUniforms(Entity3D* m,const unsigned int index)
+    {
+        m->getModel()->render(m_shader);
+    }
+    
+	ShadowMap3D::ShadowMap3D(GLsizei width, GLsizei height) : Texture(nullptr, width, height,GL_LINEAR, GL_DEPTH_COMPONENT, GL_DEPTH_COMPONENT, GL_FLOAT),
 		m_width(width),
 		m_height(height),
         m_lightSpaceMatrix(1)
@@ -39,12 +55,16 @@ namespace Johnny
 		glViewport(0, 0, m_width, m_height);
 
 		m_frameBuffer->bind();
-		glClear(GL_DEPTH_BUFFER_BIT);
+		glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 		configureMatricesAndShader(s);
 		//glCullFace(GL_FRONT);
 		GLint params[4];
 		glGetIntegerv(GL_VIEWPORT, params);
-		m->renderSceneForShadowMap(s);
+        glDepthRange(-2.0f,2.0f);
+        glEnable(GL_DEPTH_CLAMP);
+		m->getRenderManager()->renderSceneForShadowMap(s);
+        glDepthRange(0.0f,1.0f);
+        glDisable(GL_DEPTH_CLAMP);
 		glGetIntegerv(GL_VIEWPORT, params);
 		//glCullFace(GL_BACK);
 		m->getBackBuffer()->bind();
@@ -92,7 +112,9 @@ namespace Johnny
 		{
 			direction = m_directionalLight->direction;
 
-			lightView = Matrix4f::lookAt(-direction*4.582f, -direction*4.582f + direction, Vector3f(0.0f, 1.0f, 0.0f));
+			lightView = Matrix4f::lookAt(-direction * 1.3f, -direction * 1.3f + direction, Vector3f(0.0f, 1.0f, 0.0f));
+            // T left,T right,T bottom,T top,T zNear,T zFar);
+			//lightProjection = toMy<GLfloat>(glm::ortho(-(GLfloat)m_width/2.0f, (GLfloat)m_width/2.0f, -(GLfloat)m_height/2.0f, (GLfloat)m_height/2.0f, 0.1f, 100.0f));
 			lightProjection = toMy<GLfloat>(glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.1f, 100.0f));
         }
 		else if (m_curLight == SHADOW_SPOT)
@@ -102,7 +124,7 @@ namespace Johnny
 
 			lightView = Matrix4f::lookAt(position, position + direction, Vector3f(0.0f, 1.0f, 0.0f));
 			lightProjection = Matrix4f::perspective(/*m_spotLight->outerCutOff * (float)M_PI / 180.0f*/Transform3D::getFOV(),
-                                                    /*(float)m_width / (float)m_height*/MainClass::getInstance()->getNativeRes().x / MainClass::getInstance()->getNativeRes().y,
+                                                    (float)m_width / (float)m_height/*MainClass::getInstance()->getNativeRes().x / MainClass::getInstance()->getNativeRes().y*/,
                                                     clamp(Transform3D::getFarPlane(), 100.0f, 1000.0f),
                                                     clamp(Transform3D::getNearPlane(), 1.0f, 10.0f));
 		}

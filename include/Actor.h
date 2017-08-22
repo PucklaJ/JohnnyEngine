@@ -19,11 +19,13 @@ namespace Johnny
 {
     class MainClass;
 	class Shader;
+    class RenderManager;
 
     class Actor
     {
     public:
         friend class MainClass;
+        friend class RenderManager;
     
 		static const std::vector<Actor*> getAllActors() { return m_allActors; }
 
@@ -44,7 +46,7 @@ namespace Johnny
             void setMainClass(MainClass*);
             void setAffectedByCamera(const bool);
             void setVisible(const bool);
-			void setCastsShadows(bool b) { m_castsShadows = b; }
+			void setCastsShadows(bool b) { m_castsShadows3D = b; }
             void setName(const char* name){m_name = name;}
 			void setShader(Shader* s,bool changeInRenderManager = true);
 
@@ -55,7 +57,7 @@ namespace Johnny
             bool isAffectedByCamera() const {return m_isAffectedByCamera;}
             const char* getName() const {return m_name;}
             const bool isVisible() const {return m_visible;}
-			bool castsShadows() const { return m_castsShadows; }
+			bool castsShadows() const { return m_castsShadows3D; }
             const int getID() const {return m_id;}
 			Shader* getShader() { return m_shader; }
 
@@ -74,7 +76,7 @@ namespace Johnny
             MainClass* m_mainClass = nullptr;
             bool m_isAffectedByCamera = true;
             bool m_visible = true;
-			bool m_castsShadows = true;
+			bool m_castsShadows3D = true;
 			Shader* m_shader = nullptr;
 
             const char* m_name = "";

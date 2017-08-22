@@ -56,7 +56,7 @@ namespace Johnny
 
         m_isAffectedByCamera = false;
         m_mainClass = this;
-		m_castsShadows = false;
+		m_castsShadows3D = false;
     }
 
     MainClass::~MainClass()
@@ -286,12 +286,13 @@ namespace Johnny
 					glEnable(GL_DEPTH_TEST);
 					m_frameBufferMulti->bind();
 					RenderUtil::clearScreen();
-
+                    
 					if(m_lighting3D)
 						m_lighting3D->renderShadowMaps(this, RenderManager::DEFAULT_SHADOWMAP_SHADER);
 					render();
 					m_renderManager->render(this);
 					
+                    
 					m_frameBufferMulti->blit(m_frameBuffer, 0, 0, (GLint)m_nativeResolution.x, (GLint)m_nativeResolution.y, 0, 0, (GLint)m_nativeResolution.x, (GLint)m_nativeResolution.y);
 					m_frameBufferMulti->unbind();
 

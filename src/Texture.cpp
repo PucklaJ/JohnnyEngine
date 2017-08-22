@@ -109,7 +109,6 @@ namespace Johnny
 		if (!m_texture2DShader)
 		{
 			m_texture2DShader = new Shader();
-			m_texture2DShader->setLoadDefaultUniforms(false);
 
 			m_texture2DShader->addVertexShader(mainClass->getResourceManager()->loadShader("vertexShaderTexture2D.glsl"));
 			m_texture2DShader->addGeometryShader(mainClass->getResourceManager()->loadShader("geometryShaderTexture2D.glsl"));
@@ -191,7 +190,7 @@ namespace Johnny
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
-			Vector2f newPos = TransformableObject2D::fromCoords(position) + Vector2f((GLfloat)tex->getWidth() / 2.0f * scale.x, (GLfloat)tex->getHeight() / 2.0f * scale.y) + TransformableObject2D::getCenter();
+			Vector2f newPos = TransformableObject2D::fromCoords(position) + Vector2f((GLfloat)tex->getWidth() / 2.0f * scale.x, (GLfloat)tex->getHeight() / 2.0f * -scale.y) + TransformableObject2D::getCenter();
 			Matrix3f transformation = cam ? (cam->getViewMatrix()*Matrix3f::translate(newPos)) : Matrix3f::translate(newPos);
 
 			if (scale.x != 1.0f || scale.y != 1.0f)

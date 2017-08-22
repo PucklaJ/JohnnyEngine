@@ -155,5 +155,26 @@ namespace Johnny
 			}
 		}
 	}
+    
+    void RenderManager::renderSceneForShadowMap(Shader* s)
+    {
+        std::vector<Actor*>* actors = nullptr;
+        Shader* prevShader = nullptr;
+		for (std::map < Shader*, std::vector<Actor*>>::iterator it = m_shaderActors.begin(); it != m_shaderActors.end(); it++)
+		{
+			actors = &it->second;
+			prevShader = it->first;
+            
+			for (size_t i = 0; i < actors->size(); i++)
+			{
+                if((*actors)[i]->castsShadows())
+                {
+                    (*actors)[i]->setShader(s, false);
+                    (*actors)[i]->m_render_render();
+                    (*actors)[i]->setShader(prevShader,false);
+                }
+			}
+		}
+    }
 
 }

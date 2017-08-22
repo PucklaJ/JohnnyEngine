@@ -14,6 +14,7 @@ namespace Johnny
     class Material;
     class Entity3D;
     class Sprite2D;
+    class Skybox;
     
     class Transform2D;
     
@@ -45,6 +46,7 @@ namespace Johnny
         
         virtual void setUniforms(Entity3D*,const unsigned int index = 0);
         virtual void setUniforms(Sprite2D*,const unsigned int index = 0){}
+        virtual void setUniforms(Skybox*,const unsigned int index = 0){}
         
     protected:
         Shader* m_shader = nullptr;

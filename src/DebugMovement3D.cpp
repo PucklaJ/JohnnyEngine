@@ -10,6 +10,7 @@ namespace Johnny
 		m_moveSpeed(moveSpeed),
 		m_lookSpeed(lookSpeed)
 	{
+        m_castsShadows3D = false;
 	}
 
 	DebugMovement3D::~DebugMovement3D()

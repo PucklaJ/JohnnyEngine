@@ -9,18 +9,20 @@ namespace Johnny
 {
 	Sprite2D::Sprite2D() : Sprite2D(nullptr)
 	{
-		m_castsShadows = false;
+		m_castsShadows3D = false;
 		m_drawScale = Vector2f(1.0f, 1.0f);
 	}
 
 	Sprite2D::Sprite2D(const std::string& fileName) : Actor("Sprite2D"),
 		m_fileName(fileName)
 	{
+        m_castsShadows3D = false;
 		m_drawScale = Vector2f(1.0f, 1.0f);
 	}
 
 	Sprite2D::Sprite2D(Texture* texture) : Actor("Sprite2D")
 	{
+        m_castsShadows3D = false;
 		setTexture(texture);
 		m_drawScale = Vector2f(1.0f, 1.0f);
 	}

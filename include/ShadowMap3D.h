@@ -1,6 +1,7 @@
 #pragma once
-#include "../include/Texture.h"
-#include "../include/Matrix4.h"
+#include "Texture.h"
+#include "Matrix4.h"
+#include "ShaderUpdater.h"
 #include <string>
 
 #define SHADOW_POINT 1
@@ -17,6 +18,22 @@ namespace Johnny
 	class DirectionalLight3D;
 	class SpotLight3D;
 	class Shader;
+    class Entity3D;
+    
+    class ShadowMap3DShaderUpdater : public ShaderUpdater
+    {
+    public:
+        ShadowMap3DShaderUpdater(Shader* s) : ShaderUpdater(s) {}
+        ~ShadowMap3DShaderUpdater() {}
+        
+        void setUniforms(Camera3D*,const unsigned int index = 0) override {}
+        void setUniforms(Lighting3D*,const unsigned int index = 0) override {}
+        void setUniforms(Mesh3D*,const unsigned int index = 0) override {}
+        
+        void setUniforms(Transform3D*,const unsigned int index = 0) override;
+        void setUniforms(Entity3D*,const unsigned int index = 0) override;
+        
+    };
 
 	class ShadowMap3D : public Texture
 	{

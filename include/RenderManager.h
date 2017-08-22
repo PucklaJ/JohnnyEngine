@@ -32,6 +32,7 @@ namespace Johnny
 		void removeActor(Actor*);
 
 		void render(MainClass*);
+        void renderSceneForShadowMap(Shader*);
 
 	private:
 		std::map<Shader*, std::vector<Actor*>> m_shaderActors;

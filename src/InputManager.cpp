@@ -274,7 +274,7 @@ namespace Johnny
 
 	InputManager::InputManager()
 	{
-		m_castsShadows = false;
+		m_castsShadows3D = false;
 	}
 
 	InputManager::~InputManager()

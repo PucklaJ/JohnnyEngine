@@ -11,7 +11,7 @@ namespace Johnny
 		m_zoomSpeed(zoomSpeed),
 		m_rotateSpeed(rotateSpeed)
 	{
-
+        m_castsShadows3D = false;
 	}
 
 	DebugMovement2D::~DebugMovement2D()

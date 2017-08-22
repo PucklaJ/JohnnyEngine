@@ -11,7 +11,7 @@ namespace Johnny
 		m_lookDirection(0.0f, 0.0f, -1.0f),
 		m_up(0.0f, 1.0f, 0.0f)
 	{
-		m_castsShadows = false;
+		m_castsShadows3D = false;
 	}
 
 

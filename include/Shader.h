@@ -114,11 +114,9 @@ namespace Johnny
 		void addAttribute(const std::string&,GLint);
 
 		void setShadowMap(bool b) { m_shadowMap = b; }
-		void setLoadDefaultUniforms(bool b) { m_loadDefaultUniforms = b; }
 
 		GLuint getProgram() { return m_program; }
 		bool isShadowMap() const { return m_shadowMap; }
-		bool loadDefaultUniforms() { return m_loadDefaultUniforms; }
         
         template<class T>
         void setShaderUpdater();
@@ -137,7 +135,6 @@ namespace Johnny
 		GLuint m_geo = 0;
 
 		bool m_shadowMap = false;
-		bool m_loadDefaultUniforms = true;
 
 		std::map<std::string,GLuint> m_uniformBlockIndices;
         

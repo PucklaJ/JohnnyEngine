@@ -11,6 +11,24 @@
 
 namespace Johnny
 {
+    void SkyboxShaderUpdater::setUniforms(Skybox* m,const unsigned int index)
+    {
+        m->m_cubeMap->bind(m_shader, "cubeMap", 0, GL_TEXTURE_CUBE_MAP);
+        Skybox::SKYBOX_MESH->render();
+        m->m_cubeMap->unbind(0, GL_TEXTURE_CUBE_MAP);
+    }
+    
+    void SkyboxShaderUpdater::setUniforms(Camera3D* m,const unsigned int index)
+    {
+        Matrix4f projectionMatrix = m->getViewMatrix();
+        projectionMatrix[3][0] = 0;
+        projectionMatrix[3][1] = 0;
+        projectionMatrix[3][2] = 0;
+        projectionMatrix = Transform3D::getProjectionMatrix() * projectionMatrix;
+
+        m_shader->setUniform("projectionMatrix", projectionMatrix);
+    }
+    
 	Shader* Skybox::SKYBOX_SHADER = nullptr;
 	SkyboxMesh* Skybox::SKYBOX_MESH = nullptr;
 
@@ -34,7 +52,7 @@ namespace Johnny
 
 	Skybox::Skybox() : Actor("Skybox")
 	{
-		m_castsShadows = false;
+		m_castsShadows3D = false;
 	}
 
 
@@ -52,14 +70,13 @@ namespace Johnny
 		if (SKYBOX_SHADER == nullptr)
 		{
 			SKYBOX_SHADER = new Shader();
-			SKYBOX_SHADER->setLoadDefaultUniforms(false);
 			SKYBOX_SHADER->addVertexShader(m_mainClass->getResourceManager()->loadShader("vertexShaderSkybox.glsl"));
 			SKYBOX_SHADER->addFragmentShader(m_mainClass->getResourceManager()->loadShader("fragmentShaderSkybox.glsl"));
 
 			SKYBOX_SHADER->addAttribute("position", 0);
 
 			SKYBOX_SHADER->link();
-            SKYBOX_SHADER->setShaderUpdater<ShaderUpdater>();
+            SKYBOX_SHADER->setShaderUpdater<SkyboxShaderUpdater>();
 
 			SKYBOX_SHADER->addUniform("projectionMatrix");
 			SKYBOX_SHADER->addUniform("cubeMap");
@@ -139,16 +156,7 @@ namespace Johnny
 	{
         if(m_texturesSet)
         {
-            glm::mat4 projectionMatrix = m_mainClass->getCamera3D()->getViewMatrix().toGLM();
-            projectionMatrix[3][0] = 0;
-            projectionMatrix[3][1] = 0;
-            projectionMatrix[3][2] = 0;
-            projectionMatrix = Transform3D::getProjectionMatrix().toGLM() * projectionMatrix;
-
-            SKYBOX_SHADER->setUniform("projectionMatrix", projectionMatrix);
-            m_cubeMap->bind(SKYBOX_SHADER, "cubeMap", 0, GL_TEXTURE_CUBE_MAP);
-            SKYBOX_MESH->render();
-            m_cubeMap->unbind(0, GL_TEXTURE_CUBE_MAP);
+            m_shader->getShaderUpdater()->setUniforms(this);
         }
 		
 		return true;
