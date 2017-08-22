@@ -7,7 +7,7 @@
 
 namespace Johnny
 {
-	Vector4f Lighting3D::ambientLight = Vector4f(1.0f, 1.0f, 1.0f, 1.0f);
+	Colorb Lighting3D::ambientLight = Colorb(255, 255, 255, 255);
 
 	void PointLight3D::load(Shader* s, PointLight3D* lights, unsigned int size, const std::string & name, GLuint shadowMapStartIndex)
 	{
@@ -17,7 +17,7 @@ namespace Johnny
 		}
 	}
 
-	PointLight3D::PointLight3D(const Vector3f& _position, const Vector3f& _diffuse, const Vector3f& _specular, GLfloat _quadratic, GLfloat _linear, GLfloat _constant) :
+	PointLight3D::PointLight3D(const Vector3f& _position, const Colorb& _diffuse, const Colorb& _specular, GLfloat _quadratic, GLfloat _linear, GLfloat _constant) :
 		position(_position),
 		diffuse(_diffuse),
 		specular(_specular),
@@ -46,8 +46,8 @@ namespace Johnny
 		stream >> prefix;
 
 		s->setUniform(prefix + "position", position);
-		s->setUniform(prefix + "diffuse", diffuse);
-		s->setUniform(prefix + "specular", specular);
+		s->setUniform(prefix + "diffuse", Vector3f(diffuse.normalise()));
+		s->setUniform(prefix + "specular", Vector3f(specular.normalise()));
 		s->setUniform(prefix + "quadratic", quadratic);
 		s->setUniform(prefix + "linear", linear);
 		s->setUniform(prefix + "constant", constant);
@@ -71,7 +71,7 @@ namespace Johnny
 		}
 	}
 
-	DirectionalLight3D::DirectionalLight3D(const Vector3f& _direction, const Vector3f & _diffuse, const Vector3f & _specular) :
+	DirectionalLight3D::DirectionalLight3D(const Vector3f& _direction, const Colorb & _diffuse, const Colorb & _specular) :
 		direction(_direction),
 		diffuse(_diffuse),
 		specular(_specular)
@@ -97,8 +97,8 @@ namespace Johnny
 		stream >> prefix;
 
 		s->setUniform(prefix + "direction", direction);
-		s->setUniform(prefix + "diffuse", diffuse);
-		s->setUniform(prefix + "specular", specular);
+		s->setUniform(prefix + "diffuse", Vector3f(diffuse.normalise()));
+		s->setUniform(prefix + "specular", Vector3f(specular.normalise()));
 		s->setUniform(prefix + "castsShadow", castsShadow);
 		if (shadowMap)
 			shadowMap->load(s, shadowMapIndex, prefix + "shadowMap.lightSpaceMatrix", prefix + "shadowMap.texture");
@@ -119,7 +119,7 @@ namespace Johnny
 		}
 	}
 
-	SpotLight3D::SpotLight3D(const Vector3f& _position, const Vector3f& _direction, GLfloat _innerCutOff, GLfloat _outerCutOff, const Vector3f & _diffuse, const Vector3f & _specular, GLfloat _quadratic, GLfloat _linear, GLfloat _constant) :
+	SpotLight3D::SpotLight3D(const Vector3f& _position, const Vector3f& _direction, GLfloat _innerCutOff, GLfloat _outerCutOff, const Colorb & _diffuse, const Colorb & _specular, GLfloat _quadratic, GLfloat _linear, GLfloat _constant) :
 		position(_position),
 		diffuse(_diffuse),
 		specular(_specular),
@@ -151,8 +151,8 @@ namespace Johnny
 
 		s->setUniform(prefix + "position", position);
 		s->setUniform(prefix + "direction", direction);
-		s->setUniform(prefix + "diffuse", diffuse);
-		s->setUniform(prefix + "specular", specular);
+		s->setUniform(prefix + "diffuse", Vector3f(diffuse.normalise()));
+		s->setUniform(prefix + "specular", Vector3f(specular.normalise()));
 		s->setUniform(prefix + "innerCutOff", cos(innerCutOff / 180.0f * (GLfloat)M_PI));
 		s->setUniform(prefix + "outerCutOff", cos(outerCutOff / 180.0f * (GLfloat)M_PI));
 		s->setUniform(prefix + "quadratic", quadratic);

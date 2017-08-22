@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "Colors.h"
 
 namespace Johnny
 {
@@ -20,15 +21,15 @@ namespace Johnny
 		static void load(Shader*, PointLight3D*, unsigned int, const std::string& name = "pointLights", GLuint shadowMapStartIndex = 0);
 
 		PointLight3D() : PointLight3D(Vector3f(0.0f,0.0f,0.0f)) {}
-		PointLight3D(const Vector3f&, const Vector3f& _diffuse = Vector3f(1.0f, 1.0f, 1.0f), const Vector3f& _specular = Vector3f(1.0f, 1.0f, 1.0f), GLfloat _quadratic = 0.001f, GLfloat _linear = 0.1f, GLfloat _constant = 0.5f);
+		PointLight3D(const Vector3f&, const Colorb& _diffuse = Colorb(255, 255, 255), const Colorb& _specular = Colorb(255, 255, 255), GLfloat _quadratic = 0.001f, GLfloat _linear = 0.1f, GLfloat _constant = 0.5f);
 		~PointLight3D();
 
 		void load(Shader*, GLuint index = 0, bool isArray = true, const std::string& name = "pointLights", GLuint shadowMapIndex = 0);
 		void setShadowMap(GLsizei, GLsizei);
 
 		Vector3f position;
-		Vector3f diffuse;
-		Vector3f specular;
+		Colorb diffuse;
+		Colorb specular;
 		GLfloat quadratic;
 		GLfloat linear;
 		GLfloat constant;
@@ -42,15 +43,15 @@ namespace Johnny
 		static void load(Shader*, DirectionalLight3D*, unsigned int, const std::string& name = "directionalLights", GLuint shadowMapStartIndex = 0);
 
 		DirectionalLight3D() : DirectionalLight3D(Vector3f(0.0f,0.0f,-1.0f)) {}
-		DirectionalLight3D(const Vector3f&, const Vector3f& _diffuse = Vector3f(1.0f, 1.0f, 1.0f), const Vector3f& _specular = Vector3f(1.0f, 1.0f, 1.0f));
+		DirectionalLight3D(const Vector3f&, const Colorb& _diffuse = Colorb(255, 255, 255), const Colorb& _specular = Colorb(255, 255, 255));
 		~DirectionalLight3D();
 
 		void load(Shader*, GLuint index = 0, bool isArray = true, const std::string& name = "directionalLights", GLuint shadowMapIndex = 0);
 		void setShadowMap(GLsizei, GLsizei);
 
 		Vector3f direction;
-		Vector3f diffuse;
-		Vector3f specular;
+		Colorb diffuse;
+		Colorb specular;
 		ShadowMap3D* shadowMap = nullptr;
 		bool castsShadow = false;
 	};
@@ -61,7 +62,7 @@ namespace Johnny
 		static void load(Shader*, SpotLight3D*, unsigned int, const std::string& name = "spotLights", GLuint shadowMapStartIndex = 0);
 
 		SpotLight3D() : SpotLight3D(Vector3f(0.0f,0.0f,0.0f),Vector3f(0.0f,0.0f,-1.0f),30.0f,50.0f) {}
-		SpotLight3D(const Vector3f&, const Vector3f&, GLfloat, GLfloat, const Vector3f& _diffuse = Vector3f(1.0f, 1.0f, 1.0f), const Vector3f& _specular = Vector3f(1.0f, 1.0f, 1.0f), GLfloat _quadratic = 0.001f, GLfloat _linear = 0.1f, GLfloat _constant = 0.5f);
+		SpotLight3D(const Vector3f&, const Vector3f&, GLfloat, GLfloat, const Colorb& _diffuse = Colorb(255, 255, 255), const Colorb& _specular = Colorb(255, 255, 255), GLfloat _quadratic = 0.001f, GLfloat _linear = 0.1f, GLfloat _constant = 0.5f);
 		~SpotLight3D();
 
 		void load(Shader*, GLuint index = 0, bool isArray = true, const std::string& name = "spotLights", GLuint shadowMapIndex = 0);
@@ -69,8 +70,8 @@ namespace Johnny
 
 		Vector3f position;
 		Vector3f direction;
-		Vector3f diffuse;
-		Vector3f specular;
+		Colorb diffuse;
+		Colorb specular;
 		GLfloat innerCutOff;
 		GLfloat outerCutOff;
 		GLfloat quadratic;
@@ -83,7 +84,7 @@ namespace Johnny
 	class Lighting3D
 	{
 	public:
-		static Vector4f ambientLight;
+		static Colorb ambientLight;
 
 		Lighting3D();
 		~Lighting3D();

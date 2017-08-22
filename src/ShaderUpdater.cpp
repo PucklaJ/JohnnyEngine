@@ -45,7 +45,7 @@ namespace Johnny
     
     void ShaderUpdater::setUniforms(Lighting3D* m,const unsigned int index)
     {
-        m_shader->setUniform("ambientLight", Lighting3D::ambientLight);
+        m_shader->setUniform("ambientLight", Vector4f(Lighting3D::ambientLight.normalise()));
         m->load(m_shader, 3);
     }
     

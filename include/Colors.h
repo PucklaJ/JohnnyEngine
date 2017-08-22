@@ -4,11 +4,12 @@
 #include "mathematics_functions.h"
 #include <GL/glew.h>
 #include <ostream>
+#include "Vector4.h"
 
 namespace Johnny
 {
 	template<class T,size_t maxValue>
-	class Color
+	class Color : public Vector4<T>
 	{
 	public:
 		Color();
@@ -21,37 +22,24 @@ namespace Johnny
 
 		template<class T1,size_t maxValue1>
 		Color<T, maxValue>& operator=(const Color<T1, maxValue1>&);
-
-		T r=0;
-		T g=0;
-		T b=0;
-		T a=0;
 	};
 
 	template<class T, size_t maxValue>
-	inline Color<T, maxValue>::Color() :
-		r(0),
-		g(0),
-		b(0),
-		a(0)
+	inline Color<T, maxValue>::Color() : Vector4<T>((T)0,(T)0,(T)0,(T)0)
 	{
 	}
 
 	template<class T, size_t maxValue>
-	inline Color<T, maxValue>::Color(const T& _r, const T& _g, const T& _b, const T& _a) :
-		r(clamp(_r, (T)0, (T)maxValue)),
-		g(clamp(_g, (T)0, (T)maxValue)),
-		b(clamp(_b, (T)0, (T)maxValue)),
-		a(clamp(_a, (T)0, (T)maxValue))
+	inline Color<T, maxValue>::Color(const T& _r, const T& _g, const T& _b, const T& _a) : Vector4<T>(
+		clamp(_r, (T)0, (T)maxValue),
+		clamp(_g, (T)0, (T)maxValue),
+        clamp(_b, (T)0, (T)maxValue),
+		clamp(_a, (T)0, (T)maxValue))
 	{
 	}
 
 	template<class T, size_t maxValue>
-	inline Color<T, maxValue>::Color(const T& _r, const T& _g, const T& _b) :
-		r(clamp(_r, (T)0, (T)maxValue)),
-		g(clamp(_g, (T)0, (T)maxValue)),
-		b(clamp(_b, (T)0, (T)maxValue)),
-		a(maxValue)
+	inline Color<T, maxValue>::Color(const T& _r, const T& _g, const T& _b) : Color<T,maxValue>(_r,_g,_b,(T)maxValue)
 	{
 	}
 
@@ -72,19 +60,12 @@ namespace Johnny
 	template<class T1, size_t maxValue1>
 	inline Color<T, maxValue>& Color<T, maxValue>::operator=(const Color<T1, maxValue1>& color)
 	{
-		r = (T)(((GLfloat)color.r / (GLfloat)maxValue1) * (GLfloat)maxValue);
-		g = (T)(((GLfloat)color.g / (GLfloat)maxValue1) * (GLfloat)maxValue);
-		b = (T)(((GLfloat)color.b / (GLfloat)maxValue1) * (GLfloat)maxValue);
-		a = (T)(((GLfloat)color.a / (GLfloat)maxValue1) * (GLfloat)maxValue);
+		this->r = (T)(((GLfloat)color.r / (GLfloat)maxValue1) * (GLfloat)maxValue);
+		this->g = (T)(((GLfloat)color.g / (GLfloat)maxValue1) * (GLfloat)maxValue);
+		this->b = (T)(((GLfloat)color.b / (GLfloat)maxValue1) * (GLfloat)maxValue);
+		this->a = (T)(((GLfloat)color.a / (GLfloat)maxValue1) * (GLfloat)maxValue);
 
 		return *this;
-	}
-
-	template<class T,size_t maxValue>
-	inline std::ostream& operator<<(std::ostream& os, const Color<T, maxValue>& color)
-	{
-		os << "(" << color.r << ";" << color.g << ";" << color.b << ";" << color.a << ")";
-		return os;
 	}
 
 	inline std::ostream& operator<<(std::ostream& os, const Color<GLubyte, 255>& color)

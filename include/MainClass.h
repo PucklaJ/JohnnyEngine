@@ -11,6 +11,7 @@
 #include <GL/glew.h>
 #include "Timer.h"
 #include "Vector2.h"
+#include "Colors.h"
 
 #define NO_FPS_LOCK -1
 
@@ -57,9 +58,9 @@ namespace Johnny
 
             void run();
 
-            void setAmbientLight3D(const SDL_Color&);
+            void setAmbientLight3D(const Colorb&);
             void setNativeRes(const Vector2f& v);
-            void setBackgroundColor(const SDL_Color&);
+            void setBackgroundColor(const Colorb&);
 
 			void renderSceneForShadowMap(Shader*);
 
@@ -82,7 +83,7 @@ namespace Johnny
             float getScaleW() const {return m_scaleW;}
             float getScaleH() const {return m_scaleH;}
             const Vector2f& getNativeRes() const {return m_nativeResolution;}
-            const SDL_Color& getBackgroundColor() const {return m_backgroundColor;}
+            const Colorb& getBackgroundColor() const {return m_backgroundColor;}
             
             virtual bool render() override;
             virtual bool update() override;
@@ -141,7 +142,7 @@ namespace Johnny
 			GLint m_viewportOffsetX = 0;
 			GLint m_viewportOffsetY = 0;
             
-            SDL_Color m_backgroundColor;
+            Colorb m_backgroundColor;
         
             Vector2f m_nativeResolution;
 			Uint32 m_initWindowFlags = 0;

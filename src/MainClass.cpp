@@ -472,9 +472,9 @@ namespace Johnny
 		}
     }
     
-    void MainClass::setAmbientLight3D(const SDL_Color& col)
+    void MainClass::setAmbientLight3D(const Colorb& col)
     {
-		Lighting3D::ambientLight = Vector4f((GLfloat)col.r / 255.0f,(GLfloat)col.g / 255.0f, (GLfloat)col.b / 255.0f, (GLfloat)col.a / 255.0f);
+		Lighting3D::ambientLight = col;
     }
     
     void MainClass::setNativeRes(const Vector2f& v)
@@ -511,9 +511,12 @@ namespace Johnny
 		onResize(m_window->getResolution().x,m_window->getResolution().y);
     }
 
-    void MainClass::setBackgroundColor(const SDL_Color& col)
+    void MainClass::setBackgroundColor(const Colorb& col)
     {
     	m_backgroundColor = col;
+        Colorf color = m_backgroundColor;
+        
+        glClearColor(color.r,color.g,color.b,color.a);
     }
 
 	void MainClass::renderSceneForShadowMap(Shader* s)
