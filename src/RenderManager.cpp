@@ -6,6 +6,7 @@
 #include "../include/OBJLoader.h"
 #include "../include/MainClass.h"
 #include "../include/Camera3D.h"
+#include "../include/Transform2D.h"
 #include <iostream>
 
 namespace Johnny

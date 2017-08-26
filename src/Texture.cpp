@@ -13,6 +13,7 @@
 #include "../include/Transform2D.h"
 #include "../include/Geometry.h"
 #include "../include/Sprite2D.h"
+#include "../include/FrameBuffer.h"
 
 namespace Johnny
 {
@@ -185,7 +186,7 @@ namespace Johnny
 
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam,const TextureRegion* srcRegion, bool bindShader,bool isFrameBuffer)
+	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam,const TextureRegion* srcRegion, bool bindShader,bool isFrameBuffer,GLenum target)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
@@ -203,7 +204,7 @@ namespace Johnny
 			m_texture2DShader->setUniform("viewportSize", TransformableObject2D::getViewportSize());
 			m_texture2DShader->setUniform("textureRegion", srcRegion ? *srcRegion : TextureRegion(0,0,tex->getWidth(),tex->getHeight()));
             m_texture2DShader->setUniform("isFrameBuffer",isFrameBuffer);
-			tex->bind(m_texture2DShader);
+			tex->bind(m_texture2DShader,"textureAddress",0,target);
 
 			glBindVertexArray(m_texture2D_vao);
 
@@ -213,6 +214,18 @@ namespace Johnny
 		}
 	}
     
+    void Texture::renderTexture2D(Texture* tex, const TextureRegion* dst, const TextureRegion* src,const GLfloat& rotation,const Camera2D* cam,bool bindShader, bool isFrameBuffer)
+    {
+        renderTexture2D(tex,
+                        dst ? Vector2f(dst->x,dst->y) : Vector2f(0.0f,0.0f),
+                        dst ? (Vector2f(dst->w,dst->h) / Vector2f(tex->getWidth(),tex->getHeight())): (TransformableObject2D::getViewportSize() / Vector2f(tex->getWidth(),tex->getHeight())),
+                        rotation,
+                        cam,
+                        src,
+                        bindShader,
+                        isFrameBuffer);
+    }
+    
     void Texture::renderSprite2D()
     {
         glBindVertexArray(m_texture2D_vao);
@@ -220,6 +233,22 @@ namespace Johnny
         glDrawArrays(GL_POINTS, 0, 1);
 
         glBindVertexArray(0);
+    }
+    
+    Texture* Texture::BOX(const Vector2i& size,const Colorf& color,GLenum target,GLenum filtering,GLenum format,GLenum type)
+    {
+        Texture* tex = new Texture(nullptr,size.x,size.y,filtering,format,format,type,target);
+        FrameBuffer* fr = new FrameBuffer();
+        fr->addTexture(tex);
+        fr->bind();
+        glClearColor(color.r,color.g,color.b,color.a);
+        glClear(GL_COLOR_BUFFER_BIT);
+        fr->unbind();
+        delete fr;
+        
+        glClearColor(0.0f,0.0f,0.0f,0.0f);
+        
+        return tex;
     }
 
 	Shader* Texture::getTexture2DShader()

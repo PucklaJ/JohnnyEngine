@@ -8,6 +8,7 @@
 #include "Vector2.h"
 #include "Geometry.h"
 #include "ShaderUpdater.h"
+#include "Colors.h"
 
 
 namespace Johnny
@@ -48,8 +49,11 @@ namespace Johnny
 		static void initTexture2DShader(MainClass*);
 		static void initTexture2DBuffers();
 		static void renderTexture2D(Texture*, const Matrix3f&,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false);
-		static void renderTexture2D(Texture*, const Vector2f&, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false);
+		static void renderTexture2D(Texture*, const Vector2f&, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false,GLenum target = GL_TEXTURE_2D);
+        static void renderTexture2D(Texture*, const TextureRegion* dst = nullptr, const TextureRegion* src = nullptr,const GLfloat& rotation = 0.0f,const Camera2D* cam = nullptr,bool bindShader = true, bool isFrameBuffer = false);
         static void renderSprite2D();
+        
+        static Texture* BOX(const Vector2i&,const Colorf& color = Colorf(0.0f,0.0f,0.0f,0.0f),GLenum target = GL_TEXTURE_2D,GLenum filtering = GL_LINEAR,GLenum format = GL_RGBA,GLenum type = GL_UNSIGNED_BYTE);
         
 		static Shader* getTexture2DShader();
 

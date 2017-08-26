@@ -21,8 +21,8 @@ void main()
     textureDimensions = textureSize(textureAddress,0);
     
     float TEXREG_X_L = ( textureRegion.x / textureDimensions.x );
-    float TEXREG_Y_D = (!isFrameBuffer ? ( ( textureDimensions.y - textureRegion.y ) / textureDimensions.y ) : (1.0 - (( textureDimensions.y - textureRegion.y ) / textureDimensions.y )));
-    float TEXREG_Y_U = (!isFrameBuffer ? ( TEXREG_Y_D - textureRegion.w / textureDimensions.y ) : (1.0 - ( 1.0-TEXREG_Y_D - textureRegion.w / textureDimensions.y )));
+    float TEXREG_Y_U = (isFrameBuffer ? ((textureDimensions.y-textureRegion.y) / textureDimensions.y ) : ( 1.0- ((textureDimensions.y-textureRegion.y) / textureDimensions.y )));
+    float TEXREG_Y_D = (isFrameBuffer ? ( TEXREG_Y_U - textureRegion.w / textureDimensions.y ) : ( 1.0-(1.0-TEXREG_Y_U - textureRegion.w / textureDimensions.y) ));
     float TEXREG_X_R = ( TEXREG_X_L + textureRegion.z / textureDimensions.x );
     
 	// LeftDown

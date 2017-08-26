@@ -37,6 +37,7 @@ namespace Johnny
         if(m_body)
         {
         	m_body->SetUserData(this);
+            attachBodyToSprite();
         }
             
         return true;

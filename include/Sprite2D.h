@@ -33,9 +33,9 @@ namespace Johnny
 
 	protected:
 		Texture* m_texture = nullptr;
+        TextureRegion m_srcRegion;
 	private:
 		std::string m_fileName = "";
-		TextureRegion m_srcRegion;
 		Vector2f m_drawScale;
 	};
 }

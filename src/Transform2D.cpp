@@ -1,6 +1,7 @@
 #include "../include/Transform2D.h"
 #include "../include/Camera2D.h"
 #include "../include/MainClass.h"
+#include "../include/Sprite2D.h"
 #include <iostream>
 
 namespace Johnny
@@ -128,14 +129,14 @@ namespace Johnny
 		Vector2f prevViewport = viewportSize;
 		viewportSize = v;
         
-        Vector2f _center = getCenter() * getViewportSize();
+        Vector2f _center = getCenter() * prevViewport;
         
 		for (size_t i = 0; i < objects.size(); i++)
 		{
 			if (!objects[i]->m_affectedByCenter)
 				continue;
 
-			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - _center,prevViewport));
+			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - Vector2f(objects[i]->m_size.x / 2.0f,-objects[i]->m_size.y / 2.0f) * objects[i]->m_transform.getScale() - _center,prevViewport));
 			objects[i]->setPosition(objects[i]->m_transform.getTranslation());
 		}
 	}
@@ -181,8 +182,6 @@ namespace Johnny
             {
                 _center = getCenter() * getViewportSize();
             }
-            else
-                _center = Vector2f(0.0f,0.0f);
             
 			m_transform.setTranslation(fromCoords(pos) + _size * m_transform.getScale() + _center);
 		}

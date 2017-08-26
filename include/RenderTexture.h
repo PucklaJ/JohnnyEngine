@@ -15,7 +15,7 @@ namespace Johnny
         
         void target();
         void untarget();
-        void render(const Vector2f&,const Vector2f& scale = Vector2f(1.0f,1.0f),GLfloat rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true);
+        void render(const Vector2f&,const Vector2f& scale = Vector2f(1.0f,1.0f),GLfloat rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true,GLenum target = GL_TEXTURE_2D);
         
         FrameBuffer* getFrameBuffer() {return m_frameBuffer;}
     

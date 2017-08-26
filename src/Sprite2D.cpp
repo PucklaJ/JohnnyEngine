@@ -4,6 +4,7 @@
 #include "../include/LogManager.h"
 #include "../include/Settings.h"
 #include "../include/Shader.h"
+#include "../include/Camera2D.h"
 
 namespace Johnny
 {
@@ -57,8 +58,6 @@ namespace Johnny
 	bool Sprite2D::render()
 	{
 		setScale(getScale() * m_drawScale);
-
-		//Texture::renderTexture2D(m_texture, m_isAffectedByCamera ? m_transform.getProjectedTransformation(m_mainClass->getCamera2D()) : m_transform.getTransformation(),&m_srcRegion,false);
         
         m_shader->getShaderUpdater()->setUniforms(&m_transform,m_isAffectedByCamera ? Texture2DShaderUpdater::TRANSFORM_CAMERA : Texture2DShaderUpdater::TRANSFORM_NORMAL);
         m_shader->getShaderUpdater()->setUniforms(m_texture);

@@ -20,8 +20,17 @@ namespace Johnny
 
 		T x = 0;
 		T y = 0;
-		T width = 0;
-		T height = 0;
+        union
+        {
+            T width = 0;
+            T w;
+        };
+		
+        union
+        {
+            T height = 0;
+            T h;
+        };		
 
 
 		friend std::ostream& operator<< <>(std::ostream&, const Rectangle<T>&);

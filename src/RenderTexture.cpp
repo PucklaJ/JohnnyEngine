@@ -34,8 +34,8 @@ namespace Johnny
         TransformableObject2D::setViewportSize(MainClass::getInstance()->getNativeRes());
     }
     
-    void RenderTexture::render(const Vector2f& position,const Vector2f& scale,GLfloat rotation, const Camera2D* cam,const TextureRegion* srcRegion, bool bindShader)
+    void RenderTexture::render(const Vector2f& position,const Vector2f& scale,GLfloat rotation, const Camera2D* cam,const TextureRegion* srcRegion, bool bindShader,GLenum target)
     {
-        renderTexture2D(this,position,scale,rotation,cam,srcRegion,bindShader,true);
+        renderTexture2D(this,position,scale,rotation,cam,srcRegion,bindShader,true,target);
     }
 }
