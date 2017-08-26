@@ -96,10 +96,10 @@ namespace Johnny
 		return mesh;
 	}
 
-	Texture * Texture::SDL_SurfaceToTexture(SDL_Surface* sur)
+	Texture * Texture::SDL_SurfaceToTexture(SDL_Surface* sur,GLenum filtering)
 	{
 		GLenum mode = sur->format->BytesPerPixel == 4 ? GL_RGBA : GL_RGB;
-		Texture* tex = new Texture((GLubyte*)sur->pixels, sur->w, sur->h, mode, mode, GL_UNSIGNED_BYTE, GL_TEXTURE_2D);
+		Texture* tex = new Texture((GLubyte*)sur->pixels, sur->w, sur->h,filtering, mode, mode, GL_UNSIGNED_BYTE, GL_TEXTURE_2D);
 
 		return tex;
 	}
@@ -123,6 +123,7 @@ namespace Johnny
 			m_texture2DShader->addUniform("textureAddress");
 			m_texture2DShader->addUniform("viewportSize");
 			m_texture2DShader->addUniform("textureRegion");
+            m_texture2DShader->addUniform("isFrameBuffer");
 
 			mainClass->getRenderManager()->addShader(m_texture2DShader);
 		}
@@ -163,18 +164,16 @@ namespace Johnny
 		}
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation,const TextureRegion* srcRegion,bool bindShader)
+	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation,const TextureRegion* srcRegion,bool bindShader,bool isFrameBuffer)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
-            GLint viewport[4];
-            glGetIntegerv(GL_VIEWPORT,viewport);
-            
 			if(bindShader)
 				m_texture2DShader->bind();
 			m_texture2DShader->setUniform("transform", transformation);
-			m_texture2DShader->setUniform("viewportSize", Vector2f(viewport[2],viewport[3]));
+			m_texture2DShader->setUniform("viewportSize", TransformableObject2D::getViewportSize());
 			m_texture2DShader->setUniform("textureRegion", srcRegion ? *srcRegion : TextureRegion(0, 0, tex->getWidth(), tex->getHeight()));
+            m_texture2DShader->setUniform("isFrameBuffer",isFrameBuffer);
 			tex->bind(m_texture2DShader);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -186,25 +185,24 @@ namespace Johnny
 
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam,const TextureRegion* srcRegion, bool bindShader)
+	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam,const TextureRegion* srcRegion, bool bindShader,bool isFrameBuffer)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
-			Vector2f newPos = TransformableObject2D::fromCoords(position) + Vector2f((GLfloat)tex->getWidth() / 2.0f * scale.x, (GLfloat)tex->getHeight() / 2.0f * -scale.y) + TransformableObject2D::getCenter();
+			Vector2f newPos = TransformableObject2D::fromCoords(position) + Vector2f((GLfloat)tex->getWidth() / 2.0f * scale.x, (GLfloat)tex->getHeight() / 2.0f * -scale.y) + TransformableObject2D::getCenter() * TransformableObject2D::getViewportSize();
 			Matrix3f transformation = cam ? (cam->getViewMatrix()*Matrix3f::translate(newPos)) : Matrix3f::translate(newPos);
 
 			if (scale.x != 1.0f || scale.y != 1.0f)
 				transformation *= Matrix3f::scale(scale);
 			if (rotation != 0.0f && (GLint)rotation % 360 != 0)
 				transformation *= Matrix3f::rotate(rotation);
-				
-
+            
 			if(bindShader)
 				m_texture2DShader->bind();
 			m_texture2DShader->setUniform("transform", transformation);
-			m_texture2DShader->setUniform("viewportSize", MainClass::getInstance()->getNativeRes());
+			m_texture2DShader->setUniform("viewportSize", TransformableObject2D::getViewportSize());
 			m_texture2DShader->setUniform("textureRegion", srcRegion ? *srcRegion : TextureRegion(0,0,tex->getWidth(),tex->getHeight()));
-			//m_texture2DShader->setUniform("scale", scale);
+            m_texture2DShader->setUniform("isFrameBuffer",isFrameBuffer);
 			tex->bind(m_texture2DShader);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -292,6 +290,40 @@ namespace Johnny
 			glBindTexture(target, 0);
 		}
 	}
+    
+    GLubyte* Texture::readPixels(GLenum target,GLenum format, GLenum type)
+    {
+        GLubyte* data = new GLubyte[4*getWidth()*getHeight()];
+        
+        glGetError();
+        glGetTextureImage(m_texture,0,format,type,4*sizeof(GLubyte)*getWidth()*getHeight(),data);
+        
+        GLenum error = glGetError();
+        
+        switch(error)
+        {
+            case GL_INVALID_ENUM:
+                LogManager::error("Target is invalid in readPixels!");
+                break;
+            case GL_INVALID_OPERATION:
+                LogManager::error("The name of the texture doesn't exist in readPixels");
+                break;
+            case GL_NO_ERROR:
+                break;
+            default:
+                LogManager::error("Couldn't detect the error: " + std::to_string(error) + " in readPixels!");
+                break;
+        }
+        
+        return data;
+    }
+    
+    SDL_Surface* Texture::toSDLSurface(GLenum target,GLenum format,GLenum type)
+    {
+        SDL_Surface* sur = SDL_CreateRGBSurfaceWithFormatFrom(readPixels(target,format,type),getWidth(),getHeight(),32,getWidth()*2,format == GL_RGBA ? SDL_PIXELFORMAT_RGBA8888 : SDL_PIXELFORMAT_RGB888);
+        
+        return sur;
+    }
 
 	GLsizei Texture::getWidth()
 	{

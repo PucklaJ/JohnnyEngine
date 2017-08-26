@@ -41,14 +41,16 @@ namespace Johnny
 		unbind(target);
 	}
 
-	void FrameBuffer::checkStatus(GLenum target)
+	bool FrameBuffer::checkStatus(GLenum target)
 	{
+        bool rv = true;
 		bind(target);
 		if (glCheckFramebufferStatus(target) != GL_FRAMEBUFFER_COMPLETE)
 		{
-			std::cerr << "FrameBuffer isn't completed" << std::endl;
+			rv = false;
 		}
 		unbind(target);
+        return rv;
 	}
 
 	void FrameBuffer::bind(GLenum target)

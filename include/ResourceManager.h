@@ -5,6 +5,7 @@
 #include <string>
 #include <assimp/scene.h>
 #include <GL/glew.h>
+#include <SDL2/SDL_surface.h>
 
 
 
@@ -40,6 +41,9 @@ namespace Johnny
 		GLsizei width = 0;
 		GLsizei height = 0;
 		GLint numChannels = 0;
+        
+        Texture* toTexture(GLenum target = GL_TEXTURE_2D,GLenum filtering = GL_LINEAR,GLenum format = GL_RGBA);
+        SDL_Surface* toSDL_Surface(Uint32 pixelFormat = SDL_PIXELFORMAT_RGBA8888);
 	};
 
     class ResourceManager

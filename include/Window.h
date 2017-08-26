@@ -3,10 +3,13 @@
 #include "../include/Actor.h"
 #include <SDL2/SDL_video.h>
 #include <SDL2/SDL_stdinc.h>
+#include <GL/glew.h>
 
 namespace Johnny
 {
     class MainClass;
+    class Texture;
+    class TextureData;
     
     class Window
     {
@@ -21,6 +24,9 @@ namespace Johnny
             void setResolution(int,int);
             void setPosition(const SDL_Point&);
             void setPosition(int,int);
+            void setIcon(Texture*,GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE);
+            void setIcon(TextureData*,Uint32 pixelFormat = SDL_PIXELFORMAT_RGBA8888);
+            void setIcon(SDL_Surface*);
 
             SDL_Window* getWindow() {return m_window;}
             const SDL_Point getResolution();

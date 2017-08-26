@@ -1,6 +1,9 @@
 #include "../include/Window.h"
 #include "../include/MainClass.h"
 #include "../include/Actor.h"
+#include <SDL2/SDL_surface.h>
+#include "../include/Texture.h"
+#include "../include/ResourceManager.h"
 
 namespace Johnny
 {
@@ -100,6 +103,29 @@ namespace Johnny
     void Window::setPosition(int x, int y)
     {
         SDL_SetWindowPosition(m_window,x,y);
+    }
+    
+    void Window::setIcon(Texture* tex,GLenum target,GLenum format, GLenum type)
+    {
+        SDL_Surface* sur = tex->toSDLSurface(target,format,type);
+        
+        SDL_SetWindowIcon(m_window,sur);
+        
+        SDL_FreeSurface(sur);
+    }
+    
+    void Window::setIcon(TextureData* texD,Uint32 pixelFormat)
+    {
+        SDL_Surface* sur = texD->toSDL_Surface(pixelFormat);
+        
+        SDL_SetWindowIcon(m_window,sur);
+        
+        SDL_FreeSurface(sur);
+    }
+    
+    void Window::setIcon(SDL_Surface* sur)
+    {   
+        SDL_SetWindowIcon(m_window,sur);
     }
 
     bool Window::isBorderless()

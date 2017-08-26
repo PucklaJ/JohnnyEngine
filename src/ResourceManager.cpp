@@ -24,6 +24,20 @@ namespace Johnny
 	typedef std::map<std::string, Mesh3D*>::iterator MeshIterator;
 	typedef std::map<std::string, Scene*>::iterator SceneIterator;
 	typedef std::map<std::string, TextureData*>::iterator TextureDataIterator;
+    
+    Texture* TextureData::toTexture(GLenum target,GLenum filtering,GLenum format)
+    {
+        Texture* tex = new Texture(data,width,height,filtering,format,format,GL_UNSIGNED_BYTE,target);
+        
+        return tex;
+    }
+    
+    SDL_Surface* TextureData::toSDL_Surface(Uint32 pixelFormat)
+    {
+        SDL_Surface* sur = SDL_CreateRGBSurfaceWithFormatFrom(data,width,height,32,width*2,pixelFormat);
+        
+        return sur;
+    }
 
 	ResourceManager::ResourceManager()
 	{

@@ -44,11 +44,11 @@ namespace Johnny
 	{
 	public:
 		static Mesh3D* createTexturePlane(GLfloat, GLfloat);
-		static Texture* SDL_SurfaceToTexture(SDL_Surface*);
+		static Texture* SDL_SurfaceToTexture(SDL_Surface*,GLenum filtering = GL_LINEAR);
 		static void initTexture2DShader(MainClass*);
 		static void initTexture2DBuffers();
-		static void renderTexture2D(Texture*, const Matrix3f&,const TextureRegion* srcRegion = nullptr, bool bindShader = true);
-		static void renderTexture2D(Texture*, const Vector2f&, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true);
+		static void renderTexture2D(Texture*, const Matrix3f&,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false);
+		static void renderTexture2D(Texture*, const Vector2f&, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false);
         static void renderSprite2D();
         
 		static Shader* getTexture2DShader();
@@ -59,6 +59,9 @@ namespace Johnny
 
 		void bind(Shader*, const std::string& name = "textureAddress", GLuint unit = 0, GLenum target = GL_TEXTURE_2D);
 		void unbind(GLuint unit = 0, GLenum target = GL_TEXTURE_2D);
+        GLubyte* readPixels(GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE);
+        SDL_Surface* toSDLSurface(GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA,GLenum type = GL_UNSIGNED_BYTE);
+        
 
 		GLuint getBuffer() { return m_texture; }
 		GLsizei getWidth();

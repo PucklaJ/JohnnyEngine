@@ -51,6 +51,8 @@ namespace Johnny
 		static Vector2f toCoords(const Vector2f&, bool,bool);
 		static Vector2f fromCoords(const Vector2f&, const Vector2f& viewport = Vector2f(-1.0f,-1.0f));
 		static Vector2f fromCoords(const Vector2f&, bool, bool);
+        
+        static bool centerSet;
 
 		TransformableObject2D();
 		virtual ~TransformableObject2D();

@@ -41,6 +41,7 @@ namespace Johnny
 	bool TransformableObject2D::xAxisFlipped = false;
 	Vector2f TransformableObject2D::viewportSize;
 	std::vector<TransformableObject2D*> TransformableObject2D::objects;
+    bool TransformableObject2D::centerSet = false;
 
 	const Vector2f& TransformableObject2D::getCenter()
 	{
@@ -64,28 +65,43 @@ namespace Johnny
 
 	void TransformableObject2D::setCenter(const Vector2f& v)
 	{
-		Vector2f prevCenter = center;
+        Vector2f prevCenter;
+        if(centerSet)
+        {
+            prevCenter = getCenter() * getViewportSize();
+        }
+            
 		center = v;
-		for (size_t i = 0; i < objects.size(); i++)
-		{
-			if (!objects[i]->m_affectedByCenter)
-				continue;
+        if(centerSet)
+        {
+            
+            
+            for (size_t i = 0; i < objects.size(); i++)
+            {
+                if (!objects[i]->m_affectedByCenter)
+                    continue;
 
-			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - prevCenter));
-			objects[i]->setPosition(objects[i]->m_transform.getTranslation());
-		}
+                objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - prevCenter));
+                objects[i]->setPosition(objects[i]->m_transform.getTranslation());
+            }
+        }
+        
+        centerSet = true;
 	}
 
 	void TransformableObject2D::setYAxisFlipped(bool b)
 	{
 		bool prevY = yAxisFlipped;
 		yAxisFlipped = b;
+        
+        Vector2f _center = getCenter() * getViewportSize();
+        
 		for (size_t i = 0; i < objects.size(); i++)
 		{
 			if (!objects[i]->m_affectedByCenter)
 				continue;
 
-			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - center,xAxisFlipped,prevY));
+			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - _center,xAxisFlipped,prevY));
 			objects[i]->setPosition(objects[i]->m_transform.getTranslation());
 		}
 	}
@@ -94,12 +110,15 @@ namespace Johnny
 	{
 		bool prevX = xAxisFlipped;
 		xAxisFlipped = b;
+        
+        Vector2f _center = getCenter() * getViewportSize();
+        
 		for (size_t i = 0; i < objects.size(); i++)
 		{
 			if (!objects[i]->m_affectedByCenter)
 				continue;
 
-			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - center, prevX, yAxisFlipped));
+			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - _center, prevX, yAxisFlipped));
 			objects[i]->setPosition(objects[i]->m_transform.getTranslation());
 		}
 	}
@@ -108,12 +127,15 @@ namespace Johnny
 	{
 		Vector2f prevViewport = viewportSize;
 		viewportSize = v;
+        
+        Vector2f _center = getCenter() * getViewportSize();
+        
 		for (size_t i = 0; i < objects.size(); i++)
 		{
 			if (!objects[i]->m_affectedByCenter)
 				continue;
 
-			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - center,prevViewport));
+			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - _center,prevViewport));
 			objects[i]->setPosition(objects[i]->m_transform.getTranslation());
 		}
 	}
@@ -152,7 +174,17 @@ namespace Johnny
 		}
 		else
 		{
-			m_transform.setTranslation(fromCoords(pos) + Vector2f(m_size.x / 2.0f,-m_size.y/2.0f) * m_transform.getScale() + (m_affectedByCenter ? center : Vector2f(0.0f,0.0f)));
+            Vector2f _size = Vector2f(m_size.x / 2.0f,-m_size.y/2.0f);
+            Vector2f _center;
+            
+            if(m_affectedByCenter)
+            {
+                _center = getCenter() * getViewportSize();
+            }
+            else
+                _center = Vector2f(0.0f,0.0f);
+            
+			m_transform.setTranslation(fromCoords(pos) + _size * m_transform.getScale() + _center);
 		}
 			
 	}
@@ -173,7 +205,9 @@ namespace Johnny
 			m_transform.setScale(v);
 		else
 		{
-			m_transform.setTranslation(toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f,-m_size.y/2.0f) * m_transform.getScale() - (m_affectedByCenter ? center : Vector2f(0.0f, 0.0f))));
+            Vector2f _center = getCenter() * getViewportSize();
+            
+			m_transform.setTranslation(toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f,-m_size.y/2.0f) * m_transform.getScale() - (m_affectedByCenter ? _center : Vector2f(0.0f, 0.0f))));
 			m_transform.setScale(v);
 			setPosition(m_transform.getTranslation());
 		}
@@ -193,7 +227,9 @@ namespace Johnny
 		}
 		else
 		{
-			m_transform.setTranslation(toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) * m_transform.getScale() - (m_affectedByCenter ? center : Vector2f(0.0f, 0.0f))));
+            Vector2f _center = getCenter() * getViewportSize();
+            
+			m_transform.setTranslation(toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) * m_transform.getScale() - (m_affectedByCenter ? _center : Vector2f(0.0f, 0.0f))));
 			m_size = v;
 		}
 		
@@ -222,7 +258,9 @@ namespace Johnny
 
 	Vector2f TransformableObject2D::getPosition() const
 	{
-		return toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) * m_transform.getScale() - (m_affectedByCenter ? center : Vector2f(0.0f, 0.0f)));
+        Vector2f _center = getCenter() * getViewportSize();
+        
+		return toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) * m_transform.getScale() - (m_affectedByCenter ? _center : Vector2f(0.0f, 0.0f)));
 	}
 
 #define IS_VIEW (viewport.x != -1.0f && viewport.y != -1.0f)

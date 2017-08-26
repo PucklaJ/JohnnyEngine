@@ -269,7 +269,7 @@ float shadowCalculation(vec4 fragPos,vec3 lightDir,vec3 normal,ShadowMap shadowM
 			{
 				float pcfDepth = texture(shadowMap.texture, projCoords.xy + vec2(x, y) * texelSize).r; 
 				fshadow += currentDepth - 0.005 > pcfDepth ? 1.0 : 0.0;        
-			}    
+            }    
 		}
 		fshadow /= 9.0;
 	}

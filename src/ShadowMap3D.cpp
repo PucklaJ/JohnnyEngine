@@ -11,6 +11,7 @@
 #include "../include/RenderManager.h"
 #include "../include/Entity3D.h"
 #include "../include/Model3D.h"
+#include "../include/Colors.h"
 
 
 namespace Johnny
@@ -33,6 +34,11 @@ namespace Johnny
 		m_height(height),
         m_lightSpaceMatrix(1)
 	{
+        Colorf borderColor = Colors::WHITE;
+        glTextureParameteri(m_texture,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_BORDER);
+        glTextureParameteri(m_texture,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_BORDER);
+        glTextureParameterfv(m_texture,GL_TEXTURE_BORDER_COLOR,&borderColor.r);
+        
 		m_frameBuffer = new FrameBuffer();
 		m_frameBuffer->bind();
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, getBuffer(), 0);
@@ -57,7 +63,6 @@ namespace Johnny
 		m_frameBuffer->bind();
 		glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 		configureMatricesAndShader(s);
-		//glCullFace(GL_FRONT);
 		GLint params[4];
 		glGetIntegerv(GL_VIEWPORT, params);
         glDepthRange(-2.0f,2.0f);
@@ -66,7 +71,6 @@ namespace Johnny
         glDepthRange(0.0f,1.0f);
         glDisable(GL_DEPTH_CLAMP);
 		glGetIntegerv(GL_VIEWPORT, params);
-		//glCullFace(GL_BACK);
 		m->getBackBuffer()->bind();
 
 		glViewport(0, 0, (GLsizei)m->getNativeRes().x, (GLsizei)m->getNativeRes().y);
