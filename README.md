@@ -29,7 +29,7 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 + **Physics2D**
   - Easily accessable 2D physics implementation using [Box2D](https://box2d.org)
 + **TiledMap**
-  - Loading of .tmx files of [Tiled](https://mapeditor.org) using the [TMXParser](https://github.com/sainteos/tmxparser)
+  - Loading of .tmx files of [Tiled](http://www.mapeditor.org/) using the [TMXParser](https://github.com/sainteos/tmxparser)
 
 ## Setup
 
@@ -42,9 +42,9 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 - [GLEW](http://glew.sourceforge.net/)
 - [stb_image](https://github.com/nothings/stb) (Already included)
 - [TMXParser](https://github.com/sainteos/tmxparser) (Already included)
-  - [tinyxml2](http://www.grinninglizard.com/tinyxml2/)
+  - [tinyxml2](http://www.grinninglizard.com/tinyxml2/)
   - [zlib](https://zlib.net)
-- [Box2D](https://box2d.org)
+- [Box2D](http://box2d.org/)
 
 #### Windows - Visual Studio
 
