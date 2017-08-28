@@ -1,5 +1,4 @@
-This game was made with the [JohnnyEngine](https://github.com/pucklamotzer09/JohnnyEngine) which is under the following license:
------
+### This game was made with the [JohnnyEngine](https://github.com/pucklamotzer09/JohnnyEngine) which is under the following license:
 ```
 The zlib/libpng License 
  
@@ -24,10 +23,8 @@ freely, subject to the following restrictions:
      3. This notice may not be removed or altered from any source 
      distribution.
 ```
-
 The engine was made with some other libraries. The following list describes the license of each library.
------
-
+----
 **License of TMX ([TMXParser](https://github.com/sainteos/tmxparser) of [sainteos](https://github.com/sainteos)):**
 ```
    Copyright (c) 2010-2014, Tamir Atias
