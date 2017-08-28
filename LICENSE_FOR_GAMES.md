@@ -1,4 +1,34 @@
-**License for TMX ([TMXParser](https://github.com/sainteos/tmxparser) of [sainteos](https://github.com/sainteos)):**
+This game was made with the [JohnnyEngine](https://github.com/pucklamotzer09/JohnnyEngine) which is under the following license:
+-----
+```
+The zlib/libpng License 
+ 
+Copyright (c) 2017 Jonas Pucher 
+ 
+This software is provided 'as-is', without any express or implied 
+warranty. In no event will the authors be held liable for any damages 
+arising from the use of this software. 
+ 
+Permission is granted to anyone to use this software for any purpose, 
+including commercial applications, and to alter it and redistribute it 
+freely, subject to the following restrictions: 
+
+     1. The origin of this software must not be misrepresented; you must not 
+     claim that you wrote the original software. If you use this software 
+     in a product, an acknowledgment in the product documentation would be 
+     appreciated but is not required. 
+ 
+     2. Altered source versions must be plainly marked as such, and must not be 
+     misrepresented as being the original software.  
+ 
+     3. This notice may not be removed or altered from any source 
+     distribution.
+```
+
+The engine was made wih some other libraries. The following list describes the license of each library.
+-----
+
+**License of TMX ([TMXParser](https://github.com/sainteos/tmxparser) of [sainteos](https://github.com/sainteos)):**
 ```
    Copyright (c) 2010-2014, Tamir Atias
    Copyright (c) 2014, Andrew Kelley
@@ -23,7 +53,7 @@
    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ```
-**License for [assimp](http://www.assimp.org/):**
+**License of [assimp](http://www.assimp.org/):**
 ```
    Open Asset Import Library (assimp)
 
@@ -183,4 +213,67 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
+```
+**License of [tinyxml2](http://www.grinninglizard.com/tinyxml2/):**
+```
+This software is provided 'as-is', without any express or implied 
+warranty. In no event will the authors be held liable for any 
+damages arising from the use of this software.
+
+Permission is granted to anyone to use this software for any 
+purpose, including commercial applications, and to alter it and 
+redistribute it freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must 
+not claim that you wrote the original software. If you use this 
+software in a product, an acknowledgment in the product documentation 
+would be appreciated but is not required.
+2. Altered source versions must be plainly marked as such, and 
+must not be misrepresented as being the original software.
+3. This notice may not be removed or altered from any source 
+distribution.
+```
+**License of [zlib](https://zlib.net):**
+```
+Copyright (C) 1995-2017 Jean-loup Gailly and Mark Adler
+
+  This software is provided 'as-is', without any express or implied
+  warranty.  In no event will the authors be held liable for any damages
+  arising from the use of this software.
+
+  Permission is granted to anyone to use this software for any purpose,
+  including commercial applications, and to alter it and redistribute it
+  freely, subject to the following restrictions:
+
+  1. The origin of this software must not be misrepresented; you must not
+     claim that you wrote the original software. If you use this software
+     in a product, an acknowledgment in the product documentation would be
+     appreciated but is not required.
+  2. Altered source versions must be plainly marked as such, and must not be
+     misrepresented as being the original software.
+  3. This notice may not be removed or altered from any source distribution.
+
+  Jean-loup Gailly        Mark Adler
+  jloup@gzip.org          madler@alumni.caltech.edu
+
+```
+**License of [Box2D](http://box2d.org):**
+```
+Copyright (c) 2006-2017 Erin Catto http://www.box2d.org
+
+This software is provided 'as-is', without any express or implied
+warranty. In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it
+freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not
+   claim that you wrote the original software. If you use this software
+   in a product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
+2. Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+3. This notice may not be removed or altered from any source distribution.
 ```
