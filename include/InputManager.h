@@ -4,20 +4,24 @@
 #include <map>
 #include "../include/Actor.h"
 
-using namespace std;
-
 namespace Johnny
 {
+	/* \brief A structure which holds data about the mouse
+	 *
+	 */
 	struct Mouse
 	{
-		unsigned int x;
-		unsigned int y;
-		int xrel;
-		int yrel;
-		signed int wheel_x;
-		signed int wheel_y;
+		unsigned int x; 	//!< The x coordinate of the screen position of the mouse
+		unsigned int y; 	//!< The y coordinate of the screen position of the mouse
+		int xrel;			//!< The x coordinate of the relative vector from the last frame to this
+		int yrel;       	//!< The y coordinate of the relative vector from the last frame to this
+		signed int wheel_x; //!< The amount which the mousewheel was moved on the x-Axis in the last frame
+		signed int wheel_y; //!< The amount which the mousewheel was moved on the y-Axis in the last frame
 	};
 
+	/* \brief A enum with all keyboardkeys and mousebuttons
+	 *
+	 */
 	enum class Keys
 	{
 		UNDEFINED,
@@ -276,38 +280,77 @@ namespace Johnny
 		MS_X2
 	};
 
+	/* \brief A class which stores all information about input
+	 *
+	 */
 	class InputManager : public Actor
 	{
 	public:
-		static Keys convertSDL(unsigned int);
+		/* \breif Converts the SDL keycode to Johnny::Keys
+		 * \param key The keycode to convert
+		 * \return The keycode converted to Johnny::Keys
+		 */
+		static Keys convertSDL(unsigned int key);
 
 		InputManager();
 		virtual ~InputManager();
 
+		/* \brief Find out wether a key is currently pressed
+		 * \param kc The key to query
+		 * \return true if the given key is currently pressed
+		 *
+		 */
 		bool isPressed(Keys kc);
+		/* \brief Find out wether a key was just pressed
+		 * \param kc The key to query
+		 * \return true if the given key was just pressed
+		 *
+		 */
 		bool justPressed(Keys kc);
 
+		/* \brief Removes the given key from the map
+		 * \param kc The key to remove
+		 */
 		void releaseKey(Keys kc);
+		/* \brief Adds the given key from the map
+		 * \param kc The key to add
+		 */
 		void pressKey(Keys kc);
+		/* \brief Sets the mouse screen position
+		 * \param x The x coordinate to set
+		 * \param y The y coordinate to set
+		 */
 		void setMouseCoords(unsigned int x, unsigned int y);
+		/* \brief Sets the amount which the mousewheel was moved in the last frame
+		 * \param wheel_x The x amount
+		 * \param wheel_y The y amount
+		 */
 		void setMouseWheel(int wheel_x, int wheel_y);
+		/* \brief Sets the amount of how much the mouse moved relative to the last frame
+		 * \param x The x amount
+		 * \param y The y amount
+		 */
 		void setMouseRel(int x, int y);
 
+		/* \brief The update method
+		 *
+		 *
+		 * Sets all keys to not pressed
+		 */
 		bool update();
 
-		const Mouse& getMouse()
-		{
-			return m_mouse;
-		}
-
-	protected:
-
+		const Mouse& getMouse() const { return m_mouse; }
+		
 	private:
-		map<Keys, bool> m_keyMap;
-		map<Keys, bool> m_previousKeyMap;
+		std::map<Keys, bool> m_keyMap;         //!< The map which stores the statuses of the keys from this frame
+		std::map<Keys, bool> m_previousKeyMap; //!< The map which stores the statuses of the keys from the previouse frame
 
-		bool wasPressed(Keys kc);
-		Mouse m_mouse;
+		/* \brief Wheter a key was pressed in the previous frame
+		 * \param kc The ky to query
+		 * \return Wether the key was pressed
+		 */
+		bool wasPressed(Keys kc);			   
+		Mouse m_mouse; //!< A instance of the Mouse Struct
 
 	};
 }

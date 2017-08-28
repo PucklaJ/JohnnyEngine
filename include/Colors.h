@@ -8,16 +8,41 @@
 
 namespace Johnny
 {
+	/* \brief This class holds the values r,g,b and a which are used for all coloring actions
+	 * \param T The type of the r,g,b and a values
+	 * \param maxValue The max value of the r,g,b and a values
+	 */
 	template<class T,size_t maxValue>
 	class Color : public Vector4<T>
 	{
 	public:
+		/* \brief Creates a new color with r=0,g=0,g=0 and a=0
+		 *
+		 */
 		Color();
-		Color(const T&, const T&, const T&, const T&);
-		Color(const T&, const T&, const T&);
+		/* \brief Creates a new color
+		 * \param r The r value of the new color
+		 * \param g The g value of the new color
+		 * \param b The b value of the new color
+		 * \param a The a value of the new color
+		 */
+		Color(const T& r, const T& g, const T& b, const T& a);
+		/* \brief Creates a new color with a=maxValue
+		 * \param r The r value of the new color
+		 * \param g The g value of the new color
+		 * \param b The b value of the new color
+		 */
+		Color(const T& r, const T& g, const T& b);
+		/* \brief The copy contructor
+		 *        It converts a color with <T1,maxValue1> to a color with <T,maxValue>
+		 * \param color The color which is getting converted
+		 */
 		template<class T1,size_t maxValue1>
-		Color(const Color<T1, maxValue1>&);
+		Color(const Color<T1, maxValue1>& color);
 
+		/* \brief Converts the color the a color with T=GLfloat and maxValue=1
+		 * \return The converted color
+		 */
 		Color<GLfloat, 1> normalise();
 
 		template<class T1,size_t maxValue1>

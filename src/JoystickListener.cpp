@@ -234,7 +234,7 @@ namespace Johnny
         a->setListener(this);
     }
 
-    void JoystickListener::addListener(ConnectionListener* a, int)
+    void JoystickListener::addListener(ConnectionListener* a)
     {
        m_conLis.push_back(a);
        a->setListener(this);
