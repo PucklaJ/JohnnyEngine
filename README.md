@@ -26,6 +26,10 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
   - for Directionallights, Spotlights
 + **Gamepad input**
   - Complete simple to use gamepad implemantation
++ **Physics2D**
+  - Easily accessable 2D physics implementation using [Box2D](https://box2d.org)
++ **TiledMap**
+  - Loading of .tmx files of [Tiled](https://mapeditor.org) using the [TMXParser](https://github.com/sainteos/tmxparser)
 
 ## Setup
 
@@ -36,8 +40,11 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 - [assimp](http://assimp.org/)
 - [OpenGL](https://www.opengl.org/)
 - [GLEW](http://glew.sourceforge.net/)
-- [stb](https://github.com/nothings/stb)
-  - (Already included)
+- [stb_image](https://github.com/nothings/stb) (Already included)
+- [TMXParser](https://github.com/sainteos/tmxparser) (Already included)
+  - [tinyxml2](https://tinyxml2.com)
+  - [zlib](https://zlib.org)
+- [Box2D](https://box2d.org)
 
 #### Windows - Visual Studio
 
@@ -59,6 +66,8 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
   sudo apt-get install libsdl2-ttf
   sudo apt-get install assimp
   sudo apt-get install glew
+  sudo apt-get install libz
+  sudo apt-get install tinyxml2
   ```
 2. In Eclipse
   2.1 Add the libraries to the project
@@ -66,11 +75,9 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 
 ## Future Plans
 
-+ **Full 2D support**
-  - Sprite2D class to easily program a 2D game
 + **Water**
 + **Sceletal Animation**
 + **Point Shadows**
 + **Add a GUI Library**
-+ **Physics with Box2D and Bullet**
++ **Physics3D with Bullet**
     
