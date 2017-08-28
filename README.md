@@ -42,8 +42,8 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 - [GLEW](http://glew.sourceforge.net/)
 - [stb_image](https://github.com/nothings/stb) (Already included)
 - [TMXParser](https://github.com/sainteos/tmxparser) (Already included)
-  - [tinyxml2](https://tinyxml2.com)
-  - [zlib](https://zlib.org)
+  - [tinyxml2](http://www.grinninglizard.com/tinyxml2/)
+  - [zlib](https://zlib.net)
 - [Box2D](https://box2d.org)
 
 #### Windows - Visual Studio
