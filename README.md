@@ -79,5 +79,5 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 + **Sceletal Animation**
 + **Point Shadows**
 + **Add a GUI Library**
-+ **Physics3D with Bullet**
++ **Physics3D with [Bullet](http://bulletphysics.org/wordpress/)**
     
