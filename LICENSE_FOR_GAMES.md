@@ -25,7 +25,7 @@ freely, subject to the following restrictions:
      distribution.
 ```
 
-The engine was made wih some other libraries. The following list describes the license of each library.
+The engine was made with some other libraries. The following list describes the license of each library.
 -----
 
 **License of TMX ([TMXParser](https://github.com/sainteos/tmxparser) of [sainteos](https://github.com/sainteos)):**
