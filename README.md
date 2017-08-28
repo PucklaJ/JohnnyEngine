@@ -29,7 +29,7 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 + **Physics2D**
   - Easily accessable 2D physics implementation using [Box2D](https://box2d.org)
 + **TiledMap**
-  - Loading of .tmx files of [Tiled](http://www.mapeditor.org/) using the [TMXParser](https://github.com/sainteos/tmxparser)
+  - Loading of .tmx files of [Tiled](http://www.mapeditor.org/) using the [TMXParser](https://github.com/sainteos/tmxparser)
 
 ## Setup
 
