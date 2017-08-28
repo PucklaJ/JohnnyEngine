@@ -28,12 +28,12 @@
 #include <tinyxml2.h>
 #include <stdio.h>
 
-#include "TMX/TmxMap.h"
-#include "TMX/TmxTileset.h"
-#include "TMX/TmxLayer.h"
-#include "TMX/TmxTileLayer.h"
-#include "TMX/TmxObjectGroup.h"
-#include "TMX/TmxImageLayer.h"
+#include "TmxMap.h"
+#include "TmxTileset.h"
+#include "TmxLayer.h"
+#include "TmxTileLayer.h"
+#include "TmxObjectGroup.h"
+#include "TmxImageLayer.h"
 
 using std::vector;
 using std::string;

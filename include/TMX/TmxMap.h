@@ -30,7 +30,7 @@
 #include <vector>
 #include <string>
 
-#include "TMX/TmxPropertySet.h"
+#include "TmxPropertySet.h"
 
 namespace Tmx 
 {

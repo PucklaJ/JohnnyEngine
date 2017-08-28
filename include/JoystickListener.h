@@ -37,8 +37,8 @@ namespace Johnny
                   X=SQUARE,
                   Y=TRIANGLE;
     };
-t
-    namespace Axis
+	
+	namespace Axis
     {
         const int LEFT_STICK_X=0,
                   LEFT_STICK_Y=1,

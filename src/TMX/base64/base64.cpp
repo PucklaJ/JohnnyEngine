@@ -1,7 +1,7 @@
 /* 
    base64.cpp and base64.h
 
-   Copyright (C) 2004-2008 RenÃ© Nyffenegger
+   Copyright (C) 2004-2008 René Nyffenegger
 
    This source code is provided 'as-is', without any express or implied
    warranty. In no event will the author be held liable for any damages
@@ -21,11 +21,11 @@
 
    3. This notice may not be removed or altered from any source distribution.
 
-   RenÃ© Nyffenegger rene.nyffenegger@adp-gmbh.ch
+   René Nyffenegger rene.nyffenegger@adp-gmbh.ch
 
 */
 
-#include "TMX/base64/base64.h"
+#include "base64.h"
 #include <iostream>
 #include <stdlib.h>
 
@@ -83,7 +83,7 @@ std::string base64_encode(unsigned char const* bytes_to_encode, unsigned int in_
 }
 
 std::string base64_decode(std::string const& encoded_string) {
-  int in_len = (int)encoded_string.size();
+  int in_len = encoded_string.size();
   int i = 0;
   int j = 0;
   int in_ = 0;

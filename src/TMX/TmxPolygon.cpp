@@ -25,10 +25,11 @@
 //
 // Author: Tamir Atias
 //-----------------------------------------------------------------------------
+#define _CRT_SECURE_NO_WARNINGS 1 // CHANGE
 #include <tinyxml2.h>
 #include <cstdlib> 
 
-#include "TMX/TmxPolygon.h"
+#include "TmxPolygon.h"
 
 namespace Tmx 
 {
@@ -39,7 +40,11 @@ namespace Tmx
 
     void Polygon::Parse(const tinyxml2::XMLNode *polygonNode)
     {
+#ifndef _WIN32
         char *pointsLine = strdup(polygonNode->ToElement()->Attribute("points"));
+#else
+		char *pointsLine = _strdup(polygonNode->ToElement()->Attribute("points")); // CHANGE
+#endif
         
         char *token = strtok(pointsLine, " ");
         while (token)

@@ -29,7 +29,7 @@
 
 #include <vector>
 
-#include "TMX/TmxPoint.h"
+#include "TmxPoint.h"
 
 namespace Tmx
 {

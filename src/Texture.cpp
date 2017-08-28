@@ -25,7 +25,7 @@ namespace Johnny
         GLint viewport[4];
         glGetIntegerv(GL_VIEWPORT,viewport);
         
-        m_shader->setUniform("viewportSize", Vector2f(viewport[2],viewport[3]));
+        m_shader->setUniform("viewportSize", Vector2f((GLfloat)viewport[2],(GLfloat)viewport[3]));
     }
     
     void Texture2DShaderUpdater::setUniforms(Transform2D* m,unsigned int index)
@@ -217,8 +217,8 @@ namespace Johnny
     void Texture::renderTexture2D(Texture* tex, const TextureRegion* dst, const TextureRegion* src,const GLfloat& rotation,const Camera2D* cam,bool bindShader, bool isFrameBuffer)
     {
         renderTexture2D(tex,
-                        dst ? Vector2f(dst->x,dst->y) : Vector2f(0.0f,0.0f),
-                        dst ? (Vector2f(dst->w,dst->h) / Vector2f(tex->getWidth(),tex->getHeight())): (TransformableObject2D::getViewportSize() / Vector2f(tex->getWidth(),tex->getHeight())),
+                        dst ? Vector2f((GLfloat)dst->x,(GLfloat)dst->y) : Vector2f(0.0f,0.0f),
+                        dst ? (Vector2f((GLfloat)dst->w,(GLfloat)dst->h) / Vector2f((GLfloat)tex->getWidth(),(GLfloat)tex->getHeight())): (TransformableObject2D::getViewportSize() / Vector2f((GLfloat)tex->getWidth(),(GLfloat)tex->getHeight())),
                         rotation,
                         cam,
                         src,
@@ -349,10 +349,11 @@ namespace Johnny
     
     SDL_Surface* Texture::toSDLSurface(GLenum target,GLenum format,GLenum type)
     {
-        SDL_Surface* sur = SDL_CreateRGBSurfaceWithFormatFrom(readPixels(target,format,type),getWidth(),getHeight(),32,getWidth()*2,format == GL_RGBA ? SDL_PIXELFORMAT_RGBA8888 : SDL_PIXELFORMAT_RGB888);
+        //SDL_Surface* sur = SDL_CreateRGBSurfaceWithFormatFrom(readPixels(target,format,type),getWidth(),getHeight(),32,getWidth()*2,format == GL_RGBA ? SDL_PIXELFORMAT_RGBA8888 : SDL_PIXELFORMAT_RGB888);
         
-        return sur;
-    }
+        //return sur;
+		return nullptr;
+	}
 
 	GLsizei Texture::getWidth()
 	{

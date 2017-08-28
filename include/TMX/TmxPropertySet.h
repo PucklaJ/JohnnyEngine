@@ -31,7 +31,7 @@
 #include <map>
 #include <string>
 
-#include "TMX/TmxProperty.h"
+#include "TmxProperty.h"
 
 namespace tinyxml2 {
     class XMLNode;
@@ -59,8 +59,10 @@ namespace Tmx
         float GetFloatProperty(const std::string &name, float defaultValue = 0.0f) const;
         // Get a string property.
         std::string GetStringProperty(const std::string &name, std::string defaultValue = "") const;
-        // Get a string property.
+        // Get a bool property.
         bool GetBoolProperty(const std::string &name, bool defaultValue = false) const;
+        // Get a color property.
+        Tmx::Color GetColorProperty(const std::string &name, Tmx::Color defaultValue = Tmx::Color()) const;
 
         // Returns the amount of properties.
         int GetSize() const { return properties.size(); }

@@ -25,7 +25,7 @@
 
 #include <vector>
 
-#include "TMX/TmxPropertySet.h"
+#include "TmxPropertySet.h"
 
 namespace tinyxml2
 {

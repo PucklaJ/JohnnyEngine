@@ -28,7 +28,7 @@
 #include <tinyxml2.h>
 #include <cstdlib>
 
-#include "TMX/TmxPropertySet.h"
+#include "TmxPropertySet.h"
 
 using std::string;
 using std::map;
@@ -90,7 +90,7 @@ namespace Tmx
 
         // Note that we convert the value here ourselves in order to maintain
         // compatibility with older versions of the TMX spec.
-        return atoi(iter->second.GetValue().c_str());
+        return std::stoi(iter->second.GetValue());
     }
 
     float PropertySet::GetFloatProperty(const string &name, float defaultValue) const
@@ -102,7 +102,7 @@ namespace Tmx
 
         // Note that we convert the value here ourselves in order to maintain
         // compatibility with older versions of the TMX spec.
-        return atof(iter->second.GetValue().c_str());
+        return std::stof(iter->second.GetValue());
     }
 
     bool PropertySet::GetBoolProperty(const string &name, bool defaultValue) const
@@ -115,6 +115,16 @@ namespace Tmx
         // Note that we convert the value here ourselves in order to maintain
         // compatibility with older versions of the TMX spec.
         return iter->second.GetValue().compare("true") == 0;
+    }
+
+    Tmx::Color PropertySet::GetColorProperty(const string &name, Tmx::Color defaultValue) const
+    {
+        auto iter = properties.find(name);
+
+        if (iter == properties.end() || iter->second.IsValueEmpty())
+            return defaultValue;
+
+        return iter->second.GetColorValue(defaultValue);
     }
 
     bool PropertySet::HasProperty( const string& name ) const

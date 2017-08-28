@@ -28,13 +28,13 @@
 #include <tinyxml2.h>
 #include <cassert> //RJCB
 
-#include "TMX/TmxTileset.h"
-#include "TMX/TmxTileOffset.h"
-#include "TMX/TmxTerrainArray.h"
-#include "TMX/TmxTerrain.h"
-#include "TMX/TmxImage.h"
-#include "TMX/TmxTile.h"
-#include "TMX/TmxMap.h"
+#include "TmxTileset.h"
+#include "TmxTileOffset.h"
+#include "TmxTerrainArray.h"
+#include "TmxTerrain.h"
+#include "TmxImage.h"
+#include "TmxTile.h"
+#include "TmxMap.h"
 
 using std::vector;
 using std::string;
@@ -48,6 +48,8 @@ namespace Tmx
         , tile_height(0)
         , margin(0)
         , spacing(0)
+        , tile_count(0)
+        , columns(0)
         , tileOffset(NULL)
         , image(NULL)
         , tiles()
@@ -135,6 +137,8 @@ namespace Tmx
         tile_height = tilesetElem->IntAttribute("tileheight");
         margin = tilesetElem->IntAttribute("margin");
         spacing = tilesetElem->IntAttribute("spacing");
+        tile_count = tilesetElem->IntAttribute("tilecount");
+        columns = tilesetElem->IntAttribute("columns");
         name = tilesetElem->Attribute("name");
 
         // Parse the tile offset, if it exists.

@@ -39,8 +39,8 @@
 
 #include <stdio.h>
 
-#include "TMX/TmxUtil.h"
-#include "TMX/base64/base64.h"
+#include "TmxUtil.h"
+#include "base64/base64.h"
 
 namespace Tmx {
 

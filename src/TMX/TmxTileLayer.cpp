@@ -21,6 +21,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //-----------------------------------------------------------------------------
+#define _CRT_SECURE_NO_WARNINGS 1 // Changed
 #include <tinyxml2.h>
 #include <algorithm>
 
@@ -34,11 +35,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <TMX/TmxLayer.h>
-#include <TMX/TmxTileLayer.h>
-#include <TMX/TmxUtil.h>
-#include <TMX/TmxMap.h>
-#include <TMX/TmxTileset.h>
+#include "TmxLayer.h"
+#include "TmxTileLayer.h"
+#include "TmxUtil.h"
+#include "TmxMap.h"
+#include "TmxTileset.h"
+
 
 namespace Tmx 
 {
@@ -236,8 +238,12 @@ namespace Tmx
     void TileLayer::ParseCSV(const std::string &innerText) 
     {
         // Duplicate the string for use with C stdio.
+#ifndef _WIN32
         char *csv = strdup(innerText.c_str());
-        
+#else
+		char *csv = _strdup(innerText.c_str()); // CHANGE
+#endif
+
         // Iterate through every token of ';' in the CSV string.
         char *pch = strtok(csv, ",");
         int tileCount = 0;

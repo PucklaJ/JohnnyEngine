@@ -24,13 +24,13 @@ namespace Johnny
     {
         m_frameBuffer->bind();
         glViewport(0,0,getWidth(),getHeight());
-        TransformableObject2D::setViewportSize(Vector2f(getWidth(),getHeight()));
+        TransformableObject2D::setViewportSize(Vector2f((GLfloat)getWidth(),(GLfloat)getHeight()));
     }
     
     void RenderTexture::untarget()
     {
         MainClass::getInstance()->getBackBuffer()->bind();
-        glViewport(0,0,MainClass::getInstance()->getNativeRes().x,MainClass::getInstance()->getNativeRes().y);
+        glViewport(0,0,(GLsizei)MainClass::getInstance()->getNativeRes().x,(GLsizei)MainClass::getInstance()->getNativeRes().y);
         TransformableObject2D::setViewportSize(MainClass::getInstance()->getNativeRes());
     }
     

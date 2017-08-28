@@ -25,10 +25,11 @@
 //
 // Author: Tamir Atias
 //-----------------------------------------------------------------------------
+#define _CRT_SECURE_NO_WARNINGS 1 // CHANGE
 #include <tinyxml2.h>
 #include <cstdlib> 
 
-#include "TMX/TmxPolyline.h"
+#include "TmxPolyline.h"
 
 namespace Tmx 
 {
@@ -39,7 +40,11 @@ namespace Tmx
 
     void Polyline::Parse(const tinyxml2::XMLNode *polylineNode)
     {
+#ifndef _WIN32
         char *pointsLine = strdup(polylineNode->ToElement()->Attribute("points"));
+#else
+		char *pointsLine = _strdup(polylineNode->ToElement()->Attribute("points")); // CHANGE
+#endif
         
         char *token = strtok(pointsLine, " ");
         while (token)

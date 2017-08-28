@@ -29,8 +29,9 @@
 
 #include <string>
 
-#include "TMX/TmxPropertySet.h"
-#include "TMX/TmxMapTile.h"
+#include "TmxLayer.h"
+#include "TmxPropertySet.h"
+#include "TmxMapTile.h"
 
 namespace tinyxml2 {
     class XMLNode;
@@ -100,6 +101,7 @@ namespace Tmx
 
         // Get a tile specific to the map.
         const Tmx::MapTile& GetTile(int x, int y) const { return tile_map[y * width + x]; }
+        const Tmx::MapTile& GetTile(int index) const { return tile_map[index]; }
 
         // Get the type of encoding that was used for parsing the tile layer data.
         // See: TileLayerEncodingType

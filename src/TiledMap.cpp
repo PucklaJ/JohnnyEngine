@@ -68,8 +68,8 @@ namespace Johnny
             m_srcRegion.height = m_texture->getHeight();
             
             setScale(1.0f,1.0f);
-            setDrawSize(Vector2f(m_srcRegion.w,m_srcRegion.h));
-            setSize(m_srcRegion.width,m_srcRegion.height);
+            setDrawSize(Vector2f((GLfloat)m_srcRegion.w,(GLfloat)m_srcRegion.h));
+            setSize((GLfloat)m_srcRegion.width,(GLfloat)m_srcRegion.height);
             setPosition(0.0f,0.0f);
             //SDL_QueryTexture(m_texture->getTexture(),nullptr,nullptr,&m_srcRect.w,&m_srcRect.h);
             
@@ -79,7 +79,7 @@ namespace Johnny
         m_clearTexture = Texture::BOX(Vector2i(GetTileWidth(),GetTileHeight()),m_background);
         
         m_mainClass->getBackBuffer()->bind();
-        glViewport(0,0,m_mainClass->getNativeRes().x,m_mainClass->getNativeRes().y);
+        glViewport(0,0,(GLsizei)m_mainClass->getNativeRes().x,(GLsizei)m_mainClass->getNativeRes().y);
         TransformableObject2D::setViewportSize(m_mainClass->getNativeRes());
         
         LogManager::log("Finished Loading Map!");
@@ -371,18 +371,21 @@ namespace Johnny
                 Colorb color = colorStringToColor(objectGroup->GetColor());
                 //std::cout << "++ Points" << std::endl;
                 
-                Sint16 vx[polygon->GetNumPoints()];
-                Sint16 vy[polygon->GetNumPoints()];
+                Sint16* vx = new Sint16[polygon->GetNumPoints()];
+                Sint16* vy = new Sint16[polygon->GetNumPoints()];
                 
                 for(int k = 0;k<polygon->GetNumPoints();k++)
                 {
                     const Tmx::Point& point = polygon->GetPoint(k);
                     //std::cout << "+++ " << k+1 << ". " << point.x << "; " << point.y << std::endl;
-                    vx[k] = obj->GetX()+point.x;
-                    vy[k] = obj->GetY()+point.y;
+                    vx[k] = (Sint16)((float)obj->GetX()+point.x);
+                    vy[k] = (Sint16)((float)obj->GetY()+point.y);
                     
                     //std::cout << "+++ vx: " << vx[k] << "; vy: " << vy[k] << std::endl;
                 }
+
+				delete[] vx;
+				delete[] vy;
                 
                 for(int k = 0;k<polygon->GetNumPoints();k++)
                 {
@@ -636,7 +639,7 @@ namespace Johnny
         
         const Tmx::PropertySet& props = obj->GetProperties();
 
-        bdef.position = m_mainClass->getPhysics2D()->coordsPixelToWorld(Vector2f(x+ellipse->GetCenterX()+obj->GetX(),y+ellipse->GetCenterY()+obj->GetY()));
+        bdef.position = m_mainClass->getPhysics2D()->coordsPixelToWorld(Vector2f((GLfloat)(x+ellipse->GetCenterX()+obj->GetX()),(GLfloat)(y+ellipse->GetCenterY()+obj->GetY())));
 		std::string type = props.GetStringProperty("Type","static");
 		bdef.type = (type == "static" ? b2_staticBody : (type == "dynamic" ? b2_dynamicBody : b2_kinematicBody));
 
@@ -651,7 +654,7 @@ namespace Johnny
         
         if(ellipse->GetRadiusX() == ellipse->GetRadiusY())
         {
-            cshape[0].m_radius = m_mainClass->getPhysics2D()->scalarPixelToWorld(ellipse->GetRadiusX());
+            cshape[0].m_radius = m_mainClass->getPhysics2D()->scalarPixelToWorld((float)ellipse->GetRadiusX());
             fdef[0].shape = &cshape[0];
             
             body->CreateFixture(&fdef[0]);
@@ -699,8 +702,8 @@ namespace Johnny
         for(int i = polygon->GetNumPoints()-1;i>=0;i--)
         {
             const Tmx::Point& point = polygon->GetPoint(i);
-            double xb = (double)obj->GetX() + (double)point.x - (double)GetTileWidth()/2.0;
-            double yb = (double)obj->GetY() + (double)point.y - (double)GetTileHeight()/2.0;
+            float xb = (float)obj->GetX() + (float)point.x - (float)GetTileWidth()/2.0f;
+            float yb = (float)obj->GetY() + (float)point.y - (float)GetTileHeight()/2.0f;
             
             v[polygon->GetNumPoints()-1-i] = m_mainClass->getPhysics2D()->vectorPixelToWorld(Vector2f(xb,yb));
          }
@@ -750,8 +753,8 @@ namespace Johnny
         for(int i = polyline->GetNumPoints()-1;i>=0;i--)
         {
             const Tmx::Point& point = polyline->GetPoint(i);
-            double xb = x + point.x + obj->GetX();
-            double yb = y + point.y+ obj->GetY();
+            float xb = x + point.x + obj->GetX();
+            float yb = y + point.y+ obj->GetY();
 
             v[polyline->GetNumPoints()-1-i] = m_mainClass->getPhysics2D()->coordsPixelToWorld(Vector2f(xb,yb));
         }
@@ -950,7 +953,7 @@ namespace Johnny
         }
         
         m_mainClass->getBackBuffer()->bind();
-        glViewport(0,0,m_mainClass->getNativeRes().x,m_mainClass->getNativeRes().y);
+        glViewport(0,0,(GLsizei)m_mainClass->getNativeRes().x,(GLsizei)m_mainClass->getNativeRes().y);
         TransformableObject2D::setViewportSize(m_mainClass->getNativeRes());
     }
 
@@ -965,7 +968,7 @@ namespace Johnny
     {
     	//m_texture->setRenderTarget(m_mainClass->getRenderer());
     	m_mainTextureFrameBuffer->bind();
-        TransformableObject2D::setViewportSize(Vector2f(m_texture->getWidth(),m_texture->getHeight()));
+        TransformableObject2D::setViewportSize(Vector2f((GLfloat)m_texture->getWidth(),(GLfloat)m_texture->getHeight()));
         glViewport(0,0,m_texture->getWidth(),m_texture->getHeight());
         
         //SDL_SetRenderDrawColor(m_mainClass->getRenderer(),m_background.r,m_background.g,m_background.b,m_background.a);
@@ -983,7 +986,7 @@ namespace Johnny
     	}
 
     	m_mainClass->getBackBuffer()->bind();
-        glViewport(0,0,m_mainClass->getNativeRes().x,m_mainClass->getNativeRes().y);
+        glViewport(0,0,(GLsizei)m_mainClass->getNativeRes().x,(GLsizei)m_mainClass->getNativeRes().y);
         TransformableObject2D::setViewportSize(m_mainClass->getNativeRes());
     }
 
@@ -1065,7 +1068,7 @@ namespace Johnny
     	//SDL_SetRenderDrawBlendMode(m_mainClass->getRenderer(),SDL_BLENDMODE_BLEND);
     	//SDL_SetRenderTarget(m_mainClass->getRenderer(),m_mainClass->getBackBuffer());
         
-        Texture::renderTexture2D(m_clearTexture,Vector2f(x*GetTileWidth(),y*GetTileHeight()));
+        Texture::renderTexture2D(m_clearTexture,Vector2f((GLfloat)(x*GetTileWidth()),(GLfloat)(y*GetTileHeight())));
         
         rTex->untarget();
 

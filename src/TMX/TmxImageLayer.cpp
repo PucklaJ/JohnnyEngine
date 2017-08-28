@@ -25,9 +25,9 @@
 #include <cstdlib>
 #include <cassert> //RJCB
 
-#include "TMX/TmxLayer.h"
-#include "TMX/TmxImageLayer.h"
-#include "TMX/TmxImage.h"
+#include "TmxLayer.h"
+#include "TmxImageLayer.h"
+#include "TmxImage.h"
 
 using std::vector;
 using std::string;

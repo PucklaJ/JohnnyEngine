@@ -18,11 +18,11 @@ namespace Johnny
 		void setTimeScale(double d) { m_timeScale = d; }
 		void setMaxFPS(int);
 
-#ifdef _WIN32
+/*#ifdef _WIN32
 		float getDeltaTimeInSeconds() const { return (float)(m_realDeltaTimeInSeconds*m_timeScale); }
-#else
+#else*/
 		float getDeltaTimeInSeconds() const { return (float)(m_smoothDeltaTimeInSeconds*m_timeScale); }
-#endif
+//#endif
 		double getFPS() const { return m_fps; }
 		int getMaxFPS() { return m_maxFPS; }
 

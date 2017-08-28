@@ -30,8 +30,8 @@
 #include <string>
 #include <vector>
 
-#include "TMX/TmxLayer.h"
-#include "TMX/TmxPropertySet.h"
+#include "TmxLayer.h"
+#include "TmxPropertySet.h"
 
 namespace tinyxml2 {
     class XMLNode;

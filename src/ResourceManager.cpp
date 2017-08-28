@@ -34,10 +34,11 @@ namespace Johnny
     
     SDL_Surface* TextureData::toSDL_Surface(Uint32 pixelFormat)
     {
-        SDL_Surface* sur = SDL_CreateRGBSurfaceWithFormatFrom(data,width,height,32,width*2,pixelFormat);
+        //SDL_Surface* sur = SDL_CreateRGBSurfaceWithFormatFrom(data,width,height,32,width*2,pixelFormat);
         
-        return sur;
-    }
+        //return sur;
+		return nullptr;
+	}
 
 	ResourceManager::ResourceManager()
 	{

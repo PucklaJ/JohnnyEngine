@@ -27,9 +27,9 @@
 //-----------------------------------------------------------------------------
 #include <tinyxml2.h>
 
-#include "TMX/TmxLayer.h"
-#include "TMX/TmxObjectGroup.h"
-#include "TMX/TmxObject.h"
+#include "TmxLayer.h"
+#include "TmxObjectGroup.h"
+#include "TmxObject.h"
 
 namespace Tmx 
 {
