@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,35 +108,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00017"></a>00017 
 <a name="l00018"></a>00018 <span class="keyword">namespace </span>Johnny
 <a name="l00019"></a>00019 {   
-<a name="l00020"></a><a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html">00020</a>     <span class="keyword">struct </span><a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html">A_Square</a>
-<a name="l00021"></a>00021     {
-<a name="l00022"></a>00022                 <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html">A_Square</a>(<span class="keywordtype">int</span> x_,<span class="keywordtype">int</span> y_,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> g_, <span class="keywordtype">bool</span> solid_)
-<a name="l00023"></a>00023                 {
-<a name="l00024"></a>00024                         x = x_;
-<a name="l00025"></a>00025                         y = y_;
-<a name="l00026"></a>00026                         g = g_;
-<a name="l00027"></a>00027                         solid = solid_;
-<a name="l00028"></a>00028                 }
-<a name="l00029"></a>00029         
-<a name="l00030"></a>00030                 <span class="keywordtype">int</span> x;
-<a name="l00031"></a>00031                 <span class="keywordtype">int</span> y;
-<a name="l00032"></a>00032                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> g;
-<a name="l00033"></a>00033                 <span class="keywordtype">bool</span> solid;
-<a name="l00034"></a>00034                 <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html">A_Square</a>* m_previous = <span class="keyword">nullptr</span>;
-<a name="l00035"></a>00035     };
-<a name="l00036"></a>00036     
-<a name="l00037"></a>00037     <span class="keyword">extern</span> std::vector&lt;A_Square&gt; a_stern(std::vector&lt;A_Square&gt;&amp;,<a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html">A_Square</a>&amp;,<a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html">A_Square</a>&amp;,<span class="keywordtype">int</span>);
-<a name="l00038"></a>00038 }
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="preprocessor">#endif // MATHEMATICS_H_INCLUDED</span>
+<a name="l00023"></a><a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html">00023</a>     <span class="keyword">struct </span><a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html" title="A struct which represents a square of the AStar algorithm.">A_Square</a>
+<a name="l00024"></a>00024     {
+<a name="l00025"></a>00025                 <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html" title="A struct which represents a square of the AStar algorithm.">A_Square</a>(<span class="keywordtype">int</span> x_,<span class="keywordtype">int</span> y_,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> g_, <span class="keywordtype">bool</span> solid_)
+<a name="l00026"></a>00026                 {
+<a name="l00027"></a>00027                         <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#aefe69e2308757f0510dbe74a4f7804c2" title="The x position of the square.">x</a> = x_;
+<a name="l00028"></a>00028                         <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#af6816904f0ad42f93c58e137f256b97f" title="The y position of the square.">y</a> = y_;
+<a name="l00029"></a>00029                         <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#a9ed3ee8dc6ce3b8e3a05d9b810d74952" title="The g value of the square.">g</a> = g_;
+<a name="l00030"></a>00030                         <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#a4ddc3070a40262c149443f928e0fcf33" title="Determines if the square is solid.">solid</a> = solid_;
+<a name="l00031"></a>00031                 }
+<a name="l00032"></a>00032         
+<a name="l00033"></a><a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#aefe69e2308757f0510dbe74a4f7804c2">00033</a>                 <span class="keywordtype">int</span> <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#aefe69e2308757f0510dbe74a4f7804c2" title="The x position of the square.">x</a>;                                          
+<a name="l00034"></a><a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#af6816904f0ad42f93c58e137f256b97f">00034</a>                 <span class="keywordtype">int</span> <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#af6816904f0ad42f93c58e137f256b97f" title="The y position of the square.">y</a>;                                          
+<a name="l00035"></a><a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#a9ed3ee8dc6ce3b8e3a05d9b810d74952">00035</a>                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#a9ed3ee8dc6ce3b8e3a05d9b810d74952" title="The g value of the square.">g</a>;                                 
+<a name="l00036"></a><a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#a4ddc3070a40262c149443f928e0fcf33">00036</a>                 <span class="keywordtype">bool</span> <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#a4ddc3070a40262c149443f928e0fcf33" title="Determines if the square is solid.">solid</a>;                                             
+<a name="l00037"></a><a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#a96a01a80fbac553a71eef83aa15d2bd8">00037</a>                 <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html" title="A struct which represents a square of the AStar algorithm.">A_Square</a>* <a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html#a96a01a80fbac553a71eef83aa15d2bd8" title="The square from which the pathfinder came.">m_previous</a> = <span class="keyword">nullptr</span>; 
+<a name="l00038"></a>00038     };
+<a name="l00039"></a>00039     
+<a name="l00046"></a>00046     <span class="keyword">extern</span> std::vector&lt;A_Square&gt; <a class="code" href="../../d1/dc4/namespace_johnny.html#abbb86ec551579e28dbeb73c7532165f8" title="The AStar algorithm.">a_stern</a>(std::vector&lt;A_Square&gt;&amp; field,<a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html" title="A struct which represents a square of the AStar algorithm.">A_Square</a>&amp; start,<a class="code" href="../../d2/d9f/struct_johnny_1_1_a___square.html" title="A struct which represents a square of the AStar algorithm.">A_Square</a>&amp; end,<span class="keywordtype">int</span> w);
+<a name="l00047"></a>00047 }
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="preprocessor">#endif // MATHEMATICS_H_INCLUDED</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 12:04:26 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

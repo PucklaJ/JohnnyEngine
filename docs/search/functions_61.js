@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['a_5fstern',['a_stern',['../d1/dc4/namespace_johnny.html#abbb86ec551579e28dbeb73c7532165f8',1,'Johnny']]],
+  ['abs',['abs',['../d1/dc4/namespace_johnny.html#a402526e72fde3fc1394e3b70904843be',1,'Johnny']]],
   ['addchild',['addChild',['../d1/dc5/class_johnny_1_1_actor.html#a8781ce17d1c14f851d53dd50219d8b35',1,'Johnny::Actor']]],
   ['addcontroller',['addController',['../df/d93/class_johnny_1_1_joystick_manager.html#a2b0ac17fc07b5468b9df74f3b3cbec2e',1,'Johnny::JoystickManager']]],
   ['addlight',['addLight',['../d3/d12/class_johnny_1_1_lighting3_d.html#a0eb7332b65b39022f39929a8f8b93a85',1,'Johnny::Lighting3D::addLight(SpotLight3D *s)'],['../d3/d12/class_johnny_1_1_lighting3_d.html#aa7ec364318082e45c0881e3f3b8f22a5',1,'Johnny::Lighting3D::addLight(DirectionalLight3D *d)'],['../d3/d12/class_johnny_1_1_lighting3_d.html#adeb04be931d53e2caac481a9c991cc51',1,'Johnny::Lighting3D::addLight(PointLight3D *p)']]],

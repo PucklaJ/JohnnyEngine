@@ -6,5 +6,7 @@ var searchData=
   ['onbuttonup',['onButtonUp',['../df/d68/class_johnny_1_1_axis_button_listener.html#ae31f12736fae53fec7991767f3e00d47',1,'Johnny::AxisButtonListener::onButtonUp()'],['../d3/d3c/class_johnny_1_1_joystick_listener.html#acc8cc2ad6829b169a94c1c739fe5fa78',1,'Johnny::JoystickListener::onButtonUp()']]],
   ['onconnect',['onConnect',['../d7/dfd/class_johnny_1_1_connection_listener.html#abe3602629f1da11c185537f63c84ba6e',1,'Johnny::ConnectionListener::onConnect()'],['../d3/d3c/class_johnny_1_1_joystick_listener.html#afb71988400ef193e2d077753a929cb81',1,'Johnny::JoystickListener::onConnect()']]],
   ['ondisconnect',['onDisconnect',['../d7/dfd/class_johnny_1_1_connection_listener.html#ae5dcfe522f7c137ef15c0aedf73df276',1,'Johnny::ConnectionListener::onDisconnect()'],['../d3/d3c/class_johnny_1_1_joystick_listener.html#afa38392cea7de406357f7bd03c8d6785',1,'Johnny::JoystickListener::onDisconnect()']]],
+  ['onfullscreen',['onFullscreen',['../d4/d76/class_johnny_1_1_main_class.html#ae5008868c5e3a7c99c5afbe3ffa2f5f9',1,'Johnny::MainClass']]],
+  ['onresize',['onResize',['../d4/d76/class_johnny_1_1_main_class.html#a023bb2bda3590a87f4127cc9e1d84aca',1,'Johnny::MainClass']]],
   ['outercutoff',['outerCutOff',['../da/d67/class_johnny_1_1_spot_light3_d.html#acefa853cb7a5da241faa38b9aabb1c13',1,'Johnny::SpotLight3D']]]
 ];

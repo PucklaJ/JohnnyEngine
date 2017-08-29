@@ -24,7 +24,6 @@ class Shader;
 
     /*! \defgroup Main
      *            Here are the basic and main elements of the engine
-     *  \{
      */
 
     /*! \brief This is the base class for everything
@@ -194,10 +193,6 @@ class Shader;
 
             bool m_initialised = false;           //!< Stores wether the init method is called
     };
-
-    /*!
-     * \}
-     */
 }
 
 

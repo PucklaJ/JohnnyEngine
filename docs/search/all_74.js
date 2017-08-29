@@ -9,6 +9,8 @@ var searchData=
   ['tileanimation',['TileAnimation',['../d0/d67/struct_johnny_1_1_tile_animation.html',1,'Johnny']]],
   ['tiledmap',['TiledMap',['../d5/db7/class_johnny_1_1_tiled_map.html',1,'Johnny']]],
   ['timer',['Timer',['../dd/db4/class_johnny_1_1_timer.html',1,'Johnny']]],
+  ['todegrees',['toDegrees',['../d1/dc4/namespace_johnny.html#a3b24a3879973fd2cc45c5eae1bb38e96',1,'Johnny']]],
+  ['toradians',['toRadians',['../d1/dc4/namespace_johnny.html#a51d5cce97ac5fead5f68c4a0279a9b0e',1,'Johnny']]],
   ['transform2d',['Transform2D',['../d1/d60/class_johnny_1_1_transform2_d.html',1,'Johnny']]],
   ['transform3d',['Transform3D',['../df/d3a/class_johnny_1_1_transform3_d.html',1,'Johnny']]],
   ['transformableobject2d',['TransformableObject2D',['../dd/d46/class_johnny_1_1_transformable_object2_d.html',1,'Johnny']]],

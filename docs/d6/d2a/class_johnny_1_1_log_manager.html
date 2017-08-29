@@ -73,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Class for Logging.  
+<p>A class which handles logging.  
  <a href="../../d6/d2a/class_johnny_1_1_log_manager.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d4/d8c/_log_manager_8h_source.html">LogManager.h</a>&gt;</code></p>
@@ -104,18 +104,75 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a330dab59bb79aa49a8ff7da2e2eb662d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a330dab59bb79aa49a8ff7da2e2eb662d"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>setFile</b> (const char *file)</td></tr>
+<tr class="memitem:a330dab59bb79aa49a8ff7da2e2eb662d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2a/class_johnny_1_1_log_manager.html#a330dab59bb79aa49a8ff7da2e2eb662d">setFile</a> (const char *file)</td></tr>
+<tr class="memdesc:a330dab59bb79aa49a8ff7da2e2eb662d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the file where the logs should go to.  <a href="#a330dab59bb79aa49a8ff7da2e2eb662d"></a><br/></td></tr>
 <tr class="memitem:ac9a2302fde84a35060795f838d337914"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2a/class_johnny_1_1_log_manager.html#ac9a2302fde84a35060795f838d337914">log</a> (const std::string &amp;text, bool withTime=true, bool newLine=true)</td></tr>
 <tr class="memdesc:ac9a2302fde84a35060795f838d337914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs some text to the console and a file.  <a href="#ac9a2302fde84a35060795f838d337914"></a><br/></td></tr>
-<tr class="memitem:a0e065cdc5abab688185606ee1e99b894"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e065cdc5abab688185606ee1e99b894"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>log</b> (int i, bool withTime=true, bool newLine=true)</td></tr>
-<tr class="memitem:a70df5642d99733d9ece09778c876647b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70df5642d99733d9ece09778c876647b"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> (const std::string &amp;text, bool withTime=true, bool newLine=true, bool messageBox=true)</td></tr>
+<tr class="memitem:a0e065cdc5abab688185606ee1e99b894"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2a/class_johnny_1_1_log_manager.html#a0e065cdc5abab688185606ee1e99b894">log</a> (int i, bool withTime=true, bool newLine=true)</td></tr>
+<tr class="memdesc:a0e065cdc5abab688185606ee1e99b894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a number to the console and a file.  <a href="#a0e065cdc5abab688185606ee1e99b894"></a><br/></td></tr>
+<tr class="memitem:a70df5642d99733d9ece09778c876647b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2a/class_johnny_1_1_log_manager.html#a70df5642d99733d9ece09778c876647b">error</a> (const std::string &amp;text, bool withTime=true, bool newLine=true, bool messageBox=true)</td></tr>
+<tr class="memdesc:a70df5642d99733d9ece09778c876647b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs the text as an error.  <a href="#a70df5642d99733d9ece09778c876647b"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Class for Logging. </p>
+<div class="textblock"><p>A class which handles logging. </p>
 <div class="fragment"><pre class="fragment">  </pre></div> </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a70df5642d99733d9ece09778c876647b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d6/d2a/class_johnny_1_1_log_manager.html#a70df5642d99733d9ece09778c876647b">Johnny::LogManager::error</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>withTime</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>newLine</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>messageBox</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logs the text as an error. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>The text which will be logged </td></tr>
+    <tr><td class="paramname">withTime</td><td>Defines wether the date and time should be included in the log </td></tr>
+    <tr><td class="paramname">newLine</td><td>Defines wether there should be a new line placed after the log </td></tr>
+    <tr><td class="paramname">messageBox</td><td>Defines wether there should be a MessageBox opened with the error contents </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ac9a2302fde84a35060795f838d337914"></a>
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +212,97 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> (con
 </div><div class="memdoc">
 
 <p>Logs some text to the console and a file. </p>
-<div class="fragment"><pre class="fragment">          </pre></div> 
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>The text which will be logged </td></tr>
+    <tr><td class="paramname">withTime</td><td>Defines wether the date and time should be included in the log </td></tr>
+    <tr><td class="paramname">newLine</td><td>Defines wether there should be a new line placed after the log </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0e065cdc5abab688185606ee1e99b894"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d6/d2a/class_johnny_1_1_log_manager.html#ac9a2302fde84a35060795f838d337914">Johnny::LogManager::log</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>withTime</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>newLine</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logs a number to the console and a file. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The number which will be logged </td></tr>
+    <tr><td class="paramname">withTime</td><td>Defines wether the date and time should be included in the log </td></tr>
+    <tr><td class="paramname">newLine</td><td>Defines wether there should be a new line placed after the log </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a330dab59bb79aa49a8ff7da2e2eb662d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="../../d6/d2a/class_johnny_1_1_log_manager.html#a330dab59bb79aa49a8ff7da2e2eb662d">Johnny::LogManager::setFile</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the file where the logs should go to. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>The file to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -165,7 +312,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> (con
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 12:04:26 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 29 2017 13:51:37 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

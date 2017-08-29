@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,37 +99,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00008"></a>00008 <span class="keyword">namespace </span>Johnny
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 {
-<a name="l00018"></a><a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html">00018</a>     <span class="keyword">class </span><a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html" title="Class for Logging.">LogManager</a>
-<a name="l00019"></a>00019     {
-<a name="l00020"></a>00020         <span class="keyword">public</span>:
-<a name="l00021"></a>00021             <a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html" title="Class for Logging.">LogManager</a>();
-<a name="l00022"></a>00022             <span class="keyword">virtual</span> ~<a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html" title="Class for Logging.">LogManager</a>();
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024             <span class="keyword">static</span> <span class="keywordtype">void</span> setFile(<span class="keyword">const</span> <span class="keywordtype">char</span>* file){m_file=file;}
-<a name="l00033"></a>00033             <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html#ac9a2302fde84a35060795f838d337914" title="Logs some text to the console and a file.">log</a>(<span class="keyword">const</span> std::string&amp; text,<span class="keywordtype">bool</span> withTime = <span class="keyword">true</span>,<span class="keywordtype">bool</span> newLine = <span class="keyword">true</span>);
-<a name="l00034"></a>00034                         <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html#ac9a2302fde84a35060795f838d337914" title="Logs some text to the console and a file.">log</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">bool</span> withTime = <span class="keyword">true</span>, <span class="keywordtype">bool</span> newLine = <span class="keyword">true</span>);
-<a name="l00035"></a>00035                         <span class="keyword">static</span> <span class="keywordtype">void</span> error(<span class="keyword">const</span> std::string&amp; text, <span class="keywordtype">bool</span> withTime = <span class="keyword">true</span>, <span class="keywordtype">bool</span> newLine = <span class="keyword">true</span>, <span class="keywordtype">bool</span> messageBox = <span class="keyword">true</span>);
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037         <span class="keyword">protected</span>:
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039         <span class="keyword">private</span>:
-<a name="l00040"></a>00040             <span class="keyword">static</span> <span class="keyword">const</span> std::string getTime();
-<a name="l00041"></a>00041             <span class="keyword">static</span> <span class="keyword">const</span> std::string getDay();
-<a name="l00042"></a>00042                         <span class="keyword">static</span> <span class="keywordtype">int</span> createMessageBox(<span class="keyword">const</span> std::string&amp;);
+<a name="l00014"></a><a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html">00014</a>     <span class="keyword">class </span><a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html" title="A class which handles logging.">LogManager</a>
+<a name="l00015"></a>00015     {
+<a name="l00016"></a>00016         <span class="keyword">public</span>:
+<a name="l00017"></a>00017             <a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html" title="A class which handles logging.">LogManager</a>();
+<a name="l00018"></a>00018             <span class="keyword">virtual</span> ~<a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html" title="A class which handles logging.">LogManager</a>();
+<a name="l00019"></a>00019 
+<a name="l00023"></a><a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html#a330dab59bb79aa49a8ff7da2e2eb662d">00023</a>             <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html#a330dab59bb79aa49a8ff7da2e2eb662d" title="Sets the file where the logs should go to.">setFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* file){m_file=file;}
+<a name="l00029"></a>00029             <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html#ac9a2302fde84a35060795f838d337914" title="Logs some text to the console and a file.">log</a>(<span class="keyword">const</span> std::string&amp; text,<span class="keywordtype">bool</span> withTime = <span class="keyword">true</span>,<span class="keywordtype">bool</span> newLine = <span class="keyword">true</span>);
+<a name="l00035"></a>00035                         <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html#ac9a2302fde84a35060795f838d337914" title="Logs some text to the console and a file.">log</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">bool</span> withTime = <span class="keyword">true</span>, <span class="keywordtype">bool</span> newLine = <span class="keyword">true</span>);
+<a name="l00042"></a>00042                         <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d2a/class_johnny_1_1_log_manager.html#a70df5642d99733d9ece09778c876647b" title="Logs the text as an error.">error</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keywordtype">bool</span> withTime = <span class="keyword">true</span>, <span class="keywordtype">bool</span> newLine = <span class="keyword">true</span>, <span class="keywordtype">bool</span> messageBox = <span class="keyword">true</span>);
 <a name="l00043"></a>00043 
-<a name="l00044"></a>00044             <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* m_file;
-<a name="l00045"></a>00045             <span class="keyword">static</span> time_t m_timer;
-<a name="l00046"></a>00046             <span class="keyword">static</span> <span class="keyword">struct </span>tm* m_tm;
-<a name="l00047"></a>00047     };
-<a name="l00048"></a>00048 }
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="preprocessor">#endif // LOGMANAGER_H</span>
+<a name="l00044"></a>00044         <span class="keyword">private</span>:
+<a name="l00048"></a>00048             <span class="keyword">static</span> <span class="keyword">const</span> std::string getTime();
+<a name="l00052"></a>00052             <span class="keyword">static</span> <span class="keyword">const</span> std::string getDay();
+<a name="l00057"></a>00057                         <span class="keyword">static</span> <span class="keywordtype">int</span> createMessageBox(<span class="keyword">const</span> std::string&amp; msg);
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059             <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* m_file; 
+<a name="l00060"></a>00060             <span class="keyword">static</span> time_t m_timer;     
+<a name="l00061"></a>00061             <span class="keyword">static</span> <span class="keyword">struct </span>tm* m_tm;    
+<a name="l00062"></a>00062     };
+<a name="l00063"></a>00063 }
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="preprocessor">#endif // LOGMANAGER_H</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 12:04:26 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

@@ -17,6 +17,9 @@
 
 namespace Johnny
 {   
+	/*! \brief A struct which represents a square of the AStar algorithm
+	 *
+	 */
     struct A_Square
     {
 		A_Square(int x_,int y_,unsigned int g_, bool solid_)
@@ -27,14 +30,20 @@ namespace Johnny
 			solid = solid_;
 		}
         
-		int x;
-		int y;
-		unsigned int g;
-		bool solid;
-		A_Square* m_previous = nullptr;
+		int x; 		    				//!< The x position of the square
+		int y; 		    				//!< The y position of the square
+		unsigned int g; 				//!< The g value of the square
+		bool solid;						//!< Determines if the square is solid
+		A_Square* m_previous = nullptr; //!< The square from which the pathfinder came
     };
     
-    extern std::vector<A_Square> a_stern(std::vector<A_Square>&,A_Square&,A_Square&,int);
+    /*! \brief The AStar algorithm
+     *	\param field A vector containing a field of A_Squares
+     *  \param start The start square for the algorithm
+     *  \param end The end square for the algorithm
+     *  \param w The width of the field in A_Squares
+     */
+    extern std::vector<A_Square> a_stern(std::vector<A_Square>& field,A_Square& start,A_Square& end,int w);
 }
 
 
