@@ -50,6 +50,12 @@ namespace Johnny
 		EVERYTHING = ~0
 	};
 
+	/*! \brief The main or root class where the application starts
+	 *
+	 *
+	 * This class handles all base things such as the initialisation.
+	 * \ingroup Main
+	 */
     class MainClass : public Actor
     {
         public:

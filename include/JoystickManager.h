@@ -7,7 +7,7 @@ namespace Johnny
 {
     class JoystickListener;
 
-    /* \brief The class which manages all controller specific things
+    /*! \brief The class which manages all controller specific things
      *
      */
     class JoystickManager
@@ -16,28 +16,28 @@ namespace Johnny
             JoystickManager();
             virtual ~JoystickManager();
 
-            /* \brief Polls the controller events
+            /*! \brief Polls the controller events
              * \param e The event from which to poll
              */
             void pollEvents(const SDL_Event& e);
-            /* \brief Updates the JoystickManager
+            /*! \brief Updates the JoystickManager
              *
              */
             void update();
 
-            /* \brief Sets the JoystickListener
+            /*! \brief Sets the JoystickListener
              * \param jl The JoystickListener to set
              */
             void setListener(JoystickListener* jl);
-            /* \brief Adds a controller to the vector
+            /*! \brief Adds a controller to the vector
              * \param gc The controller to add
              */
             void addController(SDL_GameController* gc);
-            /* \brief Removes a controller from the vector
+            /*! \brief Removes a controller from the vector
              * \param gc The controller to remove
              */
             void removeController(SDL_GameController* gc);
-            /* \brief Removes a controller with an index from the vector
+            /*! \brief Removes a controller with an index from the vector
              * \param index The index of te controller
              */
             void removeController(int index);
