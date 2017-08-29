@@ -77,6 +77,7 @@ namespace Johnny
         }
         
         m_clearTexture = Texture::BOX(Vector2i(GetTileWidth(),GetTileHeight()),m_background);
+        m_clearTexture->setDrawMode(DrawModes::DIRECT);
         
         m_mainClass->getBackBuffer()->bind();
         glViewport(0,0,(GLsizei)m_mainClass->getNativeRes().x,(GLsizei)m_mainClass->getNativeRes().y);
@@ -200,6 +201,9 @@ namespace Johnny
             const Tmx::Tileset* tileSet = GetTileset(i);
             std::string imageFile = GetFilepath() + tileSet->GetImage()->GetSource();
             Texture* tex = m_mainClass->getResourceManager()->loadTexture(imageFile);
+            if(!contains(m_tilesetTextures,tex))
+                m_tilesetTextures.push_back(tex);
+            
             FrameBuffer* fr = new FrameBuffer();
             fr->addTexture(tex);
             if(!fr->checkStatus())
@@ -213,9 +217,7 @@ namespace Johnny
     
     void TiledMap::addTexture()
     {
-        //GLsizei,GLsizei,GLenum filtering = GL_LINEAR,GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA,GLenum type = GL_UNSIGNED_BYTE);
-        
-        RenderTexture* texture = new RenderTexture(GetWidth()*GetTileWidth(),GetHeight()*GetTileHeight(),GL_LINEAR,GL_TEXTURE_2D);
+        RenderTexture* texture = new RenderTexture(GetWidth()*GetTileWidth(),GetHeight()*GetTileHeight(),(GLenum)Settings::geti(SettingName::SPRITE2D_FILTERING),GL_TEXTURE_2D);
         texture->target();
         glClearColor(0.0f,0.0f,0.0f,0.0f);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -992,13 +994,20 @@ namespace Johnny
 
     bool TiledMap::render()
     {
-    	Sprite2D::render();
-
-    	renderAnimations();
+        renderAnimations();
 
     	renderLayers();
         
         m_shader->getShaderUpdater()->update();
+        
+    	setScale(getScale() * m_drawScale);
+        
+        m_shader->getShaderUpdater()->setUniforms(&m_transform,m_isAffectedByCamera ? Texture2DShaderUpdater::TRANSFORM_CAMERA : Texture2DShaderUpdater::TRANSFORM_NORMAL);
+        m_shader->getShaderUpdater()->setUniforms(m_texture,1);
+        m_shader->getShaderUpdater()->setUniforms(&m_srcRegion);
+        m_shader->getShaderUpdater()->setUniforms(this);
+        
+		setScale(getScale() / m_drawScale);
 
     	return true;
     }
@@ -1027,6 +1036,8 @@ namespace Johnny
             delete it->second;
         }
         m_frameBuffersOfTileSets.clear();
+        
+        m_tilesetTextures.clear();
     }
 
     b2Body* TiledMap::toCollisionBody(const Tmx::Object* obj)
@@ -1099,15 +1110,15 @@ namespace Johnny
     	dstRegion.y = y*GetTileHeight();
     	dstRegion.w = GetTileWidth();
     	dstRegion.h = GetTileHeight();
-    	const Tmx::Tile* tile = GetTileset(tileset)->GetTile(id);
+        const Tmx::Tile* tile = GetTileset(tileset)->GetTile(id);
 
-    	if(!tile)
+    	/*if(!tile)
     	{
     		LogManager::error(std::string("Couldn't set Tile: ") + std::to_string(id));
     		return;
-    	}
+    	}*/
 
-    	Texture* tileSetTex = m_mainClass->getResourceManager()->loadTexture(GetFilepath() + GetTileset(tileset)->GetImage()->GetSource());
+    	Texture* tileSetTex = m_tilesetTextures[tileset];//m_mainClass->getResourceManager()->loadTexture(GetFilepath() + GetTileset(tileset)->GetImage()->GetSource());
     	//tileSetTex->renderCopy(m_mainClass->getRenderer(),&dstRect,&srcRect);
         Texture::renderTexture2D(tileSetTex,&dstRegion,&srcRegion);
         
@@ -1123,7 +1134,7 @@ namespace Johnny
     		}
     	}
 
-    	if(tile->GetFrameCount() > 0 && !animLoaded)
+    	if(tile && tile->GetFrameCount() > 0 && !animLoaded)
     	{
     		TileAnimation anim;
     		anim.curRegion = 0;
@@ -1143,17 +1154,14 @@ namespace Johnny
     		isAnim = true;
     	}
 
-    	if(tile->GetFrameCount() > 0 || true)
-    	{
-			for(std::map<int,TileAnimation>::iterator it = m_animations.begin();it!=m_animations.end();it++)
-			{
-				if(it->first == id)
-				{
-					animLoaded = true;
-					break;
-				}
-			}
-    	}
+        for(std::map<int,TileAnimation>::iterator it = m_animations.begin();it!=m_animations.end();it++)
+        {
+            if(it->first == id)
+            {
+                animLoaded = true;
+                break;
+            }
+        }
 
 
     	if(isAnim || animLoaded)

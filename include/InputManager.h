@@ -2,21 +2,27 @@
 #define INPUTMANAGER_H
 
 #include <map>
-#include "../include/Actor.h"
+#include "Actor.h"
+#include "Vector2.h"
 
 namespace Johnny
 {
+    class Camera2D;
+    
 	/*! \brief A structure which holds data about the mouse
 	 *
 	 */
-	struct Mouse
+	class Mouse
 	{
+    public:
 		unsigned int x; 	//!< The x coordinate of the screen position of the mouse
 		unsigned int y; 	//!< The y coordinate of the screen position of the mouse
 		int xrel;			//!< The x coordinate of the relative vector from the last frame to this
 		int yrel;       	//!< The y coordinate of the relative vector from the last frame to this
 		signed int wheel_x; //!< The amount which the mousewheel was moved on the x-Axis in the last frame
 		signed int wheel_y; //!< The amount which the mousewheel was moved on the y-Axis in the last frame
+        Vector2f getWorldPosition(Camera2D* cam) const;
+        Vector2f getScreenPosition(const Vector2f& worldPos,Camera2D* cam) const;
 	};
 
 	/*! \brief A enum with all keyboardkeys and mousebuttons
@@ -357,4 +363,3 @@ namespace Johnny
 
 
 #endif // INPUTMANAGER_H
->>>>>>> 7250f4125b96feee47b14dcf0d52b3b42ec7f1f0

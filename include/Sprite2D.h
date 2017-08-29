@@ -7,9 +7,13 @@
 
 namespace Johnny
 {
+    class TiledMap;
+    
 	class Sprite2D : public Actor, public TweenableObject2D
 	{
 	public:
+        friend class TiledMap;
+    
 		Sprite2D();
 		Sprite2D(const std::string&);
 		Sprite2D(Texture*);

@@ -55,7 +55,7 @@ namespace Johnny
 		 * \param mask Which mask to blit
 		 * \param filter Defines how the pixels should be filtered
 		 */
-		void blit(FrameBuffer* f, GLint sx0, GLint sy0, GLint sx1, GLint sy1, GLint dx0, GLint dy0, GLint dx1, GLint dy1, GLbitfield mask = GL_COLOR_BUFFER_BIT, GLenum filter = GL_NEAREST);
+		void blit(FrameBuffer* f, GLint sx0, GLint sy0, GLint sx1, GLint sy1, GLint dx0, GLint dy0, GLint dx1, GLint dy1, GLbitfield mask = GL_COLOR_BUFFER_BIT, GLenum filter = GL_LINEAR);
 
 		/*! \return The name of the frame buffer object
 		 *

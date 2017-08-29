@@ -43,7 +43,7 @@ namespace Johnny
 		/*! \brief Converts the color the a color with T=GLfloat and maxValue=1
 		 * \return The converted color
 		 */
-		Color<GLfloat, 1> normalise();
+		Color<GLfloat, 1> normalise() const;
 
 		template<class T1,size_t maxValue1>
 		Color<T, maxValue>& operator=(const Color<T1, maxValue1>&);
@@ -69,7 +69,7 @@ namespace Johnny
 	}
 
 	template<class T, size_t maxValue>
-	inline Color<GLfloat, 1> Color<T, maxValue>::normalise()
+	inline Color<GLfloat, 1> Color<T, maxValue>::normalise() const
 	{
 		return Color<GLfloat, 1>(*this);
 	}
@@ -117,6 +117,9 @@ namespace Johnny
         const Colorb YELLOW = {255,255,0,255};
         const Colorb BROWN = {51,25,0,255};
         const Colorb PINK = {255,0,255,255};
+        const Colorb PURPLE = {128,0,128,255};
+        const Colorb ORANGE_RED = {255,69,0,255};
+        const Colorb GOLD = {255,215,0,255};
     }
 }
 

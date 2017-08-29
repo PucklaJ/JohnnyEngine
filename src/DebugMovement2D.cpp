@@ -23,11 +23,11 @@ namespace Johnny
 	{
 		if (m_mainClass->getInputManager()->isPressed(Keys::W))
 		{
-			m_mainClass->getCamera2D()->addPosition(0.0f, m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(), true);
+			m_mainClass->getCamera2D()->addPosition(0.0f, -m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(), true);
 		}
 		else if (m_mainClass->getInputManager()->isPressed(Keys::S))
 		{
-			m_mainClass->getCamera2D()->addPosition(0.0f, -m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(), true);
+			m_mainClass->getCamera2D()->addPosition(0.0f, m_moveSpeed * m_mainClass->getTimer()->getDeltaTimeInSeconds(), true);
 		}
 		else if (m_mainClass->getInputManager()->isPressed(Keys::A))
 		{

@@ -21,7 +21,7 @@ namespace Johnny
 
 	void Camera2D::addPosition(const Vector2f & pos, bool relToLook)
 	{
-		m_transform.setTranslation(m_transform.getTranslation() + (relToLook ? Matrix3f::rotate(-m_transform.getRotation())*pos : pos));
+		setPosition(getPosition() + (relToLook ? Matrix3f::rotate(m_transform.getRotation())*pos : pos));
 	}
 
 	void Camera2D::addPosition(GLfloat x, GLfloat y, bool relToLook)

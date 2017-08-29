@@ -2,7 +2,7 @@
 #define TEXTACTOR_H
 #include "../include/Actor.h"
 #include <GL/glew.h>
-#ifdef __LINUX__
+#ifdef __linux__
     #include <SDL2/SDL_ttf.h>
 #else
 #ifdef _WIN32

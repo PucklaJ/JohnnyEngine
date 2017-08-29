@@ -46,6 +46,9 @@ namespace Johnny
         
         void destroyTile(int,int,int);
         void setTile(int,int,int,int,int);
+        
+        std::vector<Texture*>& getTilesetTextures() {return m_tilesetTextures;}
+        std::vector<RenderTexture*>& getLayerTextures() {return m_renderTextures;}
 
     private:
         int getIDofTileset(const Tmx::Tileset*);
@@ -87,6 +90,8 @@ namespace Johnny
         std::map<Texture*,FrameBuffer*> m_frameBuffersOfTileSets;
         Texture* m_clearTexture = nullptr;
         bool m_renderObjects = false;
+        
+        std::vector<Texture*> m_tilesetTextures;
     };
 }
 

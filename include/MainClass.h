@@ -203,13 +203,13 @@ namespace Johnny
         	 *
         	 * It is overriding the method from Actor
         	 */
-            virtual void quit() = 0 override;
+            virtual void quit() override = 0;
             /*! \brief The init method
              * 
              *
              * It is overriding the method from Actor
              */
-            virtual bool init() = 0 override;
+            virtual bool init() override = 0;
             /*! \brief Gets called every frame to poll the events
              *
              */

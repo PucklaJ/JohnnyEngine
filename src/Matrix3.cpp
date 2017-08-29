@@ -67,7 +67,7 @@ namespace Johnny
 	template<class T>
 	Matrix3<T> Matrix3<T>::camera(const Vector2<T>& position, const T& zoom, const T& rotation)
 	{		
-		return   rotate(rotation) * scale(zoom, zoom) * translate(position*(T)-1);
+		return  rotate(rotation) * scale(zoom, zoom) * translate(position*(T)-1);
 	}
 
 	template<class T>

@@ -44,6 +44,10 @@ namespace Johnny
     void Texture2DShaderUpdater::setUniforms(Texture* m,unsigned int index)
     {
         m->bind(m_shader);
+        m_shader->setUniform("keyColor",m->getKeyColor().normalise());
+        m_shader->setUniform("modColor",m->getModColor().normalise());
+        m_shader->setUniform("drawMode",m->getDrawMode());
+        m_shader->setUniform("isFrameBuffer",index!=0);
     }
     
     void Texture2DShaderUpdater::setUniforms(TextureRegion* m,unsigned int index)
@@ -53,7 +57,13 @@ namespace Johnny
     
     void Texture2DShaderUpdater::setUniforms(Sprite2D* m,const unsigned int index)
     {
+        if(m->getTexture()->getDrawMode() == DrawModes::DIRECT)
+            glDisable(GL_BLEND);
+        
         Texture::renderSprite2D();
+        
+        if(m->getTexture()->getDrawMode() == DrawModes::DIRECT)
+            glEnable(GL_BLEND);
     }
     
 	Shader* Texture::m_texture2DShader = nullptr;
@@ -125,6 +135,9 @@ namespace Johnny
 			m_texture2DShader->addUniform("viewportSize");
 			m_texture2DShader->addUniform("textureRegion");
             m_texture2DShader->addUniform("isFrameBuffer");
+            m_texture2DShader->addUniform("modColor");
+            m_texture2DShader->addUniform("keyColor");
+            m_texture2DShader->addUniform("drawMode");
 
 			mainClass->getRenderManager()->addShader(m_texture2DShader);
 		}
@@ -171,10 +184,15 @@ namespace Johnny
 		{
 			if(bindShader)
 				m_texture2DShader->bind();
+            if(tex->getDrawMode() == DrawModes::DIRECT)
+                glDisable(GL_BLEND);
 			m_texture2DShader->setUniform("transform", transformation);
 			m_texture2DShader->setUniform("viewportSize", TransformableObject2D::getViewportSize());
 			m_texture2DShader->setUniform("textureRegion", srcRegion ? *srcRegion : TextureRegion(0, 0, tex->getWidth(), tex->getHeight()));
             m_texture2DShader->setUniform("isFrameBuffer",isFrameBuffer);
+            m_texture2DShader->setUniform("keyColor",tex->getKeyColor().normalise());
+            m_texture2DShader->setUniform("modColor",tex->getModColor().normalise());
+            m_texture2DShader->setUniform("drawMode",tex->getDrawMode());
 			tex->bind(m_texture2DShader);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -182,6 +200,9 @@ namespace Johnny
 			glDrawArrays(GL_POINTS, 0, 1);
 
 			glBindVertexArray(0);
+            
+            if(tex->getDrawMode() == DrawModes::DIRECT)
+                glEnable(GL_BLEND);
 		}
 
 	}
@@ -197,6 +218,9 @@ namespace Johnny
 				transformation *= Matrix3f::scale(scale);
 			if (rotation != 0.0f && (GLint)rotation % 360 != 0)
 				transformation *= Matrix3f::rotate(rotation);
+                
+            if(tex->getDrawMode() == DrawModes::DIRECT)
+                glDisable(GL_BLEND);
             
 			if(bindShader)
 				m_texture2DShader->bind();
@@ -204,6 +228,9 @@ namespace Johnny
 			m_texture2DShader->setUniform("viewportSize", TransformableObject2D::getViewportSize());
 			m_texture2DShader->setUniform("textureRegion", srcRegion ? *srcRegion : TextureRegion(0,0,tex->getWidth(),tex->getHeight()));
             m_texture2DShader->setUniform("isFrameBuffer",isFrameBuffer);
+            m_texture2DShader->setUniform("keyColor",tex->getKeyColor().normalise());
+            m_texture2DShader->setUniform("modColor",tex->getModColor().normalise());
+            m_texture2DShader->setUniform("drawMode",tex->getDrawMode());
 			tex->bind(m_texture2DShader,"textureAddress",0,target);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -211,6 +238,9 @@ namespace Johnny
 			glDrawArrays(GL_POINTS, 0, 1);
 
 			glBindVertexArray(0);
+            
+            if(tex->getDrawMode() == DrawModes::DIRECT)
+                glEnable(GL_BLEND);
 		}
 	}
     
@@ -354,7 +384,7 @@ namespace Johnny
         return sur;
 	}
 
-	GLsizei Texture::getWidth()
+	const GLsizei& Texture::getWidth()
 	{
 		if (m_width == 0)
 		{
@@ -367,7 +397,7 @@ namespace Johnny
 		return m_width;
 	}
 
-	GLsizei Texture::getHeight()
+	const GLsizei& Texture::getHeight()
 	{
 		if (m_height == 0)
 		{

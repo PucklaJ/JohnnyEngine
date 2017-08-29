@@ -2,6 +2,7 @@
 #include <iostream>
 #include <SDL2/SDL_keycode.h>
 #include <SDL2/SDL_mouse.h>
+#include "../include/Camera2D.h"
 
 using namespace std;
 
@@ -271,6 +272,46 @@ namespace Johnny
 		default: return Keys::UNDEFINED;
 		}
 	}
+    
+    Vector2f Mouse::getWorldPosition(Camera2D* cam) const
+    {
+        Vector2f worldPos(x,y);
+        
+        worldPos.y = TransformableObject2D::getViewportSize().y-worldPos.y;
+        worldPos = worldPos - TransformableObject2D::getViewportSize()/2.0f;
+        worldPos = worldPos / TransformableObject2D::getViewportSize() * 2.0f;
+        
+        worldPos = worldPos * (TransformableObject2D::getViewportSize() / 2.0f);
+        worldPos = Matrix3f::rotate(-cam->getRotation()) * worldPos;
+        worldPos = Matrix3f::scale(1.0f/cam->getZoom(),1.0f/cam->getZoom()) * worldPos;
+        Vector2f camPos = cam->getTransform().getTranslation();
+        worldPos = Matrix3f::translate(camPos) * worldPos;
+        
+        worldPos = worldPos - TransformableObject2D::getCenter() * TransformableObject2D::getViewportSize();
+        worldPos.y = TransformableObject2D::getViewportSize().y - worldPos.y;
+        return worldPos;
+        
+    }
+    
+    Vector2f Mouse::getScreenPosition(const Vector2f& worldPos,Camera2D* cam) const
+    {
+        Vector2f screenPos(worldPos);
+        
+        screenPos.y = TransformableObject2D::getViewportSize().y - screenPos.y;
+        screenPos = screenPos + TransformableObject2D::getCenter() * TransformableObject2D::getViewportSize();
+        
+        Vector2f camPos = cam->getTransform().getTranslation();
+        screenPos = Matrix3f::translate(camPos*-1.0f) * screenPos;
+        screenPos = Matrix3f::scale(cam->getZoom(),cam->getZoom()) * screenPos;
+        screenPos = Matrix3f::rotate(cam->getRotation()) * screenPos;
+        screenPos = screenPos / (TransformableObject2D::getViewportSize() / 2.0f);
+        
+        screenPos = screenPos / 2.0f * TransformableObject2D::getViewportSize();
+        screenPos = screenPos + TransformableObject2D::getViewportSize()/2.0f;
+        screenPos.y = TransformableObject2D::getViewportSize().y - screenPos.y;
+        
+        return screenPos;
+    }
 
 	InputManager::InputManager()
 	{

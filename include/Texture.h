@@ -21,6 +21,12 @@ namespace Johnny
     class Camera3D;
     class Lighting3D;
     
+    enum DrawModes
+    {
+      DIRECT=0,
+      BLENDING=1
+    };
+    
     class Texture2DShaderUpdater : public ShaderUpdater
     {
     public:
@@ -66,10 +72,17 @@ namespace Johnny
         GLubyte* readPixels(GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE);
         SDL_Surface* toSDLSurface(GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA,GLenum type = GL_UNSIGNED_BYTE);
         
-
+        void setKeyColor(const Colorb& color) {m_keyColor=color;}
+        void setModColor(const Colorb& color) {m_modColor=color;}
+        void setDrawMode(const DrawModes& mode) {m_drawMode=mode;}
+        
 		GLuint getBuffer() { return m_texture; }
-		GLsizei getWidth();
-		GLsizei getHeight();
+		const GLsizei& getWidth();
+		const GLsizei& getHeight();
+        
+        const Colorb& getKeyColor() const {return m_keyColor;}
+        const Colorb& getModColor() const {return m_modColor;}
+        const DrawModes& getDrawMode() const {return m_drawMode;}
 
 	protected:
 		static Shader* m_texture2DShader;
@@ -79,6 +92,9 @@ namespace Johnny
 		GLuint m_texture = 0;
 		GLsizei m_width = 0;
 		GLsizei m_height = 0;
+        Colorb m_keyColor;
+        Colorb m_modColor = Colorb(255,255,255,255);
+        DrawModes m_drawMode = BLENDING;
 
 	};
 }
