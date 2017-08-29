@@ -1,3 +1,4 @@
+\mainpage
 # JohnnyEngine
 
 This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and OpenGL.
@@ -59,19 +60,24 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 
 #### Linux (Ubuntu) - Eclipse
 
-1. Download the dependencies
-  1.1 Execute these commands <br/>
-  ```
-  sudo apt-get install libsdl2
-  sudo apt-get install libsdl2-ttf
-  sudo apt-get install assimp
-  sudo apt-get install glew
-  sudo apt-get install libz
-  sudo apt-get install tinyxml2
-  ```
-2. In Eclipse
-  2.1 Add the libraries to the project
-3. It should compile and link
+1. Download the dependencies <br>
+  1.1 Execute these commands <br>
+ 
+
+      sudo apt-get install libsdl2    
+      sudo apt-get install libsdl2-ttf    
+      sudo apt-get install assimp    
+      sudo apt-get install glew    
+      sudo apt-get install libz    
+      sudo apt-get install tinyxml2    
+
+2. In Eclipse <br>
+  2.1 Add the libraries to the project <br>
+3. It should compile and link <br>
+
+## Documentation
+
+[Here](https://pucklamotzer09.github.io/JohnnyEngine/docs) you can find a doxygen generated documentation 
 
 ## Future Plans
 

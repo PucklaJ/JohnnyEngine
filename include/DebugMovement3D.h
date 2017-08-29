@@ -4,26 +4,26 @@
 namespace Johnny
 {
 
-	/* \brief A class which adds a small 3D DebugCameraMovement to the application
+	/*! \brief A class which adds a small 3D DebugCameraMovement to the application
 	 *        like camera moving and rotating
 	 */
 	class DebugMovement3D : public Actor
 	{
 	public:
-		/* \brief Creates a new DebugMovement3D
+		/*! \brief Creates a new DebugMovement3D
 		 * \param moveSpeed The speed with which the camera moves
 		 * \param lookSpeed The speed with which the camera rotates
 		 */
 		DebugMovement3D(float moveSpeed = 12.0f, float lookSpeed = 1.0f);
 		~DebugMovement3D();
 
-		/* \brief The init method
+		/*! \brief The init method
 		 *
 		 *
 		 * It is overriding the method from Actor
 		 */
 		bool init() override;
-		/* \brief The update method
+		/*! \brief The update method
 		 * 
 		 *
 		 * It is overriding the method from Actor
