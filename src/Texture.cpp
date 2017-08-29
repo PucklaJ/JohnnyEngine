@@ -349,10 +349,9 @@ namespace Johnny
     
     SDL_Surface* Texture::toSDLSurface(GLenum target,GLenum format,GLenum type)
     {
-        //SDL_Surface* sur = SDL_CreateRGBSurfaceWithFormatFrom(readPixels(target,format,type),getWidth(),getHeight(),32,getWidth()*2,format == GL_RGBA ? SDL_PIXELFORMAT_RGBA8888 : SDL_PIXELFORMAT_RGB888);
+        SDL_Surface* sur = SDL_CreateRGBSurfaceWithFormatFrom(readPixels(target,format,type),getWidth(),getHeight(),32,getWidth()*2,format == GL_RGBA ? SDL_PIXELFORMAT_RGBA8888 : SDL_PIXELFORMAT_RGB888);
         
-        //return sur;
-		return nullptr;
+        return sur;
 	}
 
 	GLsizei Texture::getWidth()
