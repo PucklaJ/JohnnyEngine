@@ -115,7 +115,7 @@ namespace Johnny
 
 		/*! \brief Sets the texture file of a plane of the Skybox
 		 *  \param plane Which plane to set the file for
-		 *  \file The file path of the texture relateive to res/textures
+		 *  \param file The file path of the texture relateive to res/textures
 		 */
 		void setTexture(short plane, const std::string& file);
 
