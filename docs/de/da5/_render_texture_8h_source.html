@@ -98,27 +98,27 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00007"></a>00007     <span class="keyword">class </span>FrameBuffer;
 <a name="l00008"></a>00008     <span class="keyword">class </span>Camera2D;
 <a name="l00009"></a>00009     
-<a name="l00010"></a><a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html">00010</a>     <span class="keyword">class </span><a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html">RenderTexture</a> : <span class="keyword">public</span> <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>
-<a name="l00011"></a>00011     {
-<a name="l00012"></a>00012     <span class="keyword">public</span>:
-<a name="l00013"></a>00013         <a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html">RenderTexture</a>(GLsizei,GLsizei,GLenum filtering = GL_LINEAR,GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA,GLenum type = GL_UNSIGNED_BYTE);
-<a name="l00014"></a>00014         ~<a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html">RenderTexture</a>();
-<a name="l00015"></a>00015         
-<a name="l00016"></a>00016         <span class="keywordtype">void</span> target();
-<a name="l00017"></a>00017         <span class="keywordtype">void</span> untarget();
-<a name="l00018"></a>00018         <span class="keywordtype">void</span> render(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;,<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; scale = <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>(1.0f,1.0f),GLfloat rotation = 0.0f, <span class="keyword">const</span> <a class="code" href="../../da/d73/class_johnny_1_1_camera2_d.html" title="The camera for all 2D objects It transforms all 2D objects with m_affectedByCamera = true...">Camera2D</a>* cam = <span class="keyword">nullptr</span>,<span class="keyword">const</span> <a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>* srcRegion = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bindShader = <span class="keyword">true</span>,GLenum target = GL_TEXTURE_2D);
-<a name="l00019"></a>00019         
-<a name="l00020"></a>00020         <a class="code" href="../../d2/db0/class_johnny_1_1_frame_buffer.html" title="a object-oriented implementation of a frame buffer object to make it easier to use">FrameBuffer</a>* getFrameBuffer() {<span class="keywordflow">return</span> m_frameBuffer;}
-<a name="l00021"></a>00021     
-<a name="l00022"></a>00022     <span class="keyword">private</span>:
-<a name="l00023"></a>00023         <a class="code" href="../../d2/db0/class_johnny_1_1_frame_buffer.html" title="a object-oriented implementation of a frame buffer object to make it easier to use">FrameBuffer</a>* m_frameBuffer = <span class="keyword">nullptr</span>;
-<a name="l00024"></a>00024         
-<a name="l00025"></a>00025     };
-<a name="l00026"></a>00026 }
+<a name="l00013"></a><a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html">00013</a>     <span class="keyword">class </span><a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html" title="A Texture that is attached to a FrameBuffer for easy to use render to Texture.">RenderTexture</a> : <span class="keyword">public</span> <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>
+<a name="l00014"></a>00014     {
+<a name="l00015"></a>00015     <span class="keyword">public</span>:
+<a name="l00024"></a>00024         <a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html#a9353ab12a32f524a06b9485138011a9a" title="Creates a new RenderTexture.">RenderTexture</a>(GLsizei width,GLsizei height,GLenum filtering = GL_LINEAR,GLenum <a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html#a2fe2aaba5f675a01c5000ba8b8f4d86d" title="Binds the FrameBuffer and ajusts the viewport.">target</a> = GL_TEXTURE_2D,GLenum format = GL_RGBA,GLenum type = GL_UNSIGNED_BYTE);
+<a name="l00025"></a>00025         ~<a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html" title="A Texture that is attached to a FrameBuffer for easy to use render to Texture.">RenderTexture</a>();
+<a name="l00026"></a>00026         
+<a name="l00030"></a>00030         <span class="keywordtype">void</span> <a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html#a2fe2aaba5f675a01c5000ba8b8f4d86d" title="Binds the FrameBuffer and ajusts the viewport.">target</a>();
+<a name="l00034"></a>00034         <span class="keywordtype">void</span> <a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html#ab45f566c70dac98f139fcab9e3372d6c" title="Unbinds the FrameBuffer and reajusts the viewport.">untarget</a>();
+<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html#a579cf8275e67b945031b1cc4a5879ecc" title="Renders the Texture of the RenderTexture.">render</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; position,<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; scale = <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>(1.0f,1.0f),GLfloat rotation = 0.0f, <span class="keyword">const</span> <a class="code" href="../../da/d73/class_johnny_1_1_camera2_d.html" title="The camera for all 2D objects It transforms all 2D objects with m_affectedByCamera = true...">Camera2D</a>* cam = <span class="keyword">nullptr</span>,<span class="keyword">const</span> <a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>* srcRegion = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bindShader = <span class="keyword">true</span>,GLenum target = GL_TEXTURE_2D);
+<a name="l00045"></a>00045         
+<a name="l00049"></a><a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html#aedf42c3c73ec3a1e52795c6901d2e2dc">00049</a>         <a class="code" href="../../d2/db0/class_johnny_1_1_frame_buffer.html" title="a object-oriented implementation of a frame buffer object to make it easier to use">FrameBuffer</a>* <a class="code" href="../../da/d0d/class_johnny_1_1_render_texture.html#aedf42c3c73ec3a1e52795c6901d2e2dc">getFrameBuffer</a>() {<span class="keywordflow">return</span> m_frameBuffer;}
+<a name="l00050"></a>00050     
+<a name="l00051"></a>00051     <span class="keyword">private</span>:
+<a name="l00052"></a>00052         <a class="code" href="../../d2/db0/class_johnny_1_1_frame_buffer.html" title="a object-oriented implementation of a frame buffer object to make it easier to use">FrameBuffer</a>* m_frameBuffer = <span class="keyword">nullptr</span>; 
+<a name="l00053"></a>00053         
+<a name="l00054"></a>00054     };
+<a name="l00055"></a>00055 }
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

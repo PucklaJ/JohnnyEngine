@@ -94,27 +94,27 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 <span class="keyword">namespace </span>Johnny
 <a name="l00005"></a>00005 {
-<a name="l00006"></a><a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html">00006</a>         <span class="keyword">class </span><a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html">RenderBuffer</a>
-<a name="l00007"></a>00007         {
-<a name="l00008"></a>00008         <span class="keyword">public</span>:
-<a name="l00009"></a>00009                 <a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html">RenderBuffer</a>(GLsizei, GLsizei, GLenum format = GL_DEPTH24_STENCIL8, GLenum target = GL_RENDERBUFFER, <span class="keywordtype">bool</span> multisampling = <span class="keyword">false</span>);
-<a name="l00010"></a>00010                 ~<a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html">RenderBuffer</a>();
-<a name="l00011"></a>00011 
-<a name="l00012"></a>00012                 <span class="keywordtype">void</span> bind(GLenum target = GL_RENDERBUFFER);
-<a name="l00013"></a>00013                 <span class="keywordtype">void</span> unbind(GLenum target = GL_RENDERBUFFER);
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015                 GLuint getBuffer() { <span class="keywordflow">return</span> m_rbo; }
-<a name="l00016"></a>00016         <span class="keyword">private</span>:
-<a name="l00017"></a>00017                 GLuint m_rbo = 0;
-<a name="l00018"></a>00018         };
-<a name="l00019"></a>00019 }
-<a name="l00020"></a>00020 
+<a name="l00009"></a><a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html">00009</a>         <span class="keyword">class </span><a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html" title="A object-oriented implemantation of the render buffer object.">RenderBuffer</a>
+<a name="l00010"></a>00010         {
+<a name="l00011"></a>00011         <span class="keyword">public</span>:
+<a name="l00019"></a>00019                 <a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html#a616520526707ec5c97a34110700038aa" title="Creates a new RenderBuffer.">RenderBuffer</a>(GLsizei width, GLsizei height, GLenum format = GL_DEPTH24_STENCIL8, GLenum target = GL_RENDERBUFFER, <span class="keywordtype">bool</span> multisampling = <span class="keyword">false</span>);
+<a name="l00020"></a>00020                 ~<a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html" title="A object-oriented implemantation of the render buffer object.">RenderBuffer</a>();
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022 
+<a name="l00025"></a>00025                 <span class="keywordtype">void</span> <a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html#a20e38186f573bb25ebb0297de68c5d18" title="Binds the render buffer object.">bind</a>(GLenum target = GL_RENDERBUFFER);
+<a name="l00029"></a>00029                 <span class="keywordtype">void</span> <a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html#aa53d04b4d21cd9975a15b579c042bdfe" title="Unbinds the render buffer object.">unbind</a>(GLenum target = GL_RENDERBUFFER);
+<a name="l00030"></a>00030 
+<a name="l00034"></a><a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html#afb3043bfe7bfd8d90a3a48e5c1872cb7">00034</a>                 GLuint <a class="code" href="../../df/dcf/class_johnny_1_1_render_buffer.html#afb3043bfe7bfd8d90a3a48e5c1872cb7">getBuffer</a>() { <span class="keywordflow">return</span> m_rbo; }
+<a name="l00035"></a>00035         <span class="keyword">private</span>:
+<a name="l00036"></a>00036                 GLuint m_rbo = 0; 
+<a name="l00037"></a>00037         };
+<a name="l00038"></a>00038 }
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

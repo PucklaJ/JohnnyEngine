@@ -128,12 +128,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>unbind</b> (GLuint un
 GLubyte *&#160;</td><td class="memItemRight" valign="bottom"><b>readPixels</b> (GLenum target=GL_TEXTURE_2D, GLenum format=GL_RGBA, GLenum type=GL_UNSIGNED_BYTE)</td></tr>
 <tr class="memitem:a10beceb79ce319a68a00ae54b003b8f7 inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10beceb79ce319a68a00ae54b003b8f7"></a>
 SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>toSDLSurface</b> (GLenum target=GL_TEXTURE_2D, GLenum format=GL_RGBA, GLenum type=GL_UNSIGNED_BYTE)</td></tr>
+<tr class="memitem:af8645abf32fbc8575e233e59970ceeda inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8645abf32fbc8575e233e59970ceeda"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setKeyColor</b> (const <a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> &amp;color)</td></tr>
+<tr class="memitem:ada37bd10b49a10db177f67d0703ccd10 inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada37bd10b49a10db177f67d0703ccd10"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setModColor</b> (const <a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> &amp;color)</td></tr>
+<tr class="memitem:a1b73b422ebb805024979bc21e5a22fbc inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b73b422ebb805024979bc21e5a22fbc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDrawMode</b> (const DrawModes &amp;mode)</td></tr>
 <tr class="memitem:abb1a1e0857e2cb1bb793bf4d55989825 inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb1a1e0857e2cb1bb793bf4d55989825"></a>
 GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>getBuffer</b> ()</td></tr>
-<tr class="memitem:ab9aa3c356e9a12994240b071078d81f6 inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9aa3c356e9a12994240b071078d81f6"></a>
-GLsizei&#160;</td><td class="memItemRight" valign="bottom"><b>getWidth</b> ()</td></tr>
-<tr class="memitem:a4f43cffaddd2844ec91a47312f2f64d3 inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f43cffaddd2844ec91a47312f2f64d3"></a>
-GLsizei&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> ()</td></tr>
+<tr class="memitem:ab064a585e6685d2c7e55849c0c55f511 inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab064a585e6685d2c7e55849c0c55f511"></a>
+const GLsizei &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getWidth</b> ()</td></tr>
+<tr class="memitem:a7ee632b7e3130f54a5812ee28715e4d3 inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ee632b7e3130f54a5812ee28715e4d3"></a>
+const GLsizei &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> ()</td></tr>
+<tr class="memitem:a7a86e3964cecfc254631f9a34f505d45 inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a86e3964cecfc254631f9a34f505d45"></a>
+const <a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getKeyColor</b> () const </td></tr>
+<tr class="memitem:a6a2b1a1307eafac27d2217acaadcd74e inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a2b1a1307eafac27d2217acaadcd74e"></a>
+const <a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getModColor</b> () const </td></tr>
+<tr class="memitem:a6cac7d2a4ba5e4e3da8e67f67e3a8295 inherit pub_methods_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cac7d2a4ba5e4e3da8e67f67e3a8295"></a>
+const DrawModes &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDrawMode</b> () const </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -165,6 +177,12 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>m_texture</b> = 0</
 GLsizei&#160;</td><td class="memItemRight" valign="bottom"><b>m_width</b> = 0</td></tr>
 <tr class="memitem:aa4d7c90e21c70ab675161b73a0cc928f inherit pro_attribs_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4d7c90e21c70ab675161b73a0cc928f"></a>
 GLsizei&#160;</td><td class="memItemRight" valign="bottom"><b>m_height</b> = 0</td></tr>
+<tr class="memitem:a94871d7814a43ee596b35aa4fefc28e2 inherit pro_attribs_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94871d7814a43ee596b35aa4fefc28e2"></a>
+<a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_keyColor</b></td></tr>
+<tr class="memitem:a3aca69dfd4887ac41047955af1eb357e inherit pro_attribs_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3aca69dfd4887ac41047955af1eb357e"></a>
+<a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_modColor</b> = <a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>(255,255,255,255)</td></tr>
+<tr class="memitem:a9a3ab275b90c9e027bf6ffdae948aeb8 inherit pro_attribs_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a3ab275b90c9e027bf6ffdae948aeb8"></a>
+DrawModes&#160;</td><td class="memItemRight" valign="bottom"><b>m_drawMode</b> = BLENDING</td></tr>
 <tr class="inherit_header pro_static_attribs_class_johnny_1_1_texture"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_class_johnny_1_1_texture')"><img src="../../closed.png" alt="-"/>&nbsp;Static Protected Attributes inherited from <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Johnny::Texture</a></td></tr>
 <tr class="memitem:a0fa75ee4323b99a3f925dfaaa6021244 inherit pro_static_attribs_class_johnny_1_1_texture"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fa75ee4323b99a3f925dfaaa6021244"></a>
 static <a class="el" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_texture2DShader</b> = nullptr</td></tr>
@@ -297,12 +315,12 @@ static GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>m_texture2D_
 <p>Creates a new <a class="el" href="../../d4/df9/class_johnny_1_1_cube_map3_d.html" title="This is a CubeMapTexture.">CubeMap3D</a> from TextureDatas. </p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
-    <tr><td class="paramname">top</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a> of the texture used for the top plane </td></tr>
-    <tr><td class="paramname">bottom</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a> of the texture used for the bottom plane </td></tr>
-    <tr><td class="paramname">left</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a> of the texture used for the left plane </td></tr>
-    <tr><td class="paramname">right</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a> of the texture used for the right plane </td></tr>
-    <tr><td class="paramname">front</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a> of the texture used for the front plane </td></tr>
-    <tr><td class="paramname">back</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a> of the texture used for the back plane </td></tr>
+    <tr><td class="paramname">top</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a> of the texture used for the top plane </td></tr>
+    <tr><td class="paramname">bottom</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a> of the texture used for the bottom plane </td></tr>
+    <tr><td class="paramname">left</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a> of the texture used for the left plane </td></tr>
+    <tr><td class="paramname">right</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a> of the texture used for the right plane </td></tr>
+    <tr><td class="paramname">front</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a> of the texture used for the front plane </td></tr>
+    <tr><td class="paramname">back</td><td>The <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a> of the texture used for the back plane </td></tr>
   </table>
   </dd>
 </dl>
@@ -316,7 +334,7 @@ static GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>m_texture2D_
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:37 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

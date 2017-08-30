@@ -96,6 +96,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="title">Johnny::Skybox Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class which represents a box which is around the player and has no view translation.  
+ <a href="../../d1/d96/class_johnny_1_1_skybox.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d5/df2/_skybox_8h_source.html">Skybox.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Johnny::Skybox:</div>
 <div class="dyncontent">
@@ -111,15 +116,15 @@ Inheritance diagram for Johnny::Skybox:</div>
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a11bf9074364dedf530fc71b54a325a7a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d96/class_johnny_1_1_skybox.html#a11bf9074364dedf530fc71b54a325a7a">init</a> () override</td></tr>
-<tr class="memdesc:a11bf9074364dedf530fc71b54a325a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called right after being added to its parent.  <a href="#a11bf9074364dedf530fc71b54a325a7a"></a><br/></td></tr>
+<tr class="memdesc:a11bf9074364dedf530fc71b54a325a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The init method.  <a href="#a11bf9074364dedf530fc71b54a325a7a"></a><br/></td></tr>
 <tr class="memitem:af698f32f8bc3c5fe6bbd8cb0eff3eff3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d96/class_johnny_1_1_skybox.html#af698f32f8bc3c5fe6bbd8cb0eff3eff3">update</a> () override</td></tr>
-<tr class="memdesc:af698f32f8bc3c5fe6bbd8cb0eff3eff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every frame before rendering.  <a href="#af698f32f8bc3c5fe6bbd8cb0eff3eff3"></a><br/></td></tr>
+<tr class="memdesc:af698f32f8bc3c5fe6bbd8cb0eff3eff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The update method.  <a href="#af698f32f8bc3c5fe6bbd8cb0eff3eff3"></a><br/></td></tr>
 <tr class="memitem:a39b79c80e6f1d87ad60ecf128c045e2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d96/class_johnny_1_1_skybox.html#a39b79c80e6f1d87ad60ecf128c045e2f">render</a> () override</td></tr>
-<tr class="memdesc:a39b79c80e6f1d87ad60ecf128c045e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called after every update method and normally renders the object.  <a href="#a39b79c80e6f1d87ad60ecf128c045e2f"></a><br/></td></tr>
+<tr class="memdesc:a39b79c80e6f1d87ad60ecf128c045e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The render method.  <a href="#a39b79c80e6f1d87ad60ecf128c045e2f"></a><br/></td></tr>
 <tr class="memitem:a8fae174771c34511e605adc96ce2f309"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d96/class_johnny_1_1_skybox.html#a8fae174771c34511e605adc96ce2f309">quit</a> () override</td></tr>
-<tr class="memdesc:a8fae174771c34511e605adc96ce2f309"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when the object is removed from its parent.  <a href="#a8fae174771c34511e605adc96ce2f309"></a><br/></td></tr>
-<tr class="memitem:a2be18e090d93dfbce23604f29d7d7c57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2be18e090d93dfbce23604f29d7d7c57"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTexture</b> (short, const std::string &amp;)</td></tr>
+<tr class="memdesc:a8fae174771c34511e605adc96ce2f309"><td class="mdescLeft">&#160;</td><td class="mdescRight">The quit method.  <a href="#a8fae174771c34511e605adc96ce2f309"></a><br/></td></tr>
+<tr class="memitem:a0be193738971ff3ca1b6f97d617d53db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0be193738971ff3ca1b6f97d617d53db"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTexture</b> (short plane, const std::string &amp;file)</td></tr>
 <tr class="inherit_header pub_methods_class_johnny_1_1_actor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_johnny_1_1_actor')"><img src="../../closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html">Johnny::Actor</a></td></tr>
 <tr class="memitem:a7c12e4cbe59049e9a9567844ac01eed7 inherit pub_methods_class_johnny_1_1_actor"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c12e4cbe59049e9a9567844ac01eed7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Actor</b> (const char *name=&quot;Actor&quot;)</td></tr>
@@ -186,8 +191,8 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>getID</b> () con
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aefc9d985a4e293df013525c5c7bd88c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aefc9d985a4e293df013525c5c7bd88c9"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memitem:aefc9d985a4e293df013525c5c7bd88c9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d96/class_johnny_1_1_skybox.html#aefc9d985a4e293df013525c5c7bd88c9">clear</a> ()</td></tr>
+<tr class="memdesc:aefc9d985a4e293df013525c5c7bd88c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the <a class="el" href="../../d7/d5e/class_johnny_1_1_skybox_mesh.html" title="The mesh wich is used for the Skybox.">SkyboxMesh</a> and SkyboxShader.  <a href="#aefc9d985a4e293df013525c5c7bd88c9"></a><br/></td></tr>
 <tr class="inherit_header pub_static_methods_class_johnny_1_1_actor"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_johnny_1_1_actor')"><img src="../../closed.png" alt="-"/>&nbsp;Static Public Member Functions inherited from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html">Johnny::Actor</a></td></tr>
 <tr class="memitem:a2b65c2853b1da6f761c713ac480461e6 inherit pub_static_methods_class_johnny_1_1_actor"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b65c2853b1da6f761c713ac480461e6"></a>
 static const std::vector&lt; <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html">Actor</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAllActors</b> ()</td></tr>
@@ -224,7 +229,34 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html#ac5980ebf7d76609d7dfe9194d51b7be5">m_name</a> = &quot;&quot;</td></tr>
 <tr class="memdesc:ac5980ebf7d76609d7dfe9194d51b7be5 inherit pro_attribs_class_johnny_1_1_actor"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the object. <br/></td></tr>
 </table>
-<hr/><h2>Member Function Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A class which represents a box which is around the player and has no view translation. </p>
+<div class="fragment"><pre class="fragment">      </pre></div> </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aefc9d985a4e293df013525c5c7bd88c9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d1/d96/class_johnny_1_1_skybox.html#aefc9d985a4e293df013525c5c7bd88c9">Johnny::Skybox::clear</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deletes the <a class="el" href="../../d7/d5e/class_johnny_1_1_skybox_mesh.html" title="The mesh wich is used for the Skybox.">SkyboxMesh</a> and SkyboxShader. </p>
+<div class="fragment"><pre class="fragment">      </pre></div> 
+</div>
+</div>
 <a class="anchor" id="a11bf9074364dedf530fc71b54a325a7a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -246,8 +278,8 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </table>
 </div><div class="memdoc">
 
-<p>Gets called right after being added to its parent. </p>
-<p>If the function returns false the application closes </p>
+<p>The init method. </p>
+<p>It is overriding the method from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html" title="This is the base class for everything Every object is derived from this class.">Actor</a> </p>
 
 <p>Reimplemented from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html#a9421b0c647adbd8b13222e63b29fb3fa">Johnny::Actor</a>.</p>
 
@@ -274,8 +306,9 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </table>
 </div><div class="memdoc">
 
-<p>Gets called when the object is removed from its parent. </p>
-<div class="fragment"><pre class="fragment">          </pre></div> 
+<p>The quit method. </p>
+<p>It is overriding the method from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html" title="This is the base class for everything Every object is derived from this class.">Actor</a> </p>
+
 <p>Reimplemented from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html#ae76c198d3a1d0c7f7a26fccf12608b85">Johnny::Actor</a>.</p>
 
 </div>
@@ -301,8 +334,8 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </table>
 </div><div class="memdoc">
 
-<p>Gets called after every update method and normally renders the object. </p>
-<p>If the function returns false the application closes </p>
+<p>The render method. </p>
+<p>It is overriding the method from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html" title="This is the base class for everything Every object is derived from this class.">Actor</a> </p>
 
 <p>Reimplemented from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html#a26663d1e506c55ceba5345d1c2fe8a8c">Johnny::Actor</a>.</p>
 
@@ -329,8 +362,8 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </table>
 </div><div class="memdoc">
 
-<p>Gets called every frame before rendering. </p>
-<p>If the function returns false the application closes </p>
+<p>The update method. </p>
+<p>It is overriding the method from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html" title="This is the base class for everything Every object is derived from this class.">Actor</a> </p>
 
 <p>Implements <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html#a535fefeb97e4c683c905b6b40bd7b87f">Johnny::Actor</a>.</p>
 
@@ -343,7 +376,7 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:37 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:05 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

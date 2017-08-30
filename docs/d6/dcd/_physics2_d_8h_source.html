@@ -103,59 +103,56 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00012"></a>00012 {
 <a name="l00013"></a>00013     <span class="keyword">class </span>MainClass;
 <a name="l00014"></a>00014     
-<a name="l00015"></a><a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html">00015</a>     <span class="keyword">class </span><a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html">Physics2D</a>
-<a name="l00016"></a>00016     {
-<a name="l00017"></a>00017         <span class="keyword">public</span>:
-<a name="l00018"></a>00018             <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html">Physics2D</a>(<a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>*,<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; gravity = <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>(0.0,-10.0),<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; worldSize = <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>(NORM_W,NORM_H));
-<a name="l00019"></a>00019             <span class="keyword">virtual</span> ~<a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html">Physics2D</a>();
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021             <span class="keywordtype">void</span> update();
-<a name="l00022"></a>00022             <span class="keywordtype">void</span> quit();
-<a name="l00023"></a>00023             
-<a name="l00024"></a>00024             <span class="keywordtype">void</span> setPixelPerMetre(<span class="keywordtype">float</span> d) {m_pixelsPerMetre = d;}
-<a name="l00025"></a>00025             b2World* getWorld() {<span class="keywordflow">return</span> m_world;}
-<a name="l00026"></a>00026             <span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; getWorldSize()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_worldSize;}
-<a name="l00027"></a>00027             
-<a name="l00028"></a>00028             b2Vec2 coordsPixelToWorld(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;);
-<a name="l00029"></a>00029             <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> coordsWorldToPixel(<span class="keyword">const</span> b2Vec2&amp;);
-<a name="l00030"></a>00030             
-<a name="l00031"></a>00031             b2Vec2 vectorPixelToWorld(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;);
-<a name="l00032"></a>00032             <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> vectorWorldToPixel(<span class="keyword">const</span> b2Vec2&amp;);
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034             <span class="keywordtype">float</span> scalarPixelToWorld(<span class="keywordtype">float</span>);
-<a name="l00035"></a>00035             <span class="keywordtype">float</span> scalarWorldToPixel(<span class="keywordtype">float</span>);
-<a name="l00036"></a>00036             
-<a name="l00037"></a>00037             <span class="keyword">static</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> toVector2f(<span class="keyword">const</span> b2Vec2&amp;);
-<a name="l00038"></a>00038             
-<a name="l00039"></a>00039             <span class="keywordtype">void</span> setDebug(<span class="keywordtype">bool</span> b){m_debug = b;}
-<a name="l00040"></a>00040             <span class="keywordtype">bool</span> getDebug() {<span class="keywordflow">return</span> m_debug;}
-<a name="l00041"></a>00041             
-<a name="l00042"></a>00042             <span class="comment">// Creator methods</span>
-<a name="l00043"></a>00043             
-<a name="l00044"></a>00044             b2Body* createBOX(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;,<span class="keywordtype">float</span>, <span class="keywordtype">float</span>,float32 friction = DEF_FRICTION,float32 restitution = DEF_RESTITUTION,float32 density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
-<a name="l00045"></a>00045             b2Body* createBOX(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;, <span class="keywordtype">float</span>, <span class="keywordtype">float</span>,b2BodyDef&amp;,b2FixtureDef&amp;);
-<a name="l00046"></a>00046             b2Body* createCIRCLE(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;, <span class="keywordtype">float</span>,float32 friction = DEF_FRICTION,float32 restitution = DEF_RESTITUTION,float32 density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
-<a name="l00047"></a>00047             b2Body* createCIRCLE(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;, <span class="keywordtype">float</span>,b2BodyDef&amp;,b2FixtureDef&amp;);
-<a name="l00048"></a>00048             b2Body* createCAPSULE(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;, <span class="keywordtype">float</span>, <span class="keywordtype">float</span>,float32 friction = DEF_FRICTION,float32 restitution = DEF_RESTITUTION,float32 density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
-<a name="l00049"></a>00049             b2Body* createCAPSULE(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;, <span class="keywordtype">float</span>, <span class="keywordtype">float</span>,b2BodyDef&amp;,b2FixtureDef&amp;);
+<a name="l00018"></a><a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html">00018</a>     <span class="keyword">class </span><a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html" title="A class which handles 2D physics.">Physics2D</a>
+<a name="l00019"></a>00019     {
+<a name="l00020"></a>00020         <span class="keyword">public</span>:
+<a name="l00026"></a>00026             <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a2223b8874c29cf4fb8340af1f12e6d4a" title="Creates a new instance of Physics2D.">Physics2D</a>(<a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>* m,<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; gravity = <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>(0.0,-10.0),<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; worldSize = <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>(NORM_W,NORM_H));
+<a name="l00027"></a>00027             <span class="keyword">virtual</span> ~<a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html" title="A class which handles 2D physics.">Physics2D</a>();
+<a name="l00028"></a>00028 
+<a name="l00032"></a>00032             <span class="keywordtype">void</span> <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a78e9910e1eacafc9d7ef56894f335f70" title="Updates the physics world.">update</a>();
+<a name="l00036"></a>00036             <span class="keywordtype">void</span> <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a374f7c4531285cc3594c9100cd8ddbb1" title="Removes all bodies from the world.">quit</a>();
+<a name="l00037"></a>00037             
+<a name="l00041"></a><a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a2ba6d9b9f9ce9632637a77abdc37bfa0">00041</a>             <span class="keywordtype">void</span> <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a2ba6d9b9f9ce9632637a77abdc37bfa0" title="Set the pixel per metre value which defines how big object in the world is per metre.">setPixelPerMetre</a>(<span class="keywordtype">float</span> d) {m_pixelsPerMetre = d;}
+<a name="l00045"></a><a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a1a74d81da9fe79d4024534db7c43ea32">00045</a>             b2World* <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a1a74d81da9fe79d4024534db7c43ea32">getWorld</a>() {<span class="keywordflow">return</span> m_world;}
+<a name="l00049"></a><a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#ab81a99faff0b0f01d9f29fec684df8f4">00049</a>             <span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#ab81a99faff0b0f01d9f29fec684df8f4">getWorldSize</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_worldSize;}
 <a name="l00050"></a>00050             
-<a name="l00051"></a>00051         <span class="keyword">protected</span>:
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053         <span class="keyword">private</span>:
-<a name="l00054"></a>00054             b2World* m_world;
-<a name="l00055"></a>00055             <a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>* m_mainClass;
-<a name="l00056"></a>00056             <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> m_worldSize;
-<a name="l00057"></a>00057             <span class="keywordtype">float</span> m_pixelsPerMetre = 10.0;
-<a name="l00058"></a>00058             <span class="keywordtype">bool</span> m_debug = <span class="keyword">false</span>;
-<a name="l00059"></a>00059     };
-<a name="l00060"></a>00060 }
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063 <span class="preprocessor">#endif // PHYSICS_H</span>
+<a name="l00055"></a>00055             b2Vec2 <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#adfc956314714774c58e80e74dfb54523" title="Converts a coordinate from pixel coordinates to Box2D coordinates.">coordsPixelToWorld</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; v);
+<a name="l00060"></a>00060             <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a98c1c830c38198ad886e2fc342127b96" title="Converts Box2D coordinates to pixel coordinates.">coordsWorldToPixel</a>(<span class="keyword">const</span> b2Vec2&amp; v);
+<a name="l00061"></a>00061             
+<a name="l00066"></a>00066             b2Vec2 <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a224de84ac151b2a6782121e15aee9fd0" title="Converts a vector of the pixel coordinates to a vector of the Box2D coordinates.">vectorPixelToWorld</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; v);
+<a name="l00071"></a>00071             <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a134abbf699b50641db07e6ac7886c691" title="Converts a vector of the Box2D coordinates to a vector of the pixel coordinates.">vectorWorldToPixel</a>(<span class="keyword">const</span> b2Vec2&amp; v);
+<a name="l00072"></a>00072 
+<a name="l00077"></a>00077             <span class="keywordtype">float</span> <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#aa7ac679f70b3ea5a2d303ff1d5ab3c78" title="Converts a scalar of the pixel coordinates to a scalar of the Box2D coordinates.">scalarPixelToWorld</a>(<span class="keywordtype">float</span> s);
+<a name="l00082"></a>00082             <span class="keywordtype">float</span> <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a0311101233784453dee0c22d35083ca7" title="Converts a scalar of the Box2D coordinates the a scalar of the pixel coordinates.">scalarWorldToPixel</a>(<span class="keywordtype">float</span> s);
+<a name="l00083"></a>00083             
+<a name="l00088"></a>00088             <span class="keyword">static</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#aecb9f5d7e54755d76c663efcf3f85e4a" title="Directly converts a Box2D vector to a Vector2f.">toVector2f</a>(<span class="keyword">const</span> b2Vec2&amp; v);
+<a name="l00089"></a>00089             
+<a name="l00093"></a><a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a60d1a9cb0d90224c5b525bad594ea567">00093</a>             <span class="keywordtype">void</span> <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a60d1a9cb0d90224c5b525bad594ea567" title="Set if it should draw debug graphics.">setDebug</a>(<span class="keywordtype">bool</span> b){m_debug = b;}
+<a name="l00097"></a><a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#acf3793c5cb43b92de281a823183d3889">00097</a>             <span class="keywordtype">bool</span> <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#acf3793c5cb43b92de281a823183d3889">getDebug</a>() {<span class="keywordflow">return</span> m_debug;}
+<a name="l00098"></a>00098             
+<a name="l00099"></a>00099             <span class="comment">// Creator methods</span>
+<a name="l00110"></a>00110 <span class="comment"></span>            b2Body* <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a214d08816c471bff678c3d697d86cae7" title="Creates a body as a box.">createBOX</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; position,<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height,float32 friction = DEF_FRICTION,float32 restitution = DEF_RESTITUTION,float32 density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
+<a name="l00119"></a>00119             b2Body* <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a214d08816c471bff678c3d697d86cae7" title="Creates a body as a box.">createBOX</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; position, <span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height,b2BodyDef&amp; bdef,b2FixtureDef&amp; fdef);
+<a name="l00129"></a>00129             b2Body* <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a686b74a5286235e4eeca3a445e859c85" title="Creates a body as a circle.">createCIRCLE</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; position, <span class="keywordtype">float</span> radius,float32 friction = DEF_FRICTION,float32 restitution = DEF_RESTITUTION,float32 density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
+<a name="l00137"></a>00137             b2Body* <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#a686b74a5286235e4eeca3a445e859c85" title="Creates a body as a circle.">createCIRCLE</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; position, <span class="keywordtype">float</span> radius,b2BodyDef&amp; bdef,b2FixtureDef&amp; fdef);
+<a name="l00147"></a>00147             b2Body* <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#ae9b3276b67bc02ecbbda2e825611f2cb" title="Creates a body as a capsule.">createCAPSULE</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; position, <span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height,float32 friction = DEF_FRICTION,float32 restitution = DEF_RESTITUTION,float32 density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
+<a name="l00156"></a>00156             b2Body* <a class="code" href="../../d6/d10/class_johnny_1_1_physics2_d.html#ae9b3276b67bc02ecbbda2e825611f2cb" title="Creates a body as a capsule.">createCAPSULE</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; position, <span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height,b2BodyDef&amp;,b2FixtureDef&amp;);
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158         <span class="keyword">private</span>:
+<a name="l00159"></a>00159             b2World* m_world;              
+<a name="l00160"></a>00160             <a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>* m_mainClass;        
+<a name="l00161"></a>00161             <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> m_worldSize;          
+<a name="l00162"></a>00162             <span class="keywordtype">float</span> m_pixelsPerMetre = 10.0; 
+<a name="l00163"></a>00163             <span class="keywordtype">bool</span> m_debug = <span class="keyword">false</span>;          
+<a name="l00164"></a>00164     };
+<a name="l00165"></a>00165 }
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168 <span class="preprocessor">#endif // PHYSICS_H</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

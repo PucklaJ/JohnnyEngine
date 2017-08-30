@@ -96,39 +96,38 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00005"></a>00005 {
 <a name="l00006"></a>00006         <span class="keyword">class </span>MainClass;
 <a name="l00007"></a>00007 
-<a name="l00008"></a>00008         <span class="keyword">enum</span> SettingName
-<a name="l00009"></a>00009         {
-<a name="l00010"></a>00010                 VSYNC,
-<a name="l00011"></a>00011                 MSAA,
-<a name="l00012"></a>00012                 MSAA_SAMPLES,
-<a name="l00013"></a>00013                 SPRITE2D_FILTERING,
-<a name="l00014"></a>00014                 BACK_BUFFER_FILTERING
-<a name="l00015"></a>00015         };
-<a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="../../d9/deb/class_johnny_1_1_settings.html">00017</a>         <span class="keyword">class </span><a class="code" href="../../d9/deb/class_johnny_1_1_settings.html">Settings</a>
-<a name="l00018"></a>00018         {
-<a name="l00019"></a>00019         <span class="keyword">public</span>:
-<a name="l00020"></a>00020                 <span class="keyword">static</span> <span class="keywordtype">bool</span> seti(SettingName,<span class="keywordtype">int</span>);
-<a name="l00021"></a>00021                 <span class="keyword">static</span> <span class="keywordtype">bool</span> setb(SettingName,<span class="keywordtype">bool</span>);
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023                 <span class="keyword">static</span> <span class="keywordtype">bool</span> getb(SettingName);
-<a name="l00024"></a>00024                 <span class="keyword">static</span> <span class="keywordtype">int</span> geti(SettingName);
-<a name="l00025"></a>00025         <span class="keyword">private</span>:
-<a name="l00026"></a>00026                 <span class="keyword">static</span> <span class="keywordtype">bool</span> m_vsync;
-<a name="l00027"></a>00027                 <span class="keyword">static</span> <span class="keywordtype">bool</span> m_msaa;
-<a name="l00028"></a>00028                 <span class="keyword">static</span> <span class="keywordtype">int</span> m_msaa_samples;
-<a name="l00029"></a>00029                 <span class="keyword">static</span> GLenum m_sprite2D_filtering;
-<a name="l00030"></a>00030                 <span class="keyword">static</span> GLenum m_back_buffer_filtering;
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032                 <span class="keyword">static</span> <span class="keywordtype">bool</span> m_initialized;
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034                 <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>;
-<a name="l00035"></a>00035         };
-<a name="l00036"></a>00036 }
+<a name="l00011"></a><a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488">00011</a>         <span class="keyword">enum</span> <a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488" title="A enum which stores all names of the settings which can be adjusted.">SettingName</a>
+<a name="l00012"></a>00012         {
+<a name="l00013"></a><a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488abba60e18c313a570656fd73c466b0e16">00013</a>                 <a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488abba60e18c313a570656fd73c466b0e16" title="The name of the setting that specifys if vsync should be activated.">VSYNC</a>,                            
+<a name="l00014"></a><a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488aed1894bc111e1858d584d3d604d7aa47">00014</a>                 <a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488aed1894bc111e1858d584d3d604d7aa47" title="The name of the setting that specifys if multisampling should be applied.">MSAA</a>,                             
+<a name="l00015"></a><a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488aba8a58ba0209ee37d4a828e8a489f5aa">00015</a>                 <a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488aba8a58ba0209ee37d4a828e8a489f5aa" title="The name of the setting that sepcifys the number of multisampling samples.">MSAA_SAMPLES</a>,             
+<a name="l00016"></a><a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488afbaad16cc0172bee0c1d422d199261d5">00016</a>                 <a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488afbaad16cc0172bee0c1d422d199261d5" title="The name of the setting that specifys which method to use for filtering for Sprite2Ds.">SPRITE2D_FILTERING</a>,       
+<a name="l00017"></a>00017                 BACK_BUFFER_FILTERING <span class="comment">//1&lt; The name of the settings that specifys which method to use for filtering for the back buffer</span>
+<a name="l00018"></a>00018         };
+<a name="l00019"></a>00019 
+<a name="l00023"></a><a class="code" href="../../d9/deb/class_johnny_1_1_settings.html">00023</a>         <span class="keyword">class </span><a class="code" href="../../d9/deb/class_johnny_1_1_settings.html" title="A class which handles all settings.">Settings</a>
+<a name="l00024"></a>00024         {
+<a name="l00025"></a>00025         <span class="keyword">public</span>:
+<a name="l00026"></a>00026                 <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>;
+<a name="l00032"></a>00032                 <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/deb/class_johnny_1_1_settings.html#a81f60c34bcc09c2f5bffa999bd4b5cb0" title="Sets a setting with type of integer.">seti</a>(<a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488" title="A enum which stores all names of the settings which can be adjusted.">SettingName</a> s,<span class="keywordtype">int</span> i);
+<a name="l00038"></a>00038                 <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/deb/class_johnny_1_1_settings.html#ab04147050bd7db0755298c23e61ebb90" title="Sets a setting with type of bool.">setb</a>(<a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488" title="A enum which stores all names of the settings which can be adjusted.">SettingName</a> s,<span class="keywordtype">bool</span> b);
+<a name="l00039"></a>00039 
+<a name="l00044"></a>00044                 <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/deb/class_johnny_1_1_settings.html#a4a47d42dd3fd98d0b584d89e09df0f8b" title="Gets a setting with type of bool.">getb</a>(<a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488" title="A enum which stores all names of the settings which can be adjusted.">SettingName</a> s);
+<a name="l00049"></a>00049                 <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/deb/class_johnny_1_1_settings.html#ad33c21231d6eb40958c58cb0e259afbd" title="Gets a setting width type of integer.">geti</a>(<a class="code" href="../../d1/dc4/namespace_johnny.html#a61a827cbdb9be76424d9e181bd465488" title="A enum which stores all names of the settings which can be adjusted.">SettingName</a> s);
+<a name="l00050"></a>00050         <span class="keyword">private</span>:
+<a name="l00051"></a>00051                 <span class="keyword">static</span> <span class="keywordtype">bool</span> m_vsync;                               
+<a name="l00052"></a>00052                 <span class="keyword">static</span> <span class="keywordtype">bool</span> m_msaa;                                        
+<a name="l00053"></a>00053                 <span class="keyword">static</span> <span class="keywordtype">int</span> m_msaa_samples;                         
+<a name="l00054"></a>00054                 <span class="keyword">static</span> GLenum m_sprite2D_filtering;        
+<a name="l00055"></a>00055                 <span class="keyword">static</span> GLenum m_back_buffer_filtering; 
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057                 <span class="keyword">static</span> <span class="keywordtype">bool</span> m_initialized;                         
+<a name="l00058"></a>00058         };
+<a name="l00059"></a>00059 }
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

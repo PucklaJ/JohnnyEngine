@@ -110,87 +110,85 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00019"></a>00019         <span class="keyword">class </span>DirectionalLight3D;
 <a name="l00020"></a>00020         <span class="keyword">class </span>PointLight3D;
 <a name="l00021"></a>00021 
-<a name="l00022"></a><a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html">00022</a>         <span class="keyword">class </span><a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html">Scene</a>
-<a name="l00023"></a>00023         {
-<a name="l00024"></a>00024         <span class="keyword">public</span>:
-<a name="l00025"></a>00025                 <span class="keywordtype">void</span> addAsEntities(<a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>*);
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027                 <a class="code" href="../../df/d50/class_johnny_1_1_model3_d.html">Model3D</a>* getModel(<span class="keyword">const</span> std::string&amp;);
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029                 std::vector&lt;Model3D*&gt; models;
-<a name="l00030"></a>00030                 std::vector&lt;SpotLight3D*&gt; spotLights;
-<a name="l00031"></a>00031                 std::vector&lt;DirectionalLight3D*&gt; directionalLights;
-<a name="l00032"></a>00032                 std::vector&lt;PointLight3D*&gt; pointLights;
-<a name="l00033"></a>00033         };
-<a name="l00034"></a>00034 
-<a name="l00035"></a><a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html">00035</a>         <span class="keyword">class </span><a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a>
-<a name="l00036"></a>00036         {
-<a name="l00037"></a>00037         <span class="keyword">public</span>:
-<a name="l00038"></a>00038                 ~<a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a>();
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040                 GLubyte* data = <span class="keyword">nullptr</span>;
-<a name="l00041"></a>00041                 GLsizei width = 0;
-<a name="l00042"></a>00042                 GLsizei height = 0;
-<a name="l00043"></a>00043                 GLint numChannels = 0;
-<a name="l00044"></a>00044         
-<a name="l00045"></a>00045         <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* toTexture(GLenum target = GL_TEXTURE_2D,GLenum filtering = GL_LINEAR,GLenum format = GL_RGBA);
-<a name="l00046"></a>00046         SDL_Surface* toSDL_Surface(Uint32 pixelFormat = SDL_PIXELFORMAT_RGBA8888);
-<a name="l00047"></a>00047         };
-<a name="l00048"></a>00048 
-<a name="l00049"></a><a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html">00049</a>     <span class="keyword">class </span><a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html">ResourceManager</a>
-<a name="l00050"></a>00050     {
-<a name="l00051"></a>00051         <span class="keyword">public</span>:
-<a name="l00052"></a>00052             <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html">ResourceManager</a>();
-<a name="l00053"></a>00053             <span class="keyword">virtual</span> ~<a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html">ResourceManager</a>();
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055             <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* loadTexture(<span class="keyword">const</span> std::string&amp;,GLenum filtering = GL_LINEAR);
-<a name="l00056"></a>00056                         <a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a>* loadTextureData(<span class="keyword">const</span> std::string&amp;);
-<a name="l00057"></a>00057                         std::string loadShader(<span class="keyword">const</span> std::string&amp;,std::map&lt;std::string,std::string&gt;* defineChanges = <span class="keyword">nullptr</span>);
-<a name="l00058"></a>00058                         <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a>* loadMesh(<span class="keyword">const</span> std::string&amp;);
-<a name="l00059"></a>00059                         <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html">Scene</a>* loadScene(<span class="keyword">const</span> std::string&amp;);
-<a name="l00060"></a>00060             
-<a name="l00061"></a>00061             <span class="keywordtype">void</span> clearTextures();
-<a name="l00062"></a>00062             <span class="keywordtype">void</span> deleteTexture(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>*);
-<a name="l00063"></a>00063                         <span class="keywordtype">void</span> clearTextureDatas();
-<a name="l00064"></a>00064                         <span class="keywordtype">void</span> deleteTextureData(<a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a>*);
-<a name="l00065"></a>00065                         <span class="keywordtype">void</span> clearShaders();
-<a name="l00066"></a>00066                         <span class="keywordtype">void</span> clearMeshes();
-<a name="l00067"></a>00067                         <span class="keywordtype">void</span> deleteMesh(<a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a>*);
-<a name="l00068"></a>00068                         <span class="keywordtype">void</span> clearScenes();
-<a name="l00069"></a>00069                         <span class="keywordtype">void</span> deleteScene(<a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html">Scene</a>*);
-<a name="l00070"></a>00070             
-<a name="l00071"></a>00071             <span class="keywordtype">bool</span> isLoaded(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>*);
-<a name="l00072"></a>00072                         <span class="keywordtype">bool</span> isLoaded(<a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a>*);
-<a name="l00073"></a>00073                         <span class="keywordtype">bool</span> isLoaded(<a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html">Scene</a>*);
-<a name="l00074"></a>00074                         <span class="keywordtype">bool</span> isLoaded(<a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html">TextureData</a>*);
-<a name="l00075"></a>00075             
-<a name="l00076"></a>00076             <span class="keywordtype">void</span> clear();
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079         <span class="keyword">protected</span>:
+<a name="l00025"></a><a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html">00025</a>         <span class="keyword">class </span><a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html" title="A class which stores data which is loaded in from Assimp.">Scene</a>
+<a name="l00026"></a>00026         {
+<a name="l00027"></a>00027         <span class="keyword">public</span>:
+<a name="l00031"></a>00031                 <span class="keywordtype">void</span> <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html#acc32ce57da77f58884d279139a9714af" title="Adds the Model3Ds as Entity3Ds to a MainClass.">addAsEntities</a>(<a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>* m);
+<a name="l00032"></a>00032 
+<a name="l00037"></a>00037                 <a class="code" href="../../df/d50/class_johnny_1_1_model3_d.html" title="A class which represents a 3D model which consists of an array of Mesh3Ds.">Model3D</a>* <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html#a7c2366fc9949668a50063144569d7e17" title="Gets a Model3D with a name from the loaded array.">getModel</a>(<span class="keyword">const</span> std::string&amp; name);
+<a name="l00038"></a>00038 
+<a name="l00039"></a><a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html#a42f7a27ec5a156a593171fc9cd2e18b3">00039</a>                 std::vector&lt;Model3D*&gt; <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html#a42f7a27ec5a156a593171fc9cd2e18b3" title="All loaded Model3Ds.">models</a>;                                       
+<a name="l00040"></a><a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html#a49a043711df747167664b5add66f598c">00040</a>                 std::vector&lt;SpotLight3D*&gt; <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html#a49a043711df747167664b5add66f598c" title="All loaded SpotLight3Ds (unused)">spotLights</a>;                       
+<a name="l00041"></a><a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html#a8ae2c790e47040da56cde13e5cf4e9aa">00041</a>                 std::vector&lt;DirectionalLight3D*&gt; <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html#a8ae2c790e47040da56cde13e5cf4e9aa" title="All loaded DirectionLight3Ds (unused)">directionalLights</a>; 
+<a name="l00042"></a><a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html#a06e98540b30fbd8943ba1900b58f7b6b">00042</a>                 std::vector&lt;PointLight3D*&gt; <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html#a06e98540b30fbd8943ba1900b58f7b6b" title="All loaded PointLight3Ds (unused)">pointLights</a>;                         
+<a name="l00043"></a>00043         };
+<a name="l00044"></a>00044 
+<a name="l00048"></a><a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html">00048</a>         <span class="keyword">class </span><a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a>
+<a name="l00049"></a>00049         {
+<a name="l00050"></a>00050         <span class="keyword">public</span>:
+<a name="l00051"></a>00051                 ~<a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a>();
+<a name="l00052"></a>00052 
+<a name="l00053"></a><a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html#a42398fa2ae7d1e48a105e0759ec07c62">00053</a>                 GLubyte* <a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html#a42398fa2ae7d1e48a105e0759ec07c62" title="The pixel data.">data</a> = <span class="keyword">nullptr</span>; 
+<a name="l00054"></a><a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html#a5ca8cacd9614352360f5d3718e1c668b">00054</a>                 GLsizei <a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html#a5ca8cacd9614352360f5d3718e1c668b" title="The width of the texture in pixels.">width</a> = 0;               
+<a name="l00055"></a><a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html#a88e5e2de5830c7a72caac1fc53e4f280">00055</a>                 GLsizei <a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html#a88e5e2de5830c7a72caac1fc53e4f280" title="The height of the texture in pixels.">height</a> = 0;              
+<a name="l00056"></a><a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html#a07ed143f0f15a0bad6a8959b33b89839">00056</a>                 GLint <a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html#a07ed143f0f15a0bad6a8959b33b89839" title="The number of channels in the texture.">numChannels</a> = 0;   
+<a name="l00057"></a>00057         
+<a name="l00064"></a>00064         <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* <a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html#a7ec320aa88a3a3394de6e5227e937a85" title="Converts the TextureData into a Texture.">toTexture</a>(GLenum target = GL_TEXTURE_2D,GLenum filtering = GL_LINEAR,GLenum format = GL_RGBA);
+<a name="l00069"></a>00069         SDL_Surface* <a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html#ab37902681fc966747e407c8f8e5ee7f1" title="Converts to TextureData to a SDL_Surface.">toSDL_Surface</a>(Uint32 pixelFormat = SDL_PIXELFORMAT_RGBA8888);
+<a name="l00070"></a>00070         };
+<a name="l00071"></a>00071 
+<a name="l00075"></a><a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html">00075</a>     <span class="keyword">class </span><a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html" title="A class which handles all resources such as Textures, Models, Shaders etc.">ResourceManager</a>
+<a name="l00076"></a>00076     {
+<a name="l00077"></a>00077         <span class="keyword">public</span>:
+<a name="l00078"></a>00078             <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html" title="A class which handles all resources such as Textures, Models, Shaders etc.">ResourceManager</a>();
+<a name="l00079"></a>00079             <span class="keyword">virtual</span> ~<a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html" title="A class which handles all resources such as Textures, Models, Shaders etc.">ResourceManager</a>();
 <a name="l00080"></a>00080 
-<a name="l00081"></a>00081         <span class="keyword">private</span>:
-<a name="l00082"></a>00082                         <span class="keywordtype">void</span> processScene(<span class="keyword">const</span> aiScene*, <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html">Scene</a>*,<span class="keywordtype">bool</span>);
-<a name="l00083"></a>00083                         <span class="keywordtype">void</span> processNode(aiNode*, <span class="keyword">const</span> aiScene*, <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html">Scene</a>*,<span class="keywordtype">bool</span>);
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085                         std::string getFileName(<span class="keyword">const</span> std::string&amp;);
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087             std::map&lt;std::string,Texture*&gt; m_textures;
-<a name="l00088"></a>00088                         std::map&lt;std::string, TextureData*&gt; m_textureBytes;
-<a name="l00089"></a>00089                         std::map&lt;std::string, std::string&gt; m_shaders;
-<a name="l00090"></a>00090                         std::map&lt;std::string, Mesh3D*&gt; m_meshes;
-<a name="l00091"></a>00091                         std::map&lt;std::string, Scene*&gt; m_scenes;
-<a name="l00092"></a>00092 
-<a name="l00093"></a>00093     };
-<a name="l00094"></a>00094 }
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098 <span class="preprocessor">#endif // RESOURCEMANAGER_H</span>
+<a name="l00086"></a>00086             <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a952437d6c1892aa4f5a5538bd9d38c90" title="Loads a Texture.">loadTexture</a>(<span class="keyword">const</span> std::string&amp; file,GLenum filtering = GL_LINEAR);
+<a name="l00091"></a>00091                         <a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a>* <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#ac109106e8fa28167db76d5e657e01d91" title="Loads the data of a texture.">loadTextureData</a>(<span class="keyword">const</span> std::string&amp; file);
+<a name="l00097"></a>00097                         std::string <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a61681ae7fb1b070b1fb020b4f1afb53c" title="Loads the contents of a shader source file.">loadShader</a>(<span class="keyword">const</span> std::string&amp; file,std::map&lt;std::string,std::string&gt;* defineChanges = <span class="keyword">nullptr</span>);
+<a name="l00102"></a>00102                         <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html" title="A class which represents a bunch of vertices with a material on the graphics card.">Mesh3D</a>* <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#aadb5a8e180d8d49c6c2363e647c860b6" title="Loads a .obj file with the OBJLoader.">loadMesh</a>(<span class="keyword">const</span> std::string&amp; file);
+<a name="l00107"></a>00107                         <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html" title="A class which stores data which is loaded in from Assimp.">Scene</a>* <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#aa3649356e713ae934b26770ce0ded094" title="Loads a file with Assimp.">loadScene</a>(<span class="keyword">const</span> std::string&amp; file);
+<a name="l00108"></a>00108             
+<a name="l00112"></a>00112             <span class="keywordtype">void</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#abba0e843dc931d2abca3c3b5f99a1f59" title="Deletes all loaded Textures.">clearTextures</a>();
+<a name="l00116"></a>00116             <span class="keywordtype">void</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a87a4d62e48f3ee224483106ce98b4ba5" title="Deletes a single loaded Texture.">deleteTexture</a>(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* tex);
+<a name="l00120"></a>00120                         <span class="keywordtype">void</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a7c935ec8e64382efa25a9e81314cda4d" title="Deletes all loaded TextureDatas.">clearTextureDatas</a>();
+<a name="l00124"></a>00124                         <span class="keywordtype">void</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a12e06925e62ce15d24cc00f9d378990e" title="Deletes a single loaded TextureData.">deleteTextureData</a>(<a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a>* tex);
+<a name="l00128"></a>00128                         <span class="keywordtype">void</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a53a6bcd7694d03a288ae4ab177b0d98f" title="Deletes all loaded shader source file contents.">clearShaders</a>();
+<a name="l00132"></a>00132                         <span class="keywordtype">void</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#af232c3177c855eeaf7dd9475333c213b" title="Deletes all loaded Mes3Ds.">clearMeshes</a>();
+<a name="l00136"></a>00136                         <span class="keywordtype">void</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a5d5ffd6cf78b21b95f1c16306091183d" title="Deletes a single loaded Mesh3D.">deleteMesh</a>(<a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html" title="A class which represents a bunch of vertices with a material on the graphics card.">Mesh3D</a>* mesh);
+<a name="l00140"></a>00140                         <span class="keywordtype">void</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#ae7a300792ae627805dffac0658cf2971" title="Deletes all loaded Scenes.">clearScenes</a>();
+<a name="l00144"></a>00144                         <span class="keywordtype">void</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a220ee5611df7f53bce6f8d9be1ba83e2" title="Deletes a single loaded Scene.">deleteScene</a>(<a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html" title="A class which stores data which is loaded in from Assimp.">Scene</a>* s);
+<a name="l00145"></a>00145             
+<a name="l00150"></a>00150             <span class="keywordtype">bool</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a701b1e317f857b13ad37e81c02234784" title="Checks if a Texture is loaded.">isLoaded</a>(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* tex);
+<a name="l00155"></a>00155                         <span class="keywordtype">bool</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a701b1e317f857b13ad37e81c02234784" title="Checks if a Texture is loaded.">isLoaded</a>(<a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html" title="A class which represents a bunch of vertices with a material on the graphics card.">Mesh3D</a>* mesh);
+<a name="l00160"></a>00160                         <span class="keywordtype">bool</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a701b1e317f857b13ad37e81c02234784" title="Checks if a Texture is loaded.">isLoaded</a>(<a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html" title="A class which stores data which is loaded in from Assimp.">Scene</a>* s);
+<a name="l00165"></a>00165                         <span class="keywordtype">bool</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#a701b1e317f857b13ad37e81c02234784" title="Checks if a Texture is loaded.">isLoaded</a>(<a class="code" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a>* tex);
+<a name="l00166"></a>00166             
+<a name="l00170"></a>00170             <span class="keywordtype">void</span> <a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html#abae221dcf643de5b8a0d707c787e76b9" title="Deletes all resources.">clear</a>();
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172         <span class="keyword">private</span>:
+<a name="l00178"></a>00178                         <span class="keywordtype">void</span> processScene(<span class="keyword">const</span> aiScene* as, <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html" title="A class which stores data which is loaded in from Assimp.">Scene</a>* s,<span class="keywordtype">bool</span> switchYandZ);
+<a name="l00185"></a>00185                         <span class="keywordtype">void</span> processNode(aiNode* node, <span class="keyword">const</span> aiScene* as, <a class="code" href="../../d1/d3b/class_johnny_1_1_scene.html" title="A class which stores data which is loaded in from Assimp.">Scene</a>* s,<span class="keywordtype">bool</span> switchYandZ);
+<a name="l00186"></a>00186 
+<a name="l00187"></a>00187 
+<a name="l00192"></a>00192                         std::string getFileName(<span class="keyword">const</span> std::string&amp; directory);
+<a name="l00193"></a>00193 
+<a name="l00194"></a>00194             std::map&lt;std::string,Texture*&gt; m_textures;          
+<a name="l00195"></a>00195                         std::map&lt;std::string, TextureData*&gt; m_textureBytes; 
+<a name="l00196"></a>00196                         std::map&lt;std::string, std::string&gt; m_shaders;           
+<a name="l00197"></a>00197                         std::map&lt;std::string, Mesh3D*&gt; m_meshes;                        
+<a name="l00198"></a>00198                         std::map&lt;std::string, Scene*&gt; m_scenes;                         
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200     };
+<a name="l00201"></a>00201 }
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204 
+<a name="l00205"></a>00205 <span class="preprocessor">#endif // RESOURCEMANAGER_H</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

@@ -109,107 +109,107 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00018"></a>00018         <span class="keyword">class </span>Texture;
 <a name="l00019"></a>00019         <span class="keyword">class </span>Shader;
 <a name="l00020"></a>00020 
-<a name="l00021"></a><a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">00021</a>         <span class="keyword">class </span><a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>
-<a name="l00022"></a>00022         {
-<a name="l00023"></a>00023         <span class="keyword">public</span>:
-<a name="l00024"></a>00024                 GLuint posIndex = 0;
-<a name="l00025"></a>00025                 GLuint normalIndex = 0;
-<a name="l00026"></a>00026                 GLuint uvIndex = 0;
-<a name="l00027"></a>00027                 <span class="keywordtype">bool</span> createNew = <span class="keyword">false</span>;
-<a name="l00028"></a>00028                 std::string material = <span class="stringliteral">&quot;NONE&quot;</span>;
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030                 <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;);
-<a name="l00031"></a>00031                 <span class="keywordtype">bool</span> operator&gt;(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;);
-<a name="l00032"></a>00032                 <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;);
-<a name="l00033"></a>00033                 <span class="keywordtype">bool</span> operator&lt;=(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;);
-<a name="l00034"></a>00034                 <span class="keywordtype">bool</span> operator&gt;=(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;);
-<a name="l00035"></a>00035         };
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037         <span class="keyword">extern</span> <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;);
-<a name="l00038"></a>00038         <span class="keyword">extern</span> <span class="keywordtype">bool</span> operator&gt;(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;);
-<a name="l00039"></a>00039         <span class="keyword">extern</span> <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;);
-<a name="l00040"></a>00040         <span class="keyword">extern</span> <span class="keywordtype">bool</span> operator&lt;=(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;);
-<a name="l00041"></a>00041         <span class="keyword">extern</span> <span class="keywordtype">bool</span> operator&gt;=(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">NormalPosUVIndex</a>&amp;);
-<a name="l00042"></a>00042 
-<a name="l00043"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html">00043</a>         <span class="keyword">class </span><a class="code" href="../../dd/d74/class_johnny_1_1_material.html">Material</a>
-<a name="l00044"></a>00044         {
-<a name="l00045"></a>00045         <span class="keyword">public</span>:
-<a name="l00046"></a>00046                 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html">Material</a>();
-<a name="l00047"></a>00047                 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html">Material</a>(aiMaterial*);
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049                 <span class="keyword">static</span> <span class="keywordtype">void</span> setUniforms(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>*, <span class="keywordtype">bool</span> withTextures = <span class="keyword">true</span>);
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051                 <span class="keywordtype">void</span> load(<span class="keyword">const</span> std::string&amp;);
-<a name="l00052"></a>00052                 <span class="keywordtype">void</span> loadTextures(<a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html">ResourceManager</a>*);
-<a name="l00053"></a>00053                 <span class="keywordtype">void</span> bind(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>*);
-<a name="l00054"></a>00054                 <span class="keywordtype">void</span> unbind();
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056                 std::string name = <span class="stringliteral">&quot;NONE&quot;</span>;
-<a name="l00057"></a>00057                 glm::vec3 ambientColor = glm::vec3(1.0f, 1.0f, 1.0f);
-<a name="l00058"></a>00058                 glm::vec3 diffuseColor = glm::vec3(1.0f, 1.0f, 1.0f);
-<a name="l00059"></a>00059                 glm::vec3 specularColor = glm::vec3(1.0f, 1.0f, 1.0f);
-<a name="l00060"></a>00060                 glm::vec3 emittedLight = glm::vec3(0.0f, 0.0f, 0.0f);
-<a name="l00061"></a>00061                 GLfloat specularExponent = 1.0f;
-<a name="l00062"></a>00062                 GLfloat transparency = 1.0f;
-<a name="l00063"></a>00063                 glm::vec3 transmissionFilter = glm::vec3(1.0f, 1.0f, 1.0f);
-<a name="l00064"></a>00064                 GLuint illumination = 0;
-<a name="l00065"></a>00065                 std::string ambientTexture = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00066"></a>00066                 std::string diffuseTexture = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00067"></a>00067                 std::string specularTexture = <span class="stringliteral">&quot;&quot;</span>;
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069                 <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* ambientTextureT = <span class="keyword">nullptr</span>;
-<a name="l00070"></a>00070                 <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* diffuseTextureT = <span class="keyword">nullptr</span>;
-<a name="l00071"></a>00071                 <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* specularTextureT = <span class="keyword">nullptr</span>;
-<a name="l00072"></a>00072                 <span class="keywordtype">bool</span> hasTextures = <span class="keyword">false</span>;
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074         };
-<a name="l00075"></a>00075 
-<a name="l00076"></a><a class="code" href="../../d9/d17/class_johnny_1_1_m_t_l_loader.html">00076</a>         <span class="keyword">class </span><a class="code" href="../../d9/d17/class_johnny_1_1_m_t_l_loader.html">MTLLoader</a>
-<a name="l00077"></a>00077         {
-<a name="l00078"></a>00078         <span class="keyword">public</span>:
-<a name="l00079"></a>00079                 <a class="code" href="../../d9/d17/class_johnny_1_1_m_t_l_loader.html">MTLLoader</a>(<span class="keyword">const</span> std::string&amp;);
+<a name="l00024"></a><a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html">00024</a>         <span class="keyword">class </span><a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>
+<a name="l00025"></a>00025         {
+<a name="l00026"></a>00026         <span class="keyword">public</span>:
+<a name="l00027"></a>00027                 GLuint posIndex = 0;
+<a name="l00028"></a>00028                 GLuint normalIndex = 0;
+<a name="l00029"></a>00029                 GLuint uvIndex = 0;
+<a name="l00030"></a>00030                 <span class="keywordtype">bool</span> createNew = <span class="keyword">false</span>;
+<a name="l00031"></a>00031                 std::string material = <span class="stringliteral">&quot;NONE&quot;</span>;
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033                 <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;);
+<a name="l00034"></a>00034                 <span class="keywordtype">bool</span> operator&gt;(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;);
+<a name="l00035"></a>00035                 <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;);
+<a name="l00036"></a>00036                 <span class="keywordtype">bool</span> operator&lt;=(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;);
+<a name="l00037"></a>00037                 <span class="keywordtype">bool</span> operator&gt;=(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;);
+<a name="l00038"></a>00038         };
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040         <span class="keyword">extern</span> <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;);
+<a name="l00041"></a>00041         <span class="keyword">extern</span> <span class="keywordtype">bool</span> operator&gt;(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;);
+<a name="l00042"></a>00042         <span class="keyword">extern</span> <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;);
+<a name="l00043"></a>00043         <span class="keyword">extern</span> <span class="keywordtype">bool</span> operator&lt;=(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;);
+<a name="l00044"></a>00044         <span class="keyword">extern</span> <span class="keywordtype">bool</span> operator&gt;=(<span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../d4/d3f/class_johnny_1_1_normal_pos_u_v_index.html" title="A index which stores a vertex position index, vertex normal index and a uvIndex DEPRECATED.">NormalPosUVIndex</a>&amp;);
+<a name="l00045"></a>00045 
+<a name="l00049"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html">00049</a>         <span class="keyword">class </span><a class="code" href="../../dd/d74/class_johnny_1_1_material.html" title="A class which represents a bunch of textures a few colors and a few numbers to define how a mesh look...">Material</a>
+<a name="l00050"></a>00050         {
+<a name="l00051"></a>00051         <span class="keyword">public</span>:
+<a name="l00052"></a>00052                 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html" title="A class which represents a bunch of textures a few colors and a few numbers to define how a mesh look...">Material</a>();
+<a name="l00056"></a>00056                 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html" title="A class which represents a bunch of textures a few colors and a few numbers to define how a mesh look...">Material</a>(aiMaterial* mat);
+<a name="l00057"></a>00057 
+<a name="l00062"></a>00062                 <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#ae5ce4391202616f5e796f248df961dd4" title="Load the uniform locations of the material values to a Shader.">setUniforms</a>(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* s, <span class="keywordtype">bool</span> withTextures = <span class="keyword">true</span>);
+<a name="l00063"></a>00063 
+<a name="l00067"></a>00067                 <span class="keywordtype">void</span> <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#acc403a841d4a07bebcdb97fa48350427" title="Loads a material from a material file (internal use only.">load</a>(<span class="keyword">const</span> std::string&amp; contents);
+<a name="l00071"></a>00071                 <span class="keywordtype">void</span> <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a3af18f4cc45b0cbe2bdec8bc74146193" title="Loads the textures of the material.">loadTextures</a>(<a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html" title="A class which handles all resources such as Textures, Models, Shaders etc.">ResourceManager</a>* res);
+<a name="l00075"></a>00075                 <span class="keywordtype">void</span> <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a9f4bf6911e90c68a678472e5f60c17f7" title="Loads the data as uniforms to a shader and binds the textures.">bind</a>(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* s);
+<a name="l00079"></a>00079                 <span class="keywordtype">void</span> <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#ac8f1015e396138650ad0618ff42c1ee4" title="Unbinds the textures.">unbind</a>();
 <a name="l00080"></a>00080 
-<a name="l00081"></a>00081                 <span class="keywordtype">void</span> load();
-<a name="l00082"></a>00082                 <span class="keyword">const</span> std::vector&lt;Material&gt;&amp; getMaterials()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_materials; }
-<a name="l00083"></a>00083         <span class="keyword">private</span>:
-<a name="l00084"></a>00084                 std::string m_fileName = <span class="stringliteral">&quot;NONE&quot;</span>;
-<a name="l00085"></a>00085                 std::vector&lt;Material&gt; m_materials;
-<a name="l00086"></a>00086         };
-<a name="l00087"></a>00087 
-<a name="l00088"></a><a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html">00088</a>         <span class="keyword">class </span><a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html">OBJLoader</a>
-<a name="l00089"></a>00089         {
-<a name="l00090"></a>00090         <span class="keyword">public</span>:
-<a name="l00091"></a>00091                 <a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html">OBJLoader</a>(<span class="keyword">const</span> std::string&amp;);
-<a name="l00092"></a>00092                 ~<a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html">OBJLoader</a>();
+<a name="l00081"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#abb83999e991ef232b393e1bce6c5e2c0">00081</a>                 std::string <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#abb83999e991ef232b393e1bce6c5e2c0" title="The name of the material.">name</a> = <span class="stringliteral">&quot;NONE&quot;</span>;                                                                  
+<a name="l00082"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#ae8149a7e2bb9c43912875faf09f1e3ae">00082</a>                 glm::vec3 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#ae8149a7e2bb9c43912875faf09f1e3ae" title="The ambientColor of the material.">ambientColor</a> = glm::vec3(1.0f, 1.0f, 1.0f);       
+<a name="l00083"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a7681ffd76754003b28ffe7de250acfe2">00083</a>                 glm::vec3 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a7681ffd76754003b28ffe7de250acfe2" title="The diffuseColor of the material.">diffuseColor</a> = glm::vec3(1.0f, 1.0f, 1.0f);       
+<a name="l00084"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a71fee55c126cbf1dd0c121607c8713ec">00084</a>                 glm::vec3 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a71fee55c126cbf1dd0c121607c8713ec" title="The specular color of the material.">specularColor</a> = glm::vec3(1.0f, 1.0f, 1.0f);      
+<a name="l00085"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#ac1834a4b7d699a156cd2401a82a40317">00085</a>                 glm::vec3 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#ac1834a4b7d699a156cd2401a82a40317" title="The light which the material emits (will be ignored)">emittedLight</a> = glm::vec3(0.0f, 0.0f, 0.0f);       
+<a name="l00086"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#aaa548e36052e00052f6472d14c08ad79">00086</a>                 GLfloat <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#aaa548e36052e00052f6472d14c08ad79" title="The specularExponent for the calculation of the specular light.">specularExponent</a> = 1.0f;                                                    
+<a name="l00087"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a81907029603cf8ae10f400d1d1cebdb9">00087</a>                 GLfloat <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a81907029603cf8ae10f400d1d1cebdb9" title="The transperancy of the material.">transparency</a> = 1.0f;                                                        
+<a name="l00088"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#af1fa585a457e3f5f2632053134b3e244">00088</a>                 glm::vec3 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#af1fa585a457e3f5f2632053134b3e244" title="The transmissionFilter of the material (will be ignored)">transmissionFilter</a> = glm::vec3(1.0f, 1.0f, 1.0f); 
+<a name="l00089"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a65c3a35c7df406e7d3964c52a6bcfd88">00089</a>                 GLuint <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a65c3a35c7df406e7d3964c52a6bcfd88" title="The illumination of the material (will be ignored)">illumination</a> = 0;                                                                        
+<a name="l00090"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a33aa1fce3cfd35593d3af87fc1a54b83">00090</a>                 std::string <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a33aa1fce3cfd35593d3af87fc1a54b83" title="The filePath of the ambient texture.">ambientTexture</a> = <span class="stringliteral">&quot;&quot;</span>;                                                        
+<a name="l00091"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a1ad07efc07e31276cd01ab001f3843cd">00091</a>                 std::string <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a1ad07efc07e31276cd01ab001f3843cd" title="The filePath of the diffuse texture.">diffuseTexture</a> = <span class="stringliteral">&quot;&quot;</span>;                                                        
+<a name="l00092"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#af1685bf18f8aef1859ccba07ed9e8663">00092</a>                 std::string <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#af1685bf18f8aef1859ccba07ed9e8663" title="The filePath of the specular texture.">specularTexture</a> = <span class="stringliteral">&quot;&quot;</span>;                                                       
 <a name="l00093"></a>00093 
-<a name="l00094"></a>00094                 <span class="keywordtype">void</span> load();
-<a name="l00095"></a>00095                 <span class="keywordtype">void</span> clear();
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097                 <a class="code" href="../../d7/dd2/class_johnny_1_1_vertex3_d.html">Vertex3D</a>* getVertices() { <span class="keywordflow">return</span> m_vertices; }
-<a name="l00098"></a>00098                 GLuint* getInidices() { <span class="keywordflow">return</span> m_indices; }
-<a name="l00099"></a>00099                 <span class="keyword">const</span> std::vector&lt;Material&gt;&amp; getMaterials()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_materials; }
+<a name="l00094"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a3e94776347a861a5140c6e67f2588945">00094</a>                 <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a3e94776347a861a5140c6e67f2588945" title="The ambient texture of the material.">ambientTextureT</a> = <span class="keyword">nullptr</span>;                                                     
+<a name="l00095"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a9bb6c6cab8fa6186d63f0a8541689fe5">00095</a>                 <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a9bb6c6cab8fa6186d63f0a8541689fe5" title="The diffuse texture of the material.">diffuseTextureT</a> = <span class="keyword">nullptr</span>;                                                     
+<a name="l00096"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a73697751d62e28be2893d29120026e46">00096</a>                 <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#a73697751d62e28be2893d29120026e46" title="The specular texture of the material.">specularTextureT</a> = <span class="keyword">nullptr</span>;                                            
+<a name="l00097"></a><a class="code" href="../../dd/d74/class_johnny_1_1_material.html#af367e2111666fa57cace7bd7d12ecf6c">00097</a>                 <span class="keywordtype">bool</span> <a class="code" href="../../dd/d74/class_johnny_1_1_material.html#af367e2111666fa57cace7bd7d12ecf6c" title="Defines if the textures will be used.">hasTextures</a> = <span class="keyword">false</span>;                                                                       
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099         };
 <a name="l00100"></a>00100 
-<a name="l00101"></a>00101                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getVerticesSize() { <span class="keywordflow">return</span> m_vertSize; }
-<a name="l00102"></a>00102                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getIndicesSize() { <span class="keywordflow">return</span> m_indSize; }
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104         <span class="keyword">private</span>:
-<a name="l00105"></a>00105                 <span class="keywordtype">bool</span> findInMap(std::map&lt;std::tuple&lt;GLuint, GLuint, GLuint&gt;, GLuint&gt;&amp;, <span class="keyword">const</span> std::tuple&lt;GLuint, GLuint, GLuint&gt;&amp;);
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107                 std::string m_fileName = <span class="stringliteral">&quot;NONE&quot;</span>;
-<a name="l00108"></a>00108                 <a class="code" href="../../d7/dd2/class_johnny_1_1_vertex3_d.html">Vertex3D</a>* m_vertices = <span class="keyword">nullptr</span>;
-<a name="l00109"></a>00109                 GLuint* m_indices = <span class="keyword">nullptr</span>;
-<a name="l00110"></a>00110                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_vertSize = 0;
-<a name="l00111"></a>00111                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_indSize = 0;
-<a name="l00112"></a>00112                 std::vector&lt;Material&gt; m_materials;
-<a name="l00113"></a>00113         };
-<a name="l00114"></a>00114 }
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116 <span class="preprocessor">#endif</span>
-<a name="l00117"></a>00117 <span class="preprocessor"></span>
+<a name="l00104"></a><a class="code" href="../../d9/d17/class_johnny_1_1_m_t_l_loader.html">00104</a>         <span class="keyword">class </span><a class="code" href="../../d9/d17/class_johnny_1_1_m_t_l_loader.html" title="A class which loads .mtl files.">MTLLoader</a>
+<a name="l00105"></a>00105         {
+<a name="l00106"></a>00106         <span class="keyword">public</span>:
+<a name="l00110"></a>00110                 <a class="code" href="../../d9/d17/class_johnny_1_1_m_t_l_loader.html#a6a025d8fac7159af7aced9ed1afedf08" title="Creates a MTLLoader.">MTLLoader</a>(<span class="keyword">const</span> std::string&amp; file);
+<a name="l00111"></a>00111 
+<a name="l00115"></a>00115                 <span class="keywordtype">void</span> <a class="code" href="../../d9/d17/class_johnny_1_1_m_t_l_loader.html#ae7aab4428ddce3c6319fdba6b1310734" title="Loads the data frim the file.">load</a>();
+<a name="l00119"></a><a class="code" href="../../d9/d17/class_johnny_1_1_m_t_l_loader.html#aa4f6102c5c971a7b5d6d418ffa0f0193">00119</a>                 <span class="keyword">const</span> std::vector&lt;Material&gt;&amp; <a class="code" href="../../d9/d17/class_johnny_1_1_m_t_l_loader.html#aa4f6102c5c971a7b5d6d418ffa0f0193">getMaterials</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_materials; }
+<a name="l00120"></a>00120         <span class="keyword">private</span>:
+<a name="l00121"></a>00121                 std::string m_fileName = <span class="stringliteral">&quot;NONE&quot;</span>;   
+<a name="l00122"></a>00122                 std::vector&lt;Material&gt; m_materials; 
+<a name="l00123"></a>00123         };
+<a name="l00124"></a>00124 
+<a name="l00128"></a><a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html">00128</a>         <span class="keyword">class </span><a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html" title="A class which loads .obj files.">OBJLoader</a>
+<a name="l00129"></a>00129         {
+<a name="l00130"></a>00130         <span class="keyword">public</span>:
+<a name="l00134"></a>00134                 <a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#ad17acb2fb7eb68df936e180ad4a570bd" title="Creates a new OBJlLoader.">OBJLoader</a>(<span class="keyword">const</span> std::string&amp; file);
+<a name="l00135"></a>00135                 ~<a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html" title="A class which loads .obj files.">OBJLoader</a>();
+<a name="l00136"></a>00136 
+<a name="l00140"></a>00140                 <span class="keywordtype">void</span> <a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#ae4594f8245a7247b819c4e5c09e96a3c" title="Loads the data from the file.">load</a>();
+<a name="l00144"></a>00144                 <span class="keywordtype">void</span> <a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#a8bfc5b7a708fb0e6a4de5f0dea17d1ee" title="Clears the data which has been loaded.">clear</a>();
+<a name="l00145"></a>00145 
+<a name="l00149"></a><a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#abecc0d2bba6130e8f9d447a9e1af1bf9">00149</a>                 <a class="code" href="../../d7/dd2/class_johnny_1_1_vertex3_d.html">Vertex3D</a>* <a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#abecc0d2bba6130e8f9d447a9e1af1bf9">getVertices</a>() { <span class="keywordflow">return</span> m_vertices; }
+<a name="l00153"></a><a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#a3b91612aec39601f2e98f7f07c6dd994">00153</a>                 GLuint* <a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#a3b91612aec39601f2e98f7f07c6dd994">getInidices</a>() { <span class="keywordflow">return</span> m_indices; }
+<a name="l00157"></a><a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#af30ed9d193217ef5f33a079dd2a9ee53">00157</a>                 <span class="keyword">const</span> std::vector&lt;Material&gt;&amp; <a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#af30ed9d193217ef5f33a079dd2a9ee53">getMaterials</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_materials; }
+<a name="l00158"></a>00158 
+<a name="l00162"></a><a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#aaf0cb67e793e2548c5e71c79de33c0fe">00162</a>                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#aaf0cb67e793e2548c5e71c79de33c0fe">getVerticesSize</a>() { <span class="keywordflow">return</span> m_vertSize; }
+<a name="l00166"></a><a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#aed96530d872b094463a612cc58920627">00166</a>                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#aed96530d872b094463a612cc58920627">getIndicesSize</a>() { <span class="keywordflow">return</span> m_indSize; }
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168         <span class="keyword">private</span>:
+<a name="l00173"></a>00173                 <span class="keywordtype">bool</span> findInMap(std::map&lt;std::tuple&lt;GLuint, GLuint, GLuint&gt;, GLuint&gt;&amp; Map, <span class="keyword">const</span> std::tuple&lt;GLuint, GLuint, GLuint&gt;&amp; value);
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175                 std::string m_fileName = <span class="stringliteral">&quot;NONE&quot;</span>;   
+<a name="l00176"></a>00176                 <a class="code" href="../../d7/dd2/class_johnny_1_1_vertex3_d.html">Vertex3D</a>* m_vertices = <span class="keyword">nullptr</span>;    
+<a name="l00177"></a>00177                 GLuint* m_indices = <span class="keyword">nullptr</span>;       
+<a name="l00178"></a>00178                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_vertSize = 0;       
+<a name="l00179"></a>00179                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_indSize = 0;                
+<a name="l00180"></a>00180                 std::vector&lt;Material&gt; m_materials; 
+<a name="l00181"></a>00181         };
+<a name="l00182"></a>00182 }
+<a name="l00183"></a>00183 
+<a name="l00184"></a>00184 <span class="preprocessor">#endif</span>
+<a name="l00185"></a>00185 <span class="preprocessor"></span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

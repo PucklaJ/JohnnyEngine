@@ -95,25 +95,194 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A class which represents a 3D model which consists of an array of Mesh3Ds.  
+ <a href="../../df/d50/class_johnny_1_1_model3_d.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d0/d8e/_model3_d_8h_source.html">Model3D.h</a>&gt;</code></p>
+
 <p><a href="../../de/d2f/class_johnny_1_1_model3_d-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2251bb9bba26bc3e0f532220f115634f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2251bb9bba26bc3e0f532220f115634f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Model3D</b> (aiNode *, const aiScene *, bool)</td></tr>
-<tr class="memitem:a046330c2dfb972a2404402a2198c2a42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a046330c2dfb972a2404402a2198c2a42"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addMesh</b> (<a class="el" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a> *)</td></tr>
-<tr class="memitem:a6336d4de201a689b87d82940f85ac7df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6336d4de201a689b87d82940f85ac7df"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loadTextures</b> (<a class="el" href="../../d2/d12/class_johnny_1_1_resource_manager.html">ResourceManager</a> *)</td></tr>
-<tr class="memitem:ac3a6bb2ebf7933b048218b110d30f5b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3a6bb2ebf7933b048218b110d30f5b1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> (<a class="el" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a> *)</td></tr>
-<tr class="memitem:a86705d1484c9d7da80c381fd5001c20a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86705d1484c9d7da80c381fd5001c20a"></a>
-const std::vector&lt; <a class="el" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMeshes</b> ()</td></tr>
-<tr class="memitem:a226d9ae0f721c208e5277f565e067e1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a226d9ae0f721c208e5277f565e067e1b"></a>
-const <a class="el" href="../../df/d3a/class_johnny_1_1_transform3_d.html">Transform3D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTransform</b> () const </td></tr>
+<tr class="memitem:a20cf20ef021ad1d5f6b151916f24c8c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a20cf20ef021ad1d5f6b151916f24c8c8">Model3D</a> (aiNode *node, const aiScene *scene, bool switchYandZ)</td></tr>
+<tr class="memdesc:a20cf20ef021ad1d5f6b151916f24c8c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html" title="A class which represents a 3D model which consists of an array of Mesh3Ds.">Model3D</a> from a aiNode.  <a href="#a20cf20ef021ad1d5f6b151916f24c8c8"></a><br/></td></tr>
+<tr class="memitem:a26508659688ee3e5c0350241d07b8c87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a26508659688ee3e5c0350241d07b8c87">addMesh</a> (<a class="el" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a> *mesh)</td></tr>
+<tr class="memdesc:a26508659688ee3e5c0350241d07b8c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="../../d2/db0/class_johnny_1_1_mesh3_d.html" title="A class which represents a bunch of vertices with a material on the graphics card.">Mesh3D</a> to the array.  <a href="#a26508659688ee3e5c0350241d07b8c87"></a><br/></td></tr>
+<tr class="memitem:a1b71970d87403e5be0ab3f57745f5e49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a1b71970d87403e5be0ab3f57745f5e49">loadTextures</a> (<a class="el" href="../../d2/d12/class_johnny_1_1_resource_manager.html">ResourceManager</a> *res)</td></tr>
+<tr class="memdesc:a1b71970d87403e5be0ab3f57745f5e49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the materials of the meshes.  <a href="#a1b71970d87403e5be0ab3f57745f5e49"></a><br/></td></tr>
+<tr class="memitem:a9416e2d3aac592c64a243c41083a0a56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a9416e2d3aac592c64a243c41083a0a56">render</a> (<a class="el" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a> *s)</td></tr>
+<tr class="memdesc:a9416e2d3aac592c64a243c41083a0a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the model to the currently active frame buffer.  <a href="#a9416e2d3aac592c64a243c41083a0a56"></a><br/></td></tr>
+<tr class="memitem:a86705d1484c9d7da80c381fd5001c20a"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a86705d1484c9d7da80c381fd5001c20a">getMeshes</a> ()</td></tr>
+<tr class="memitem:a226d9ae0f721c208e5277f565e067e1b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../df/d3a/class_johnny_1_1_transform3_d.html">Transform3D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a226d9ae0f721c208e5277f565e067e1b">getTransform</a> () const </td></tr>
 <tr class="memitem:afbcfcab72461f2aa90726a0c37fb8df9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbcfcab72461f2aa90726a0c37fb8df9"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const </td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A class which represents a 3D model which consists of an array of Mesh3Ds. </p>
+<div class="fragment"><pre class="fragment">      </pre></div> </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a20cf20ef021ad1d5f6b151916f24c8c8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a20cf20ef021ad1d5f6b151916f24c8c8">Johnny::Model3D::Model3D</a> </td>
+          <td>(</td>
+          <td class="paramtype">aiNode *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const aiScene *&#160;</td>
+          <td class="paramname"><em>scene</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>switchYandZ</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html" title="A class which represents a 3D model which consists of an array of Mesh3Ds.">Model3D</a> from a aiNode. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>The aiNode from which to get the data </td></tr>
+    <tr><td class="paramname">scene</td><td>The scene to which the node belongs </td></tr>
+    <tr><td class="paramname">switchYandZ</td><td>Defines wether to switch the y and z coordinates of the vertex positions </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a26508659688ee3e5c0350241d07b8c87"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a26508659688ee3e5c0350241d07b8c87">Johnny::Model3D::addMesh</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a> *&#160;</td>
+          <td class="paramname"><em>mesh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a <a class="el" href="../../d2/db0/class_johnny_1_1_mesh3_d.html" title="A class which represents a bunch of vertices with a material on the graphics card.">Mesh3D</a> to the array. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mesh</td><td>The mesh to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a86705d1484c9d7da80c381fd5001c20a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a>*&gt;&amp; <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a86705d1484c9d7da80c381fd5001c20a">Johnny::Model3D::getMeshes</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The array of meshes </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a226d9ae0f721c208e5277f565e067e1b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../df/d3a/class_johnny_1_1_transform3_d.html">Transform3D</a>&amp; <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a226d9ae0f721c208e5277f565e067e1b">Johnny::Model3D::getTransform</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The transform loaded from the aiNode </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1b71970d87403e5be0ab3f57745f5e49"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a1b71970d87403e5be0ab3f57745f5e49">Johnny::Model3D::loadTextures</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d12/class_johnny_1_1_resource_manager.html">ResourceManager</a> *&#160;</td>
+          <td class="paramname"><em>res</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads the materials of the meshes. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">res</td><td>The <a class="el" href="../../d2/d12/class_johnny_1_1_resource_manager.html" title="A class which handles all resources such as Textures, Models, Shaders etc.">ResourceManager</a> from which to load the materials </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9416e2d3aac592c64a243c41083a0a56"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html#a9416e2d3aac592c64a243c41083a0a56">Johnny::Model3D::render</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a> *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renders the model to the currently active frame buffer. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The <a class="el" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a> to which the mesh data should be loaded </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="../../d0/d8e/_model3_d_8h_source.html">Model3D.h</a></li>
 <li>src/Model3D.cpp</li>
@@ -121,7 +290,7 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ge
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:37 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

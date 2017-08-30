@@ -96,26 +96,106 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A class which stores data of a texture.  
+ <a href="../../df/dbb/class_johnny_1_1_texture_data.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d1/d46/_resource_manager_8h_source.html">ResourceManager.h</a>&gt;</code></p>
+
 <p><a href="../../d5/d35/class_johnny_1_1_texture_data-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7ec320aa88a3a3394de6e5227e937a85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ec320aa88a3a3394de6e5227e937a85"></a>
-<a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>toTexture</b> (GLenum target=GL_TEXTURE_2D, GLenum filtering=GL_LINEAR, GLenum format=GL_RGBA)</td></tr>
-<tr class="memitem:ab37902681fc966747e407c8f8e5ee7f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab37902681fc966747e407c8f8e5ee7f1"></a>
-SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>toSDL_Surface</b> (Uint32 pixelFormat=SDL_PIXELFORMAT_RGBA8888)</td></tr>
+<tr class="memitem:a7ec320aa88a3a3394de6e5227e937a85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html#a7ec320aa88a3a3394de6e5227e937a85">toTexture</a> (GLenum target=GL_TEXTURE_2D, GLenum filtering=GL_LINEAR, GLenum format=GL_RGBA)</td></tr>
+<tr class="memdesc:a7ec320aa88a3a3394de6e5227e937a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a> into a <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>.  <a href="#a7ec320aa88a3a3394de6e5227e937a85"></a><br/></td></tr>
+<tr class="memitem:ab37902681fc966747e407c8f8e5ee7f1"><td class="memItemLeft" align="right" valign="top">SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html#ab37902681fc966747e407c8f8e5ee7f1">toSDL_Surface</a> (Uint32 pixelFormat=SDL_PIXELFORMAT_RGBA8888)</td></tr>
+<tr class="memdesc:ab37902681fc966747e407c8f8e5ee7f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts to <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a> to a SDL_Surface.  <a href="#ab37902681fc966747e407c8f8e5ee7f1"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a42398fa2ae7d1e48a105e0759ec07c62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42398fa2ae7d1e48a105e0759ec07c62"></a>
-GLubyte *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> = nullptr</td></tr>
+GLubyte *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html#a42398fa2ae7d1e48a105e0759ec07c62">data</a> = nullptr</td></tr>
+<tr class="memdesc:a42398fa2ae7d1e48a105e0759ec07c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pixel data. <br/></td></tr>
 <tr class="memitem:a5ca8cacd9614352360f5d3718e1c668b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ca8cacd9614352360f5d3718e1c668b"></a>
-GLsizei&#160;</td><td class="memItemRight" valign="bottom"><b>width</b> = 0</td></tr>
+GLsizei&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html#a5ca8cacd9614352360f5d3718e1c668b">width</a> = 0</td></tr>
+<tr class="memdesc:a5ca8cacd9614352360f5d3718e1c668b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The width of the texture in pixels. <br/></td></tr>
 <tr class="memitem:a88e5e2de5830c7a72caac1fc53e4f280"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88e5e2de5830c7a72caac1fc53e4f280"></a>
-GLsizei&#160;</td><td class="memItemRight" valign="bottom"><b>height</b> = 0</td></tr>
+GLsizei&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html#a88e5e2de5830c7a72caac1fc53e4f280">height</a> = 0</td></tr>
+<tr class="memdesc:a88e5e2de5830c7a72caac1fc53e4f280"><td class="mdescLeft">&#160;</td><td class="mdescRight">The height of the texture in pixels. <br/></td></tr>
 <tr class="memitem:a07ed143f0f15a0bad6a8959b33b89839"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07ed143f0f15a0bad6a8959b33b89839"></a>
-GLint&#160;</td><td class="memItemRight" valign="bottom"><b>numChannels</b> = 0</td></tr>
+GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html#a07ed143f0f15a0bad6a8959b33b89839">numChannels</a> = 0</td></tr>
+<tr class="memdesc:a07ed143f0f15a0bad6a8959b33b89839"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of channels in the texture. <br/></td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A class which stores data of a texture. </p>
+<div class="fragment"><pre class="fragment">      </pre></div> </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ab37902681fc966747e407c8f8e5ee7f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Surface * <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html#ab37902681fc966747e407c8f8e5ee7f1">Johnny::TextureData::toSDL_Surface</a> </td>
+          <td>(</td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>pixelFormat</em> = <code>SDL_PIXELFORMAT_RGBA8888</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts to <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a> to a SDL_Surface. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pixelFormat</td><td>The format in which the pixels are stored </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>The newly created SDL_Surface </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7ec320aa88a3a3394de6e5227e937a85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> * <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html#a7ec320aa88a3a3394de6e5227e937a85">Johnny::TextureData::toTexture</a> </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>target</em> = <code>GL_TEXTURE_2D</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>filtering</em> = <code>GL_LINEAR</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>format</em> = <code>GL_RGBA</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts the <a class="el" href="../../df/dbb/class_johnny_1_1_texture_data.html" title="A class which stores data of a texture.">TextureData</a> into a <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>The target to which the <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> should be bound </td></tr>
+    <tr><td class="paramname">filtering</td><td>The filter method which should be applied </td></tr>
+    <tr><td class="paramname">format</td><td>The format in which the pixels are stored </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>The newly created <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="../../d1/d46/_resource_manager_8h_source.html">ResourceManager.h</a></li>
 <li>src/ResourceManager.cpp</li>
@@ -123,7 +203,7 @@ GLint&#160;</td><td class="memItemRight" valign="bottom"><b>numChannels</b> = 0<
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:37 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

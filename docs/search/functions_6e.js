@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['normalise',['normalise',['../df/d46/class_johnny_1_1_color.html#ab3fd42cc5334789abab6e549159bb94e',1,'Johnny::Color']]]
+  ['normalise',['normalise',['../df/d46/class_johnny_1_1_color.html#a10b1d31c96e26cbe0b876704f24d4d9e',1,'Johnny::Color']]]
 ];

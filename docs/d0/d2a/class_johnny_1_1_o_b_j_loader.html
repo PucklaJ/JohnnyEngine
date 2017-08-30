@@ -95,27 +95,209 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A class which loads .obj files.  
+ <a href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../dc/d02/_o_b_j_loader_8h_source.html">OBJLoader.h</a>&gt;</code></p>
+
 <p><a href="../../d4/d08/class_johnny_1_1_o_b_j_loader-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae7acf92c46d31b7c614a75aaa0493844"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7acf92c46d31b7c614a75aaa0493844"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>OBJLoader</b> (const std::string &amp;)</td></tr>
-<tr class="memitem:ae4594f8245a7247b819c4e5c09e96a3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4594f8245a7247b819c4e5c09e96a3c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> ()</td></tr>
-<tr class="memitem:a8bfc5b7a708fb0e6a4de5f0dea17d1ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bfc5b7a708fb0e6a4de5f0dea17d1ee"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
-<tr class="memitem:abecc0d2bba6130e8f9d447a9e1af1bf9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abecc0d2bba6130e8f9d447a9e1af1bf9"></a>
-<a class="el" href="../../d7/dd2/class_johnny_1_1_vertex3_d.html">Vertex3D</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getVertices</b> ()</td></tr>
-<tr class="memitem:a3b91612aec39601f2e98f7f07c6dd994"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b91612aec39601f2e98f7f07c6dd994"></a>
-GLuint *&#160;</td><td class="memItemRight" valign="bottom"><b>getInidices</b> ()</td></tr>
-<tr class="memitem:af30ed9d193217ef5f33a079dd2a9ee53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af30ed9d193217ef5f33a079dd2a9ee53"></a>
-const std::vector&lt; <a class="el" href="../../dd/d74/class_johnny_1_1_material.html">Material</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMaterials</b> () const </td></tr>
-<tr class="memitem:aaf0cb67e793e2548c5e71c79de33c0fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf0cb67e793e2548c5e71c79de33c0fe"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getVerticesSize</b> ()</td></tr>
-<tr class="memitem:aed96530d872b094463a612cc58920627"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed96530d872b094463a612cc58920627"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getIndicesSize</b> ()</td></tr>
+<tr class="memitem:ad17acb2fb7eb68df936e180ad4a570bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#ad17acb2fb7eb68df936e180ad4a570bd">OBJLoader</a> (const std::string &amp;file)</td></tr>
+<tr class="memdesc:ad17acb2fb7eb68df936e180ad4a570bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new OBJlLoader.  <a href="#ad17acb2fb7eb68df936e180ad4a570bd"></a><br/></td></tr>
+<tr class="memitem:ae4594f8245a7247b819c4e5c09e96a3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#ae4594f8245a7247b819c4e5c09e96a3c">load</a> ()</td></tr>
+<tr class="memdesc:ae4594f8245a7247b819c4e5c09e96a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the data from the file.  <a href="#ae4594f8245a7247b819c4e5c09e96a3c"></a><br/></td></tr>
+<tr class="memitem:a8bfc5b7a708fb0e6a4de5f0dea17d1ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#a8bfc5b7a708fb0e6a4de5f0dea17d1ee">clear</a> ()</td></tr>
+<tr class="memdesc:a8bfc5b7a708fb0e6a4de5f0dea17d1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the data which has been loaded.  <a href="#a8bfc5b7a708fb0e6a4de5f0dea17d1ee"></a><br/></td></tr>
+<tr class="memitem:abecc0d2bba6130e8f9d447a9e1af1bf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dd2/class_johnny_1_1_vertex3_d.html">Vertex3D</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#abecc0d2bba6130e8f9d447a9e1af1bf9">getVertices</a> ()</td></tr>
+<tr class="memitem:a3b91612aec39601f2e98f7f07c6dd994"><td class="memItemLeft" align="right" valign="top">GLuint *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#a3b91612aec39601f2e98f7f07c6dd994">getInidices</a> ()</td></tr>
+<tr class="memitem:af30ed9d193217ef5f33a079dd2a9ee53"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../dd/d74/class_johnny_1_1_material.html">Material</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#af30ed9d193217ef5f33a079dd2a9ee53">getMaterials</a> () const </td></tr>
+<tr class="memitem:aaf0cb67e793e2548c5e71c79de33c0fe"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#aaf0cb67e793e2548c5e71c79de33c0fe">getVerticesSize</a> ()</td></tr>
+<tr class="memitem:aed96530d872b094463a612cc58920627"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#aed96530d872b094463a612cc58920627">getIndicesSize</a> ()</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A class which loads .obj files. </p>
+<div class="fragment"><pre class="fragment">      </pre></div> </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad17acb2fb7eb68df936e180ad4a570bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#ad17acb2fb7eb68df936e180ad4a570bd">Johnny::OBJLoader::OBJLoader</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new OBJlLoader. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>The file path of the .obj file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a8bfc5b7a708fb0e6a4de5f0dea17d1ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#a8bfc5b7a708fb0e6a4de5f0dea17d1ee">Johnny::OBJLoader::clear</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the data which has been loaded. </p>
+<div class="fragment"><pre class="fragment">              </pre></div> 
+</div>
+</div>
+<a class="anchor" id="aed96530d872b094463a612cc58920627"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#aed96530d872b094463a612cc58920627">Johnny::OBJLoader::getIndicesSize</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The number of indices loaded </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3b91612aec39601f2e98f7f07c6dd994"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint* <a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#a3b91612aec39601f2e98f7f07c6dd994">Johnny::OBJLoader::getInidices</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The indices loaded </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af30ed9d193217ef5f33a079dd2a9ee53"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../dd/d74/class_johnny_1_1_material.html">Material</a>&gt;&amp; <a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#af30ed9d193217ef5f33a079dd2a9ee53">Johnny::OBJLoader::getMaterials</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The materials loaded </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abecc0d2bba6130e8f9d447a9e1af1bf9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/dd2/class_johnny_1_1_vertex3_d.html">Vertex3D</a>* <a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#abecc0d2bba6130e8f9d447a9e1af1bf9">Johnny::OBJLoader::getVertices</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The vertices loaded </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aaf0cb67e793e2548c5e71c79de33c0fe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#aaf0cb67e793e2548c5e71c79de33c0fe">Johnny::OBJLoader::getVerticesSize</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The number vertices loaded </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae4594f8245a7247b819c4e5c09e96a3c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d2a/class_johnny_1_1_o_b_j_loader.html#ae4594f8245a7247b819c4e5c09e96a3c">Johnny::OBJLoader::load</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads the data from the file. </p>
+<div class="fragment"><pre class="fragment">              </pre></div> 
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="../../dc/d02/_o_b_j_loader_8h_source.html">OBJLoader.h</a></li>
 <li>src/OBJLoader.cpp</li>
@@ -123,7 +305,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getIndicesSiz
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:37 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

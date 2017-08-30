@@ -10,6 +10,9 @@ namespace Johnny
 	class CubeMap3D;
 	class Shader;
     
+    /*! \brief The ShaderUpdater for the Skybox
+     *
+     */
     class SkyboxShaderUpdater : public ShaderUpdater
     {
     public:
@@ -21,28 +24,44 @@ namespace Johnny
         void setUniforms(Camera3D*,const unsigned int index = 0) override;
     };
 
+    /*! \brief A Vertex which is used for the SkyboxMesh
+     *
+     */
 	class SkyboxVertex
 	{
 	public:
-		glm::vec3 position;
+		glm::vec3 position; //!< Position of the SkyboxVertex
 	};
 
+	/*! \brief The mesh wich is used for the Skybox
+	 *
+	 */
 	class SkyboxMesh
 	{
 	public:
 		SkyboxMesh();
 		~SkyboxMesh();
 
-		void addVertices(SkyboxVertex*, unsigned int);
+		/*! \brief Adds vertices to the buffer
+		 *  \param vertices An array SkyboxVertices to add
+		 *  \param size The number of vertices to add
+		 */
+		void addVertices(SkyboxVertex* vertices, unsigned int size);
 
+		/*! \brief Renders the SkyboxMesh
+		 *
+		 */
 		void render();
 	private:
-		GLuint m_vbo = 0;
-		GLuint m_vao = 0;
+		GLuint m_vbo = 0;		   //!< The name of the vertex buffer
+		GLuint m_vao = 0;		   //!< The vertex arrray object of the SkyboxMesh
 
-		GLsizei m_numVertices = 0;
+		GLsizei m_numVertices = 0; //!< The number of vertices in the buffer
 	};
 
+	/*! \brief An enum which consists of the planes of the Skybox
+	 *
+	 */
 	enum SkyboxTex : unsigned int
 	{
 		RIGHT=0,
@@ -53,30 +72,60 @@ namespace Johnny
 		BACK=5
 	};
 
+	/*! \brief A class which represents a box which is around the player and has no view translation
+	 *
+	 */
 	class Skybox : public Actor
 	{
 	public:
         friend class SkyboxShaderUpdater;
         
+        /*! \brief Deletes the SkyboxMesh and SkyboxShader
+         *
+         */
 		static void clear();
 
 		Skybox();
 		~Skybox();
 
+		/*! \brief The init method
+		 *
+		 *
+		 * It is overriding the method from Actor
+		 */
 		bool init() override;
+		/*! \brief The update method
+		 *
+		 *
+		 * It is overriding the method from Actor
+		 */
 		bool update() override;
+		/*! \brief The render method
+		 *
+		 *
+		 * It is overriding the method from Actor
+		 */
 		bool render() override;
+		/*! \brief The quit method
+		 *
+		 *
+		 * It is overriding the method from Actor
+		 */
 		void quit() override;
 
-		void setTexture(short, const std::string&);
+		/*! \brief Sets the texture file of a plane of the Skybox
+		 *  \param plane Which plane to set the file for
+		 *  \file The file path of the texture relateive to res/textures
+		 */
+		void setTexture(short plane, const std::string& file);
 
 	private:
-		static Shader* SKYBOX_SHADER;
-		static SkyboxMesh* SKYBOX_MESH;
+		static Shader* SKYBOX_SHADER;   //!< The Shader which is used for rendering the Skybox
+		static SkyboxMesh* SKYBOX_MESH; //!< The Mesh which is used for rendering the Skybox
 
-		CubeMap3D* m_cubeMap = nullptr;
-		std::string m_textures[6];
-        bool m_texturesSet = false;
+		CubeMap3D* m_cubeMap = nullptr; //!< The CubeMap3D which stores the texture planes
+		std::string m_textures[6];      //!< The file paths od the texture planes
+        bool m_texturesSet = false;     //!< true if any texture has been set and false otherwhise
 	};
 }
 

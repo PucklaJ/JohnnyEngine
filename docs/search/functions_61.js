@@ -2,13 +2,26 @@ var searchData=
 [
   ['a_5fstern',['a_stern',['../d1/dc4/namespace_johnny.html#abbb86ec551579e28dbeb73c7532165f8',1,'Johnny']]],
   ['abs',['abs',['../d1/dc4/namespace_johnny.html#a402526e72fde3fc1394e3b70904843be',1,'Johnny']]],
+  ['addactor',['addActor',['../db/da1/class_johnny_1_1_render_manager.html#a46a503aa7b49c596b92adaa20d4761cb',1,'Johnny::RenderManager']]],
+  ['addarray',['addArray',['../dd/d5a/class_johnny_1_1_uniform_buffer.html#a5032532a5083b4c56bd1eec14847be28',1,'Johnny::UniformBuffer']]],
+  ['addasentities',['addAsEntities',['../d1/d3b/class_johnny_1_1_scene.html#acc32ce57da77f58884d279139a9714af',1,'Johnny::Scene']]],
+  ['addattribute',['addAttribute',['../d5/d3b/class_johnny_1_1_shader.html#a7cb811b412bcd80ea43d8dc556ff9c4d',1,'Johnny::Shader']]],
   ['addchild',['addChild',['../d1/dc5/class_johnny_1_1_actor.html#a8781ce17d1c14f851d53dd50219d8b35',1,'Johnny::Actor']]],
   ['addcontroller',['addController',['../df/d93/class_johnny_1_1_joystick_manager.html#a2b0ac17fc07b5468b9df74f3b3cbec2e',1,'Johnny::JoystickManager']]],
+  ['addfragmentshader',['addFragmentShader',['../d5/d3b/class_johnny_1_1_shader.html#ab27a916847c1584c81806b6cf56d60d8',1,'Johnny::Shader']]],
+  ['addgeometryshader',['addGeometryShader',['../d5/d3b/class_johnny_1_1_shader.html#af917bde8d343fff5cf1096552114e9c8',1,'Johnny::Shader']]],
   ['addlight',['addLight',['../d3/d12/class_johnny_1_1_lighting3_d.html#a0eb7332b65b39022f39929a8f8b93a85',1,'Johnny::Lighting3D::addLight(SpotLight3D *s)'],['../d3/d12/class_johnny_1_1_lighting3_d.html#aa7ec364318082e45c0881e3f3b8f22a5',1,'Johnny::Lighting3D::addLight(DirectionalLight3D *d)'],['../d3/d12/class_johnny_1_1_lighting3_d.html#adeb04be931d53e2caac481a9c991cc51',1,'Johnny::Lighting3D::addLight(PointLight3D *p)']]],
   ['addlistener',['addListener',['../d3/d3c/class_johnny_1_1_joystick_listener.html#af61842f38273e918a7ecec1772949f53',1,'Johnny::JoystickListener::addListener(AxisButtonListener *abl, int id)'],['../d3/d3c/class_johnny_1_1_joystick_listener.html#a46a05e87aa52a01ce01e3b3d8b8bc8a9',1,'Johnny::JoystickListener::addListener(ConnectionListener *cl)']]],
+  ['addmesh',['addMesh',['../df/d50/class_johnny_1_1_model3_d.html#a26508659688ee3e5c0350241d07b8c87',1,'Johnny::Model3D']]],
   ['addposition',['addPosition',['../da/d73/class_johnny_1_1_camera2_d.html#a5cca4980eaddb405f2bc872b68ee099b',1,'Johnny::Camera2D::addPosition(const Vector2f &amp;pos, bool relToLook=false)'],['../da/d73/class_johnny_1_1_camera2_d.html#a816ea2c0e0395c6e8414797d54207612',1,'Johnny::Camera2D::addPosition(GLfloat x, GLfloat y, bool relToLook=false)'],['../db/d49/class_johnny_1_1_camera3_d.html#a7555a1c89a2024f2053c27879f54ff2f',1,'Johnny::Camera3D::addPosition(const Vector3f &amp;pos) override'],['../db/d49/class_johnny_1_1_camera3_d.html#a04d9aaab0e19b23fd488215556a9584d',1,'Johnny::Camera3D::addPosition(GLfloat x, GLfloat y, GLfloat z) override'],['../db/d49/class_johnny_1_1_camera3_d.html#a10ad9d9003d682675bb561d301b0fd76',1,'Johnny::Camera3D::addPosition(const Vector3f &amp;pos, bool relative)'],['../db/d49/class_johnny_1_1_camera3_d.html#a4af016cdfb04523abfdedf12d82a3e7e',1,'Johnny::Camera3D::addPosition(GLfloat x, GLfloat y, GLfloat z, bool)']]],
   ['addrenderbuffer',['addRenderBuffer',['../d2/db0/class_johnny_1_1_frame_buffer.html#aaebf5d92a8d0a45e97319cbe8abe2afa',1,'Johnny::FrameBuffer']]],
+  ['addshader',['addShader',['../db/da1/class_johnny_1_1_render_manager.html#a136a9d9bb55fa587cf6a640c3ead9f52',1,'Johnny::RenderManager']]],
   ['addtexture',['addTexture',['../d2/db0/class_johnny_1_1_frame_buffer.html#a36ebfca2f5e27bea5bb25e42ab808fec',1,'Johnny::FrameBuffer']]],
+  ['adduniform',['addUniform',['../d5/d3b/class_johnny_1_1_shader.html#aea1f2b72489d7da9a82c53d0cfda970b',1,'Johnny::Shader']]],
+  ['addvariable',['addVariable',['../dd/d5a/class_johnny_1_1_uniform_buffer.html#a74fb81dcdc298d9b327da2c2e9c8e8ea',1,'Johnny::UniformBuffer']]],
+  ['addvertexshader',['addVertexShader',['../d5/d3b/class_johnny_1_1_shader.html#af85afb832bc113b52eabe62c184b151d',1,'Johnny::Shader']]],
+  ['addvertices',['addVertices',['../d2/db0/class_johnny_1_1_mesh3_d.html#a490a65abb1eeba95192b033c74b3c1ef',1,'Johnny::Mesh3D::addVertices()'],['../d7/d5e/class_johnny_1_1_skybox_mesh.html#a95ddad9c0bd35ba96e8d3c57611318d5',1,'Johnny::SkyboxMesh::addVertices()']]],
   ['addzoom',['addZoom',['../da/d73/class_johnny_1_1_camera2_d.html#afce447714f806521594679cd8696ec60',1,'Johnny::Camera2D']]],
-  ['area',['area',['../dd/d32/class_johnny_1_1_rectangle.html#ae157b953a517bbffe93a6ab250d3a944',1,'Johnny::Rectangle']]]
+  ['area',['area',['../dd/d32/class_johnny_1_1_rectangle.html#ae157b953a517bbffe93a6ab250d3a944',1,'Johnny::Rectangle']]],
+  ['attachuniformbuffer',['attachUniformBuffer',['../d5/d3b/class_johnny_1_1_shader.html#ab937e017d046ebc52a84253eff3e649b',1,'Johnny::Shader']]]
 ];

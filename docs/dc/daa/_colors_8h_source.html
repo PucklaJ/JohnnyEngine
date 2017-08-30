@@ -109,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00040"></a>00040                 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1,<span class="keywordtype">size_t</span> maxValue1&gt;
 <a name="l00041"></a>00041                 <a class="code" href="../../df/d46/class_johnny_1_1_color.html#af397c88d7899ec2fd56ee86f4a32af8e" title="Creates a new color with r=0,g=0,g=0 and a=0.">Color</a>(<span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Color&lt;T1, maxValue1&gt;</a>&amp; color);
 <a name="l00042"></a>00042 
-<a name="l00046"></a>00046                 <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Color&lt;GLfloat, 1&gt;</a> <a class="code" href="../../df/d46/class_johnny_1_1_color.html#ab3fd42cc5334789abab6e549159bb94e" title="Converts the color the a color with T=GLfloat and maxValue=1.">normalise</a>();
+<a name="l00046"></a>00046                 <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Color&lt;GLfloat, 1&gt;</a> <a class="code" href="../../df/d46/class_johnny_1_1_color.html#a10b1d31c96e26cbe0b876704f24d4d9e" title="Converts the color the a color with T=GLfloat and maxValue=1.">normalise</a>() <span class="keyword">const</span>;
 <a name="l00047"></a>00047 
 <a name="l00048"></a>00048                 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T1,<span class="keywordtype">size_t</span> maxValue1&gt;
 <a name="l00049"></a>00049                 <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Color&lt;T, maxValue&gt;</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Color&lt;T1, maxValue1&gt;</a>&amp;);
@@ -135,8 +135,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00069"></a>00069         }
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071         <span class="keyword">template</span>&lt;<span class="keyword">class</span> T, <span class="keywordtype">size_t</span> maxValue&gt;
-<a name="l00072"></a><a class="code" href="../../df/d46/class_johnny_1_1_color.html#ab3fd42cc5334789abab6e549159bb94e">00072</a>         <span class="keyword">inline</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Color&lt;GLfloat, 1&gt;</a> <a class="code" href="../../df/d46/class_johnny_1_1_color.html#ab3fd42cc5334789abab6e549159bb94e" title="Converts the color the a color with T=GLfloat and maxValue=1.">Color&lt;T, maxValue&gt;::normalise</a>()
-<a name="l00073"></a>00073         {
+<a name="l00072"></a><a class="code" href="../../df/d46/class_johnny_1_1_color.html#a10b1d31c96e26cbe0b876704f24d4d9e">00072</a>         <span class="keyword">inline</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Color&lt;GLfloat, 1&gt;</a> <a class="code" href="../../df/d46/class_johnny_1_1_color.html#a10b1d31c96e26cbe0b876704f24d4d9e" title="Converts the color the a color with T=GLfloat and maxValue=1.">Color&lt;T, maxValue&gt;::normalise</a>()<span class="keyword"> const</span>
+<a name="l00073"></a>00073 <span class="keyword">        </span>{
 <a name="l00074"></a>00074                 <span class="keywordflow">return</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Color&lt;GLfloat, 1&gt;</a>(*this);
 <a name="l00075"></a>00075         }
 <a name="l00076"></a>00076 
@@ -180,14 +180,17 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00117"></a>00117         <span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> YELLOW = {255,255,0,255};
 <a name="l00118"></a>00118         <span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> BROWN = {51,25,0,255};
 <a name="l00119"></a>00119         <span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> PINK = {255,0,255,255};
-<a name="l00120"></a>00120     }
-<a name="l00121"></a>00121 }
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123 <span class="preprocessor">#endif</span>
+<a name="l00120"></a>00120         <span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> PURPLE = {128,0,128,255};
+<a name="l00121"></a>00121         <span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> ORANGE_RED = {255,69,0,255};
+<a name="l00122"></a>00122         <span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> GOLD = {255,215,0,255};
+<a name="l00123"></a>00123     }
+<a name="l00124"></a>00124 }
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

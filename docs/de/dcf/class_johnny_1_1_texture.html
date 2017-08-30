@@ -104,8 +104,8 @@ Inheritance diagram for Johnny::Texture:</div>
   <img src="../../de/dcf/class_johnny_1_1_texture.png" usemap="#Johnny::Texture_map" alt=""/>
   <map id="Johnny::Texture_map" name="Johnny::Texture_map">
 <area href="../../d4/df9/class_johnny_1_1_cube_map3_d.html" title="This is a CubeMapTexture." alt="Johnny::CubeMap3D" shape="rect" coords="0,56,146,80"/>
-<area href="../../da/d0d/class_johnny_1_1_render_texture.html" alt="Johnny::RenderTexture" shape="rect" coords="156,56,302,80"/>
-<area href="../../d5/d5a/class_johnny_1_1_shadow_map3_d.html" alt="Johnny::ShadowMap3D" shape="rect" coords="312,56,458,80"/>
+<area href="../../da/d0d/class_johnny_1_1_render_texture.html" title="A Texture that is attached to a FrameBuffer for easy to use render to Texture." alt="Johnny::RenderTexture" shape="rect" coords="156,56,302,80"/>
+<area href="../../d5/d5a/class_johnny_1_1_shadow_map3_d.html" title="A class which represents a shadow map which is used to store the depth of every object which casts sh..." alt="Johnny::ShadowMap3D" shape="rect" coords="312,56,458,80"/>
 </map>
  </div></div>
 
@@ -123,12 +123,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>unbind</b> (GLuint un
 GLubyte *&#160;</td><td class="memItemRight" valign="bottom"><b>readPixels</b> (GLenum target=GL_TEXTURE_2D, GLenum format=GL_RGBA, GLenum type=GL_UNSIGNED_BYTE)</td></tr>
 <tr class="memitem:a10beceb79ce319a68a00ae54b003b8f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10beceb79ce319a68a00ae54b003b8f7"></a>
 SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>toSDLSurface</b> (GLenum target=GL_TEXTURE_2D, GLenum format=GL_RGBA, GLenum type=GL_UNSIGNED_BYTE)</td></tr>
+<tr class="memitem:af8645abf32fbc8575e233e59970ceeda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8645abf32fbc8575e233e59970ceeda"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setKeyColor</b> (const <a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> &amp;color)</td></tr>
+<tr class="memitem:ada37bd10b49a10db177f67d0703ccd10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada37bd10b49a10db177f67d0703ccd10"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setModColor</b> (const <a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> &amp;color)</td></tr>
+<tr class="memitem:a1b73b422ebb805024979bc21e5a22fbc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b73b422ebb805024979bc21e5a22fbc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDrawMode</b> (const DrawModes &amp;mode)</td></tr>
 <tr class="memitem:abb1a1e0857e2cb1bb793bf4d55989825"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb1a1e0857e2cb1bb793bf4d55989825"></a>
 GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>getBuffer</b> ()</td></tr>
-<tr class="memitem:ab9aa3c356e9a12994240b071078d81f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9aa3c356e9a12994240b071078d81f6"></a>
-GLsizei&#160;</td><td class="memItemRight" valign="bottom"><b>getWidth</b> ()</td></tr>
-<tr class="memitem:a4f43cffaddd2844ec91a47312f2f64d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f43cffaddd2844ec91a47312f2f64d3"></a>
-GLsizei&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> ()</td></tr>
+<tr class="memitem:ab064a585e6685d2c7e55849c0c55f511"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab064a585e6685d2c7e55849c0c55f511"></a>
+const GLsizei &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getWidth</b> ()</td></tr>
+<tr class="memitem:a7ee632b7e3130f54a5812ee28715e4d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ee632b7e3130f54a5812ee28715e4d3"></a>
+const GLsizei &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> ()</td></tr>
+<tr class="memitem:a7a86e3964cecfc254631f9a34f505d45"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a86e3964cecfc254631f9a34f505d45"></a>
+const <a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getKeyColor</b> () const </td></tr>
+<tr class="memitem:a6a2b1a1307eafac27d2217acaadcd74e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a2b1a1307eafac27d2217acaadcd74e"></a>
+const <a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getModColor</b> () const </td></tr>
+<tr class="memitem:a6cac7d2a4ba5e4e3da8e67f67e3a8295"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cac7d2a4ba5e4e3da8e67f67e3a8295"></a>
+const DrawModes &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDrawMode</b> () const </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -161,6 +173,12 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>m_texture</b> = 0</
 GLsizei&#160;</td><td class="memItemRight" valign="bottom"><b>m_width</b> = 0</td></tr>
 <tr class="memitem:aa4d7c90e21c70ab675161b73a0cc928f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4d7c90e21c70ab675161b73a0cc928f"></a>
 GLsizei&#160;</td><td class="memItemRight" valign="bottom"><b>m_height</b> = 0</td></tr>
+<tr class="memitem:a94871d7814a43ee596b35aa4fefc28e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94871d7814a43ee596b35aa4fefc28e2"></a>
+<a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_keyColor</b></td></tr>
+<tr class="memitem:a3aca69dfd4887ac41047955af1eb357e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3aca69dfd4887ac41047955af1eb357e"></a>
+<a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_modColor</b> = <a class="el" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>(255,255,255,255)</td></tr>
+<tr class="memitem:a9a3ab275b90c9e027bf6ffdae948aeb8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a3ab275b90c9e027bf6ffdae948aeb8"></a>
+DrawModes&#160;</td><td class="memItemRight" valign="bottom"><b>m_drawMode</b> = BLENDING</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
@@ -178,7 +196,7 @@ static GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>m_texture2D_
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:37 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:05 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

@@ -95,19 +95,155 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A object-oriented implemantation of the render buffer object.  
+ <a href="../../df/dcf/class_johnny_1_1_render_buffer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../da/d45/_render_buffer_8h_source.html">RenderBuffer.h</a>&gt;</code></p>
+
 <p><a href="../../dd/dd9/class_johnny_1_1_render_buffer-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad9390a37ac64ecde8baf4059d65da2b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9390a37ac64ecde8baf4059d65da2b4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RenderBuffer</b> (GLsizei, GLsizei, GLenum format=GL_DEPTH24_STENCIL8, GLenum target=GL_RENDERBUFFER, bool multisampling=false)</td></tr>
-<tr class="memitem:a20e38186f573bb25ebb0297de68c5d18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20e38186f573bb25ebb0297de68c5d18"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bind</b> (GLenum target=GL_RENDERBUFFER)</td></tr>
-<tr class="memitem:aa53d04b4d21cd9975a15b579c042bdfe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa53d04b4d21cd9975a15b579c042bdfe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unbind</b> (GLenum target=GL_RENDERBUFFER)</td></tr>
-<tr class="memitem:afb3043bfe7bfd8d90a3a48e5c1872cb7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb3043bfe7bfd8d90a3a48e5c1872cb7"></a>
-GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>getBuffer</b> ()</td></tr>
+<tr class="memitem:a616520526707ec5c97a34110700038aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html#a616520526707ec5c97a34110700038aa">RenderBuffer</a> (GLsizei width, GLsizei height, GLenum format=GL_DEPTH24_STENCIL8, GLenum target=GL_RENDERBUFFER, bool multisampling=false)</td></tr>
+<tr class="memdesc:a616520526707ec5c97a34110700038aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html" title="A object-oriented implemantation of the render buffer object.">RenderBuffer</a>.  <a href="#a616520526707ec5c97a34110700038aa"></a><br/></td></tr>
+<tr class="memitem:a20e38186f573bb25ebb0297de68c5d18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html#a20e38186f573bb25ebb0297de68c5d18">bind</a> (GLenum target=GL_RENDERBUFFER)</td></tr>
+<tr class="memdesc:a20e38186f573bb25ebb0297de68c5d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the render buffer object.  <a href="#a20e38186f573bb25ebb0297de68c5d18"></a><br/></td></tr>
+<tr class="memitem:aa53d04b4d21cd9975a15b579c042bdfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html#aa53d04b4d21cd9975a15b579c042bdfe">unbind</a> (GLenum target=GL_RENDERBUFFER)</td></tr>
+<tr class="memdesc:aa53d04b4d21cd9975a15b579c042bdfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbinds the render buffer object.  <a href="#aa53d04b4d21cd9975a15b579c042bdfe"></a><br/></td></tr>
+<tr class="memitem:afb3043bfe7bfd8d90a3a48e5c1872cb7"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html#afb3043bfe7bfd8d90a3a48e5c1872cb7">getBuffer</a> ()</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A object-oriented implemantation of the render buffer object. </p>
+<div class="fragment"><pre class="fragment">      </pre></div> </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a616520526707ec5c97a34110700038aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html#a616520526707ec5c97a34110700038aa">Johnny::RenderBuffer::RenderBuffer</a> </td>
+          <td>(</td>
+          <td class="paramtype">GLsizei&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLsizei&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>format</em> = <code>GL_DEPTH24_STENCIL8</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>target</em> = <code>GL_RENDERBUFFER</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>multisampling</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new <a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html" title="A object-oriented implemantation of the render buffer object.">RenderBuffer</a>. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The width of the <a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html" title="A object-oriented implemantation of the render buffer object.">RenderBuffer</a> in pixels </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the <a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html" title="A object-oriented implemantation of the render buffer object.">RenderBuffer</a> in pixels </td></tr>
+    <tr><td class="paramname">format</td><td>The format of the <a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html" title="A object-oriented implemantation of the render buffer object.">RenderBuffer</a> in which the bits are interpreted </td></tr>
+    <tr><td class="paramname">target</td><td>The target to which the render buffer object gets bound </td></tr>
+    <tr><td class="paramname">multisample</td><td>Defines wether it should be a multisampling buffer or not </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a20e38186f573bb25ebb0297de68c5d18"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html#a20e38186f573bb25ebb0297de68c5d18">Johnny::RenderBuffer::bind</a> </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>target</em> = <code>GL_RENDERBUFFER</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Binds the render buffer object. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>The target to which the render buffer object gets bound </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="afb3043bfe7bfd8d90a3a48e5c1872cb7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint <a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html#afb3043bfe7bfd8d90a3a48e5c1872cb7">Johnny::RenderBuffer::getBuffer</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The name of the render buffer object </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa53d04b4d21cd9975a15b579c042bdfe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/dcf/class_johnny_1_1_render_buffer.html#aa53d04b4d21cd9975a15b579c042bdfe">Johnny::RenderBuffer::unbind</a> </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>target</em> = <code>GL_RENDERBUFFER</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unbinds the render buffer object. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>The target from which it should be unbound </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="../../da/d45/_render_buffer_8h_source.html">RenderBuffer.h</a></li>
 <li>src/RenderBuffer.cpp</li>
@@ -115,7 +251,7 @@ GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>getBuffer</b> ()</t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:37 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

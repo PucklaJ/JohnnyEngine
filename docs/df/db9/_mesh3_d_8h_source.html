@@ -102,35 +102,35 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00011"></a>00011         <span class="keyword">class </span>Vertex3D;
 <a name="l00012"></a>00012         <span class="keyword">class </span>Shader;
 <a name="l00013"></a>00013 
-<a name="l00014"></a><a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">00014</a>         <span class="keyword">class </span><a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a>
-<a name="l00015"></a>00015         {
-<a name="l00016"></a>00016         <span class="keyword">public</span>:
-<a name="l00017"></a>00017                 <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a>();
-<a name="l00018"></a>00018                 <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a>(aiMesh*, <span class="keyword">const</span> aiScene*, <span class="keywordtype">bool</span>);
-<a name="l00019"></a>00019                 ~<a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a>();
-<a name="l00020"></a>00020 
-<a name="l00021"></a>00021                 <span class="keywordtype">void</span> addVertices(<a class="code" href="../../d7/dd2/class_johnny_1_1_vertex3_d.html">Vertex3D</a>*, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, GLuint*, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);
-<a name="l00022"></a>00022                 <span class="keywordtype">void</span> setMaterial(<span class="keyword">const</span> <a class="code" href="../../dd/d74/class_johnny_1_1_material.html">Material</a>&amp;);
-<a name="l00023"></a>00023                 <span class="keywordtype">void</span> loadMaterial(<a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html">ResourceManager</a>*);
-<a name="l00024"></a>00024                 <span class="keywordtype">void</span> render(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>* s = <span class="keyword">nullptr</span>);
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026                 <span class="keyword">const</span> std::string&amp; getName()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_name; }
-<a name="l00027"></a>00027                 <span class="keyword">const</span> <a class="code" href="../../dd/d74/class_johnny_1_1_material.html">Material</a>&amp; getMaterial()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_material; }
-<a name="l00028"></a>00028         <span class="keyword">private</span>:
-<a name="l00029"></a>00029                 GLuint m_vbo = 0;
-<a name="l00030"></a>00030                 GLuint m_ibo = 0;
-<a name="l00031"></a>00031                 GLuint m_vao = 0;
-<a name="l00032"></a>00032                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_vertexSize = 0;
-<a name="l00033"></a>00033                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_indexSize = 0;
-<a name="l00034"></a>00034                 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html">Material</a> m_material;
-<a name="l00035"></a>00035                 std::string m_name = <span class="stringliteral">&quot;NONE&quot;</span>;
-<a name="l00036"></a>00036         };
-<a name="l00037"></a>00037 }
-<a name="l00038"></a>00038 
+<a name="l00017"></a><a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">00017</a>         <span class="keyword">class </span><a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html" title="A class which represents a bunch of vertices with a material on the graphics card.">Mesh3D</a>
+<a name="l00018"></a>00018         {
+<a name="l00019"></a>00019         <span class="keyword">public</span>:
+<a name="l00020"></a>00020                 <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html" title="A class which represents a bunch of vertices with a material on the graphics card.">Mesh3D</a>();
+<a name="l00026"></a>00026                 <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html" title="A class which represents a bunch of vertices with a material on the graphics card.">Mesh3D</a>(aiMesh* mesh, <span class="keyword">const</span> aiScene* scene, <span class="keywordtype">bool</span> switchZandY);
+<a name="l00027"></a>00027                 ~<a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html" title="A class which represents a bunch of vertices with a material on the graphics card.">Mesh3D</a>();
+<a name="l00028"></a>00028 
+<a name="l00035"></a>00035                 <span class="keywordtype">void</span> <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html#a490a65abb1eeba95192b033c74b3c1ef" title="Adds a number of vertices to the buffer.">addVertices</a>(<a class="code" href="../../d7/dd2/class_johnny_1_1_vertex3_d.html">Vertex3D</a>* v, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vsize, GLuint* indices, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> isize);
+<a name="l00039"></a>00039                 <span class="keywordtype">void</span> <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html#a34b6e20875d78c09b84707752a55e14d" title="Sets the Material.">setMaterial</a>(<span class="keyword">const</span> <a class="code" href="../../dd/d74/class_johnny_1_1_material.html" title="A class which represents a bunch of textures a few colors and a few numbers to define how a mesh look...">Material</a>&amp; mat);
+<a name="l00043"></a>00043                 <span class="keywordtype">void</span> <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html#a6f509d0988794e2afdf2c8ada4db60bc" title="Loads the textures of th material.">loadMaterial</a>(<a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html" title="A class which handles all resources such as Textures, Models, Shaders etc.">ResourceManager</a>* res);
+<a name="l00047"></a>00047                 <span class="keywordtype">void</span> <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html#af48bc350d9406b06e3dd761b333fd0be" title="Renders the mesh to the active frame buffer.">render</a>(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* s = <span class="keyword">nullptr</span>);
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049                 <span class="keyword">const</span> std::string&amp; getName()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_name; }
+<a name="l00050"></a>00050                 <span class="keyword">const</span> <a class="code" href="../../dd/d74/class_johnny_1_1_material.html" title="A class which represents a bunch of textures a few colors and a few numbers to define how a mesh look...">Material</a>&amp; getMaterial()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_material; }
+<a name="l00051"></a>00051         <span class="keyword">private</span>:
+<a name="l00052"></a>00052                 GLuint m_vbo = 0;                          
+<a name="l00053"></a>00053                 GLuint m_ibo = 0;                          
+<a name="l00054"></a>00054                 GLuint m_vao = 0;                          
+<a name="l00055"></a>00055                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_vertexSize = 0; 
+<a name="l00056"></a>00056                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_indexSize = 0;  
+<a name="l00057"></a>00057                 <a class="code" href="../../dd/d74/class_johnny_1_1_material.html" title="A class which represents a bunch of textures a few colors and a few numbers to define how a mesh look...">Material</a> m_material;               
+<a name="l00058"></a>00058                 std::string m_name = <span class="stringliteral">&quot;NONE&quot;</span>;   
+<a name="l00059"></a>00059         };
+<a name="l00060"></a>00060 }
+<a name="l00061"></a>00061 
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

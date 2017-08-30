@@ -106,63 +106,63 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00015"></a>00015         <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; Vector4&lt;T&gt; operator*(<span class="keyword">const</span> Matrix4&lt;T&gt;&amp;,<span class="keyword">const</span> Vector4&lt;T&gt;&amp;);
 <a name="l00016"></a>00016         <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, const Matrix4&lt;T&gt;&amp;);
 <a name="l00017"></a>00017 
-<a name="l00018"></a>00018         <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
-<a name="l00019"></a><a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">00019</a>         <span class="keyword">class </span><a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>
-<a name="l00020"></a>00020         {
-<a name="l00021"></a>00021         <span class="keyword">public</span>:
-<a name="l00022"></a>00022                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a> identity();
-<a name="l00023"></a>00023                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a> perspective(<span class="keyword">const</span> T&amp;,<span class="keyword">const</span> T&amp;,<span class="keyword">const</span> T&amp;,<span class="keyword">const</span> T&amp;);
-<a name="l00024"></a>00024                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a> orthographic(<span class="keyword">const</span> T&amp;,<span class="keyword">const</span> T&amp;,<span class="keyword">const</span> T&amp;,<span class="keyword">const</span> T&amp;,<span class="keyword">const</span> T&amp;,<span class="keyword">const</span> T&amp;);
-<a name="l00025"></a>00025                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a> lookAt(<span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp;,<span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp;);
-<a name="l00026"></a>00026                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a> translate(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;);
-<a name="l00027"></a>00027                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a> translate(<span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp;);
-<a name="l00028"></a>00028                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a> rotate(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp;);
-<a name="l00029"></a>00029                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a> scale(<span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;, <span class="keyword">const</span> T&amp;);
-<a name="l00030"></a>00030                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a> scale(<span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp;);
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>() = <span class="keywordflow">default</span>;
-<a name="l00033"></a>00033                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>(<span class="keyword">const</span> T&amp;);
-<a name="l00034"></a>00034                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>&amp;);
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036                 <span class="keyword">union</span>
-<a name="l00037"></a>00037                 {
-<a name="l00038"></a>00038                         T values[4 * 4] INIT_IDENTITY;
-<a name="l00039"></a>00039                         <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a> columns[4];
-<a name="l00040"></a>00040                 };
-<a name="l00041"></a>00041         
-<a name="l00042"></a>00042         glm::mat4 toGLM() <span class="keyword">const</span>;
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>&amp; multiply(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>&amp;);
-<a name="l00045"></a>00045                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>&amp; multiply(<span class="keyword">const</span> T&amp;);
-<a name="l00046"></a>00046                 <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a> multiply(<span class="keyword">const</span> <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a>&amp;) <span class="keyword">const</span>;
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048                 <span class="keywordtype">void</span> print();
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>&amp; operator*=(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>&amp;);
-<a name="l00051"></a>00051                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4</a>&amp; operator*=(<span class="keyword">const</span> T&amp;);
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053                 <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a>&amp; operator[](<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055                 <span class="keyword">friend</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;T&gt;</a> operator*&lt;&gt;(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;T&gt;</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;T&gt;</a>&amp;);
-<a name="l00056"></a>00056                 <span class="keyword">friend</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;T&gt;</a> operator*&lt;&gt;(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;T&gt;</a>&amp;, <span class="keyword">const</span> T&amp;);
-<a name="l00057"></a>00057                 <span class="keyword">friend</span> <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a> operator*&lt;&gt;(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;T&gt;</a>&amp;,<span class="keyword">const</span> <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a>&amp;);
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059                 <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt; &lt;&gt;(std::ostream&amp;, <span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;T&gt;</a>&amp;);
-<a name="l00060"></a>00060         };
-<a name="l00061"></a>00061     
-<a name="l00062"></a>00062     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
-<a name="l00063"></a>00063     <span class="keyword">extern</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;T&gt;</a> toMy(<span class="keyword">const</span> glm::mat4&amp;);
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065         <span class="keyword">typedef</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;GLfloat&gt;</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4f</a>;
-<a name="l00066"></a>00066         <span class="keyword">typedef</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;GLdouble&gt;</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4d</a>;
-<a name="l00067"></a>00067         <span class="keyword">typedef</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4&lt;GLint&gt;</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">Matrix4i</a>;
-<a name="l00068"></a>00068 }
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 <span class="preprocessor">#include &quot;../src/Matrix4.cpp&quot;</span>
+<a name="l00021"></a>00021         <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00022"></a><a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html">00022</a>         <span class="keyword">class </span><a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>
+<a name="l00023"></a>00023         {
+<a name="l00024"></a>00024         <span class="keyword">public</span>:
+<a name="l00028"></a>00028                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#a5a5256470ed471e6efe8b50b0cfed32d" title="Creates a 4x4 identity matrix.">identity</a>();
+<a name="l00036"></a>00036                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#abe67283fabaa0da475f9a005cd814a06" title="Creates a 4x4 perspective projection matrix.">perspective</a>(<span class="keyword">const</span> T&amp; fov,<span class="keyword">const</span> T&amp; aspect,<span class="keyword">const</span> T&amp; far,<span class="keyword">const</span> T&amp; near);
+<a name="l00046"></a>00046                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#afbca02ad88a0a7d8a529eb61e5c2d100" title="Creates a 4x4 orthographic projection matrix.">orthographic</a>(<span class="keyword">const</span> T&amp; top, <span class="keyword">const</span> T&amp; bottom, <span class="keyword">const</span> T&amp; right, <span class="keyword">const</span> T&amp; left, <span class="keyword">const</span> T&amp; far, <span class="keyword">const</span> T&amp; near);
+<a name="l00053"></a>00053                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#afb6d28477e7986c43fb8d992ccabbdbd" title="Creates a 4x4 worldview matrix.">lookAt</a>(<span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp; position, <span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp; middle, <span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp; up);
+<a name="l00060"></a>00060                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#ae7959f060b9d1d2a6a0082e2eb10b9db" title="Creates a 4x4 translation matrix.">translate</a>(<span class="keyword">const</span> T&amp; x, <span class="keyword">const</span> T&amp; y, <span class="keyword">const</span> T&amp; z);
+<a name="l00065"></a>00065                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#ae7959f060b9d1d2a6a0082e2eb10b9db" title="Creates a 4x4 translation matrix.">translate</a>(<span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp; v);
+<a name="l00071"></a>00071                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#af6edfe1f96571e0d788d3880675faa0f" title="Creates a 4x4 rotation matrix.">rotate</a>(<span class="keyword">const</span> T&amp; angle, <span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp; axis);
+<a name="l00078"></a>00078                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#ab1ff7b4327a1b596e78b7b488ecce7c6" title="Creates a 4x4 scale matrix.">scale</a>(<span class="keyword">const</span> T&amp; x, <span class="keyword">const</span> T&amp; y, <span class="keyword">const</span> T&amp; z);
+<a name="l00083"></a>00083                 <span class="keyword">static</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#ab1ff7b4327a1b596e78b7b488ecce7c6" title="Creates a 4x4 scale matrix.">scale</a>(<span class="keyword">const</span> <a class="code" href="../../df/d39/class_johnny_1_1_vector3.html">Vector3&lt;T&gt;</a>&amp; v);
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>() = <span class="keywordflow">default</span>;
+<a name="l00089"></a>00089                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>(<span class="keyword">const</span> T&amp; d);
+<a name="l00093"></a>00093                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>&amp; mat);
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095                 <span class="keyword">union</span>
+<a name="l00096"></a>00096                 {
+<a name="l00097"></a><a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#a1d5b632ab0e4a3e26cafa9e61ef36600">00097</a>                         T values[4 * 4] <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#a1d5b632ab0e4a3e26cafa9e61ef36600" title="The elements of the matrix as an array.">INIT_IDENTITY</a>; 
+<a name="l00098"></a><a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#ad2cb5eada5fcf8445250af135fc7e38a">00098</a>                         <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#ad2cb5eada5fcf8445250af135fc7e38a" title="The elements of the matrix as an array of columns.">columns</a>[4];             
+<a name="l00099"></a>00099                 };
+<a name="l00100"></a>00100         
+<a name="l00101"></a>00101         glm::mat4 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#aff0fa28078d6a2868103cfb6b44d59ff" title="Converts the matrix into a glm::mat4.">toGLM</a>() <span class="keyword">const</span>; 
+<a name="l00102"></a>00102 
+<a name="l00107"></a>00107                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>&amp; <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#a004c647a264a3d8207d6738bce9d1dfb" title="Multiplies this matrix with another one.">multiply</a>(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>&amp; mat);
+<a name="l00112"></a>00112                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>&amp; <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#a004c647a264a3d8207d6738bce9d1dfb" title="Multiplies this matrix with another one.">multiply</a>(<span class="keyword">const</span> T&amp; s);
+<a name="l00117"></a>00117                 <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#a004c647a264a3d8207d6738bce9d1dfb" title="Multiplies this matrix with another one.">multiply</a>(<span class="keyword">const</span> <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a>&amp; v) <span class="keyword">const</span>;
+<a name="l00118"></a>00118 
+<a name="l00122"></a>00122                 <span class="keywordtype">void</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html#a9bb6926d18e5c98195310888325f6c08" title="Prints this matrix to the console.">print</a>();
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>&amp; operator*=(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>&amp;);
+<a name="l00125"></a>00125                 <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4</a>&amp; operator*=(<span class="keyword">const</span> T&amp;);
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127                 <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a>&amp; operator[](<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129                 <span class="keyword">friend</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4&lt;T&gt;</a> operator*&lt;&gt;(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4&lt;T&gt;</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4&lt;T&gt;</a>&amp;);
+<a name="l00130"></a>00130                 <span class="keyword">friend</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4&lt;T&gt;</a> operator*&lt;&gt;(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4&lt;T&gt;</a>&amp;, <span class="keyword">const</span> T&amp;);
+<a name="l00131"></a>00131                 <span class="keyword">friend</span> <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a> operator*&lt;&gt;(<span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4&lt;T&gt;</a>&amp;,<span class="keyword">const</span> <a class="code" href="../../d3/da4/class_johnny_1_1_vector4.html">Vector4&lt;T&gt;</a>&amp;);
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133                 <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt; &lt;&gt;(std::ostream&amp;, <span class="keyword">const</span> <a class="code" href="../../df/db1/class_johnny_1_1_matrix4.html" title="A class which represents a 4x4 matrix.">Matrix4&lt;T&gt;</a>&amp;);
+<a name="l00134"></a>00134         };
+<a name="l00135"></a>00135     
+<a name="l00140"></a>00140     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
+<a name="l00141"></a>00141     <span class="keyword">extern</span> Matrix4&lt;T&gt; <a class="code" href="../../d1/dc4/namespace_johnny.html#a0f74ab0c420d7f183366a3a2ef70767d" title="Converts a glm::mat3 to a Matrix3&lt;T&gt;">toMy</a>(<span class="keyword">const</span> glm::mat4&amp; mat);
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143         <span class="keyword">typedef</span> Matrix4&lt;GLfloat&gt; Matrix4f;
+<a name="l00144"></a>00144         <span class="keyword">typedef</span> Matrix4&lt;GLdouble&gt; Matrix4d;
+<a name="l00145"></a>00145         <span class="keyword">typedef</span> Matrix4&lt;GLint&gt; Matrix4i;
+<a name="l00146"></a>00146 }
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148 <span class="preprocessor">#include &quot;../src/Matrix4.cpp&quot;</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

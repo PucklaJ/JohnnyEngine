@@ -112,74 +112,90 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00021"></a>00021     <span class="keyword">class </span>Camera3D;
 <a name="l00022"></a>00022     <span class="keyword">class </span>Lighting3D;
 <a name="l00023"></a>00023     
-<a name="l00024"></a><a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html">00024</a>     <span class="keyword">class </span><a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html">Texture2DShaderUpdater</a> : <span class="keyword">public</span> <a class="code" href="../../d6/df4/class_johnny_1_1_shader_updater.html">ShaderUpdater</a>
+<a name="l00024"></a>00024     <span class="keyword">enum</span> DrawModes
 <a name="l00025"></a>00025     {
-<a name="l00026"></a>00026     <span class="keyword">public</span>:
-<a name="l00027"></a>00027         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> TRANSFORM_NORMAL;
-<a name="l00028"></a>00028         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> TRANSFORM_CAMERA;
+<a name="l00026"></a>00026       DIRECT=0,
+<a name="l00027"></a>00027       BLENDING=1
+<a name="l00028"></a>00028     };
 <a name="l00029"></a>00029     
-<a name="l00030"></a>00030         <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html">Texture2DShaderUpdater</a>(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>* s) : <a class="code" href="../../d6/df4/class_johnny_1_1_shader_updater.html">ShaderUpdater</a>(s) {};
-<a name="l00031"></a>00031         ~<a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html">Texture2DShaderUpdater</a>();
-<a name="l00032"></a>00032         
-<a name="l00033"></a>00033         <span class="keywordtype">void</span> update() <span class="keyword">override</span>;
-<a name="l00034"></a>00034         
-<a name="l00035"></a>00035         <span class="keywordtype">void</span> setUniforms(<a class="code" href="../../db/d49/class_johnny_1_1_camera3_d.html" title="The camera for all 3D objects It transforms all 3D objects with m_affectedByCamera = true...">Camera3D</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0)<span class="keyword"> override </span>{}
-<a name="l00036"></a>00036         <span class="keywordtype">void</span> setUniforms(<a class="code" href="../../d3/d12/class_johnny_1_1_lighting3_d.html" title="The class for handling all 3D lighting specific things.">Lighting3D</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0)<span class="keyword"> override </span>{}
-<a name="l00037"></a>00037         
-<a name="l00038"></a>00038         <span class="keywordtype">void</span> setUniforms(<a class="code" href="../../d1/d60/class_johnny_1_1_transform2_d.html">Transform2D</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0) <span class="keyword">override</span>;
-<a name="l00039"></a>00039         <span class="keywordtype">void</span> setUniforms(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0) <span class="keyword">override</span>;
-<a name="l00040"></a>00040         <span class="keywordtype">void</span> setUniforms(<a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0) <span class="keyword">override</span>;
-<a name="l00041"></a>00041         <span class="keywordtype">void</span> setUniforms(<a class="code" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Sprite2D</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0) <span class="keyword">override</span>;
-<a name="l00042"></a>00042     };
-<a name="l00043"></a>00043 
-<a name="l00044"></a><a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">00044</a>         <span class="keyword">class </span><a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>
-<a name="l00045"></a>00045         {
-<a name="l00046"></a>00046         <span class="keyword">public</span>:
-<a name="l00047"></a>00047                 <span class="keyword">static</span> <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html">Mesh3D</a>* createTexturePlane(GLfloat, GLfloat);
-<a name="l00048"></a>00048                 <span class="keyword">static</span> <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* SDL_SurfaceToTexture(SDL_Surface*,GLenum filtering = GL_LINEAR);
-<a name="l00049"></a>00049                 <span class="keyword">static</span> <span class="keywordtype">void</span> initTexture2DShader(<a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>*);
-<a name="l00050"></a>00050                 <span class="keyword">static</span> <span class="keywordtype">void</span> initTexture2DBuffers();
-<a name="l00051"></a>00051                 <span class="keyword">static</span> <span class="keywordtype">void</span> renderTexture2D(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>*, <span class="keyword">const</span> <a class="code" href="../../dd/d0f/class_johnny_1_1_matrix3.html">Matrix3f</a>&amp;,<span class="keyword">const</span> <a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>* srcRegion = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bindShader = <span class="keyword">true</span>,<span class="keywordtype">bool</span> isFrameBuffer = <span class="keyword">false</span>);
-<a name="l00052"></a>00052                 <span class="keyword">static</span> <span class="keywordtype">void</span> renderTexture2D(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>*, <span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; scale = <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>(1.0f,1.0f), <span class="keyword">const</span> GLfloat&amp; rotation = 0.0f, <span class="keyword">const</span> <a class="code" href="../../da/d73/class_johnny_1_1_camera2_d.html" title="The camera for all 2D objects It transforms all 2D objects with m_affectedByCamera = true...">Camera2D</a>* cam = <span class="keyword">nullptr</span>,<span class="keyword">const</span> <a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>* srcRegion = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bindShader = <span class="keyword">true</span>,<span class="keywordtype">bool</span> isFrameBuffer = <span class="keyword">false</span>,GLenum target = GL_TEXTURE_2D);
-<a name="l00053"></a>00053         <span class="keyword">static</span> <span class="keywordtype">void</span> renderTexture2D(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>*, <span class="keyword">const</span> <a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>* dst = <span class="keyword">nullptr</span>, <span class="keyword">const</span> <a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>* src = <span class="keyword">nullptr</span>,<span class="keyword">const</span> GLfloat&amp; rotation = 0.0f,<span class="keyword">const</span> <a class="code" href="../../da/d73/class_johnny_1_1_camera2_d.html" title="The camera for all 2D objects It transforms all 2D objects with m_affectedByCamera = true...">Camera2D</a>* cam = <span class="keyword">nullptr</span>,<span class="keywordtype">bool</span> bindShader = <span class="keyword">true</span>, <span class="keywordtype">bool</span> isFrameBuffer = <span class="keyword">false</span>);
-<a name="l00054"></a>00054         <span class="keyword">static</span> <span class="keywordtype">void</span> renderSprite2D();
-<a name="l00055"></a>00055         
-<a name="l00056"></a>00056         <span class="keyword">static</span> <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* BOX(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2i</a>&amp;,<span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Colorf</a>&amp; color = <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Colorf</a>(0.0f,0.0f,0.0f,0.0f),GLenum target = GL_TEXTURE_2D,GLenum filtering = GL_LINEAR,GLenum format = GL_RGBA,GLenum type = GL_UNSIGNED_BYTE);
-<a name="l00057"></a>00057         
-<a name="l00058"></a>00058                 <span class="keyword">static</span> <a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>* getTexture2DShader();
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060                 <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>(GLubyte*, GLsizei, GLsizei,GLenum,GLint internalFormat = GL_RGBA, GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE, GLenum target = GL_TEXTURE_2D);
-<a name="l00061"></a>00061                 <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>();
-<a name="l00062"></a>00062                 ~<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>();
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064                 <span class="keywordtype">void</span> bind(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>*, <span class="keyword">const</span> std::string&amp; name = <span class="stringliteral">&quot;textureAddress&quot;</span>, GLuint unit = 0, GLenum target = GL_TEXTURE_2D);
-<a name="l00065"></a>00065                 <span class="keywordtype">void</span> unbind(GLuint unit = 0, GLenum target = GL_TEXTURE_2D);
-<a name="l00066"></a>00066         GLubyte* readPixels(GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE);
-<a name="l00067"></a>00067         SDL_Surface* toSDLSurface(GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA,GLenum type = GL_UNSIGNED_BYTE);
-<a name="l00068"></a>00068         
+<a name="l00030"></a><a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html">00030</a>     <span class="keyword">class </span><a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html">Texture2DShaderUpdater</a> : <span class="keyword">public</span> <a class="code" href="../../d6/df4/class_johnny_1_1_shader_updater.html" title="A class which is used to update the uniforms of a Shader.">ShaderUpdater</a>
+<a name="l00031"></a>00031     {
+<a name="l00032"></a>00032     <span class="keyword">public</span>:
+<a name="l00033"></a><a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#a8755ad540db4138d50dae165728cb269">00033</a>         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#a8755ad540db4138d50dae165728cb269" title="The index to indicate that a normal transform should be loaded.">TRANSFORM_NORMAL</a>;
+<a name="l00034"></a><a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#abc8b2614b0d4d74096fff6a73d3f49eb">00034</a>         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#abc8b2614b0d4d74096fff6a73d3f49eb" title="The index to indicate that a camera transformed transform should be loaded.">TRANSFORM_CAMERA</a>;
+<a name="l00035"></a>00035     
+<a name="l00036"></a>00036         <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html">Texture2DShaderUpdater</a>(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* s) : <a class="code" href="../../d6/df4/class_johnny_1_1_shader_updater.html" title="A class which is used to update the uniforms of a Shader.">ShaderUpdater</a>(s) {};
+<a name="l00037"></a>00037         ~<a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html">Texture2DShaderUpdater</a>();
+<a name="l00038"></a>00038         
+<a name="l00039"></a>00039         <span class="keywordtype">void</span> <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#a384918d88cf06e7e4a26cecbffe77c23" title="Gets called every frame before anything is rendered.">update</a>() <span class="keyword">override</span>;
+<a name="l00040"></a>00040         
+<a name="l00041"></a><a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#ab42b96e12840dc551349d8ee285e5709">00041</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#ab42b96e12840dc551349d8ee285e5709" title="Sets the uniforms for a Camera3D.">setUniforms</a>(<a class="code" href="../../db/d49/class_johnny_1_1_camera3_d.html" title="The camera for all 3D objects It transforms all 3D objects with m_affectedByCamera = true...">Camera3D</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0)<span class="keyword"> override </span>{}
+<a name="l00042"></a><a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#adb2c15cde8a955064b5df7837302a9dc">00042</a>         <span class="keywordtype">void</span> <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#adb2c15cde8a955064b5df7837302a9dc" title="Sets the uniforms for a Lighting3D.">setUniforms</a>(<a class="code" href="../../d3/d12/class_johnny_1_1_lighting3_d.html" title="The class for handling all 3D lighting specific things.">Lighting3D</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0)<span class="keyword"> override </span>{}
+<a name="l00043"></a>00043         
+<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#ab42b96e12840dc551349d8ee285e5709" title="Sets the uniforms for a Camera3D.">setUniforms</a>(<a class="code" href="../../d1/d60/class_johnny_1_1_transform2_d.html">Transform2D</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0) <span class="keyword">override</span>;
+<a name="l00045"></a>00045         <span class="keywordtype">void</span> <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#ab42b96e12840dc551349d8ee285e5709" title="Sets the uniforms for a Camera3D.">setUniforms</a>(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0) <span class="keyword">override</span>;
+<a name="l00046"></a>00046         <span class="keywordtype">void</span> <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#ab42b96e12840dc551349d8ee285e5709" title="Sets the uniforms for a Camera3D.">setUniforms</a>(<a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0) <span class="keyword">override</span>;
+<a name="l00047"></a>00047         <span class="keywordtype">void</span> <a class="code" href="../../d6/d6b/class_johnny_1_1_texture2_d_shader_updater.html#ab42b96e12840dc551349d8ee285e5709" title="Sets the uniforms for a Camera3D.">setUniforms</a>(<a class="code" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Sprite2D</a>*,<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0) <span class="keyword">override</span>;
+<a name="l00048"></a>00048     };
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">00050</a>         <span class="keyword">class </span><a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>
+<a name="l00051"></a>00051         {
+<a name="l00052"></a>00052         <span class="keyword">public</span>:
+<a name="l00053"></a>00053                 <span class="keyword">static</span> <a class="code" href="../../d2/db0/class_johnny_1_1_mesh3_d.html" title="A class which represents a bunch of vertices with a material on the graphics card.">Mesh3D</a>* createTexturePlane(GLfloat, GLfloat);
+<a name="l00054"></a>00054                 <span class="keyword">static</span> <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* SDL_SurfaceToTexture(SDL_Surface*,GLenum filtering = GL_LINEAR);
+<a name="l00055"></a>00055                 <span class="keyword">static</span> <span class="keywordtype">void</span> initTexture2DShader(<a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>*);
+<a name="l00056"></a>00056                 <span class="keyword">static</span> <span class="keywordtype">void</span> initTexture2DBuffers();
+<a name="l00057"></a>00057                 <span class="keyword">static</span> <span class="keywordtype">void</span> renderTexture2D(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>*, <span class="keyword">const</span> <a class="code" href="../../dd/d0f/class_johnny_1_1_matrix3.html" title="A class which represents a 3x3 matrix.">Matrix3f</a>&amp;,<span class="keyword">const</span> <a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>* srcRegion = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bindShader = <span class="keyword">true</span>,<span class="keywordtype">bool</span> isFrameBuffer = <span class="keyword">false</span>);
+<a name="l00058"></a>00058                 <span class="keyword">static</span> <span class="keywordtype">void</span> renderTexture2D(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>*, <span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp;, <span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; scale = <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>(1.0f,1.0f), <span class="keyword">const</span> GLfloat&amp; rotation = 0.0f, <span class="keyword">const</span> <a class="code" href="../../da/d73/class_johnny_1_1_camera2_d.html" title="The camera for all 2D objects It transforms all 2D objects with m_affectedByCamera = true...">Camera2D</a>* cam = <span class="keyword">nullptr</span>,<span class="keyword">const</span> <a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>* srcRegion = <span class="keyword">nullptr</span>, <span class="keywordtype">bool</span> bindShader = <span class="keyword">true</span>,<span class="keywordtype">bool</span> isFrameBuffer = <span class="keyword">false</span>,GLenum target = GL_TEXTURE_2D);
+<a name="l00059"></a>00059         <span class="keyword">static</span> <span class="keywordtype">void</span> renderTexture2D(<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>*, <span class="keyword">const</span> <a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>* dst = <span class="keyword">nullptr</span>, <span class="keyword">const</span> <a class="code" href="../../dd/d32/class_johnny_1_1_rectangle.html">TextureRegion</a>* src = <span class="keyword">nullptr</span>,<span class="keyword">const</span> GLfloat&amp; rotation = 0.0f,<span class="keyword">const</span> <a class="code" href="../../da/d73/class_johnny_1_1_camera2_d.html" title="The camera for all 2D objects It transforms all 2D objects with m_affectedByCamera = true...">Camera2D</a>* cam = <span class="keyword">nullptr</span>,<span class="keywordtype">bool</span> bindShader = <span class="keyword">true</span>, <span class="keywordtype">bool</span> isFrameBuffer = <span class="keyword">false</span>);
+<a name="l00060"></a>00060         <span class="keyword">static</span> <span class="keywordtype">void</span> renderSprite2D();
+<a name="l00061"></a>00061         
+<a name="l00062"></a>00062         <span class="keyword">static</span> <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>* BOX(<span class="keyword">const</span> <a class="code" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2i</a>&amp;,<span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Colorf</a>&amp; color = <a class="code" href="../../df/d46/class_johnny_1_1_color.html" title="This class holds the values r,g,b and a which are used for all coloring actions.">Colorf</a>(0.0f,0.0f,0.0f,0.0f),GLenum target = GL_TEXTURE_2D,GLenum filtering = GL_LINEAR,GLenum format = GL_RGBA,GLenum type = GL_UNSIGNED_BYTE);
+<a name="l00063"></a>00063         
+<a name="l00064"></a>00064                 <span class="keyword">static</span> <a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* getTexture2DShader();
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066                 <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>(GLubyte*, GLsizei, GLsizei,GLenum,GLint internalFormat = GL_RGBA, GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE, GLenum target = GL_TEXTURE_2D);
+<a name="l00067"></a>00067                 <a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>();
+<a name="l00068"></a>00068                 ~<a class="code" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a>();
 <a name="l00069"></a>00069 
-<a name="l00070"></a>00070                 GLuint getBuffer() { <span class="keywordflow">return</span> m_texture; }
-<a name="l00071"></a>00071                 GLsizei getWidth();
-<a name="l00072"></a>00072                 GLsizei getHeight();
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074         <span class="keyword">protected</span>:
-<a name="l00075"></a>00075                 <span class="keyword">static</span> <a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>* m_texture2DShader;
-<a name="l00076"></a>00076                 <span class="keyword">static</span> GLuint m_texture2D_vbo;
-<a name="l00077"></a>00077                 <span class="keyword">static</span> GLuint m_texture2D_vao;
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079                 GLuint m_texture = 0;
-<a name="l00080"></a>00080                 GLsizei m_width = 0;
-<a name="l00081"></a>00081                 GLsizei m_height = 0;
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083         };
-<a name="l00084"></a>00084 }
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086 <span class="preprocessor">#endif</span>
-<a name="l00087"></a>00087 <span class="preprocessor"></span>
+<a name="l00070"></a>00070                 <span class="keywordtype">void</span> bind(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>*, <span class="keyword">const</span> std::string&amp; name = <span class="stringliteral">&quot;textureAddress&quot;</span>, GLuint unit = 0, GLenum target = GL_TEXTURE_2D);
+<a name="l00071"></a>00071                 <span class="keywordtype">void</span> unbind(GLuint unit = 0, GLenum target = GL_TEXTURE_2D);
+<a name="l00072"></a>00072         GLubyte* readPixels(GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE);
+<a name="l00073"></a>00073         SDL_Surface* toSDLSurface(GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA,GLenum type = GL_UNSIGNED_BYTE);
+<a name="l00074"></a>00074         
+<a name="l00075"></a>00075         <span class="keywordtype">void</span> setKeyColor(<span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>&amp; color) {m_keyColor=color;}
+<a name="l00076"></a>00076         <span class="keywordtype">void</span> setModColor(<span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>&amp; color) {m_modColor=color;}
+<a name="l00077"></a>00077         <span class="keywordtype">void</span> setDrawMode(<span class="keyword">const</span> DrawModes&amp; mode) {m_drawMode=mode;}
+<a name="l00078"></a>00078         
+<a name="l00079"></a>00079                 GLuint getBuffer() { <span class="keywordflow">return</span> m_texture; }
+<a name="l00080"></a>00080                 <span class="keyword">const</span> GLsizei&amp; getWidth();
+<a name="l00081"></a>00081                 <span class="keyword">const</span> GLsizei&amp; getHeight();
+<a name="l00082"></a>00082         
+<a name="l00083"></a>00083         <span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>&amp; getKeyColor()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_keyColor;}
+<a name="l00084"></a>00084         <span class="keyword">const</span> <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>&amp; getModColor()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_modColor;}
+<a name="l00085"></a>00085         <span class="keyword">const</span> DrawModes&amp; getDrawMode()<span class="keyword"> const </span>{<span class="keywordflow">return</span> m_drawMode;}
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087         <span class="keyword">protected</span>:
+<a name="l00088"></a>00088                 <span class="keyword">static</span> <a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* m_texture2DShader;
+<a name="l00089"></a>00089                 <span class="keyword">static</span> GLuint m_texture2D_vbo;
+<a name="l00090"></a>00090                 <span class="keyword">static</span> GLuint m_texture2D_vao;
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092                 GLuint m_texture = 0;
+<a name="l00093"></a>00093                 GLsizei m_width = 0;
+<a name="l00094"></a>00094                 GLsizei m_height = 0;
+<a name="l00095"></a>00095         <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> m_keyColor;
+<a name="l00096"></a>00096         <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a> m_modColor = <a class="code" href="../../df/d46/class_johnny_1_1_color.html">Colorb</a>(255,255,255,255);
+<a name="l00097"></a>00097         DrawModes m_drawMode = BLENDING;
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099         };
+<a name="l00100"></a>00100 }
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 <span class="preprocessor">#endif</span>
+<a name="l00103"></a>00103 <span class="preprocessor"></span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

@@ -95,6 +95,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="title">Johnny::PhysicsSprite2D Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class which represents a b2Body as a <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Sprite2D</a>.  
+ <a href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d8/db7/_physics_sprite2_d_8h_source.html">PhysicsSprite2D.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Johnny::PhysicsSprite2D:</div>
 <div class="dyncontent">
@@ -112,38 +117,35 @@ Inheritance diagram for Johnny::PhysicsSprite2D:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a388769cab00f013acfbb9c5e21a0d347"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a388769cab00f013acfbb9c5e21a0d347"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PhysicsSprite2D</b> (b2Body *body=nullptr)</td></tr>
-<tr class="memitem:a2f8997c27b8b2aa823e8aafa253eecac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f8997c27b8b2aa823e8aafa253eecac"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PhysicsSprite2D</b> (const std::string &amp;, b2Body *body=nullptr)</td></tr>
-<tr class="memitem:ac1f8a2368e4a5d70acae8d1739db4489"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1f8a2368e4a5d70acae8d1739db4489"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PhysicsSprite2D</b> (<a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *, b2Body *body=nullptr)</td></tr>
-<tr class="memitem:af6cddab85c713f4c4ec1ad524e30e83d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#af6cddab85c713f4c4ec1ad524e30e83d">init</a> ()</td></tr>
-<tr class="memdesc:af6cddab85c713f4c4ec1ad524e30e83d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called right after being added to its parent.  <a href="#af6cddab85c713f4c4ec1ad524e30e83d"></a><br/></td></tr>
-<tr class="memitem:a1369153ad61c9b79dceb3926f7a7e238"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a1369153ad61c9b79dceb3926f7a7e238">m_update</a> ()</td></tr>
-<tr class="memdesc:a1369153ad61c9b79dceb3926f7a7e238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the same as update, but for internal use.  <a href="#a1369153ad61c9b79dceb3926f7a7e238"></a><br/></td></tr>
-<tr class="memitem:ad7687e40b5ebf2a491789e0801001f8c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#ad7687e40b5ebf2a491789e0801001f8c">m_quit</a> ()</td></tr>
-<tr class="memdesc:ad7687e40b5ebf2a491789e0801001f8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the same as quit, but for internal use.  <a href="#ad7687e40b5ebf2a491789e0801001f8c"></a><br/></td></tr>
-<tr class="memitem:aef7fff5125e90a63bc01230ff966b0f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef7fff5125e90a63bc01230ff966b0f1"></a>
-b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>getBody</b> ()</td></tr>
-<tr class="memitem:a8d2aa3a91f733a5f63f02800a2c691d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d2aa3a91f733a5f63f02800a2c691d3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getAutomaticDestroy</b> ()</td></tr>
-<tr class="memitem:ac4a3001f4726087338dccfb80125cf2f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4a3001f4726087338dccfb80125cf2f"></a>
-const <a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getOffset</b> () const </td></tr>
-<tr class="memitem:ad3d34b72336c18cae08e96d342813a33"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3d34b72336c18cae08e96d342813a33"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBody</b> (b2Body *body)</td></tr>
-<tr class="memitem:ad4e45da6a84ea43917ec9c8a0a4dce5d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4e45da6a84ea43917ec9c8a0a4dce5d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAutomaticDestroy</b> (bool b)</td></tr>
-<tr class="memitem:a39e88dcea365d7fc1a31e33d8a13b2a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39e88dcea365d7fc1a31e33d8a13b2a2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setOffset</b> (const <a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> &amp;v)</td></tr>
-<tr class="memitem:ae06defcb2e33a98ce78d66135325f462"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae06defcb2e33a98ce78d66135325f462"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginContact</b> (b2Contact *, b2Fixture *, b2Fixture *)</td></tr>
-<tr class="memitem:a3d8a25a2c8fd79dcd49ed455953aad4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d8a25a2c8fd79dcd49ed455953aad4b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>EndContact</b> (b2Contact *, b2Fixture *, b2Fixture *)</td></tr>
-<tr class="memitem:a6383a3ea85a803684466fcdb94f14430"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6383a3ea85a803684466fcdb94f14430"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>PreSolve</b> (b2Contact *, b2Fixture *, b2Fixture *, const b2Manifold *)</td></tr>
-<tr class="memitem:a316e16de9bad800c621ad12400939e4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a316e16de9bad800c621ad12400939e4c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>PostSolve</b> (b2Contact *, b2Fixture *, b2Fixture *, const b2ContactImpulse *)</td></tr>
+<tr class="memitem:a388769cab00f013acfbb9c5e21a0d347"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a388769cab00f013acfbb9c5e21a0d347">PhysicsSprite2D</a> (b2Body *body=nullptr)</td></tr>
+<tr class="memdesc:a388769cab00f013acfbb9c5e21a0d347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a>.  <a href="#a388769cab00f013acfbb9c5e21a0d347"></a><br/></td></tr>
+<tr class="memitem:a075c1a37f45fe85e19a818ffdfccee10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a075c1a37f45fe85e19a818ffdfccee10">PhysicsSprite2D</a> (const std::string &amp;file, b2Body *body=nullptr)</td></tr>
+<tr class="memdesc:a075c1a37f45fe85e19a818ffdfccee10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a>.  <a href="#a075c1a37f45fe85e19a818ffdfccee10"></a><br/></td></tr>
+<tr class="memitem:a0dbc3428a623d6c2850a9a381b56adf9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a0dbc3428a623d6c2850a9a381b56adf9">PhysicsSprite2D</a> (<a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *texture, b2Body *body=nullptr)</td></tr>
+<tr class="memdesc:a0dbc3428a623d6c2850a9a381b56adf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a>.  <a href="#a0dbc3428a623d6c2850a9a381b56adf9"></a><br/></td></tr>
+<tr class="memitem:aff4138953b7f80e06369fb75f9e2005d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#aff4138953b7f80e06369fb75f9e2005d">init</a> () override</td></tr>
+<tr class="memdesc:aff4138953b7f80e06369fb75f9e2005d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The init method.  <a href="#aff4138953b7f80e06369fb75f9e2005d"></a><br/></td></tr>
+<tr class="memitem:a218661d8caf3bd9dabe98b6462881283"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a218661d8caf3bd9dabe98b6462881283">m_update</a> () override</td></tr>
+<tr class="memdesc:a218661d8caf3bd9dabe98b6462881283"><td class="mdescLeft">&#160;</td><td class="mdescRight">The m_update method.  <a href="#a218661d8caf3bd9dabe98b6462881283"></a><br/></td></tr>
+<tr class="memitem:a8c4b0ca52046973f7400a7286e01e7a8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a8c4b0ca52046973f7400a7286e01e7a8">m_quit</a> () override</td></tr>
+<tr class="memdesc:a8c4b0ca52046973f7400a7286e01e7a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The m_quit method.  <a href="#a8c4b0ca52046973f7400a7286e01e7a8"></a><br/></td></tr>
+<tr class="memitem:aef7fff5125e90a63bc01230ff966b0f1"><td class="memItemLeft" align="right" valign="top">b2Body *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#aef7fff5125e90a63bc01230ff966b0f1">getBody</a> ()</td></tr>
+<tr class="memitem:a8d2aa3a91f733a5f63f02800a2c691d3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a8d2aa3a91f733a5f63f02800a2c691d3">getAutomaticDestroy</a> ()</td></tr>
+<tr class="memitem:ac4a3001f4726087338dccfb80125cf2f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#ac4a3001f4726087338dccfb80125cf2f">getOffset</a> () const </td></tr>
+<tr class="memitem:ad3d34b72336c18cae08e96d342813a33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#ad3d34b72336c18cae08e96d342813a33">setBody</a> (b2Body *body)</td></tr>
+<tr class="memdesc:ad3d34b72336c18cae08e96d342813a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the body of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a>.  <a href="#ad3d34b72336c18cae08e96d342813a33"></a><br/></td></tr>
+<tr class="memitem:ad4e45da6a84ea43917ec9c8a0a4dce5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#ad4e45da6a84ea43917ec9c8a0a4dce5d">setAutomaticDestroy</a> (bool b)</td></tr>
+<tr class="memdesc:ad4e45da6a84ea43917ec9c8a0a4dce5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets if the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> should be destroyed if it moves out of the physics world.  <a href="#ad4e45da6a84ea43917ec9c8a0a4dce5d"></a><br/></td></tr>
+<tr class="memitem:a39e88dcea365d7fc1a31e33d8a13b2a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a39e88dcea365d7fc1a31e33d8a13b2a2">setOffset</a> (const <a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> &amp;v)</td></tr>
+<tr class="memdesc:a39e88dcea365d7fc1a31e33d8a13b2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the offset which applies to the attaching of the <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Sprite2D</a> to the b2Body.  <a href="#a39e88dcea365d7fc1a31e33d8a13b2a2"></a><br/></td></tr>
+<tr class="memitem:acc105d3f3798c2bbeb11a823eed5785b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#acc105d3f3798c2bbeb11a823eed5785b">BeginContact</a> (b2Contact *c, b2Fixture *f1, b2Fixture *f2)</td></tr>
+<tr class="memdesc:acc105d3f3798c2bbeb11a823eed5785b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when the b2Body of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> begins colliding with another b2Body.  <a href="#acc105d3f3798c2bbeb11a823eed5785b"></a><br/></td></tr>
+<tr class="memitem:a58b6bfd635844d774c345490756ff4c6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a58b6bfd635844d774c345490756ff4c6">EndContact</a> (b2Contact *c, b2Fixture *f1, b2Fixture *f2)</td></tr>
+<tr class="memdesc:a58b6bfd635844d774c345490756ff4c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when the b2Body of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> ends colliding with another b2Body.  <a href="#a58b6bfd635844d774c345490756ff4c6"></a><br/></td></tr>
+<tr class="memitem:a0e3a3a26a911638bef2ea8008cc66361"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a0e3a3a26a911638bef2ea8008cc66361">PreSolve</a> (b2Contact *c, b2Fixture *f1, b2Fixture *f2, const b2Manifold *m)</td></tr>
+<tr class="memdesc:a0e3a3a26a911638bef2ea8008cc66361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every time the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> is colliding with another b2Body.  <a href="#a0e3a3a26a911638bef2ea8008cc66361"></a><br/></td></tr>
+<tr class="memitem:a96162e3ffb3e9374eccb63129b817904"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a96162e3ffb3e9374eccb63129b817904">PostSolve</a> (b2Contact *c, b2Fixture *f1, b2Fixture *f2, const b2ContactImpulse *ci)</td></tr>
+<tr class="memdesc:a96162e3ffb3e9374eccb63129b817904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every time the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> is colliding with another b2Body after PreSolve.  <a href="#a96162e3ffb3e9374eccb63129b817904"></a><br/></td></tr>
 <tr class="inherit_header pub_methods_class_johnny_1_1_sprite2_d"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_johnny_1_1_sprite2_d')"><img src="../../closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Johnny::Sprite2D</a></td></tr>
 <tr class="memitem:aca6a22faf34d77dc67f1b0fe572563c3 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca6a22faf34d77dc67f1b0fe572563c3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Sprite2D</b> (const std::string &amp;)</td></tr>
@@ -286,9 +288,11 @@ virtual const <a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Ve
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ad22ebedc5d854bdad3959317485e56ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad22ebedc5d854bdad3959317485e56ef"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_automaticDestroy</b> = true</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#ad22ebedc5d854bdad3959317485e56ef">m_automaticDestroy</a> = true</td></tr>
+<tr class="memdesc:ad22ebedc5d854bdad3959317485e56ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines if the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> should be destroyed if it moves out of the physics world. <br/></td></tr>
 <tr class="memitem:a45e43c0a4510f0570554d5cdd44066b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45e43c0a4510f0570554d5cdd44066b3"></a>
-<a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_offset</b></td></tr>
+<a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a45e43c0a4510f0570554d5cdd44066b3">m_offset</a></td></tr>
+<tr class="memdesc:a45e43c0a4510f0570554d5cdd44066b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The offset of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> with which it gets attached to the b2Body in pixel coordinates. <br/></td></tr>
 <tr class="inherit_header pro_attribs_class_johnny_1_1_sprite2_d"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_johnny_1_1_sprite2_d')"><img src="../../closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Johnny::Sprite2D</a></td></tr>
 <tr class="memitem:a04566dc32d77337ba77e256d614d0b90 inherit pro_attribs_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04566dc32d77337ba77e256d614d0b90"></a>
 <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_texture</b> = nullptr</td></tr>
@@ -313,9 +317,117 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../.
 <tr class="memitem:ac5980ebf7d76609d7dfe9194d51b7be5 inherit pro_attribs_class_johnny_1_1_actor"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5980ebf7d76609d7dfe9194d51b7be5"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html#ac5980ebf7d76609d7dfe9194d51b7be5">m_name</a> = &quot;&quot;</td></tr>
 <tr class="memdesc:ac5980ebf7d76609d7dfe9194d51b7be5 inherit pro_attribs_class_johnny_1_1_actor"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the object. <br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header friends_class_johnny_1_1_sprite2_d"><td colspan="2" onclick="javascript:toggleInherit('friends_class_johnny_1_1_sprite2_d')"><img src="../../closed.png" alt="-"/>&nbsp;Friends inherited from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Johnny::Sprite2D</a></td></tr>
+<tr class="memitem:acec4b5e650013e7b00a34bf8445fcef7 inherit friends_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acec4b5e650013e7b00a34bf8445fcef7"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>TiledMap</b></td></tr>
+<tr class="inherit_header friends_class_johnny_1_1_actor"><td colspan="2" onclick="javascript:toggleInherit('friends_class_johnny_1_1_actor')"><img src="../../closed.png" alt="-"/>&nbsp;Friends inherited from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html">Johnny::Actor</a></td></tr>
+<tr class="memitem:ae46e6930de46c45315d189c74ec200e6 inherit friends_class_johnny_1_1_actor"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae46e6930de46c45315d189c74ec200e6"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>MainClass</b></td></tr>
+<tr class="memitem:ac2f8d8a30258c4e46c827c1a7ebb5db9 inherit friends_class_johnny_1_1_actor"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2f8d8a30258c4e46c827c1a7ebb5db9"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>RenderManager</b></td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A class which represents a b2Body as a <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Sprite2D</a>. </p>
+<div class="fragment"><pre class="fragment">  </pre></div> </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a388769cab00f013acfbb9c5e21a0d347"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a388769cab00f013acfbb9c5e21a0d347">Johnny::PhysicsSprite2D::PhysicsSprite2D</a> </td>
+          <td>(</td>
+          <td class="paramtype">b2Body *&#160;</td>
+          <td class="paramname"><em>body</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a>. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">body</td><td>The body of the new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a075c1a37f45fe85e19a818ffdfccee10"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a388769cab00f013acfbb9c5e21a0d347">Johnny::PhysicsSprite2D::PhysicsSprite2D</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Body *&#160;</td>
+          <td class="paramname"><em>body</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a>. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>The file path of the <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> of the new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> </td></tr>
+    <tr><td class="paramname">body</td><td>The b2Body of the new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0dbc3428a623d6c2850a9a381b56adf9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a388769cab00f013acfbb9c5e21a0d347">Johnny::PhysicsSprite2D::PhysicsSprite2D</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Body *&#160;</td>
+          <td class="paramname"><em>body</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a>. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td>The <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> of the new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> </td></tr>
+    <tr><td class="paramname">body</td><td>The b2Body of the new <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="af6cddab85c713f4c4ec1ad524e30e83d"></a>
+<a class="anchor" id="acc105d3f3798c2bbeb11a823eed5785b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -323,10 +435,27 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#af6cddab85c713f4c4ec1ad524e30e83d">Johnny::PhysicsSprite2D::init</a> </td>
+          <td class="memname">void <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#acc105d3f3798c2bbeb11a823eed5785b">Johnny::PhysicsSprite2D::BeginContact</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">b2Contact *&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">b2Fixture *&#160;</td>
+          <td class="paramname"><em>f1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Fixture *&#160;</td>
+          <td class="paramname"><em>f2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -336,14 +465,169 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </table>
 </div><div class="memdoc">
 
-<p>Gets called right after being added to its parent. </p>
-<p>If the function returns false the application closes </p>
+<p>Gets called when the b2Body of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> begins colliding with another b2Body. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The b2Contact of the collision </td></tr>
+    <tr><td class="paramname">f1</td><td>The b2Fixture of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> </td></tr>
+    <tr><td class="paramname">f2</td><td>The b2Fixture of the other b2Body it collides with </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a58b6bfd635844d774c345490756ff4c6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a58b6bfd635844d774c345490756ff4c6">Johnny::PhysicsSprite2D::EndContact</a> </td>
+          <td>(</td>
+          <td class="paramtype">b2Contact *&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Fixture *&#160;</td>
+          <td class="paramname"><em>f1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Fixture *&#160;</td>
+          <td class="paramname"><em>f2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets called when the b2Body of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> ends colliding with another b2Body. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The b2Contact of the collision </td></tr>
+    <tr><td class="paramname">f1</td><td>The b2Fixture of the Physics </td></tr>
+    <tr><td class="paramname">f2</td><td>The b2Fixture of the other b2Body </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8d2aa3a91f733a5f63f02800a2c691d3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a8d2aa3a91f733a5f63f02800a2c691d3">Johnny::PhysicsSprite2D::getAutomaticDestroy</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>If the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> should be destroyed if it moves out of the physics world </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aef7fff5125e90a63bc01230ff966b0f1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">b2Body* <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#aef7fff5125e90a63bc01230ff966b0f1">Johnny::PhysicsSprite2D::getBody</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The b2Body of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac4a3001f4726087338dccfb80125cf2f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&amp; <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#ac4a3001f4726087338dccfb80125cf2f">Johnny::PhysicsSprite2D::getOffset</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The offset that applies to the attaching of the <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Sprite2D</a> to the b2Body </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aff4138953b7f80e06369fb75f9e2005d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#aff4138953b7f80e06369fb75f9e2005d">Johnny::PhysicsSprite2D::init</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The init method. </p>
+<p>It is overriding the method from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Sprite2D</a> </p>
 
 <p>Reimplemented from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a06ccb117acc31115201319040a670662">Johnny::Sprite2D</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad7687e40b5ebf2a491789e0801001f8c"></a>
+<a class="anchor" id="a8c4b0ca52046973f7400a7286e01e7a8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -351,7 +635,7 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#ad7687e40b5ebf2a491789e0801001f8c">Johnny::PhysicsSprite2D::m_quit</a> </td>
+          <td class="memname">void <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a8c4b0ca52046973f7400a7286e01e7a8">Johnny::PhysicsSprite2D::m_quit</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -359,18 +643,19 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Is the same as quit, but for internal use. </p>
-<div class="fragment"><pre class="fragment">          </pre></div> 
+<p>The m_quit method. </p>
+<p>It is overriding the method from m_quit </p>
+
 <p>Reimplemented from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html#a42dfbd4a64a551716070f171f8177742">Johnny::Actor</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1369153ad61c9b79dceb3926f7a7e238"></a>
+<a class="anchor" id="a218661d8caf3bd9dabe98b6462881283"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -378,10 +663,61 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a1369153ad61c9b79dceb3926f7a7e238">Johnny::PhysicsSprite2D::m_update</a> </td>
+          <td class="memname">bool <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a218661d8caf3bd9dabe98b6462881283">Johnny::PhysicsSprite2D::m_update</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The m_update method. </p>
+<p>It is overriding the method from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Sprite2D</a> </p>
+
+<p>Reimplemented from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html#a4099d90ddb6d240d93e5b5471f28ee64">Johnny::Actor</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96162e3ffb3e9374eccb63129b817904"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a96162e3ffb3e9374eccb63129b817904">Johnny::PhysicsSprite2D::PostSolve</a> </td>
+          <td>(</td>
+          <td class="paramtype">b2Contact *&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Fixture *&#160;</td>
+          <td class="paramname"><em>f1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Fixture *&#160;</td>
+          <td class="paramname"><em>f2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const b2ContactImpulse *&#160;</td>
+          <td class="paramname"><em>ci</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -391,10 +727,169 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </table>
 </div><div class="memdoc">
 
-<p>Is the same as update, but for internal use. </p>
-<p>If the function returns false the application closes </p>
+<p>Gets called every time the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> is colliding with another b2Body after PreSolve. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The b2Contact of the collision </td></tr>
+    <tr><td class="paramname">f1</td><td>The b2Fixture of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> </td></tr>
+    <tr><td class="paramname">f2</td><td>The b2Fixture of the other b2Body </td></tr>
+    <tr><td class="paramname">ci</td><td>The b2ContactImpulse of the collision </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Reimplemented from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html#a4099d90ddb6d240d93e5b5471f28ee64">Johnny::Actor</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a0e3a3a26a911638bef2ea8008cc66361"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a0e3a3a26a911638bef2ea8008cc66361">Johnny::PhysicsSprite2D::PreSolve</a> </td>
+          <td>(</td>
+          <td class="paramtype">b2Contact *&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Fixture *&#160;</td>
+          <td class="paramname"><em>f1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">b2Fixture *&#160;</td>
+          <td class="paramname"><em>f2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const b2Manifold *&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets called every time the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> is colliding with another b2Body. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The b2Contact of the collision </td></tr>
+    <tr><td class="paramname">f1</td><td>The b2Fixture of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> </td></tr>
+    <tr><td class="paramname">f2</td><td>The b2Fixture of the other b2Body </td></tr>
+    <tr><td class="paramname">m</td><td>The b2Manifold of the collision </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad4e45da6a84ea43917ec9c8a0a4dce5d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#ad4e45da6a84ea43917ec9c8a0a4dce5d">Johnny::PhysicsSprite2D::setAutomaticDestroy</a> </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets if the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a> should be destroyed if it moves out of the physics world. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>The bool value to set m_automaticDestroy </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad3d34b72336c18cae08e96d342813a33"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#ad3d34b72336c18cae08e96d342813a33">Johnny::PhysicsSprite2D::setBody</a> </td>
+          <td>(</td>
+          <td class="paramtype">b2Body *&#160;</td>
+          <td class="paramname"><em>body</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the body of the <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html" title="A class which represents a b2Body as a Sprite2D.">PhysicsSprite2D</a>. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">body</td><td>The b2Body to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a39e88dcea365d7fc1a31e33d8a13b2a2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d99/class_johnny_1_1_physics_sprite2_d.html#a39e88dcea365d7fc1a31e33d8a13b2a2">Johnny::PhysicsSprite2D::setOffset</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the offset which applies to the attaching of the <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Sprite2D</a> to the b2Body. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The offset to set </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -405,7 +900,7 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:37 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

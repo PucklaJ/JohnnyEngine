@@ -96,26 +96,87 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A class which stores data which is loaded in from Assimp.  
+ <a href="../../d1/d3b/class_johnny_1_1_scene.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d1/d46/_resource_manager_8h_source.html">ResourceManager.h</a>&gt;</code></p>
+
 <p><a href="../../d1/d3e/class_johnny_1_1_scene-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a37a90e50c0530ae69193255b2386992b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37a90e50c0530ae69193255b2386992b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addAsEntities</b> (<a class="el" href="../../d4/d76/class_johnny_1_1_main_class.html">MainClass</a> *)</td></tr>
-<tr class="memitem:a190613466459af45a5eb7ec5a85eb16b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a190613466459af45a5eb7ec5a85eb16b"></a>
-<a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html">Model3D</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getModel</b> (const std::string &amp;)</td></tr>
+<tr class="memitem:acc32ce57da77f58884d279139a9714af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3b/class_johnny_1_1_scene.html#acc32ce57da77f58884d279139a9714af">addAsEntities</a> (<a class="el" href="../../d4/d76/class_johnny_1_1_main_class.html">MainClass</a> *m)</td></tr>
+<tr class="memdesc:acc32ce57da77f58884d279139a9714af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the Model3Ds as Entity3Ds to a <a class="el" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>.  <a href="#acc32ce57da77f58884d279139a9714af"></a><br/></td></tr>
+<tr class="memitem:a7c2366fc9949668a50063144569d7e17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html">Model3D</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3b/class_johnny_1_1_scene.html#a7c2366fc9949668a50063144569d7e17">getModel</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:a7c2366fc9949668a50063144569d7e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html" title="A class which represents a 3D model which consists of an array of Mesh3Ds.">Model3D</a> with a name from the loaded array.  <a href="#a7c2366fc9949668a50063144569d7e17"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a42f7a27ec5a156a593171fc9cd2e18b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42f7a27ec5a156a593171fc9cd2e18b3"></a>
-std::vector&lt; <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html">Model3D</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>models</b></td></tr>
+std::vector&lt; <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html">Model3D</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3b/class_johnny_1_1_scene.html#a42f7a27ec5a156a593171fc9cd2e18b3">models</a></td></tr>
+<tr class="memdesc:a42f7a27ec5a156a593171fc9cd2e18b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">All loaded Model3Ds. <br/></td></tr>
 <tr class="memitem:a49a043711df747167664b5add66f598c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49a043711df747167664b5add66f598c"></a>
-std::vector&lt; <a class="el" href="../../da/d67/class_johnny_1_1_spot_light3_d.html">SpotLight3D</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>spotLights</b></td></tr>
+std::vector&lt; <a class="el" href="../../da/d67/class_johnny_1_1_spot_light3_d.html">SpotLight3D</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3b/class_johnny_1_1_scene.html#a49a043711df747167664b5add66f598c">spotLights</a></td></tr>
+<tr class="memdesc:a49a043711df747167664b5add66f598c"><td class="mdescLeft">&#160;</td><td class="mdescRight">All loaded SpotLight3Ds (unused) <br/></td></tr>
 <tr class="memitem:a8ae2c790e47040da56cde13e5cf4e9aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ae2c790e47040da56cde13e5cf4e9aa"></a>
-std::vector&lt; <a class="el" href="../../d1/d5d/class_johnny_1_1_directional_light3_d.html">DirectionalLight3D</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>directionalLights</b></td></tr>
+std::vector&lt; <a class="el" href="../../d1/d5d/class_johnny_1_1_directional_light3_d.html">DirectionalLight3D</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3b/class_johnny_1_1_scene.html#a8ae2c790e47040da56cde13e5cf4e9aa">directionalLights</a></td></tr>
+<tr class="memdesc:a8ae2c790e47040da56cde13e5cf4e9aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">All loaded DirectionLight3Ds (unused) <br/></td></tr>
 <tr class="memitem:a06e98540b30fbd8943ba1900b58f7b6b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06e98540b30fbd8943ba1900b58f7b6b"></a>
-std::vector&lt; <a class="el" href="../../d4/d8a/class_johnny_1_1_point_light3_d.html">PointLight3D</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pointLights</b></td></tr>
+std::vector&lt; <a class="el" href="../../d4/d8a/class_johnny_1_1_point_light3_d.html">PointLight3D</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3b/class_johnny_1_1_scene.html#a06e98540b30fbd8943ba1900b58f7b6b">pointLights</a></td></tr>
+<tr class="memdesc:a06e98540b30fbd8943ba1900b58f7b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">All loaded PointLight3Ds (unused) <br/></td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A class which stores data which is loaded in from Assimp. </p>
+<div class="fragment"><pre class="fragment">      </pre></div> </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="acc32ce57da77f58884d279139a9714af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d1/d3b/class_johnny_1_1_scene.html#acc32ce57da77f58884d279139a9714af">Johnny::Scene::addAsEntities</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/d76/class_johnny_1_1_main_class.html">MainClass</a> *&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds the Model3Ds as Entity3Ds to a <a class="el" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>The <a class="el" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a> to add to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7c2366fc9949668a50063144569d7e17"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html">Model3D</a> * <a class="el" href="../../d1/d3b/class_johnny_1_1_scene.html#a7c2366fc9949668a50063144569d7e17">Johnny::Scene::getModel</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html" title="A class which represents a 3D model which consists of an array of Mesh3Ds.">Model3D</a> with a name from the loaded array. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html" title="A class which represents a 3D model which consists of an array of Mesh3Ds.">Model3D</a> to load </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>The <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html" title="A class which represents a 3D model which consists of an array of Mesh3Ds.">Model3D</a> with the given name and nullptr if no <a class="el" href="../../df/d50/class_johnny_1_1_model3_d.html" title="A class which represents a 3D model which consists of an array of Mesh3Ds.">Model3D</a> was found with that name </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="../../d1/d46/_resource_manager_8h_source.html">ResourceManager.h</a></li>
 <li>src/ResourceManager.cpp</li>
@@ -123,7 +184,7 @@ std::vector&lt; <a class="el" href="../../d4/d8a/class_johnny_1_1_point_light3_d
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:37 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

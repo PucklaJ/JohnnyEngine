@@ -15,6 +15,9 @@
 
 namespace Johnny
 {
+	/*! \brief A enum which represents the types of the values of a UniformBuffer
+	 *
+	 */
 	enum UBOTypes
 	{
 		FLOAT,
@@ -35,8 +38,11 @@ namespace Johnny
 		ARRAY_MAT4
 	};
 
-	// I000 VVVV MMMM MMMM MMMM MMMM
-
+	/*! \brief Gets the size of a UBOTypes in the uniform buffer object in bytes
+	 *  \param type The type to get the size from
+	 *  \param arraySize The size of the array variable
+	 *  \return The size of the type in bytes
+	 */
 	inline GLsizei getSize(UBOTypes type,unsigned int arraySize)
 	{
 		switch(type)
@@ -56,89 +62,235 @@ namespace Johnny
 		}
 	}
 
+	/*! \brief A class which represents a uniform buffer object
+	 *
+	 */
 	class UniformBuffer
 	{
 	public:
 		UniformBuffer();
 		~UniformBuffer();
 
-		void addVariable(UBOTypes);
-		void addArray(UBOTypes,unsigned int);
+		/*! \brief Adds a definition of a variable to determine the size of the buffer
+		 *  \param type The type of the variable
+		 */
+		void addVariable(UBOTypes type);
+		/*! \brief Adds a definition of an array to determine the size of the buffer
+		 *  \param type The type of the array (must begin with ARRAY_)
+		 *  \param size The number of elements in the array
+		 */
+		void addArray(UBOTypes type,unsigned int size);
+		/*! \brief Maps the UniformBuffer
+		 *
+		 */
 		void map();
+		/*! \brief Unmaps the UniformBuffer
+		 *
+		 */
 		void unmap();
-		void setVariable(UBOTypes,unsigned int,GLvoid*);
-		void createBuffer(GLuint);
+		/*! \brief Sets a variable of the UniformBuffer after it has been mapped
+		 *  \param type The type of the variable
+		 *  \param index The howmany variable of that type
+		 *  \param data The contents of the variable
+		 */
+		void setVariable(UBOTypes type,unsigned int index,GLvoid* data);
+		/*! \brief Creates the buffer (Should be called after the addVariable calls and before map and setVariable)
+		 *  \param bindingPoint The buffer uniform buffer binding point to bind the buffer to
+		 */
+		void createBuffer(GLuint bindingPoint);
 
+		/*! \return The size of the buffer in bytes
+		 *
+		 */
 		GLsizei getBufferSize() const {return m_bufferSize;}
 	private:
-		void m_setVariable(UBOTypes,GLsizei,GLvoid*,unsigned int);
+		/*! \brief Actually sets the variable
+		 *  \param type The type of the variable
+		 *  \param offset The offset in the buffer in bytes
+		 *  \param data The content of the variable
+		 *  \param arraySize The number of elements in the array if type is a type of array
+		 */
+		void m_setVariable(UBOTypes type,GLsizei offset,GLvoid* data,unsigned int arraySize);
 
-		GLuint m_buffer = 0;
-		std::vector<UBOTypes> m_types;
-		std::map<unsigned int,unsigned int> m_arraySizes;
-		GLbyte* m_data = nullptr;
-		GLvoid* m_bufferMap = nullptr;
-		GLsizei m_bufferSize = 0;
+		GLuint m_buffer = 0;							  //!< The name of the uniform buffer
+		std::vector<UBOTypes> m_types;					  //!< The array which stores all types of all variables
+		std::map<unsigned int,unsigned int> m_arraySizes; //!< The map which stores all array sizes of all array variables
+		GLbyte* m_data = nullptr;						  //!< The pointer which is used for writeing to the buffer
+		GLvoid* m_bufferMap = nullptr;					  //!< The pointer which is used for mapping
+		GLsizei m_bufferSize = 0;						  //!< The size of the buffer in bytes
 	};
 
+	/*! \brief A class which represents a shader program
+	 *
+	 */
 	class Shader
 	{
 	public:
 		Shader();
 		~Shader();
 
-		void addFragmentShader(const std::string&);
-		void addVertexShader(const std::string&);
-		void addGeometryShader(const std::string&);
+		/*! \brief Adds a fragment shader to the Shader
+		 *  \param contents The source code of the fragment shader
+		 */
+		void addFragmentShader(const std::string& contents);
+		/*! \brief Adds a vertex shader to the Shader
+		 *  \param contents The source code of the vertex shader
+		 */
+		void addVertexShader(const std::string& contents);
+		/*! \brief Adds a geometry shader to the Shader
+		 *  \param contents The source code of the geometry shader
+		 */
+		void addGeometryShader(const std::string& contents);
 
+		/*! \brief Links the Shader (should be called after the add**Shader calls)
+		 *
+		 */
 		void link();
+		/*! \brief Binds the shader program
+		 *
+		 */
 		void bind();
 
-		void attachUniformBuffer(const std::string&,GLuint);
-		bool addUniform(const std::string&,bool endIfNOtThere = true);
-		void setUniform(const std::string&,GLint);
-		void setUniform(const std::string&,GLfloat);
-		void setUniform(const std::string&,const glm::vec2&);
-		void setUniform(const std::string&,const Vector2f&);
-		void setUniform(const std::string&,const Vector2i&);
-		void setUniform(const std::string&,const glm::vec3&);
-		void setUniform(const std::string&,const Vector3f&);
-		void setUniform(const std::string&,const glm::vec4&);
-		void setUniform(const std::string&,const Vector4f&);
-		void setUniform(const std::string&,const TextureRegion&);
-		void setUniform(const std::string&,const glm::mat4&);
-		void setUniform(const std::string&, const Matrix4f&);
-		void setUniform(const std::string&, const glm::mat3&);
-		void setUniform(const std::string&, const Matrix3f&);
+		/*! \brief Attaches a uniform block to a specific binding point
+		 *  \param name The name of the uniform block
+		 *  \param bindingPoint The binding point to attach to
+		 */
+		void attachUniformBuffer(const std::string& name,GLuint bindingPoint);
+		
+		/*! \brief Stores the uniform location of the uniform with the given name
+		 *  \param name The name of the ubiform to store the location
+		 *  \param endifNotThere Defines if a error message should be printed of the uniform wasn't found
+		 *  \return true if the uniform was found and false otherwhise
+		 */
+		bool addUniform(const std::string& name,bool endIfNOtThere = true);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, GLint value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, GLfloat value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const glm::vec2& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const Vector2f& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const Vector2i& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const glm::vec3& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const Vector3f& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const glm::vec4& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const Vector4f& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const TextureRegion& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const glm::mat4& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const Matrix4f& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const glm::mat3& value);
+		/*! \brief Sets the value of a uniform in the shader
+		 *  \param name The name of the uniform
+		 *  \param value The value of the uniform
+		 */
+		void setUniform(const std::string& name, const Matrix3f& value);
 
-		void addAttribute(const std::string&,GLint);
+		/*! \brief Defines a vertex attribute
+		 *  \param name The name of the vertex attribute
+		 *  \param index The index of the vertex attribute
+		 */
+		void addAttribute(const std::string& name,GLint index);
 
+		/*! \brief Defines if this Shader is a Shader used for rendering to a ShadowMap3D DEPRECATED
+		 *  \param b The bool value
+		 */
 		void setShadowMap(bool b) { m_shadowMap = b; }
 
+		/*! \return The name of the shader program
+		 *
+		 */
 		GLuint getProgram() { return m_program; }
+		/*! \return If the SHader is used for rendering to a ShadowMap3D DEPRECATED
+		 *
+		 */
 		bool isShadowMap() const { return m_shadowMap; }
         
+        /*! \brief Sets the ShaderUpdater of the Shader
+         *  \param T the type of ShaderUpater
+         */
         template<class T>
         void setShaderUpdater();
+        /*! \return The ShaderUpdater of the Shader
+         *
+         */
         ShaderUpdater* getShaderUpdater() {return m_shaderUpdater;}
 
 	private:
-		void addProgram(const std::string&,GLuint);
-		GLuint getUniformLocation(const std::string&);
-		GLuint getUniformBlockIndex(const std::string&);
+		/*! \brief Actually adds a shader source to the shader program
+		 *  \param text The source code of a shader
+		 *  \param type The type of shader
+		 */
+		void addProgram(const std::string& text,GLuint type);
+		/*! \param name The name of the uniform
+		 *  \return The location of the uniform or INT_MAX if the uniform wasn't found
+		 */
+		GLuint getUniformLocation(const std::string& name);
+		/*! \return The index of a uniform block by name
+		 *  \param name The name of The uniform block
+		 */
+		GLuint getUniformBlockIndex(const std::string& name);
 
-		std::map<std::string, GLuint> m_uniforms;
+		std::map<std::string, GLuint> m_uniforms; 		    //!< The map where all uniform locations are stored
 
-		GLuint m_program = 0;
-		GLuint m_vert = 0;
-		GLuint m_frag = 0;
-		GLuint m_geo = 0;
+		GLuint m_program = 0;					  	        //!< The name of the shader program
+		GLuint m_vert = 0;						  	        //!< The name of the vertex shader
+		GLuint m_frag = 0;						  	        //!< The name of the fragment shader
+		GLuint m_geo = 0;						  	        //!< The name of the geometry shader
 
-		bool m_shadowMap = false;
+		bool m_shadowMap = false;				  	        //!< Defines if the Shader is used for rendering to ShadowMap3D DEPRECATED
 
-		std::map<std::string,GLuint> m_uniformBlockIndices;
+		std::map<std::string,GLuint> m_uniformBlockIndices; //!< The map where every uniform block indices are stored
         
-        ShaderUpdater* m_shaderUpdater = nullptr;
+        ShaderUpdater* m_shaderUpdater = nullptr;			//!< The ShaderUpdater of the Shader
 	};
     
     template<class T>

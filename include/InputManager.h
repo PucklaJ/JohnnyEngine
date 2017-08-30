@@ -9,19 +9,28 @@ namespace Johnny
 {
     class Camera2D;
     
-	/*! \brief A structure which holds data about the mouse
+	/*! \brief A class which holds data about the mouse
 	 *
 	 */
 	class Mouse
 	{
     public:
-		unsigned int x; 	//!< The x coordinate of the screen position of the mouse
-		unsigned int y; 	//!< The y coordinate of the screen position of the mouse
-		int xrel;			//!< The x coordinate of the relative vector from the last frame to this
-		int yrel;       	//!< The y coordinate of the relative vector from the last frame to this
-		signed int wheel_x; //!< The amount which the mousewheel was moved on the x-Axis in the last frame
-		signed int wheel_y; //!< The amount which the mousewheel was moved on the y-Axis in the last frame
+		unsigned int x; 														  //!< The x coordinate of the screen position of the mouse
+		unsigned int y; 														  //!< The y coordinate of the screen position of the mouse
+		int xrel;																  //!< The x coordinate of the relative vector from the last frame to this
+		int yrel;       														  //!< The y coordinate of the relative vector from the last frame to this
+		signed int wheel_x; 													  //!< The amount which the mousewheel was moved on the x-Axis in the last frame
+		signed int wheel_y; 													  //!< The amount which the mousewheel was moved on the y-Axis in the last frame
+		/*! \brief Gets The position in the world of the mouse position on the screen
+		 *  \param cam The Camera2D for which it should be calculated
+		 *  \return The resulting world position of the mouse position
+		 */
         Vector2f getWorldPosition(Camera2D* cam) const;
+        /*! \brief Gets The screen position of a position in the world
+         *  \param worldPos The world position for which to calculate
+         *  \param cam The Camera2D for which to calculate
+         *  \return The resulting screen position of the world position
+         */			 
         Vector2f getScreenPosition(const Vector2f& worldPos,Camera2D* cam) const;
 	};
 
@@ -356,7 +365,7 @@ namespace Johnny
 		 * \return Wether the key was pressed
 		 */
 		bool wasPressed(Keys kc);			   
-		Mouse m_mouse; //!< A instance of the Mouse Struct
+		Mouse m_mouse; //!< A instance of the Mouse class
 
 	};
 }

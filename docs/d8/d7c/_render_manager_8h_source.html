@@ -103,36 +103,36 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00012"></a>00012         <span class="keyword">class </span>Shader;
 <a name="l00013"></a>00013         <span class="keyword">class </span>Lighting3D;
 <a name="l00014"></a>00014 
-<a name="l00015"></a><a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html">00015</a>         <span class="keyword">class </span><a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html">RenderManager</a>
-<a name="l00016"></a>00016         {
-<a name="l00017"></a>00017         <span class="keyword">public</span>:
-<a name="l00018"></a>00018                 <span class="keyword">static</span> <a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>* DEFAULT_SHADER;
-<a name="l00019"></a>00019                 <span class="keyword">static</span> <a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>* DEFAULT_SHADOWMAP_SHADER;
-<a name="l00020"></a>00020                 <span class="keyword">static</span> <a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>* DEFAULT_POST_PROCESSING_SHADER;
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022                 <span class="keyword">static</span> <span class="keywordtype">void</span> loadDefaultShaders(<a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html">ResourceManager</a>*);
-<a name="l00023"></a>00023                 <span class="keyword">static</span> <span class="keywordtype">void</span> loadDefaultShaders3D(<a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html">ResourceManager</a>*, <a class="code" href="../../d3/d12/class_johnny_1_1_lighting3_d.html" title="The class for handling all 3D lighting specific things.">Lighting3D</a>*);
-<a name="l00024"></a>00024                 <span class="keyword">static</span> <span class="keywordtype">void</span> unload();
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026                 <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html">RenderManager</a>();
-<a name="l00027"></a>00027                 ~<a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html">RenderManager</a>();
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029                 <span class="keywordtype">void</span> addShader(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>*);
-<a name="l00030"></a>00030                 <span class="keywordtype">void</span> addActor(<a class="code" href="../../d1/dc5/class_johnny_1_1_actor.html" title="This is the base class for everything Every object is derived from this class.">Actor</a>*);
-<a name="l00031"></a>00031                 <span class="keywordtype">void</span> removeShader(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>*);
-<a name="l00032"></a>00032                 <span class="keywordtype">void</span> removeActor(<a class="code" href="../../d1/dc5/class_johnny_1_1_actor.html" title="This is the base class for everything Every object is derived from this class.">Actor</a>*);
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034                 <span class="keywordtype">void</span> render(<a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>*);
-<a name="l00035"></a>00035         <span class="keywordtype">void</span> renderSceneForShadowMap(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html">Shader</a>*);
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037         <span class="keyword">private</span>:
-<a name="l00038"></a>00038                 std::map&lt;Shader*, std::vector&lt;Actor*&gt;&gt; m_shaderActors;
-<a name="l00039"></a>00039         };
-<a name="l00040"></a>00040 }
+<a name="l00018"></a><a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html">00018</a>         <span class="keyword">class </span><a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html" title="A class which handles the rendering of the scene, the shaders and rendering of shadow maps...">RenderManager</a>
+<a name="l00019"></a>00019         {
+<a name="l00020"></a>00020         <span class="keyword">public</span>:
+<a name="l00021"></a><a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#ae698b38f037e6551f37e9a6a4b08a256">00021</a>                 <span class="keyword">static</span> <a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#ae698b38f037e6551f37e9a6a4b08a256" title="The default Shader which renders a 3D model with materials.">DEFAULT_SHADER</a>;                             
+<a name="l00022"></a><a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#a5c249f9a2e31907a18fb93ed7856270d">00022</a>                 <span class="keyword">static</span> <a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#a5c249f9a2e31907a18fb93ed7856270d" title="The default Shader for rendering for a ShadowMap3D.">DEFAULT_SHADOWMAP_SHADER</a>;       
+<a name="l00023"></a><a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#aa19eec45ef0e16389645c843e58b7eb1">00023</a>                 <span class="keyword">static</span> <a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#aa19eec45ef0e16389645c843e58b7eb1" title="The default Shader for rendering the back buffer onto the screen.">DEFAULT_POST_PROCESSING_SHADER</a>; 
+<a name="l00024"></a>00024 
+<a name="l00028"></a>00028                 <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#a4684506beff7ecce8e25d1c109347356" title="Loads the default Shaders for general porpuses.">loadDefaultShaders</a>(<a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html" title="A class which handles all resources such as Textures, Models, Shaders etc.">ResourceManager</a>* res);
+<a name="l00033"></a>00033                 <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#a371354012e3f96bb3974613b4ded85b6" title="Loads the default Shaders for 3D.">loadDefaultShaders3D</a>(<a class="code" href="../../d2/d12/class_johnny_1_1_resource_manager.html" title="A class which handles all resources such as Textures, Models, Shaders etc.">ResourceManager</a>* res, <a class="code" href="../../d3/d12/class_johnny_1_1_lighting3_d.html" title="The class for handling all 3D lighting specific things.">Lighting3D</a>* l);
+<a name="l00037"></a>00037                 <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#a1cae9d68ef3f546acf218015baec3ae1" title="Unloads all default Shaders.">unload</a>();
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039                 <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html" title="A class which handles the rendering of the scene, the shaders and rendering of shadow maps...">RenderManager</a>();
+<a name="l00040"></a>00040                 ~<a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html" title="A class which handles the rendering of the scene, the shaders and rendering of shadow maps...">RenderManager</a>();
+<a name="l00041"></a>00041 
+<a name="l00045"></a>00045                 <span class="keywordtype">void</span> <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#a136a9d9bb55fa587cf6a640c3ead9f52" title="Adds a Shader so that it will be used for rendering with the RenderManager.">addShader</a>(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* s);
+<a name="l00049"></a>00049                 <span class="keywordtype">void</span> <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#a46a503aa7b49c596b92adaa20d4761cb" title="Adds an Actor so that it will be rendered using the RenderManager.">addActor</a>(<a class="code" href="../../d1/dc5/class_johnny_1_1_actor.html" title="This is the base class for everything Every object is derived from this class.">Actor</a>* a);
+<a name="l00053"></a>00053                 <span class="keywordtype">void</span> <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#ad745c8d64c02a1e6b02b6673771ab006" title="Removes a Shader from the RenderManager.">removeShader</a>(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* s);
+<a name="l00057"></a>00057                 <span class="keywordtype">void</span> <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#a4e92e40229af6adfd9d01b155695cf12" title="Removes an Actor from the RenderManager.">removeActor</a>(<a class="code" href="../../d1/dc5/class_johnny_1_1_actor.html" title="This is the base class for everything Every object is derived from this class.">Actor</a>* a);
+<a name="l00058"></a>00058 
+<a name="l00062"></a>00062                 <span class="keywordtype">void</span> <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#ad3621e915f3083fb33e718f68f088a1a" title="Renders every Actor rwith its Shader that has been added to the RenderManager.">render</a>(<a class="code" href="../../d4/d76/class_johnny_1_1_main_class.html" title="The main or root class where the application starts.">MainClass</a>* m);
+<a name="l00066"></a>00066         <span class="keywordtype">void</span> <a class="code" href="../../db/da1/class_johnny_1_1_render_manager.html#a5f29dab61f28108e3084a8c5b78ff026" title="Renders every Actor that is attached to a ShadowMap3D.">renderSceneForShadowMap</a>(<a class="code" href="../../d5/d3b/class_johnny_1_1_shader.html" title="A class which represents a shader program.">Shader</a>* s);
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068         <span class="keyword">private</span>:
+<a name="l00069"></a>00069                 std::map&lt;Shader*, std::vector&lt;Actor*&gt;&gt; m_shaderActors; 
+<a name="l00070"></a>00070         };
+<a name="l00071"></a>00071 }
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 13:51:36 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 30 2017 16:36:04 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>
