@@ -30,10 +30,11 @@ namespace Johnny
     }
     
 	ShadowMap3D::ShadowMap3D(GLsizei width, GLsizei height) : Texture(nullptr, width, height,GL_LINEAR, GL_DEPTH_COMPONENT, GL_DEPTH_COMPONENT, GL_FLOAT),
-		m_width(width),
-		m_height(height),
         m_lightSpaceMatrix(1)
 	{
+        m_width = width;
+        m_height = height;
+        
         Colorf borderColor = Colors::WHITE;
         glTextureParameteri(m_texture,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_BORDER);
         glTextureParameteri(m_texture,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_BORDER);

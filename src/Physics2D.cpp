@@ -1,5 +1,6 @@
 #include "../include/Physics2D.h"
 #include "../include/MainClass.h"
+#include "../include/ContactListener.h"
 
 namespace Johnny
 {
@@ -8,6 +9,8 @@ namespace Johnny
         m_world = new b2World(b2Vec2(gravity.x,gravity.y));
         m_mainClass = mainClass;
         m_worldSize = worldSize;
+        m_contactListener = new ContactListener();
+        m_world->SetContactListener(m_contactListener);
     }
 
 	Physics2D::~Physics2D()

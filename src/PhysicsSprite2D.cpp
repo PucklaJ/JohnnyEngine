@@ -91,6 +91,6 @@ namespace Johnny
 	void PhysicsSprite2D::attachBodyToSprite()
 	{
 		setPosition(m_mainClass->getPhysics2D()->coordsWorldToPixel(m_body->GetPosition()) - (getDrawSize() / 2.0f) + m_offset);
-		setRotation(-m_body->GetAngle() / (float)M_PI * 180.0f);
+		setRotation(toDegrees(m_body->GetAngle()));
 	}
 }

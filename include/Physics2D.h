@@ -11,6 +11,7 @@
 namespace Johnny
 {
     class MainClass;
+    class ContactListener;
     
     /*! \brief A class which handles 2D physics
      *
@@ -156,11 +157,12 @@ namespace Johnny
             b2Body* createCAPSULE(const Vector2f& position, float width, float height,b2BodyDef&,b2FixtureDef&);
 
         private:
-            b2World* m_world;              //!< The b2World which includes all bodies
-            MainClass* m_mainClass;        //!< The MainClass to which the object belongs
-            Vector2f m_worldSize;          //!< The size of the physics world
-            float m_pixelsPerMetre = 10.0; //!< The value which defines the size of a body in the physics world
-            bool m_debug = false;          //!< Defines if it should draw debug graphics
+            b2World* m_world;                             //!< The b2World which includes all bodies
+            MainClass* m_mainClass;                       //!< The MainClass to which the object belongs
+            Vector2f m_worldSize;                         //!< The size of the physics world
+            float m_pixelsPerMetre = 10.0;                //!< The value which defines the size of a body in the physics world
+            bool m_debug = false;                         //!< Defines if it should draw debug graphics
+            ContactListener* m_contactListener = nullptr; //!< The contact listener which listens to all collisions
     };
 }
 
