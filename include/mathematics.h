@@ -38,7 +38,7 @@ namespace Johnny
     };
     
     /*! \brief The AStar algorithm
-     *	\param field A vector containing a field of A_Squares
+     *  \param field A vector containing a field of A_Squares
      *  \param start The start square for the algorithm
      *  \param end The end square for the algorithm
      *  \param w The width of the field in A_Squares
