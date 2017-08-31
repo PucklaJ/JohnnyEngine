@@ -14,7 +14,7 @@ namespace Johnny
 		MSAA,				  //!< The name of the setting that specifys if multisampling should be applied
 		MSAA_SAMPLES,		  //!< The name of the setting that sepcifys the number of multisampling samples
 		SPRITE2D_FILTERING,	  //!< The name of the setting that specifys which method to use for filtering for Sprite2Ds
-		BACK_BUFFER_FILTERING //1< The name of the settings that specifys which method to use for filtering for the back buffer
+		BACK_BUFFER_FILTERING //!< The name of the settings that specifys which method to use for filtering for the back buffer
 	};
 
 	/*! \brief A class which handles all settings

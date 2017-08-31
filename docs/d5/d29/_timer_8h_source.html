@@ -100,60 +100,60 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 <span class="keyword">namespace </span>Johnny
 <a name="l00011"></a>00011 {
-<a name="l00012"></a><a class="code" href="../../dd/db4/class_johnny_1_1_timer.html">00012</a>         <span class="keyword">class </span><a class="code" href="../../dd/db4/class_johnny_1_1_timer.html">Timer</a>
-<a name="l00013"></a>00013         {
-<a name="l00014"></a>00014         <span class="keyword">public</span>:
-<a name="l00015"></a>00015                 <a class="code" href="../../dd/db4/class_johnny_1_1_timer.html">Timer</a>();
-<a name="l00016"></a>00016                 ~<a class="code" href="../../dd/db4/class_johnny_1_1_timer.html">Timer</a>();
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018                 <span class="keywordtype">void</span> setTimeScale(<span class="keywordtype">double</span> d) { m_timeScale = d; }
-<a name="l00019"></a>00019                 <span class="keywordtype">void</span> setMaxFPS(<span class="keywordtype">int</span>);
+<a name="l00015"></a><a class="code" href="../../dd/db4/class_johnny_1_1_timer.html">00015</a>         <span class="keyword">class </span><a class="code" href="../../dd/db4/class_johnny_1_1_timer.html" title="A class for measuring time, smoothing the timestep and locking the framerate.">Timer</a>
+<a name="l00016"></a>00016         {
+<a name="l00017"></a>00017         <span class="keyword">public</span>:
+<a name="l00018"></a>00018                 <a class="code" href="../../dd/db4/class_johnny_1_1_timer.html" title="A class for measuring time, smoothing the timestep and locking the framerate.">Timer</a>();
+<a name="l00019"></a>00019                 ~<a class="code" href="../../dd/db4/class_johnny_1_1_timer.html" title="A class for measuring time, smoothing the timestep and locking the framerate.">Timer</a>();
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="comment">/*#ifdef _WIN32</span>
-<a name="l00022"></a>00022 <span class="comment">                float getDeltaTimeInSeconds() const { return (float)(m_realDeltaTimeInSeconds*m_timeScale); }</span>
-<a name="l00023"></a>00023 <span class="comment">#else*/</span>
-<a name="l00024"></a>00024                 <span class="keywordtype">float</span> getDeltaTimeInSeconds()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (<span class="keywordtype">float</span>)(m_smoothDeltaTimeInSeconds*m_timeScale); }
-<a name="l00025"></a>00025 <span class="comment">//#endif</span>
-<a name="l00026"></a>00026                 <span class="keywordtype">double</span> getFPS()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_fps; }
-<a name="l00027"></a>00027                 <span class="keywordtype">int</span> getMaxFPS() { <span class="keywordflow">return</span> m_maxFPS; }
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029                 <span class="keywordtype">void</span> startTimeMeasure();
-<a name="l00030"></a>00030                 <span class="keywordtype">int</span> endTimeMeasure();
-<a name="l00031"></a>00031         <span class="keyword">private</span>:
-<a name="l00032"></a>00032                 <span class="keywordtype">int</span> m_maxFPS = 60;
-<a name="l00033"></a>00033                 <span class="keywordtype">double</span> m_timeScale = 1.0;
-<a name="l00034"></a>00034                 <span class="keywordtype">double</span> calculateMeanDeltaTime();
-<a name="l00035"></a>00035                 <span class="keywordtype">void</span> takeAwayHighestAndLowestDts();
-<a name="l00036"></a>00036                 <span class="keywordtype">void</span> moveDeltaTimesOneIndexDown();
-<a name="l00037"></a>00037                 <span class="keywordtype">int</span> getDeltaTimesSize();
-<a name="l00038"></a>00038                 <span class="keywordtype">void</span> copyRealTimesToSmoothTimes();
-<a name="l00039"></a>00039                 <span class="keywordtype">int</span> m_realDeltaTimeSize = 0;
-<a name="l00040"></a>00040                 <span class="keywordtype">void</span> setNum(<span class="keywordtype">double</span>&amp;, <span class="keywordtype">int</span>&amp;);
-<a name="l00041"></a>00041                 <span class="keywordtype">double</span> m_realDeltaTimeInSeconds = 0.0;
-<a name="l00042"></a>00042                 <span class="keywordtype">double</span> m_smoothDeltaTimeInSeconds = 0.0;
-<a name="l00043"></a>00043                 <span class="keywordtype">double</span> m_realDeltaTimes[11] = { -1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0 };
-<a name="l00044"></a>00044                 <span class="keywordtype">double</span> m_smoothDeltaTimes[11] = { -1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0 };
-<a name="l00045"></a>00045                 <span class="keywordtype">double</span> m_FPSes[3];
-<a name="l00046"></a>00046                 <span class="keywordtype">double</span> m_fps = 0.0;
-<a name="l00047"></a>00047                 <span class="keywordtype">int</span> m_lastFrame = 0;
-<a name="l00048"></a>00048                 <span class="keywordtype">double</span> m_time = 0.0;
-<a name="l00049"></a>00049                 high_resolution_clock::time_point m_startTime;
-<a name="l00050"></a>00050                 high_resolution_clock::time_point m_endTime;
-<a name="l00051"></a>00051 <span class="preprocessor">#ifdef MAX_FPS_LOCK</span>
-<a name="l00052"></a>00052 <span class="preprocessor"></span>                <span class="keywordtype">double</span> m_timeForMaxFPS = 0.0;
-<a name="l00053"></a>00053                 high_resolution_clock::time_point m_startTimeForMaxFPS;
-<a name="l00054"></a>00054                 high_resolution_clock::time_point m_endTimeForMaxFPS;
-<a name="l00055"></a>00055                 duration&lt;double, micro&gt; m_deltaClockTimeForMaxFPS;
-<a name="l00056"></a>00056 <span class="preprocessor">#endif</span>
-<a name="l00057"></a>00057 <span class="preprocessor"></span>                duration&lt;double, micro&gt; m_deltaClockTime;
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059                 FPSmanager m_fpsManager;
-<a name="l00060"></a>00060         };
-<a name="l00061"></a>00061 }
+<a name="l00024"></a><a class="code" href="../../dd/db4/class_johnny_1_1_timer.html#a9a094caad6c739202552f70c1d3ac4c9">00024</a>                 <span class="keywordtype">void</span> <a class="code" href="../../dd/db4/class_johnny_1_1_timer.html#a9a094caad6c739202552f70c1d3ac4c9" title="Sets the value which will be multiplied on the delta time.">setTimeScale</a>(<span class="keywordtype">double</span> d) { m_timeScale = d; }
+<a name="l00028"></a>00028                 <span class="keywordtype">void</span> setMaxFPS(<span class="keywordtype">int</span> maxFPS);
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="comment">/*#ifdef _WIN32</span>
+<a name="l00031"></a>00031 <span class="comment">                float getDeltaTimeInSeconds() const { return (float)(m_realDeltaTimeInSeconds*m_timeScale); }</span>
+<a name="l00032"></a>00032 <span class="comment">#else*/</span>
+<a name="l00036"></a><a class="code" href="../../dd/db4/class_johnny_1_1_timer.html#ab647f4249f20fa93301c920f8fb4770e">00036</a>                 <span class="keywordtype">float</span> <a class="code" href="../../dd/db4/class_johnny_1_1_timer.html#ab647f4249f20fa93301c920f8fb4770e">getDeltaTimeInSeconds</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (<span class="keywordtype">float</span>)(m_smoothDeltaTimeInSeconds*m_timeScale); }
+<a name="l00037"></a>00037 <span class="comment">//#endif</span>
+<a name="l00041"></a><a class="code" href="../../dd/db4/class_johnny_1_1_timer.html#a8b4e5cc4b58b6128baeb9fd596f59e59">00041</a> <span class="comment"></span>                <span class="keywordtype">double</span> <a class="code" href="../../dd/db4/class_johnny_1_1_timer.html#a8b4e5cc4b58b6128baeb9fd596f59e59">getFPS</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_fps; }
+<a name="l00045"></a><a class="code" href="../../dd/db4/class_johnny_1_1_timer.html#a4895f5f759e113471fd3403c3a467654">00045</a>                 <span class="keywordtype">int</span> <a class="code" href="../../dd/db4/class_johnny_1_1_timer.html#a4895f5f759e113471fd3403c3a467654">getMaxFPS</a>() { <span class="keywordflow">return</span> m_maxFPS; }
+<a name="l00046"></a>00046 
+<a name="l00050"></a>00050                 <span class="keywordtype">void</span> startTimeMeasure();
+<a name="l00054"></a>00054                 <span class="keywordtype">int</span> endTimeMeasure();
+<a name="l00055"></a>00055         <span class="keyword">private</span>:
+<a name="l00056"></a>00056                 <span class="keywordtype">int</span> m_maxFPS = 60;                                                                                                                                                       
+<a name="l00057"></a>00057                 <span class="keywordtype">double</span> m_timeScale = 1.0;                                                                                                                                        
+<a name="l00058"></a>00058                 <span class="keywordtype">double</span> calculateMeanDeltaTime();                                                                                                                         
+<a name="l00059"></a>00059                 <span class="keywordtype">void</span> takeAwayHighestAndLowestDts();                                                                                                                      
+<a name="l00060"></a>00060                 <span class="keywordtype">void</span> moveDeltaTimesOneIndexDown();                                                                                                                       
+<a name="l00061"></a>00061                 <span class="keywordtype">int</span> getDeltaTimesSize();                                                                                                                                         
+<a name="l00062"></a>00062                 <span class="keywordtype">void</span> copyRealTimesToSmoothTimes();                                                                                                                       
+<a name="l00063"></a>00063                 <span class="keywordtype">int</span> m_realDeltaTimeSize = 0;                                                                                                                             
+<a name="l00064"></a>00064                 <span class="keywordtype">void</span> setNum(<span class="keywordtype">double</span>&amp;, <span class="keywordtype">int</span>&amp;);                                                                                                                                  
+<a name="l00065"></a>00065                 <span class="keywordtype">double</span> m_realDeltaTimeInSeconds = 0.0;                                                                                                           
+<a name="l00066"></a>00066                 <span class="keywordtype">double</span> m_smoothDeltaTimeInSeconds = 0.0;                                                                                                         
+<a name="l00067"></a>00067                 <span class="keywordtype">double</span> m_realDeltaTimes[11] = { -1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0 };    
+<a name="l00068"></a>00068                 <span class="keywordtype">double</span> m_smoothDeltaTimes[11] = { -1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0,-1.0 };  
+<a name="l00069"></a>00069                 <span class="keywordtype">double</span> m_FPSes[3];                                                                                                                                                       
+<a name="l00070"></a>00070                 <span class="keywordtype">double</span> m_fps = 0.0;                                                                                                                                                      
+<a name="l00071"></a>00071                 <span class="keywordtype">int</span> m_lastFrame = 0;                                                                                                                                             
+<a name="l00072"></a>00072                 <span class="keywordtype">double</span> m_time = 0.0;                                                                                                                                             
+<a name="l00073"></a>00073                 high_resolution_clock::time_point m_startTime;                                                                                           
+<a name="l00074"></a>00074                 high_resolution_clock::time_point m_endTime;                                                                                             
+<a name="l00075"></a>00075 <span class="preprocessor">#ifdef MAX_FPS_LOCK</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span>                <span class="keywordtype">double</span> m_timeForMaxFPS = 0.0;
+<a name="l00077"></a>00077                 high_resolution_clock::time_point m_startTimeForMaxFPS;
+<a name="l00078"></a>00078                 high_resolution_clock::time_point m_endTimeForMaxFPS;
+<a name="l00079"></a>00079                 duration&lt;double, micro&gt; m_deltaClockTimeForMaxFPS;
+<a name="l00080"></a>00080 <span class="preprocessor">#endif</span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span>                duration&lt;double, micro&gt; m_deltaClockTime;                                                                                                    
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083                 FPSmanager m_fpsManager;                                                                                                                                         
+<a name="l00084"></a>00084         };
+<a name="l00085"></a>00085 }
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 31 2017 11:35:16 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 31 2017 13:35:05 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>

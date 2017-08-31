@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['m_5faffectedbycenter',['m_affectedByCenter',['../dd/d46/class_johnny_1_1_transformable_object2_d.html#ac9e8cf5a2334ebea1dcd6491adf77b68',1,'Johnny::TransformableObject2D']]],
   ['m_5fautomaticdestroy',['m_automaticDestroy',['../d0/d99/class_johnny_1_1_physics_sprite2_d.html#ad22ebedc5d854bdad3959317485e56ef',1,'Johnny::PhysicsSprite2D']]],
   ['m_5fcamera2d',['m_camera2D',['../d4/d76/class_johnny_1_1_main_class.html#a1a53e28c7fbaa38824aa2e88a55377af',1,'Johnny::MainClass']]],
   ['m_5fcamera3d',['m_camera3D',['../d4/d76/class_johnny_1_1_main_class.html#a413a66dc9f3808f6d3a823266dba1096',1,'Johnny::MainClass']]],
@@ -22,6 +23,7 @@ var searchData=
   ['m_5frendermanager',['m_renderManager',['../d4/d76/class_johnny_1_1_main_class.html#ae1a3004585e01ecc77a2896e6dd9b137',1,'Johnny::MainClass']]],
   ['m_5fresourcemanager',['m_resourceManager',['../d4/d76/class_johnny_1_1_main_class.html#a01b9f6641d21408cac6b0061b84d7ff6',1,'Johnny::MainClass']]],
   ['m_5fshader',['m_shader',['../d1/dc5/class_johnny_1_1_actor.html#a63bb2231c934e17839cf430c81348c25',1,'Johnny::Actor::m_shader()'],['../d6/df4/class_johnny_1_1_shader_updater.html#a8464ecfed9e12a53d01781e10952949f',1,'Johnny::ShaderUpdater::m_shader()']]],
+  ['m_5fsize',['m_size',['../dd/d46/class_johnny_1_1_transformable_object2_d.html#a170b093cb27d424b55b7275cc55d744a',1,'Johnny::TransformableObject2D']]],
   ['m_5fskybox',['m_skybox',['../d4/d76/class_johnny_1_1_main_class.html#a76f5e9a66a7832baedf33d902fdd39a6',1,'Johnny::MainClass']]],
   ['m_5fsrcregion',['m_srcRegion',['../db/d0b/class_johnny_1_1_sprite2_d.html#afb1f5cc0b52959719a8fe29c3b571b16',1,'Johnny::Sprite2D']]],
   ['m_5ftexture',['m_texture',['../db/d0b/class_johnny_1_1_sprite2_d.html#a04566dc32d77337ba77e256d614d0b90',1,'Johnny::Sprite2D::m_texture()'],['../de/dcf/class_johnny_1_1_texture.html#a2d8c7fa4d2f1dc7a7ef0bf5bbb8c18f8',1,'Johnny::Texture::m_texture()']]],
@@ -29,6 +31,7 @@ var searchData=
   ['m_5ftexture2d_5fvbo',['m_texture2D_vbo',['../de/dcf/class_johnny_1_1_texture.html#aeb95e79ecb70a659d74d9540b331a774',1,'Johnny::Texture']]],
   ['m_5ftexture2dshader',['m_texture2DShader',['../de/dcf/class_johnny_1_1_texture.html#a0fa75ee4323b99a3f925dfaaa6021244',1,'Johnny::Texture']]],
   ['m_5ftimer',['m_timer',['../d4/d76/class_johnny_1_1_main_class.html#abe40e311a4b4affa8f2bf4e43c3d9c4c',1,'Johnny::MainClass']]],
+  ['m_5ftransform',['m_transform',['../dd/d46/class_johnny_1_1_transformable_object2_d.html#a672bbb55464021f1c3888fdfae86ddd6',1,'Johnny::TransformableObject2D']]],
   ['m_5fvisible',['m_visible',['../d1/dc5/class_johnny_1_1_actor.html#ab898f95a30b77487c9c7f0d5a5887127',1,'Johnny::Actor']]],
   ['m_5fwidth',['m_width',['../de/dcf/class_johnny_1_1_texture.html#a9a0b8211dd0a8d980eb45e5a4afc4b30',1,'Johnny::Texture']]],
   ['m_5fwindow',['m_window',['../d4/d76/class_johnny_1_1_main_class.html#a4a400b0dbc2339a49325029bfe30df76',1,'Johnny::MainClass']]],

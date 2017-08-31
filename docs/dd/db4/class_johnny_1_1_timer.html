@@ -95,25 +95,193 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>A class for measuring time, smoothing the timestep and locking the framerate.  
+ <a href="../../dd/db4/class_johnny_1_1_timer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d5/d29/_timer_8h_source.html">Timer.h</a>&gt;</code></p>
+
 <p><a href="../../d1/d0b/class_johnny_1_1_timer-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9a094caad6c739202552f70c1d3ac4c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a094caad6c739202552f70c1d3ac4c9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTimeScale</b> (double d)</td></tr>
-<tr class="memitem:a32f842d08c00515675e6cff0c6d35ee2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32f842d08c00515675e6cff0c6d35ee2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxFPS</b> (int)</td></tr>
-<tr class="memitem:ab647f4249f20fa93301c920f8fb4770e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab647f4249f20fa93301c920f8fb4770e"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getDeltaTimeInSeconds</b> () const </td></tr>
-<tr class="memitem:a8b4e5cc4b58b6128baeb9fd596f59e59"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b4e5cc4b58b6128baeb9fd596f59e59"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getFPS</b> () const </td></tr>
-<tr class="memitem:a4895f5f759e113471fd3403c3a467654"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4895f5f759e113471fd3403c3a467654"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxFPS</b> ()</td></tr>
-<tr class="memitem:a8178612acf1d30aaa67eb68c9ddb7f63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8178612acf1d30aaa67eb68c9ddb7f63"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>startTimeMeasure</b> ()</td></tr>
-<tr class="memitem:a47fcaba8917140490b5252a00fef0923"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47fcaba8917140490b5252a00fef0923"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>endTimeMeasure</b> ()</td></tr>
+<tr class="memitem:a9a094caad6c739202552f70c1d3ac4c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a9a094caad6c739202552f70c1d3ac4c9">setTimeScale</a> (double d)</td></tr>
+<tr class="memdesc:a9a094caad6c739202552f70c1d3ac4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value which will be multiplied on the delta time.  <a href="#a9a094caad6c739202552f70c1d3ac4c9"></a><br/></td></tr>
+<tr class="memitem:a1874ebd11dccffd91a43197e8c74525a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a1874ebd11dccffd91a43197e8c74525a">setMaxFPS</a> (int maxFPS)</td></tr>
+<tr class="memdesc:a1874ebd11dccffd91a43197e8c74525a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines on which FPS it should lock or if it shouldn't lock the framerate.  <a href="#a1874ebd11dccffd91a43197e8c74525a"></a><br/></td></tr>
+<tr class="memitem:ab647f4249f20fa93301c920f8fb4770e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#ab647f4249f20fa93301c920f8fb4770e">getDeltaTimeInSeconds</a> () const </td></tr>
+<tr class="memitem:a8b4e5cc4b58b6128baeb9fd596f59e59"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a8b4e5cc4b58b6128baeb9fd596f59e59">getFPS</a> () const </td></tr>
+<tr class="memitem:a4895f5f759e113471fd3403c3a467654"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a4895f5f759e113471fd3403c3a467654">getMaxFPS</a> ()</td></tr>
+<tr class="memitem:a8178612acf1d30aaa67eb68c9ddb7f63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a8178612acf1d30aaa67eb68c9ddb7f63">startTimeMeasure</a> ()</td></tr>
+<tr class="memdesc:a8178612acf1d30aaa67eb68c9ddb7f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the time measurment.  <a href="#a8178612acf1d30aaa67eb68c9ddb7f63"></a><br/></td></tr>
+<tr class="memitem:a47fcaba8917140490b5252a00fef0923"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a47fcaba8917140490b5252a00fef0923">endTimeMeasure</a> ()</td></tr>
+<tr class="memdesc:a47fcaba8917140490b5252a00fef0923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the time measurement, calculates the smoothed delta time and locks the frame rate.  <a href="#a47fcaba8917140490b5252a00fef0923"></a><br/></td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A class for measuring time, smoothing the timestep and locking the framerate. </p>
+<div class="fragment"><pre class="fragment">      </pre></div> </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a47fcaba8917140490b5252a00fef0923"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a47fcaba8917140490b5252a00fef0923">Johnny::Timer::endTimeMeasure</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ends the time measurement, calculates the smoothed delta time and locks the frame rate. </p>
+<dl class="section return"><dt>Returns:</dt><dd>The frames per second </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab647f4249f20fa93301c920f8fb4770e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#ab647f4249f20fa93301c920f8fb4770e">Johnny::Timer::getDeltaTimeInSeconds</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The time between the last frame and this frame but smoothed over multiple frames </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8b4e5cc4b58b6128baeb9fd596f59e59"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a8b4e5cc4b58b6128baeb9fd596f59e59">Johnny::Timer::getFPS</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The frames per second </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4895f5f759e113471fd3403c3a467654"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a4895f5f759e113471fd3403c3a467654">Johnny::Timer::getMaxFPS</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The frame rate on which it should lock </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1874ebd11dccffd91a43197e8c74525a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a1874ebd11dccffd91a43197e8c74525a">Johnny::Timer::setMaxFPS</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxFPS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Defines on which FPS it should lock or if it shouldn't lock the framerate. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>frame rate to lock </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9a094caad6c739202552f70c1d3ac4c9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a9a094caad6c739202552f70c1d3ac4c9">Johnny::Timer::setTimeScale</a> </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the value which will be multiplied on the delta time. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>The value which will be used for the multiplication </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8178612acf1d30aaa67eb68c9ddb7f63"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dd/db4/class_johnny_1_1_timer.html#a8178612acf1d30aaa67eb68c9ddb7f63">Johnny::Timer::startTimeMeasure</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts the time measurment. </p>
+<div class="fragment"><pre class="fragment">              </pre></div> 
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="../../d5/d29/_timer_8h_source.html">Timer.h</a></li>
 <li>src/Timer.cpp</li>
@@ -121,7 +289,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>endTimeMeasure</b> ()<
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 31 2017 11:35:17 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 31 2017 13:35:06 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>
