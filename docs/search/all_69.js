@@ -8,6 +8,8 @@ var searchData=
   ['init_5fidentity',['INIT_IDENTITY',['../df/db1/class_johnny_1_1_matrix4.html#a1d5b632ab0e4a3e26cafa9e61ef36600',1,'Johnny::Matrix4']]],
   ['initflags',['InitFlags',['../d1/dc4/namespace_johnny.html#a6ee029829fad2f05da78071933e7e22b',1,'Johnny']]],
   ['initgraphics',['initGraphics',['../da/d16/class_johnny_1_1_render_util.html#a0b64f3a54f905330e6edf693d8af327d',1,'Johnny::RenderUtil']]],
+  ['inittexture2dbuffers',['initTexture2DBuffers',['../de/dcf/class_johnny_1_1_texture.html#a2994cf23e1fee58b59e9c91f4d18b563',1,'Johnny::Texture']]],
+  ['inittexture2dshader',['initTexture2DShader',['../de/dcf/class_johnny_1_1_texture.html#a40b75c67a3cb55c2d5cdd79908d971b8',1,'Johnny::Texture']]],
   ['initwindow',['initWindow',['../da/d16/class_johnny_1_1_render_util.html#a4bdc18ee29384091898ed30a242a7b06',1,'Johnny::RenderUtil']]],
   ['innercutoff',['innerCutOff',['../da/d67/class_johnny_1_1_spot_light3_d.html#a468c257dd5e161fb10f532c29070af16',1,'Johnny::SpotLight3D']]],
   ['inputmanager',['InputManager',['../db/dcc/class_johnny_1_1_input_manager.html',1,'Johnny']]],

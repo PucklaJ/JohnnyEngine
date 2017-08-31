@@ -1,9 +1,11 @@
 var searchData=
 [
   ['readme',['README',['../d3/dcc/md__r_e_a_d_m_e.html',1,'']]],
+  ['readpixels',['readPixels',['../de/dcf/class_johnny_1_1_texture.html#a8af70b557f61ceee24c39665820df86a',1,'Johnny::Texture']]],
   ['rectangle',['Rectangle',['../dd/d32/class_johnny_1_1_rectangle.html',1,'Johnny']]],
   ['rectangle',['Rectangle',['../dd/d32/class_johnny_1_1_rectangle.html#ae0e94b1014a5dd3d08e34e1cdb50f50b',1,'Johnny::Rectangle::Rectangle()'],['../dd/d32/class_johnny_1_1_rectangle.html#a0ed98f1242f747ac62bf0e9759858c6c',1,'Johnny::Rectangle::Rectangle(const T &amp;x, const T &amp;y, const T &amp;width, const T &amp;height)'],['../dd/d32/class_johnny_1_1_rectangle.html#a74c184d007bc31acde4f772d84c7aaeb',1,'Johnny::Rectangle::Rectangle(const Vector2&lt; T &gt; &amp;pos, const Vector2&lt; T &gt; &amp;size)']]],
   ['rectangle_3c_20glint_20_3e',['Rectangle&lt; GLint &gt;',['../dd/d32/class_johnny_1_1_rectangle.html',1,'Johnny']]],
+  ['regions',['regions',['../d0/d67/struct_johnny_1_1_tile_animation.html#a430d0b69870a22e422d19c44f4f77a3c',1,'Johnny::TileAnimation']]],
   ['releasekey',['releaseKey',['../db/dcc/class_johnny_1_1_input_manager.html#a0c445efa83256fb2a49939950477a2e4',1,'Johnny::InputManager']]],
   ['removeactor',['removeActor',['../db/da1/class_johnny_1_1_render_manager.html#a4e92e40229af6adfd9d01b155695cf12',1,'Johnny::RenderManager']]],
   ['removechild',['removeChild',['../d1/dc5/class_johnny_1_1_actor.html#a09499e1c81d755529dab00d605ff84f7',1,'Johnny::Actor']]],
@@ -16,8 +18,10 @@ var searchData=
   ['rendermanager',['RenderManager',['../db/da1/class_johnny_1_1_render_manager.html',1,'Johnny']]],
   ['rendersceneforshadowmap',['renderSceneForShadowMap',['../d4/d76/class_johnny_1_1_main_class.html#ae25dce217b7ebcf4b58f243fa90dc7e0',1,'Johnny::MainClass::renderSceneForShadowMap()'],['../db/da1/class_johnny_1_1_render_manager.html#a5f29dab61f28108e3084a8c5b78ff026',1,'Johnny::RenderManager::renderSceneForShadowMap()']]],
   ['rendershadowmaps',['renderShadowMaps',['../d3/d12/class_johnny_1_1_lighting3_d.html#a01be43c1268b8ff4bac2266af756127b',1,'Johnny::Lighting3D']]],
+  ['rendersprite2d',['renderSprite2D',['../de/dcf/class_johnny_1_1_texture.html#a1d630f51d362390e2cd43f0fb69530a4',1,'Johnny::Texture']]],
   ['rendertexture',['RenderTexture',['../da/d0d/class_johnny_1_1_render_texture.html',1,'Johnny']]],
   ['rendertexture',['RenderTexture',['../da/d0d/class_johnny_1_1_render_texture.html#a9353ab12a32f524a06b9485138011a9a',1,'Johnny::RenderTexture']]],
+  ['rendertexture2d',['renderTexture2D',['../de/dcf/class_johnny_1_1_texture.html#a2d39624a91b8dbce3c585ef5be8ce1e6',1,'Johnny::Texture::renderTexture2D(Texture *tex, const Matrix3f &amp;transform, const TextureRegion *srcRegion=nullptr, bool bindShader=true, bool isFrameBuffer=false)'],['../de/dcf/class_johnny_1_1_texture.html#a8af41ca4ea758a6bd3560a670547c495',1,'Johnny::Texture::renderTexture2D(Texture *tex, const Vector2f &amp;position, const Vector2f &amp;scale=Vector2f(1.0f, 1.0f), const GLfloat &amp;rotation=0.0f, const Camera2D *cam=nullptr, const TextureRegion *srcRegion=nullptr, bool bindShader=true, bool isFrameBuffer=false, GLenum target=GL_TEXTURE_2D)'],['../de/dcf/class_johnny_1_1_texture.html#ab5ab8a3f7ee361f278cbf7119b273c38',1,'Johnny::Texture::renderTexture2D(Texture *tex, const TextureRegion *dst=nullptr, const TextureRegion *src=nullptr, const GLfloat &amp;rotation=0.0f, const Camera2D *cam=nullptr, bool bindShader=true, bool isFrameBuffer=false)']]],
   ['renderutil',['RenderUtil',['../da/d16/class_johnny_1_1_render_util.html',1,'Johnny']]],
   ['resourcemanager',['ResourceManager',['../d2/d12/class_johnny_1_1_resource_manager.html',1,'Johnny']]],
   ['reverse',['reverse',['../d1/dc4/namespace_johnny.html#a681049f4abe4f76c98ae72cc6214475a',1,'Johnny']]],

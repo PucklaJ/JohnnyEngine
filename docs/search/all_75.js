@@ -2,7 +2,7 @@ var searchData=
 [
   ['ubotypes',['UBOTypes',['../d1/dc4/namespace_johnny.html#a4b1450206433c6a627bfaa75194e6153',1,'Johnny']]],
   ['uint8toint',['Uint8ToInt',['../d1/dc4/namespace_johnny.html#aebc45331d1f0d54a338268f3cddcff02',1,'Johnny']]],
-  ['unbind',['unbind',['../d2/db0/class_johnny_1_1_frame_buffer.html#aa9b4bf4ec988a34fa51e13bd46d9f0a9',1,'Johnny::FrameBuffer::unbind()'],['../dd/d74/class_johnny_1_1_material.html#ac8f1015e396138650ad0618ff42c1ee4',1,'Johnny::Material::unbind()'],['../df/dcf/class_johnny_1_1_render_buffer.html#aa53d04b4d21cd9975a15b579c042bdfe',1,'Johnny::RenderBuffer::unbind()']]],
+  ['unbind',['unbind',['../d2/db0/class_johnny_1_1_frame_buffer.html#aa9b4bf4ec988a34fa51e13bd46d9f0a9',1,'Johnny::FrameBuffer::unbind()'],['../dd/d74/class_johnny_1_1_material.html#ac8f1015e396138650ad0618ff42c1ee4',1,'Johnny::Material::unbind()'],['../df/dcf/class_johnny_1_1_render_buffer.html#aa53d04b4d21cd9975a15b579c042bdfe',1,'Johnny::RenderBuffer::unbind()'],['../de/dcf/class_johnny_1_1_texture.html#afb3f7fdae165f19706683b20e81bf32a',1,'Johnny::Texture::unbind()']]],
   ['uniformbuffer',['UniformBuffer',['../dd/d5a/class_johnny_1_1_uniform_buffer.html',1,'Johnny']]],
   ['unload',['unload',['../db/da1/class_johnny_1_1_render_manager.html#a1cae9d68ef3f546acf218015baec3ae1',1,'Johnny::RenderManager']]],
   ['unmap',['unmap',['../dd/d5a/class_johnny_1_1_uniform_buffer.html#a007e5d74b8ab81dd77ca32b792b7c6cb',1,'Johnny::UniformBuffer']]],

@@ -94,13 +94,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <div class="title">Johnny::TextActor2D Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class which represents a text rendered to the screen.  
+ <a href="../../de/dad/class_johnny_1_1_text_actor2_d.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d6/d33/_text_actor2_d_8h_source.html">TextActor2D.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Johnny::TextActor2D:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="../../de/dad/class_johnny_1_1_text_actor2_d.png" usemap="#Johnny::TextActor2D_map" alt=""/>
   <map id="Johnny::TextActor2D_map" name="Johnny::TextActor2D_map">
-<area href="../../db/d0b/class_johnny_1_1_sprite2_d.html" alt="Johnny::Sprite2D" shape="rect" coords="102,112,296,136"/>
+<area href="../../db/d0b/class_johnny_1_1_sprite2_d.html" title="A class which represents a Texture as an Actor." alt="Johnny::Sprite2D" shape="rect" coords="102,112,296,136"/>
 <area href="../../d1/dc5/class_johnny_1_1_actor.html" title="This is the base class for everything Every object is derived from this class." alt="Johnny::Actor" shape="rect" coords="0,56,194,80"/>
 <area href="../../d0/d4d/class_johnny_1_1_tweenable_object2_d.html" alt="Johnny::TweenableObject2D" shape="rect" coords="204,56,398,80"/>
 <area href="../../dd/d46/class_johnny_1_1_transformable_object2_d.html" alt="Johnny::TransformableObject2D" shape="rect" coords="204,0,398,24"/>
@@ -111,55 +116,47 @@ Inheritance diagram for Johnny::TextActor2D:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a958d4f2370d1b4609fcca54c9f48b844"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a958d4f2370d1b4609fcca54c9f48b844"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TextActor2D</b> (TTF_Font *, const SDL_Color &amp;color={0, 0, 0, 255}, const std::string &amp;text=&quot;&quot;)</td></tr>
+<tr class="memitem:ae9947413fe17ac7e89081ff424d60ff4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#ae9947413fe17ac7e89081ff424d60ff4">TextActor2D</a> (TTF_Font *font, const SDL_Color &amp;color={0, 0, 0, 255}, const std::string &amp;text=&quot;&quot;)</td></tr>
+<tr class="memdesc:ae9947413fe17ac7e89081ff424d60ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html" title="A class which represents a text rendered to the screen.">TextActor2D</a>.  <a href="#ae9947413fe17ac7e89081ff424d60ff4"></a><br/></td></tr>
 <tr class="memitem:a1cb3febb2f1251e921ea1decf7b05341"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#a1cb3febb2f1251e921ea1decf7b05341">init</a> () override</td></tr>
-<tr class="memdesc:a1cb3febb2f1251e921ea1decf7b05341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called right after being added to its parent.  <a href="#a1cb3febb2f1251e921ea1decf7b05341"></a><br/></td></tr>
+<tr class="memdesc:a1cb3febb2f1251e921ea1decf7b05341"><td class="mdescLeft">&#160;</td><td class="mdescRight">The init method.  <a href="#a1cb3febb2f1251e921ea1decf7b05341"></a><br/></td></tr>
 <tr class="memitem:a266797a42babc9c0dd773c08e60704f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#a266797a42babc9c0dd773c08e60704f8">update</a> () override</td></tr>
-<tr class="memdesc:a266797a42babc9c0dd773c08e60704f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every frame before rendering.  <a href="#a266797a42babc9c0dd773c08e60704f8"></a><br/></td></tr>
-<tr class="memitem:a21c34ba4e9927d148d9d5fddf391b429"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21c34ba4e9927d148d9d5fddf391b429"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setText</b> (const std::string &amp;str)</td></tr>
-<tr class="memitem:a7a14e2882404690d3fab3931e4654d6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a14e2882404690d3fab3931e4654d6e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setColor</b> (const SDL_Color &amp;color)</td></tr>
-<tr class="memitem:a3adb73b81a05f79eaac0e481fd8868af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3adb73b81a05f79eaac0e481fd8868af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setFont</b> (TTF_Font *font)</td></tr>
-<tr class="memitem:adea49f1dedddbd51fdd81522d125f257"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adea49f1dedddbd51fdd81522d125f257"></a>
-const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getText</b> () const </td></tr>
-<tr class="memitem:aa3c3388d52784ea0bf83d74a05c12703"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3c3388d52784ea0bf83d74a05c12703"></a>
-const SDL_Color &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getColor</b> () const </td></tr>
-<tr class="memitem:a1e8b2e4df79e924420c225632947170f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e8b2e4df79e924420c225632947170f"></a>
-TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><b>getFont</b> ()</td></tr>
+<tr class="memdesc:a266797a42babc9c0dd773c08e60704f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The update method.  <a href="#a266797a42babc9c0dd773c08e60704f8"></a><br/></td></tr>
+<tr class="memitem:a21c34ba4e9927d148d9d5fddf391b429"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#a21c34ba4e9927d148d9d5fddf391b429">setText</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a21c34ba4e9927d148d9d5fddf391b429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the text which will be rendered.  <a href="#a21c34ba4e9927d148d9d5fddf391b429"></a><br/></td></tr>
+<tr class="memitem:a7a14e2882404690d3fab3931e4654d6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#a7a14e2882404690d3fab3931e4654d6e">setColor</a> (const SDL_Color &amp;color)</td></tr>
+<tr class="memdesc:a7a14e2882404690d3fab3931e4654d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the color of the text.  <a href="#a7a14e2882404690d3fab3931e4654d6e"></a><br/></td></tr>
+<tr class="memitem:a3adb73b81a05f79eaac0e481fd8868af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#a3adb73b81a05f79eaac0e481fd8868af">setFont</a> (TTF_Font *font)</td></tr>
+<tr class="memdesc:a3adb73b81a05f79eaac0e481fd8868af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the font of the text.  <a href="#a3adb73b81a05f79eaac0e481fd8868af"></a><br/></td></tr>
+<tr class="memitem:adea49f1dedddbd51fdd81522d125f257"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#adea49f1dedddbd51fdd81522d125f257">getText</a> () const </td></tr>
+<tr class="memitem:aa3c3388d52784ea0bf83d74a05c12703"><td class="memItemLeft" align="right" valign="top">const SDL_Color &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#aa3c3388d52784ea0bf83d74a05c12703">getColor</a> () const </td></tr>
+<tr class="memitem:a1e8b2e4df79e924420c225632947170f"><td class="memItemLeft" align="right" valign="top">TTF_Font *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#a1e8b2e4df79e924420c225632947170f">getFont</a> ()</td></tr>
 <tr class="inherit_header pub_methods_class_johnny_1_1_sprite2_d"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_johnny_1_1_sprite2_d')"><img src="../../closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Johnny::Sprite2D</a></td></tr>
-<tr class="memitem:aca6a22faf34d77dc67f1b0fe572563c3 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca6a22faf34d77dc67f1b0fe572563c3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Sprite2D</b> (const std::string &amp;)</td></tr>
-<tr class="memitem:a414e42451c629596bcf8c65c2547175b inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a414e42451c629596bcf8c65c2547175b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Sprite2D</b> (<a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *)</td></tr>
-<tr class="memitem:a06ccb117acc31115201319040a670662 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a06ccb117acc31115201319040a670662">init</a> () override</td></tr>
-<tr class="memdesc:a06ccb117acc31115201319040a670662 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called right after being added to its parent.  <a href="#a06ccb117acc31115201319040a670662"></a><br/></td></tr>
-<tr class="memitem:afd126b564752e3b79df684325c4e6e89 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#afd126b564752e3b79df684325c4e6e89">update</a> () override</td></tr>
-<tr class="memdesc:afd126b564752e3b79df684325c4e6e89 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every frame before rendering.  <a href="#afd126b564752e3b79df684325c4e6e89"></a><br/></td></tr>
-<tr class="memitem:aba0bec536ff2f809cc0c4a94c6ab2d9e inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#aba0bec536ff2f809cc0c4a94c6ab2d9e">render</a> () override</td></tr>
-<tr class="memdesc:aba0bec536ff2f809cc0c4a94c6ab2d9e inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called after every update method and normally renders the object.  <a href="#aba0bec536ff2f809cc0c4a94c6ab2d9e"></a><br/></td></tr>
-<tr class="memitem:a180201e2c620432720c8a98d649c80d6 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a180201e2c620432720c8a98d649c80d6">quit</a> () override</td></tr>
-<tr class="memdesc:a180201e2c620432720c8a98d649c80d6 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when the object is removed from its parent.  <a href="#a180201e2c620432720c8a98d649c80d6"></a><br/></td></tr>
-<tr class="memitem:a37144133bfbe76a9842470ab50d60ff9 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37144133bfbe76a9842470ab50d60ff9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTexture</b> (<a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *)</td></tr>
-<tr class="memitem:a3a2a728e90e9bcac9a86d4a41a23bf0e inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a2a728e90e9bcac9a86d4a41a23bf0e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSrcRegion</b> (const <a class="el" href="../../d1/dc4/namespace_johnny.html#a8e2ce05a7300b6d9fe8c5d421d278002">TextureRegion</a> &amp;)</td></tr>
-<tr class="memitem:abe37e7da5756c24389ace0084d3e8753 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe37e7da5756c24389ace0084d3e8753"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDrawSize</b> (const <a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> &amp;)</td></tr>
-<tr class="memitem:a4f871adf39467891cf022076dee9358a inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f871adf39467891cf022076dee9358a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDrawSize</b> (GLfloat, GLfloat)</td></tr>
-<tr class="memitem:a6ba18e00e6bb661e42f29bf2c957bee7 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ba18e00e6bb661e42f29bf2c957bee7"></a>
-<a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTexture</b> ()</td></tr>
-<tr class="memitem:a739b478e9ab43d6941de216af0e2501e inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a739b478e9ab43d6941de216af0e2501e"></a>
-const <a class="el" href="../../d1/dc4/namespace_johnny.html#a8e2ce05a7300b6d9fe8c5d421d278002">TextureRegion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSrcRegion</b> () const </td></tr>
-<tr class="memitem:a50d24fe8628a53aabfa8228a84753338 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50d24fe8628a53aabfa8228a84753338"></a>
-<a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getDrawSize</b> () const </td></tr>
-<tr class="memitem:ae4fdae09518ad6098c4b619a34b3ec87 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4fdae09518ad6098c4b619a34b3ec87"></a>
-<a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getActualSize</b> () const </td></tr>
-<tr class="memitem:aceb0fd9e78e3c661c3a0752ece8b8d54 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aceb0fd9e78e3c661c3a0752ece8b8d54"></a>
-<a class="el" href="../../dd/d32/class_johnny_1_1_rectangle.html">Rectangle</a>&lt; GLfloat &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getBoundingBox</b> ()</td></tr>
+<tr class="memitem:a98c1cb7d66c156cb44b02ac9b0291196 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a98c1cb7d66c156cb44b02ac9b0291196">Sprite2D</a> (const std::string &amp;file)</td></tr>
+<tr class="memdesc:a98c1cb7d66c156cb44b02ac9b0291196 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html" title="A class which represents a Texture as an Actor.">Sprite2D</a>.  <a href="#a98c1cb7d66c156cb44b02ac9b0291196"></a><br/></td></tr>
+<tr class="memitem:a2d5a4d862544ff4987ff18edd933b451 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a2d5a4d862544ff4987ff18edd933b451">Sprite2D</a> (<a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *tex)</td></tr>
+<tr class="memdesc:a2d5a4d862544ff4987ff18edd933b451 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html" title="A class which represents a Texture as an Actor.">Sprite2D</a>.  <a href="#a2d5a4d862544ff4987ff18edd933b451"></a><br/></td></tr>
+<tr class="memitem:a06ccb117acc31115201319040a670662 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a06ccb117acc31115201319040a670662">init</a> () override</td></tr>
+<tr class="memdesc:a06ccb117acc31115201319040a670662 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The init method.  <a href="#a06ccb117acc31115201319040a670662"></a><br/></td></tr>
+<tr class="memitem:afd126b564752e3b79df684325c4e6e89 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#afd126b564752e3b79df684325c4e6e89">update</a> () override</td></tr>
+<tr class="memdesc:afd126b564752e3b79df684325c4e6e89 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The update method.  <a href="#afd126b564752e3b79df684325c4e6e89"></a><br/></td></tr>
+<tr class="memitem:aba0bec536ff2f809cc0c4a94c6ab2d9e inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#aba0bec536ff2f809cc0c4a94c6ab2d9e">render</a> () override</td></tr>
+<tr class="memdesc:aba0bec536ff2f809cc0c4a94c6ab2d9e inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The render method.  <a href="#aba0bec536ff2f809cc0c4a94c6ab2d9e"></a><br/></td></tr>
+<tr class="memitem:a180201e2c620432720c8a98d649c80d6 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a180201e2c620432720c8a98d649c80d6">quit</a> () override</td></tr>
+<tr class="memdesc:a180201e2c620432720c8a98d649c80d6 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The quit method.  <a href="#a180201e2c620432720c8a98d649c80d6"></a><br/></td></tr>
+<tr class="memitem:a31d8eacda6d305235fab02cb71f027cd inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a31d8eacda6d305235fab02cb71f027cd">setTexture</a> (<a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *tex)</td></tr>
+<tr class="memdesc:a31d8eacda6d305235fab02cb71f027cd inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html" title="A class which represents a texture on the graphics card.">Texture</a> of the <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html" title="A class which represents a Texture as an Actor.">Sprite2D</a>.  <a href="#a31d8eacda6d305235fab02cb71f027cd"></a><br/></td></tr>
+<tr class="memitem:a93b5a314c86d59c26e68ff9a31967244 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a93b5a314c86d59c26e68ff9a31967244">setSrcRegion</a> (const <a class="el" href="../../d1/dc4/namespace_johnny.html#a8e2ce05a7300b6d9fe8c5d421d278002">TextureRegion</a> &amp;region)</td></tr>
+<tr class="memdesc:a93b5a314c86d59c26e68ff9a31967244 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the source region of the <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html" title="A class which represents a Texture as an Actor.">Sprite2D</a> which defines what to use from the texture for rendering.  <a href="#a93b5a314c86d59c26e68ff9a31967244"></a><br/></td></tr>
+<tr class="memitem:a62a6f218de2fa8b3a029ee819da7a2d9 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a62a6f218de2fa8b3a029ee819da7a2d9">setDrawSize</a> (const <a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a> &amp;v)</td></tr>
+<tr class="memdesc:a62a6f218de2fa8b3a029ee819da7a2d9 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the draw size of the <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html" title="A class which represents a Texture as an Actor.">Sprite2D</a> which defines how big the <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html" title="A class which represents a texture on the graphics card.">Texture</a> should be rendered in pixels.  <a href="#a62a6f218de2fa8b3a029ee819da7a2d9"></a><br/></td></tr>
+<tr class="memitem:ab69ac8857d0997b2ca77f6526170b481 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#ab69ac8857d0997b2ca77f6526170b481">setDrawSize</a> (GLfloat width, GLfloat height)</td></tr>
+<tr class="memdesc:ab69ac8857d0997b2ca77f6526170b481 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the draw size of the <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html" title="A class which represents a Texture as an Actor.">Sprite2D</a> which defines how big the <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html" title="A class which represents a texture on the graphics card.">Texture</a> should be rendered in pixels.  <a href="#ab69ac8857d0997b2ca77f6526170b481"></a><br/></td></tr>
+<tr class="memitem:a6ba18e00e6bb661e42f29bf2c957bee7 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a6ba18e00e6bb661e42f29bf2c957bee7">getTexture</a> ()</td></tr>
+<tr class="memitem:a739b478e9ab43d6941de216af0e2501e inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d1/dc4/namespace_johnny.html#a8e2ce05a7300b6d9fe8c5d421d278002">TextureRegion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a739b478e9ab43d6941de216af0e2501e">getSrcRegion</a> () const </td></tr>
+<tr class="memitem:a50d24fe8628a53aabfa8228a84753338 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a50d24fe8628a53aabfa8228a84753338">getDrawSize</a> () const </td></tr>
+<tr class="memitem:ae4fdae09518ad6098c4b619a34b3ec87 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Vector2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#ae4fdae09518ad6098c4b619a34b3ec87">getActualSize</a> () const </td></tr>
+<tr class="memitem:aceb0fd9e78e3c661c3a0752ece8b8d54 inherit pub_methods_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d32/class_johnny_1_1_rectangle.html">Rectangle</a>&lt; GLfloat &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#aceb0fd9e78e3c661c3a0752ece8b8d54">getBoundingBox</a> ()</td></tr>
 <tr class="inherit_header pub_methods_class_johnny_1_1_actor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_johnny_1_1_actor')"><img src="../../closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html">Johnny::Actor</a></td></tr>
 <tr class="memitem:a7c12e4cbe59049e9a9567844ac01eed7 inherit pub_methods_class_johnny_1_1_actor"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c12e4cbe59049e9a9567844ac01eed7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Actor</b> (const char *name=&quot;Actor&quot;)</td></tr>
@@ -272,9 +269,11 @@ virtual const <a class="el" href="../../de/d9f/class_johnny_1_1_vector2.html">Ve
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_johnny_1_1_sprite2_d"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_johnny_1_1_sprite2_d')"><img src="../../closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html">Johnny::Sprite2D</a></td></tr>
 <tr class="memitem:a04566dc32d77337ba77e256d614d0b90 inherit pro_attribs_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04566dc32d77337ba77e256d614d0b90"></a>
-<a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_texture</b> = nullptr</td></tr>
+<a class="el" href="../../de/dcf/class_johnny_1_1_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a04566dc32d77337ba77e256d614d0b90">m_texture</a> = nullptr</td></tr>
+<tr class="memdesc:a04566dc32d77337ba77e256d614d0b90 inherit pro_attribs_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html" title="A class which represents a texture on the graphics card.">Texture</a> of the <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html" title="A class which represents a Texture as an Actor.">Sprite2D</a>. <br/></td></tr>
 <tr class="memitem:afb1f5cc0b52959719a8fe29c3b571b16 inherit pro_attribs_class_johnny_1_1_sprite2_d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb1f5cc0b52959719a8fe29c3b571b16"></a>
-<a class="el" href="../../d1/dc4/namespace_johnny.html#a8e2ce05a7300b6d9fe8c5d421d278002">TextureRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_srcRegion</b></td></tr>
+<a class="el" href="../../d1/dc4/namespace_johnny.html#a8e2ce05a7300b6d9fe8c5d421d278002">TextureRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#afb1f5cc0b52959719a8fe29c3b571b16">m_srcRegion</a></td></tr>
+<tr class="memdesc:afb1f5cc0b52959719a8fe29c3b571b16 inherit pro_attribs_class_johnny_1_1_sprite2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The source region which defines what to use from the <a class="el" href="../../de/dcf/class_johnny_1_1_texture.html" title="A class which represents a texture on the graphics card.">Texture</a>. <br/></td></tr>
 <tr class="inherit_header pro_attribs_class_johnny_1_1_actor"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_johnny_1_1_actor')"><img src="../../closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html">Johnny::Actor</a></td></tr>
 <tr class="memitem:a1ab239a2804b3f9c8802d0adccca9e25 inherit pro_attribs_class_johnny_1_1_actor"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ab239a2804b3f9c8802d0adccca9e25"></a>
 <a class="el" href="../../d4/d76/class_johnny_1_1_main_class.html">MainClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc5/class_johnny_1_1_actor.html#a1ab239a2804b3f9c8802d0adccca9e25">m_mainClass</a> = nullptr</td></tr>
@@ -303,7 +302,108 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>MainClass</b></td></
 <tr class="memitem:ac2f8d8a30258c4e46c827c1a7ebb5db9 inherit friends_class_johnny_1_1_actor"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2f8d8a30258c4e46c827c1a7ebb5db9"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>RenderManager</b></td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A class which represents a text rendered to the screen. </p>
+<div class="fragment"><pre class="fragment">  </pre></div> </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ae9947413fe17ac7e89081ff424d60ff4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#ae9947413fe17ac7e89081ff424d60ff4">Johnny::TextActor2D::TextActor2D</a> </td>
+          <td>(</td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new <a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html" title="A class which represents a text rendered to the screen.">TextActor2D</a>. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">font</td><td>The font to use for the text </td></tr>
+    <tr><td class="paramname">color</td><td>The color of the text </td></tr>
+    <tr><td class="paramname">text</td><td>The text which will be rendered </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aa3c3388d52784ea0bf83d74a05c12703"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const SDL_Color&amp; <a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#aa3c3388d52784ea0bf83d74a05c12703">Johnny::TextActor2D::getColor</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The color of the text </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1e8b2e4df79e924420c225632947170f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TTF_Font* <a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#a1e8b2e4df79e924420c225632947170f">Johnny::TextActor2D::getFont</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The font of the text </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adea49f1dedddbd51fdd81522d125f257"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string&amp; <a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#adea49f1dedddbd51fdd81522d125f257">Johnny::TextActor2D::getText</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>The text which is rendered </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a1cb3febb2f1251e921ea1decf7b05341"></a>
 <div class="memitem">
 <div class="memproto">
@@ -325,10 +425,106 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RenderManager</b></t
 </table>
 </div><div class="memdoc">
 
-<p>Gets called right after being added to its parent. </p>
-<p>If the function returns false the application closes </p>
+<p>The init method. </p>
+<p>It is overriding the method from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html" title="A class which represents a Texture as an Actor.">Sprite2D</a> </p>
 
 <p>Reimplemented from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#a06ccb117acc31115201319040a670662">Johnny::Sprite2D</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7a14e2882404690d3fab3931e4654d6e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#a7a14e2882404690d3fab3931e4654d6e">Johnny::TextActor2D::setColor</a> </td>
+          <td>(</td>
+          <td class="paramtype">const SDL_Color &amp;&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the color of the text. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>The color to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a3adb73b81a05f79eaac0e481fd8868af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#a3adb73b81a05f79eaac0e481fd8868af">Johnny::TextActor2D::setFont</a> </td>
+          <td>(</td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the font of the text. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">font</td><td>The font to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a21c34ba4e9927d148d9d5fddf391b429"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../de/dad/class_johnny_1_1_text_actor2_d.html#a21c34ba4e9927d148d9d5fddf391b429">Johnny::TextActor2D::setText</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the text which will be rendered. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The text which will e rendered </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -353,8 +549,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RenderManager</b></t
 </table>
 </div><div class="memdoc">
 
-<p>Gets called every frame before rendering. </p>
-<p>If the function returns false the application closes </p>
+<p>The update method. </p>
+<p>It is overriding the method from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html" title="A class which represents a Texture as an Actor.">Sprite2D</a> </p>
 
 <p>Reimplemented from <a class="el" href="../../db/d0b/class_johnny_1_1_sprite2_d.html#afd126b564752e3b79df684325c4e6e89">Johnny::Sprite2D</a>.</p>
 
@@ -367,7 +563,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RenderManager</b></t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 30 2017 16:41:20 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 31 2017 11:35:17 for JohnnyEngine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.0-20120429
 </small></address>
