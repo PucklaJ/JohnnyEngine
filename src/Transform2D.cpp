@@ -237,12 +237,12 @@ namespace Johnny
 
 	void TransformableObject2D::addPosition(const Vector2f& pos)
 	{
-		m_transform.setTranslation(m_transform.getTranslation() + pos);
+		setPosition(getPosition() + pos);
 	}
 
 	void TransformableObject2D::addPosition(const GLfloat& x, const GLfloat& y)
 	{
-		m_transform.setTranslation(m_transform.getTranslation() + Vector2f(x, y));
+		addPosition(Vector2f(x,y));
 	}
 
 	void TransformableObject2D::addScale(const Vector2f& v)

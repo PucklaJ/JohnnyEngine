@@ -121,6 +121,43 @@ namespace Johnny
 
 		return rect;
 	}
+    
+    bool Sprite2D::intersects(Sprite2D* spr)
+    {
+        Vector2f pos = spr->getPosition();
+        Vector2f size = spr->getActualSize();
+        Vector2f pos1 = getPosition();
+        Vector2f size1 = getActualSize();
+        
+        
+        return pos.x < pos1.x + size1.width &&
+               pos.x + size.width > pos1.x &&
+               pos.y < pos1.y + size1.height &&
+               pos.y + size.height > pos1.y;
+    }
+    
+    bool Sprite2D::intersects(const Vector2f& pos)
+    {
+       Vector2f pos1 = getPosition();
+       Vector2f size1 = getActualSize();
+        
+       return pos.x < pos1.x + size1.width &&
+              pos.x > pos1.x &&
+              pos.y < pos1.y + size1.height &&
+              pos.y > pos1.y;
+    }
+    
+    bool Sprite2D::intersects(const Rectangle<GLfloat>& rect)
+    {
+        Vector2f pos1 = getPosition();
+        Vector2f size1 = getActualSize();
+        
+        
+        return rect.x < pos1.x + size1.width &&
+               rect.x + rect.width > pos1.x &&
+               rect.y < pos1.y + size1.height &&
+               rect.y + rect.height > pos1.y;
+    }
 }
 
 

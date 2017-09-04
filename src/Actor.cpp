@@ -92,6 +92,8 @@ namespace Johnny
 
     void Actor::m_quit()
     {
+        m_mainClass->getRenderManager()->removeActor(this);
+        
         removeChildrenAfterLoops();
 
         m_parent = nullptr;
@@ -272,12 +274,14 @@ namespace Johnny
 #ifdef DEBUG_OUTPUTS
         	std::cout << "Returned From Empty" << std::endl;
 #endif
+
         	return;
         }
 
 
         int id;
         bool del;
+        
         for(size_t u = 0;u < m_idsToRemove.size();u++)
         {
             id = m_idsToRemove[u];
@@ -328,6 +332,10 @@ namespace Johnny
 #ifdef DEBUG_OUTPUTS
         std::cout << "m_all_update end: " << m_name << std::endl;
 #endif
+
+        if(!m_visible)
+            removeChildrenAfterLoops();
+
         return true;
     }
 
@@ -395,7 +403,7 @@ namespace Johnny
 
     bool Actor::m_render_render()
     {
-        if(!m_visible)
+        /*if(!m_visible)
         {
 #ifdef DEBUG_OUTPUTS
         std::cout << "Children Before: " << m_children.size() << std::endl;
@@ -406,7 +414,7 @@ namespace Johnny
         std::cout << "Children After: " << m_children.size() << std::endl;
 #endif
         return true;
-        }
+        }*/
 
 
         if(!isOnScreen())

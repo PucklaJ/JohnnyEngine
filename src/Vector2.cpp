@@ -87,7 +87,14 @@ namespace Johnny
 	template<class T>
 	T Vector2<T>::angle() const
 	{
-		return (T)toDegrees(atan2(y,x));
+		T _angle = -(T)toDegrees(atan2(y,x));
+        
+        if(_angle < (T)0 && _angle > (T)-180)
+        {
+            _angle = (T)360 + _angle;
+        }
+        
+        return _angle;
 	}
 	template<class T>
 	T Vector2<T>::dot(const Vector2<T>& v) const

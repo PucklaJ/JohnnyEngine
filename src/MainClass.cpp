@@ -57,6 +57,7 @@ namespace Johnny
         m_isAffectedByCamera = false;
         m_mainClass = this;
 		m_castsShadows3D = false;
+        m_visible = false;
     }
 
     MainClass::~MainClass()

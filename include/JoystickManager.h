@@ -44,6 +44,8 @@ namespace Johnny
 
             std::vector<SDL_GameController*>& getControllers(){return m_controllers;}
             
+            JoystickListener* getListener() {return m_listener;}
+            
         private:
             JoystickListener* m_listener = nullptr;         //!< The JoystickListener of the object
             std::vector<SDL_GameController*> m_controllers; //!< The vector which holds the controllers

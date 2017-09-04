@@ -16,7 +16,8 @@ namespace Johnny
      */
     class Tween2D
     {
-        public:
+    public:
+            friend class TweenableObject2D;
             /*! \brief Creates a new Tween2D
              *  \param time The time in which the action should be completed
              */
@@ -59,7 +60,7 @@ namespace Johnny
             /*! \brief The quit method which gets called when the Tween2D is done
              *
              */
-            void quit();
+            virtual void quit();
 
             float m_time = 0.0;                    //!< The time how much the Tween2D has advanced
             float m_passedTime = 0.0;              //!< The time which has passed
@@ -128,6 +129,32 @@ namespace Johnny
 		Vector2f m_startScale;
 		Vector2f m_startPos;
     };
+    
+    class BlinkTween2D : public Tween2D
+    {
+    public:
+        BlinkTween2D(float time);
+        ~BlinkTween2D();
+        
+        void init() override;
+        bool update(float) override;
+    protected:
+        void quit() override;
+    private:
+        Sprite2D* m_sprParent = nullptr;
+    };
+    
+    class RotationTween2D : public Tween2D
+    {
+    public:
+        RotationTween2D(float speed);
+        ~RotationTween2D();
+        
+        void init() override;
+        bool update(float) override;
+    private:
+        float m_speed = 0.0f;
+    };
 
 	class TweenableObject2D : public TransformableObject2D
 	{
@@ -144,6 +171,7 @@ namespace Johnny
 		void pauseTween(int);
 		void resumeTween(int);
 		void stopTween(int);
+        bool isRunning(int);
 	protected:
 		void updateTweens(float);
 	private:

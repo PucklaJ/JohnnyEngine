@@ -14,7 +14,7 @@ namespace Johnny
     /*! \brief A enum which consists of all Buttons of a controller
      *
      */
-    enum class Buttons : const unsigned int
+    enum Buttons
     {
         UP = 11,
         DOWN = 12,
@@ -44,7 +44,7 @@ namespace Johnny
     /*!\brief A enum which consists of the sticks and triggers of a controller
      *
      */
-	  enum class Axis : const unsigned int
+    enum Axis
     {
         LEFT_STICK_X=0,
         LEFT_STICK_Y=1,

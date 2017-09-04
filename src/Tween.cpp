@@ -25,7 +25,7 @@ namespace Johnny
 
 	Tween2D::~Tween2D()
     {
-        quit();
+        
     }
 
     void Tween2D::quit()
@@ -344,6 +344,63 @@ namespace Johnny
         
         return false;
     }
+    
+    BlinkTween2D::BlinkTween2D(float time) : Tween2D(time)
+    {
+        
+    }
+    
+    BlinkTween2D::~BlinkTween2D()
+    {
+        
+    }
+    
+    void BlinkTween2D::init()
+    {
+        Tween2D::init();
+        m_sprParent = static_cast<Sprite2D*>(m_parent);
+    }
+    
+    bool BlinkTween2D::update(float dt)
+    {
+        m_passedTime += dt;
+        
+        if(m_passedTime >= m_time)
+        {
+            m_sprParent->setVisible(!m_sprParent->isVisible());
+            m_passedTime = 0.0f;
+        }
+        
+        return false;
+    }
+    
+    void BlinkTween2D::quit()
+    {
+        m_sprParent->setVisible(true);
+        Tween2D::quit();
+    }
+    
+    RotationTween2D::RotationTween2D(float speed) : Tween2D(0.0f),
+        m_speed(speed)
+    {
+        
+    }
+    
+    RotationTween2D::~RotationTween2D()
+    {
+        
+    }
+    
+    void RotationTween2D::init()
+    {
+        
+    }
+    
+    bool RotationTween2D::update(float dt)
+    {
+        m_parent->addRotation(m_speed * dt);
+        return false;
+    }
 
 	TweenableObject2D::TweenableObject2D()
 	{
@@ -413,6 +470,7 @@ namespace Johnny
 		{
 			if (m_tweens[i]->getID() == id)
 			{
+                m_tweens[i]->quit();
 				delete m_tweens[i];
 				m_tweens[i] = m_tweens.back();
 				m_tweens.pop_back();
@@ -430,6 +488,7 @@ namespace Johnny
 
 			if (m_tweens[i]->update(dt))
 			{
+                m_tweens[i]->quit();
 				delete m_tweens[i];
 				m_tweens[i] = m_tweens.back();
 				m_tweens.pop_back();
@@ -437,6 +496,17 @@ namespace Johnny
 			}
 		}
 	}
+    
+    bool TweenableObject2D::isRunning(int id)
+    {
+        for(size_t i = 0;i<m_tweens.size();i++)
+        {
+            if(m_tweens[i]->getID() == id)
+                return true;
+        }
+        
+        return false;
+    }
 
 }
 

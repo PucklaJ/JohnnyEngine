@@ -78,28 +78,32 @@ namespace Johnny
          *  \param c The b2Contact of the collision
          *  \param f1 The b2Fixture of the PhysicsSprite2D
          *  \param f2 The b2Fixture of the other b2Body it collides with
+         *  \param spr The other PhysicsSprite2D, if the body is not attached to a PhysicsSprite2D it is nullptr
          */
-        virtual void BeginContact(b2Contact* c,b2Fixture* f1,b2Fixture* f2);
+        virtual void BeginContact(b2Contact* c,b2Fixture* f1,b2Fixture* f2,PhysicsSprite2D* spr) {}
         /*! \brief Gets called when the b2Body of the PhysicsSprite2D ends colliding with another b2Body
          *  \param c The b2Contact of the collision
          *  \param f1 The b2Fixture of the Physics
          *  \param f2 The b2Fixture of the other b2Body
+         *  \param spr The other PhysicsSprite2D, if the body is not attached to a PhysicsSprite2D it is nullptr
          */
-        virtual void EndContact(b2Contact* c,b2Fixture* f1,b2Fixture* f2);
+        virtual void EndContact(b2Contact* c,b2Fixture* f1,b2Fixture* f2, PhysicsSprite2D* spr) {}
         /*! \brief Gets called every time the PhysicsSprite2D is colliding with another b2Body
          *  \param c The b2Contact of the collision
          *  \param f1 The b2Fixture of the PhysicsSprite2D
          *  \param f2 The b2Fixture of the other b2Body
          *  \param m The b2Manifold of the collision
+         *  \param spr The other PhysicsSprite2D, if the body is not attached to a PhysicsSprite2D it is nullptr
          */
-        virtual void PreSolve(b2Contact* c,b2Fixture* f1,b2Fixture* f2,const b2Manifold* m);
+        virtual void PreSolve(b2Contact* c,b2Fixture* f1,b2Fixture* f2,const b2Manifold* m,PhysicsSprite2D* spr) {}
         /*! \brief Gets called every time the PhysicsSprite2D is colliding with another b2Body after PreSolve
          *  \param c The b2Contact of the collision
          *  \param f1 The b2Fixture of the PhysicsSprite2D
          *  \param f2 The b2Fixture of the other b2Body
          *  \param ci The b2ContactImpulse of the collision
+         *  \param spr The other PhysicsSprite2D, if the body is not attached to a PhysicsSprite2D it is nullptr
          */
-        virtual void PostSolve(b2Contact* c,b2Fixture* f1,b2Fixture* f2,const b2ContactImpulse* ci);
+        virtual void PostSolve(b2Contact* c,b2Fixture* f1,b2Fixture* f2,const b2ContactImpulse* ci,PhysicsSprite2D* spr) {}
 
     protected:
         bool m_automaticDestroy = true; //!< Defines if the PhysicsSprite2D should be destroyed if it moves out of the physics world

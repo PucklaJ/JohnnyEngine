@@ -91,6 +91,22 @@ namespace Johnny
 		 *
 		 */
 		Rectangle<GLfloat> getBoundingBox();
+        
+        /*! \brief Checks if this Sprite2D intersects with another Sprite2D
+         *  \param spr The Sprite2D to check
+         *  \return true if they intersect and false otherwhise
+         */
+        bool intersects(Sprite2D* spr);
+        /*! \brief Checks if this Sprite2D intersects with a position on the world
+         *  \param pos The position to check
+         *  \return true if they intersect and false otherwhise
+         */
+        bool intersects(const Vector2f& pos);
+        /*! \brief Checks if this Sprite2D intersects with a rectangle
+         *  \param rect The Rectangle to check
+         *  \return true if they intersect and false otherwhise
+         */
+        bool intersects(const Rectangle<GLfloat>& rect);
 
 	protected:
 		Texture* m_texture = nullptr; //!< The Texture of the Sprite2D

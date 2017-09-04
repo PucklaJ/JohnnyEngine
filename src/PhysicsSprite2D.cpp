@@ -70,24 +70,7 @@ namespace Johnny
         if(m_mainClass->getPhysics2D())
 			m_mainClass->getPhysics2D()->getWorld()->DestroyBody(m_body);
     }
-
-    void PhysicsSprite2D::BeginContact(b2Contact* contact,b2Fixture* self,b2Fixture* other)
-    {
-
-    }
-	void PhysicsSprite2D::EndContact(b2Contact* contact,b2Fixture* self,b2Fixture* other)
-	{
-
-	}
-	void PhysicsSprite2D::PreSolve(b2Contact* contact,b2Fixture* self,b2Fixture* other,const b2Manifold* oldManifold)
-	{
-
-	}
-	void PhysicsSprite2D::PostSolve(b2Contact* contact,b2Fixture* self,b2Fixture* other,const b2ContactImpulse* impulse)
-	{
-
-	}
-
+    
 	void PhysicsSprite2D::attachBodyToSprite()
 	{
 		setPosition(m_mainClass->getPhysics2D()->coordsWorldToPixel(m_body->GetPosition()) - (getDrawSize() / 2.0f) + m_offset);

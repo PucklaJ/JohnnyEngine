@@ -48,7 +48,7 @@ namespace Johnny
 #ifdef DEBUG_OUTPUT
 		std::cout << "BeginContact Spr1" << std::endl;
 #endif
-			spr1->BeginContact(contact,f1,f2);
+			spr1->BeginContact(contact,f1,f2,spr2);
 #ifdef DEBUG_OUTPUT
 		std::cout << "BeginContact Spr1 end" << std::endl;
 #endif
@@ -58,7 +58,7 @@ namespace Johnny
 #ifdef DEBUG_OUTPUT
 		std::cout << "BeginContact Spr2" << std::endl;
 #endif
-			spr2->BeginContact(contact,f2,f1);
+			spr2->BeginContact(contact,f2,f1,spr1);
 #ifdef DEBUG_OUTPUT
 		std::cout << "BeginContact Spr2 end" << std::endl;
 #endif
@@ -80,11 +80,11 @@ namespace Johnny
 
 		if(spr1)
 		{
-			spr1->EndContact(contact,f1,f2);
+			spr1->EndContact(contact,f1,f2,spr2);
 		}
 		if(spr2)
 		{
-			spr2->EndContact(contact,f2,f1);
+			spr2->EndContact(contact,f2,f1,spr1);
 		}
 	}
 
@@ -101,11 +101,11 @@ namespace Johnny
 
 		if(spr1)
 		{
-			spr1->PreSolve(contact,f1,f2,oldManifold);
+			spr1->PreSolve(contact,f1,f2,oldManifold,spr2);
 		}
 		if(spr2)
 		{
-			spr2->PreSolve(contact,f2,f1,oldManifold);
+			spr2->PreSolve(contact,f2,f1,oldManifold,spr1);
 		}
 	}
 	void ContactListener::PostSolve(b2Contact* contact,const b2ContactImpulse* impulse)
@@ -121,11 +121,11 @@ namespace Johnny
 
 		if(spr1)
 		{
-			spr1->PostSolve(contact,f1,f2,impulse);
+			spr1->PostSolve(contact,f1,f2,impulse,spr2);
 		}
 		if(spr2)
 		{
-			spr2->PostSolve(contact,f2,f1,impulse);
+			spr2->PostSolve(contact,f2,f1,impulse,spr1);
 		}
 	}
 }

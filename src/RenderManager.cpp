@@ -23,7 +23,6 @@ namespace Johnny
 
             DEFAULT_POST_PROCESSING_SHADER->addVertexShader(res->loadShader("vertexShaderFrameBuffer.glsl"));
 			DEFAULT_POST_PROCESSING_SHADER->addFragmentShader(res->loadShader("fragmentShaderFrameBuffer.glsl"));
-
             DEFAULT_POST_PROCESSING_SHADER->addAttribute("vertexPosition", 0);
             DEFAULT_POST_PROCESSING_SHADER->addAttribute("vertexNormal", 1);
             DEFAULT_POST_PROCESSING_SHADER->addAttribute("vertexUV", 2);
@@ -151,8 +150,11 @@ namespace Johnny
             
 			for (size_t i = 0; i < actors->size(); i++)
 			{
-				(*actors)[i]->setShader(it->first, false);
-				(*actors)[i]->m_render_render();
+                if((*actors)[i]->isVisible())
+                {
+                    (*actors)[i]->setShader(it->first, false);
+                    (*actors)[i]->m_render_render();
+                }
 			}
 		}
 	}
