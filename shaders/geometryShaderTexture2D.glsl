@@ -12,6 +12,7 @@ uniform vec2 viewportSize;
 uniform vec4 textureRegion;
 uniform sampler2D textureAddress;
 uniform bool isFrameBuffer;
+uniform float depth;
 
 ivec2 textureDimensions;
 
@@ -26,34 +27,34 @@ void main()
     float TEXREG_X_R = ( TEXREG_X_L + textureRegion.z / textureDimensions.x );
     
 	// LeftDown
-	gl_Position = vec4( TRANS( -textureDimensions.x/2.0,-textureDimensions.y/2.0 ),-1,1 );
+	gl_Position = vec4( TRANS( -textureDimensions.x/2.0,-textureDimensions.y/2.0 ),depth,1 );
 	textureCoords = vec2(TEXREG_X_L,TEXREG_Y_D);
 	EmitVertex();
 
 	// RightDown
-	gl_Position = vec4(TRANS(textureDimensions.x/2.0,-textureDimensions.y/2.0),-1,1);
+	gl_Position = vec4(TRANS(textureDimensions.x/2.0,-textureDimensions.y/2.0),depth,1);
 	textureCoords = vec2(TEXREG_X_R,TEXREG_Y_D);
 	EmitVertex();
 
 	// RightUp
-	gl_Position = vec4(TRANS(textureDimensions.x/2.0,textureDimensions.y/2.0),-1,1);
+	gl_Position = vec4(TRANS(textureDimensions.x/2.0,textureDimensions.y/2.0),depth,1);
 	textureCoords = vec2(TEXREG_X_R,TEXREG_Y_U);
 	EmitVertex();
 
 	EndPrimitive();
 
 	// RightUp
-	gl_Position = vec4(TRANS(textureDimensions.x/2.0,textureDimensions.y/2.0),-1,1);
+	gl_Position = vec4(TRANS(textureDimensions.x/2.0,textureDimensions.y/2.0),depth,1);
 	textureCoords = vec2(TEXREG_X_R,TEXREG_Y_U);
 	EmitVertex();
 
 	// LeftUp
-	gl_Position = vec4(TRANS(-textureDimensions.x/2.0,textureDimensions.y/2.0),-1,1);
+	gl_Position = vec4(TRANS(-textureDimensions.x/2.0,textureDimensions.y/2.0),depth,1);
 	textureCoords = vec2(TEXREG_X_L,TEXREG_Y_U);
 	EmitVertex();
 
 	// LeftDown
-	gl_Position = vec4(TRANS(-textureDimensions.x/2.0,-textureDimensions.y/2.0),-1,1);
+	gl_Position = vec4(TRANS(-textureDimensions.x/2.0,-textureDimensions.y/2.0),depth,1);
 	textureCoords = vec2(TEXREG_X_L,TEXREG_Y_D);
 	EmitVertex();
 
