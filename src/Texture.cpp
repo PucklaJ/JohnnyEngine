@@ -59,6 +59,8 @@ namespace Johnny
     {
         if(m->getTexture()->getDrawMode() == DrawModes::DIRECT)
             glDisable(GL_BLEND);
+            
+        m_shader->setUniform("depth",(GLfloat)m->getDepth()/(GLfloat)INT_MAX);
         
         Texture::renderSprite2D();
         
@@ -138,6 +140,7 @@ namespace Johnny
             m_texture2DShader->addUniform("modColor");
             m_texture2DShader->addUniform("keyColor");
             m_texture2DShader->addUniform("drawMode");
+            m_texture2DShader->addUniform("depth");
 
 			mainClass->getRenderManager()->addShader(m_texture2DShader);
 		}
@@ -178,7 +181,7 @@ namespace Johnny
 		}
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation,const TextureRegion* srcRegion,bool bindShader,bool isFrameBuffer)
+	void Texture::renderTexture2D(Texture* tex, const Matrix3f& transformation,const TextureRegion* srcRegion,bool bindShader,bool isFrameBuffer,int depth)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
@@ -193,6 +196,7 @@ namespace Johnny
             m_texture2DShader->setUniform("keyColor",tex->getKeyColor().normalise());
             m_texture2DShader->setUniform("modColor",tex->getModColor().normalise());
             m_texture2DShader->setUniform("drawMode",tex->getDrawMode());
+            m_texture2DShader->setUniform("depth",(GLfloat)depth / (GLfloat)INT_MAX);
 			tex->bind(m_texture2DShader);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -207,7 +211,7 @@ namespace Johnny
 
 	}
 
-	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam,const TextureRegion* srcRegion, bool bindShader,bool isFrameBuffer,GLenum target)
+	void Texture::renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale, const GLfloat& rotation, const Camera2D* cam,const TextureRegion* srcRegion, bool bindShader,bool isFrameBuffer,GLenum target,int depth)
 	{
 		if (m_texture2D_vbo != 0 && m_texture2D_vao != 0 && m_texture2DShader)
 		{
@@ -231,6 +235,7 @@ namespace Johnny
             m_texture2DShader->setUniform("keyColor",tex->getKeyColor().normalise());
             m_texture2DShader->setUniform("modColor",tex->getModColor().normalise());
             m_texture2DShader->setUniform("drawMode",tex->getDrawMode());
+            m_texture2DShader->setUniform("depth",(GLfloat)depth/(GLfloat)INT_MAX);
 			tex->bind(m_texture2DShader,"textureAddress",0,target);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -244,7 +249,7 @@ namespace Johnny
 		}
 	}
     
-    void Texture::renderTexture2D(Texture* tex, const TextureRegion* dst, const TextureRegion* src,const GLfloat& rotation,const Camera2D* cam,bool bindShader, bool isFrameBuffer)
+    void Texture::renderTexture2D(Texture* tex, const TextureRegion* dst, const TextureRegion* src,const GLfloat& rotation,const Camera2D* cam,bool bindShader, bool isFrameBuffer,int depth)
     {
         renderTexture2D(tex,
                         dst ? Vector2f((GLfloat)dst->x,(GLfloat)dst->y) : Vector2f(0.0f,0.0f),
@@ -253,7 +258,8 @@ namespace Johnny
                         cam,
                         src,
                         bindShader,
-                        isFrameBuffer);
+                        isFrameBuffer,
+                        depth);
     }
     
     void Texture::renderSprite2D()

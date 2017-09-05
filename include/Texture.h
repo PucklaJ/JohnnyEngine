@@ -84,7 +84,7 @@ namespace Johnny
          *  \param bindShader Defines wether the Texture2DShaer should be bound
          *  \param isFrameBuffer Set this to true if a FrameBuffer wasa used to render on the Texture you want to render 
          */
-		static void renderTexture2D(Texture* tex, const Matrix3f& transform,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false);
+		static void renderTexture2D(Texture* tex, const Matrix3f& transform,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false,int depth = 0);
          /*! \brief Renderes a texture as a 2D plane on the currently active frame buffer
          *   \param tex The Texture to render
          *   \param position The position to which to render the Texture (leftup corner, center is in the leftup corner of the window)
@@ -96,7 +96,7 @@ namespace Johnny
          *   \param isFrameBuffer Set this to true if a FrameBuffer wasa used to render on the Texture you want to render
          *   \param target The target to which The Textrue should be bound
          */
-		static void renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false,GLenum target = GL_TEXTURE_2D);
+		static void renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false,GLenum target = GL_TEXTURE_2D,int depth = 0);
         /*! \brief Renderes a texture as a 2D plane on the currently active frame buffer
          *   \param tex The Texture to render
          *   \param dst The TextureRegion which defines where and how big to render the Texture (if nullptr {0,0,screenWidth,screenHeight} will be used)
@@ -107,7 +107,7 @@ namespace Johnny
          *   \param bindShader Defines wether the Texture2DShaer should be bound
          *   \param isFrameBuffer Set this to true if a FrameBuffer wasa used to render on the Texture you want to render
          */
-        static void renderTexture2D(Texture* tex, const TextureRegion* dst = nullptr, const TextureRegion* src = nullptr,const GLfloat& rotation = 0.0f,const Camera2D* cam = nullptr,bool bindShader = true, bool isFrameBuffer = false);
+        static void renderTexture2D(Texture* tex, const TextureRegion* dst = nullptr, const TextureRegion* src = nullptr,const GLfloat& rotation = 0.0f,const Camera2D* cam = nullptr,bool bindShader = true, bool isFrameBuffer = false,int depth = 0);
         /*! \brief Just draws the buffer
          *
          */
