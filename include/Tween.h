@@ -85,34 +85,77 @@ namespace Johnny
          */
         PositionTween2D(const Vector2f& dest,float time);
 
+        /*! \brief The intit method
+         *
+         *
+         * It is overiding the method from Tween2D
+         */
         void init() override;
-        bool update(float) override;
+        /*! \brief The update method
+         *  \param dt The time that has passed from the last frame to this in sec
+         *
+         * It is overriding the mthod from Tween2D
+         */
+        bool update(float dt) override;
 
     private:
-        Vector2f m_dstPos;
-        Vector2f m_vel;
+        Vector2f m_dstPos; //!< The position where the object should go
+        Vector2f m_vel;    //!< The velocity in with wihch it travels
     };
     
+    /*! \brief A Tween2D which is used for sprite animations
+     *
+     */
     class AnimationTween2D : public Tween2D
     {
     public:
+    	/*! \brief Creates a new AnimationTween2D
+    	 *  \param atlas The texture from it should get the animation frames
+    	 *  \param x The amount of frames in the x-Axis
+    	 *  \param y The amount of frames in the y-Axis
+    	 *  \param time The time of one animation frame in sec
+    	 *  \param loop Wether the animation should loop
+    	 *  \param customTime Wether the time should manually get added
+    	 */
         AnimationTween2D(Texture* atlas,int x,int y,float time,bool loop = true,bool customTime = false);
-        AnimationTween2D(const std::vector<Texture*>&,float time,bool loop = true,bool customTime = false);
-        AnimationTween2D(const std::vector<TextureRegion>&,float time,bool loop = true,bool customTime = false);
+        /*! \brief Creates a new AnimationTween2D
+         *  \param textures The animation frames which will be used for the animation
+         *  \param time The time of one animation frame in sec
+         *  \param loop Wether the animation should loop
+         *  \param customTime Wether the time should will be manually added
+         */
+        AnimationTween2D(const std::vector<Texture*>& textures,float time,bool loop = true,bool customTime = false);
+        /*! \brief Creates a new AnimationTween2D
+         *  \param regions The TextureRegions which represent the region of each animation frame on the texture
+         *  \param time The time of one animation frame in sec
+         *  \param loop Wether the animation should loop
+         *  \param customTime Wether the time should be added manually
+         */
+        AnimationTween2D(const std::vector<TextureRegion>& regions,float time,bool loop = true,bool customTime = false);
         ~AnimationTween2D();
         
+        /*! \brief The init method
+         *
+         * 
+         * It is overriding the method from Tween2D
+         */
         void init() override;
-        bool update(float) override;
+        /*! \brief The update method
+         *  \param dt The time that has passed from the last frame to this frame
+         *
+         * It is overriding the method from Tween2D
+         */
+        bool update(float dt) override;
     private:
-        Sprite2D* m_sprParent;
-        std::vector<Texture*>* m_textures = nullptr;
-        std::vector<TextureRegion>* m_regions = nullptr;
-        Texture* m_atlas = nullptr;
-        int m_x = 0;
-        int m_y = 0;
-		TextureRegion m_srcRegion = {0,0,0,0};
-        bool m_loop = true;
-        bool m_customTime = false;
+        Sprite2D* m_sprParent;							 //!< The parent object as a Sprite2D
+        std::vector<Texture*>* m_textures = nullptr;     //!< The vector which stores all animation frames if the corresponding constructor was used
+        std::vector<TextureRegion>* m_regions = nullptr; //!< The vector which stores all TextureRegions of all animation frames if the corresponding construct was used
+        Texture* m_atlas = nullptr;						 //!< The texture atlas from it should take the animation frames if the corresponding constructor was used
+        int m_x = 0;									 //!< The amount of animation frames on the x-Axis
+        int m_y = 0;									 //!< The amount of animation frames on the y-Axis
+		TextureRegion m_srcRegion = {0,0,0,0};			 //!< The region which defines what to take from the atlas
+        bool m_loop = true;								 //!< Wether the animation should loop
+        bool m_customTime = false;						 //!< Wether the time should be added manually
     };
     
     class PulsateTween2D : public Tween2D
