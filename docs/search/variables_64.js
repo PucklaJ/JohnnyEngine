@@ -4,6 +4,7 @@ var searchData=
   ['default_5fpost_5fprocessing_5fshader',['DEFAULT_POST_PROCESSING_SHADER',['../db/da1/class_johnny_1_1_render_manager.html#aa19eec45ef0e16389645c843e58b7eb1',1,'Johnny::RenderManager']]],
   ['default_5fshader',['DEFAULT_SHADER',['../db/da1/class_johnny_1_1_render_manager.html#ae698b38f037e6551f37e9a6a4b08a256',1,'Johnny::RenderManager']]],
   ['default_5fshadowmap_5fshader',['DEFAULT_SHADOWMAP_SHADER',['../db/da1/class_johnny_1_1_render_manager.html#a5c249f9a2e31907a18fb93ed7856270d',1,'Johnny::RenderManager']]],
+  ['depth',['depth',['../df/d39/class_johnny_1_1_vector3.html#af5ce098f1ba319919981e78d2874424e',1,'Johnny::Vector3::depth()'],['../d3/da4/class_johnny_1_1_vector4.html#a480f40451cb00e904cb096d7c786e0ca',1,'Johnny::Vector4::depth()']]],
   ['diffuse',['diffuse',['../d4/d8a/class_johnny_1_1_point_light3_d.html#a3fcc34aed997a95b1587838afff40ec0',1,'Johnny::PointLight3D::diffuse()'],['../d1/d5d/class_johnny_1_1_directional_light3_d.html#a72951dcbbef8ba8e10afa4c89c5c7d9d',1,'Johnny::DirectionalLight3D::diffuse()'],['../da/d67/class_johnny_1_1_spot_light3_d.html#afb2fc346f9820230fa8b443ffb53b43f',1,'Johnny::SpotLight3D::diffuse()']]],
   ['diffusecolor',['diffuseColor',['../dd/d74/class_johnny_1_1_material.html#a7681ffd76754003b28ffe7de250acfe2',1,'Johnny::Material']]],
   ['diffusetexture',['diffuseTexture',['../dd/d74/class_johnny_1_1_material.html#a1ad07efc07e31276cd01ab001f3843cd',1,'Johnny::Material']]],

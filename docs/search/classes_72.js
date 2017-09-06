@@ -6,5 +6,6 @@ var searchData=
   ['rendermanager',['RenderManager',['../db/da1/class_johnny_1_1_render_manager.html',1,'Johnny']]],
   ['rendertexture',['RenderTexture',['../da/d0d/class_johnny_1_1_render_texture.html',1,'Johnny']]],
   ['renderutil',['RenderUtil',['../da/d16/class_johnny_1_1_render_util.html',1,'Johnny']]],
-  ['resourcemanager',['ResourceManager',['../d2/d12/class_johnny_1_1_resource_manager.html',1,'Johnny']]]
+  ['resourcemanager',['ResourceManager',['../d2/d12/class_johnny_1_1_resource_manager.html',1,'Johnny']]],
+  ['rotationtween2d',['RotationTween2D',['../d0/d77/class_johnny_1_1_rotation_tween2_d.html',1,'Johnny']]]
 ];

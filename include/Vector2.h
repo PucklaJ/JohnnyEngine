@@ -23,7 +23,7 @@ namespace Johnny
 		Vector2() = default;
 		/*! \brief Creates a new Vector2
 		 *  \param x The x value of the new Vector2
-		 *  \parma y The y value of the new Vector2
+		 *  \param y The y value of the new Vector2
 		 */
 		Vector2(const T& x,const T& y);
 		/*! \brief Copies a Vector2
@@ -71,15 +71,36 @@ namespace Johnny
 		Vector2& multiply(const Vector2& v);
 		/*! \brief Multiplies this vector with a scalar
 		 *  \param s The scalar to multiply
+		 *  \return A reference to the object 
 		 */
 		Vector2& multiply(const T& s);
+		/*! \brief Divides each element of the Vector2 by the corresponding element of the other Vector2
+		 *  \param v The other Vector2 for the division
+		 *  \return A reference to the object
+		 */
 		Vector2& divide(const Vector2& v);
+		/*! \brief Divides each element by a scalar
+		 *  \param s The scalar for the division
+		 *  \return A reference to the object
+		 */
 		Vector2& divide(const T& s);
 
+		/*! \return The angle between the positive x-Axis and the Vector2 
+		 *
+		 */
 		T angle() const;
 
-		T dot(const Vector2&) const;
-		T distance(const Vector2&,bool squared = false) const;
+		/*! \brief Calculates the dot product with this Vector2 and another one
+		 *  \param v The other Vector2 of the dot product
+		 *  \return The calculated dot product
+		 */
+		T dot(const Vector2& v) const;
+		/*! \brief Calculates the distance between this Vector2 and another Vector2
+		 *  \param v The other Vector2 for the calculation
+		 *  \param squared Wether the result should be the squared distance
+		 *  \return The distance between this Vector2 and the other Vector2
+		 */
+		T distance(const Vector2& v,bool squared = false) const;
 
 		Vector2& operator+=(const Vector2&);
 		Vector2& operator-=(const Vector2&);
