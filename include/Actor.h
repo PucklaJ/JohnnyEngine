@@ -19,12 +19,8 @@
 namespace Johnny
 {
     class MainClass;
-class Shader;
+    class Shader;
     class RenderManager;
-
-    /*! \defgroup Main
-     *            Here are the basic and main elements of the engine
-     */
 
     /*! \brief This is the base class for everything
      *         Every object is derived from this class
@@ -75,40 +71,45 @@ class Shader;
             virtual void m_quit(); 
 
             /*! \brief Adds an actor as a child
-             *
+             *  \param a The Actor which should be added
+             *  \param instantAdd if true The child will instantly within this function call added, otherwhise it will be added after the frame
+             *  \return true if the iniitialisation worked and false if not
              */
-            bool addChild(Actor*,bool instantAdd = true);
+            bool addChild(Actor* a,bool instantAdd = true);
             /*! \brief Removes an actor from the children
-             *
+             *  \param a The Actor which should be removed
+             *  \param del Defines wether the Actor should be deleted when removing from its parent
+             *  \param instant if true The child will instantly within this function call removed, otherwhise it will be added after the frame
              */ 
-            void removeChild(Actor*,bool del = true,bool instant = false);
+            void removeChild(Actor* a,bool del = true,bool instant = false);
 
             /*! \brief Sets the parent (for internal use only)
-             *
+             *  \param a The Actor to set as parent
              */
-            void setParent(Actor*);
+            void setParent(Actor* a);
             /*! \brief Sets the MainClass (for internal use only)
-             *
+             *  \param m The MainClass to set
              */
-            void setMainClass(MainClass*);
+            void setMainClass(MainClass* m);
             /*! \brief Defines wether the position and orientation should change by moving the camera
-             *
+             *  \param b The corresponding bol value
              */ 
             void setAffectedByCamera(const bool);
             /*! \brief Defines wether the ocject is visible
-             *
+             *  \param b The orresponding bool value
              */ 
-            void setVisible(const bool);
+            void setVisible(const bool b);
             /*! \brief Defines wether the object casts shadows from a 3D Light
-             *
+             *  \param b The corresponding bool value
              */ 
 			void setCastsShadows(bool b) { m_castsShadows3D = b; }
             /*! \brief Sets the name (Is only used for debugging)
-             *
+             *  \param name The name to set
              */
             void setName(const char* name){m_name = name;}
             /*! \brief Sets the shader with which the object is getting rendered
-             *
+             *  \param s The Shader to set
+             *  \param changeInRenderManager if true The Actor will be moved the other Shader inside the RenderManager
              */ 
 			void setShader(Shader* s,bool changeInRenderManager = true); 
 

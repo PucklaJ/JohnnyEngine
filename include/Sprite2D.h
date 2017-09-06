@@ -70,6 +70,11 @@ namespace Johnny
 		 *  \param height The height which defines how big the Texture should be drawn
 		 */
 		void setDrawSize(GLfloat width, GLfloat height);
+		/*! \brief Sets the depth of the Sprite2D
+		 *  \param depth The depth to set [-INT_MAX;INT_MAX]
+		 *
+		 * Objects with a smaller depth value are rendered above
+		 */
         void setDepth(int depth) {m_depth = depth;}
 
 		/*! \return The Texture of the Sprite2D
@@ -92,6 +97,9 @@ namespace Johnny
 		 *
 		 */
 		Rectangle<GLfloat> getBoundingBox();
+		/*! \return The depth of the object
+		 *
+		 */
         const int& getDepth() const {return m_depth;}
         
         /*! \brief Checks if this Sprite2D intersects with another Sprite2D
@@ -113,6 +121,11 @@ namespace Johnny
 	protected:
 		Texture* m_texture = nullptr; //!< The Texture of the Sprite2D
         TextureRegion m_srcRegion;    //!< The source region which defines what to use from the Texture
+        /*! \brief The depth of the Sprite2D
+         *
+         *
+         * Objects with a smaller depth value are rendered above
+         */
         int m_depth = 0;
 	private:
 		std::string m_fileName = "";  //!< The file pathof the Texture

@@ -82,7 +82,8 @@ namespace Johnny
          *  \param tex The Texture to render
          *  \param srcRegion The TextureRegion ehich defines what to use from the Texture (if nullptr then {0,0,width,height} will be used)
          *  \param bindShader Defines wether the Texture2DShaer should be bound
-         *  \param isFrameBuffer Set this to true if a FrameBuffer wasa used to render on the Texture you want to render 
+         *  \param isFrameBuffer Set this to true if a FrameBuffer wasa used to render on the Texture you want to render
+         *  \param depth The dept with which the Texture will be rendered (Textures with a smaller depth value are rendered above [-INT_MAX;INT_MAX])
          */
 		static void renderTexture2D(Texture* tex, const Matrix3f& transform,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false,int depth = 0);
          /*! \brief Renderes a texture as a 2D plane on the currently active frame buffer
@@ -95,6 +96,7 @@ namespace Johnny
          *   \param bindShader Defines wether the Texture2DShaer should be bound
          *   \param isFrameBuffer Set this to true if a FrameBuffer wasa used to render on the Texture you want to render
          *   \param target The target to which The Textrue should be bound
+         *   \param depth The dept with which the Texture will be rendered (Textures with a smaller depth value are rendered above [-INT_MAX;INT_MAX])
          */
 		static void renderTexture2D(Texture* tex, const Vector2f& position, const Vector2f& scale = Vector2f(1.0f,1.0f), const GLfloat& rotation = 0.0f, const Camera2D* cam = nullptr,const TextureRegion* srcRegion = nullptr, bool bindShader = true,bool isFrameBuffer = false,GLenum target = GL_TEXTURE_2D,int depth = 0);
         /*! \brief Renderes a texture as a 2D plane on the currently active frame buffer
@@ -106,6 +108,7 @@ namespace Johnny
          *   \param srcRegion The TextureRegion ehich defines what to use from the Texture (if nullptr then {0,0,width,height} will be used)
          *   \param bindShader Defines wether the Texture2DShaer should be bound
          *   \param isFrameBuffer Set this to true if a FrameBuffer wasa used to render on the Texture you want to render
+         *   \param depth The dept with which the Texture will be rendered (Textures with a smaller depth value are rendered above [-INT_MAX;INT_MAX])
          */
         static void renderTexture2D(Texture* tex, const TextureRegion* dst = nullptr, const TextureRegion* src = nullptr,const GLfloat& rotation = 0.0f,const Camera2D* cam = nullptr,bool bindShader = true, bool isFrameBuffer = false,int depth = 0);
         /*! \brief Just draws the buffer

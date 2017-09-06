@@ -7,7 +7,7 @@ var searchData=
   ['addarray',['addArray',['../dd/d5a/class_johnny_1_1_uniform_buffer.html#a5032532a5083b4c56bd1eec14847be28',1,'Johnny::UniformBuffer']]],
   ['addasentities',['addAsEntities',['../d1/d3b/class_johnny_1_1_scene.html#acc32ce57da77f58884d279139a9714af',1,'Johnny::Scene']]],
   ['addattribute',['addAttribute',['../d5/d3b/class_johnny_1_1_shader.html#a7cb811b412bcd80ea43d8dc556ff9c4d',1,'Johnny::Shader']]],
-  ['addchild',['addChild',['../d1/dc5/class_johnny_1_1_actor.html#a8781ce17d1c14f851d53dd50219d8b35',1,'Johnny::Actor']]],
+  ['addchild',['addChild',['../d1/dc5/class_johnny_1_1_actor.html#a405b7927a603e174f730c7186662e48c',1,'Johnny::Actor']]],
   ['addcontroller',['addController',['../df/d93/class_johnny_1_1_joystick_manager.html#a2b0ac17fc07b5468b9df74f3b3cbec2e',1,'Johnny::JoystickManager']]],
   ['addfragmentshader',['addFragmentShader',['../d5/d3b/class_johnny_1_1_shader.html#ab27a916847c1584c81806b6cf56d60d8',1,'Johnny::Shader']]],
   ['addgeometryshader',['addGeometryShader',['../d5/d3b/class_johnny_1_1_shader.html#af917bde8d343fff5cf1096552114e9c8',1,'Johnny::Shader']]],

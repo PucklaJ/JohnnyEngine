@@ -9,7 +9,7 @@ var searchData=
   ['regions',['regions',['../d0/d67/struct_johnny_1_1_tile_animation.html#a430d0b69870a22e422d19c44f4f77a3c',1,'Johnny::TileAnimation']]],
   ['releasekey',['releaseKey',['../db/dcc/class_johnny_1_1_input_manager.html#a0c445efa83256fb2a49939950477a2e4',1,'Johnny::InputManager']]],
   ['removeactor',['removeActor',['../db/da1/class_johnny_1_1_render_manager.html#a4e92e40229af6adfd9d01b155695cf12',1,'Johnny::RenderManager']]],
-  ['removechild',['removeChild',['../d1/dc5/class_johnny_1_1_actor.html#a09499e1c81d755529dab00d605ff84f7',1,'Johnny::Actor']]],
+  ['removechild',['removeChild',['../d1/dc5/class_johnny_1_1_actor.html#a35796312b07c4e836442a84a6dfa62b1',1,'Johnny::Actor']]],
   ['removecontroller',['removeController',['../df/d93/class_johnny_1_1_joystick_manager.html#a0361a403c7d7811c4f4679cbd89a783e',1,'Johnny::JoystickManager::removeController(SDL_GameController *gc)'],['../df/d93/class_johnny_1_1_joystick_manager.html#aa56de89e2b16170c94e15eb25eb658ba',1,'Johnny::JoystickManager::removeController(int index)']]],
   ['removelistener',['removeListener',['../d3/d3c/class_johnny_1_1_joystick_listener.html#a18fa1c9ff11ad8800f394784919c2206',1,'Johnny::JoystickListener::removeListener(AxisButtonListener *abl)'],['../d3/d3c/class_johnny_1_1_joystick_listener.html#ad229b981095540f298239437fcda9266',1,'Johnny::JoystickListener::removeListener(ConnectionListener *cl)']]],
   ['removeshader',['removeShader',['../db/da1/class_johnny_1_1_render_manager.html#ad745c8d64c02a1e6b02b6673771ab006',1,'Johnny::RenderManager']]],

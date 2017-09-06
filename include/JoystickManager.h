@@ -26,7 +26,7 @@ namespace Johnny
             void update();
 
             /*! \brief Sets the JoystickListener
-             * \param jl The JoystickListener to set
+             *  \param jl The JoystickListener to set
              */
             void setListener(JoystickListener* jl);
             /*! \brief Adds a controller to the vector
@@ -42,8 +42,14 @@ namespace Johnny
              */
             void removeController(int index);
 
+            /*! \return A vector with all SDL_GameController handles of the connected controllers
+             *
+             */
             std::vector<SDL_GameController*>& getControllers(){return m_controllers;}
             
+            /*! \return The currently attached JoystickListener
+             *
+             */
             JoystickListener* getListener() {return m_listener;}
             
         private:

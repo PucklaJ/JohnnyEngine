@@ -5,6 +5,7 @@ var searchData=
   ['m_5fcamera2d',['m_camera2D',['../d4/d76/class_johnny_1_1_main_class.html#a1a53e28c7fbaa38824aa2e88a55377af',1,'Johnny::MainClass']]],
   ['m_5fcamera3d',['m_camera3D',['../d4/d76/class_johnny_1_1_main_class.html#a413a66dc9f3808f6d3a823266dba1096',1,'Johnny::MainClass']]],
   ['m_5fcastsshadows3d',['m_castsShadows3D',['../d1/dc5/class_johnny_1_1_actor.html#aa9f23e637d376ad1dae680a23d046106',1,'Johnny::Actor']]],
+  ['m_5fdepth',['m_depth',['../db/d0b/class_johnny_1_1_sprite2_d.html#a5b79a1cc9ff530a938ccbf43b0bf71f0',1,'Johnny::Sprite2D']]],
   ['m_5fdrawmode',['m_drawMode',['../de/dcf/class_johnny_1_1_texture.html#a9a3ab275b90c9e027bf6ffdae948aeb8',1,'Johnny::Texture']]],
   ['m_5fheight',['m_height',['../de/dcf/class_johnny_1_1_texture.html#aa4d7c90e21c70ab675161b73a0cc928f',1,'Johnny::Texture']]],
   ['m_5fid',['m_id',['../dc/da1/class_johnny_1_1_tween2_d.html#a83e10d02dd73c9e1c82c5429f8fe411d',1,'Johnny::Tween2D']]],
