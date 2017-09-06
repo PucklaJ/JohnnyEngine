@@ -158,6 +158,9 @@ namespace Johnny
         bool m_customTime = false;						 //!< Wether the time should be added manually
     };
     
+    /*! \brief A Tween2D which pulsates the object NOT WORKING
+     *
+     */
     class PulsateTween2D : public Tween2D
     {
     public:
@@ -173,52 +176,122 @@ namespace Johnny
 		Vector2f m_startPos;
     };
     
+    /*! \brief A Tween2D which lets the object blink
+     *
+     */
     class BlinkTween2D : public Tween2D
     {
     public:
+    	/*! \brief Creates a new BlinkTween2D
+    	 *  \param time The time which it should stay visible/invisible
+    	 */
         BlinkTween2D(float time);
         ~BlinkTween2D();
         
+        /*! \brief The init method
+         *
+         *
+         * It is overriding the method from Tween2D 
+         */
         void init() override;
-        bool update(float) override;
+        /*! \brief The update method
+         *  \param dt The time that has passed from the last frame to this
+         *
+         * It is overriding the mthod from Tween2D
+         */
+        bool update(float dt) override;
     protected:
+    	/*! \brief The quit method
+    	 *
+    	 *
+    	 * It is overriding the method from Tween2D
+    	 */
         void quit() override;
     private:
-        Sprite2D* m_sprParent = nullptr;
+        Sprite2D* m_sprParent = nullptr; //!< The parent as a Sprite2D
     };
     
+    /*! \brief A Tween2D which rotates the object
+     *
+     */
     class RotationTween2D : public Tween2D
     {
     public:
+    	/*! \brief Creates a new RotationTween2D
+    	 *  \param speed The amount of degrees it should rotate per second
+    	 */
         RotationTween2D(float speed);
         ~RotationTween2D();
         
+        /*! \brief The init method
+         *
+         *
+         * It is overriding the method from Tween2D
+         */
         void init() override;
-        bool update(float) override;
+        /*! \brief The update method
+         *  \param dt The time that has passed between the last frame and this
+         *
+         * It is overriding the method from Tween2D
+         */
+        bool update(float dt) override;
     private:
-        float m_speed = 0.0f;
+        float m_speed = 0.0f; //!< The speed at which it rotates per second
     };
 
+    /*! \brief A class which adds tweenability to a object
+     *
+     */
 	class TweenableObject2D : public TransformableObject2D
 	{
 	public:
 		TweenableObject2D();
 		~TweenableObject2D();
 
+		/*! \return All Tween2Ds which are currently running
+		 *
+		 */
 		std::vector<Tween2D*>& getTweens() { return m_tweens; }
-		Tween2D* getTween(int);
+		/*! \brief Gets a Tween2D with a id 
+		 *  \param id The id of the Tween2D to get
+		 *  \return The Tween2D with the given id or nullptr if no Tween2D with te id was found
+		 */
+		Tween2D* getTween(int id);
 
-		int addTween(Tween2D*);
+		/*! \brief Adds a Tween2D to animate the object
+		 *  \param t The Tween2D which will be added
+		 *  \return The id of the newly added Tween2D
+		 */
+		int addTween(Tween2D* t);
 
+		/*! \brief Stops all Tween2Ds and deletes them
+		 *
+		 */
 		void clearTweens();
-		void pauseTween(int);
-		void resumeTween(int);
-		void stopTween(int);
-        bool isRunning(int);
+		/*! \brief Pauses a Tween2D with the given id
+		 *  \param id The id of the Tween2D to pause
+		 */
+		void pauseTween(int id);
+		/*! \brief Resumes a Tween2D with the given id
+		 *  \param id The id of the Tween2D to resume
+		 */
+		void resumeTween(int id);
+		/*! \brief Stops a Tween2D with the given id
+		 *  \param id The id of the Tween2D to stop
+		 */
+		void stopTween(int id);
+		/*! \brief Checks wether a Tween2D with the given id is running
+		 *  \param id The id of the Tween2D to check
+		 *  \return true if a Tween2D with the id was found nad false otherwhise
+		 */
+        bool isRunning(int id);
 	protected:
-		void updateTweens(float);
+		/*! \brief Updates all currently added Tween2Ds
+		 *  \param dt The time that has passed between the last frame and this
+		 */
+		void updateTweens(float dt);
 	private:
-		std::vector<Tween2D*> m_tweens;
+		std::vector<Tween2D*> m_tweens; //!< The vector which stores all Tween2Dsof the object
 	};
 }
 
