@@ -123,6 +123,7 @@ namespace Johnny
 			bool castsShadows() const { return m_castsShadows3D; }
             const int getID() const {return m_id;}
 			Shader* getShader() { return m_shader; }
+            bool isInitialised() const {return m_initialised;}
 
             /*! \brief Detect if a Actor is a child of the object
              * \param Actor* The Actor to query

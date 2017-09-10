@@ -81,9 +81,14 @@ namespace Johnny
       /*! \brief Sets the JoystickListener of the object
        * \param jl The JoystickListener to set
        */
-      void setListener(JoystickListener* jl);
+      void setListener(JoystickListener* jl);   
+      
+      /*! \brief Detaches the AxisButtonListener from the parent JoystickListener
+       *
+       */
+      void detach();
     protected:
-        JoystickListener* m_listener; //!< The JoystickListener of the object
+        JoystickListener* m_listener = nullptr; //!< The JoystickListener of the object
     };
 
     /*! \brief A Listener class which listens to controllers connecting and disconnecting

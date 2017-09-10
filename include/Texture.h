@@ -30,6 +30,14 @@ namespace Johnny
       BLENDING=1 //!< Normal blending
     };
     
+    enum Flip
+    {
+      NONE=0,
+      HORIZONTALLY=1,
+      VERTICALLY=2,
+      DIAGONALLY=3
+    };
+    
     /*! \brief The ShaderUpdater for the Texture2DShader
      *
      */
@@ -185,6 +193,11 @@ namespace Johnny
          */
         void setDrawMode(const DrawModes& mode) {m_drawMode=mode;}
         
+        /*! \brief Sets the flip of a Texture
+         *  \param flip The Flip to set
+         */
+        void setFlip(const Flip& flip) {m_flip=flip;}
+        
         /*! \return The name of the texture
          *
          */
@@ -210,6 +223,11 @@ namespace Johnny
          *
          */
         const DrawModes& getDrawMode() const {return m_drawMode;}
+        
+        /*! \return The flip which defines how a Texture should be flipped 
+         * 
+         */
+        const Flip& getFlip() const {return m_flip;}
 
 	protected:
 		static Shader* m_texture2DShader; //!< The Shader which will be used for rendering textures as 2D planes
@@ -222,6 +240,7 @@ namespace Johnny
         Colorb m_keyColor;                           //!< The color which should be keyd from the Texture
         Colorb m_modColor = Colorb(255,255,255,255); //!< The color with which the Texture should be multiplied
         DrawModes m_drawMode = BLENDING;             //!< The mode with which the Texture will be blended
+        Flip m_flip = NONE;                          //!< The flip which defines how a Texture should be flipped
 
 	};
 }

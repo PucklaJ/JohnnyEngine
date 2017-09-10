@@ -55,6 +55,11 @@ namespace Johnny
              *
              */
             const int getID() const {return m_id;}
+            
+            /*! \return The time which was passed through the constructor
+             * 
+             */
+            float getTime() const {return m_time;}
 
         protected:
             /*! \brief The quit method which gets called when the Tween2D is done

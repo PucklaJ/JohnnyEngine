@@ -47,6 +47,7 @@ namespace Johnny
         m_shader->setUniform("keyColor",m->getKeyColor().normalise());
         m_shader->setUniform("modColor",m->getModColor().normalise());
         m_shader->setUniform("drawMode",m->getDrawMode());
+        m_shader->setUniform("flip",m->getFlip());
         m_shader->setUniform("isFrameBuffer",index!=0);
     }
     
@@ -140,6 +141,7 @@ namespace Johnny
             m_texture2DShader->addUniform("modColor");
             m_texture2DShader->addUniform("keyColor");
             m_texture2DShader->addUniform("drawMode");
+            m_texture2DShader->addUniform("flip");
             m_texture2DShader->addUniform("depth");
 
 			mainClass->getRenderManager()->addShader(m_texture2DShader);
@@ -196,6 +198,7 @@ namespace Johnny
             m_texture2DShader->setUniform("keyColor",tex->getKeyColor().normalise());
             m_texture2DShader->setUniform("modColor",tex->getModColor().normalise());
             m_texture2DShader->setUniform("drawMode",tex->getDrawMode());
+            m_texture2DShader->setUniform("flip",tex->getFlip());
             m_texture2DShader->setUniform("depth",(GLfloat)depth / (GLfloat)INT_MAX);
 			tex->bind(m_texture2DShader);
 
@@ -235,6 +238,7 @@ namespace Johnny
             m_texture2DShader->setUniform("keyColor",tex->getKeyColor().normalise());
             m_texture2DShader->setUniform("modColor",tex->getModColor().normalise());
             m_texture2DShader->setUniform("drawMode",tex->getDrawMode());
+            m_texture2DShader->setUniform("flip",tex->getFlip());
             m_texture2DShader->setUniform("depth",(GLfloat)depth/(GLfloat)INT_MAX);
 			tex->bind(m_texture2DShader,"textureAddress",0,target);
 

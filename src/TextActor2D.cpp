@@ -44,8 +44,18 @@ namespace Johnny
     {
         if(m_mainClass)
         {
+            Flip prevFlip = Flip::NONE;
+            DrawModes prevDrawModes = DrawModes::BLENDING;
+            Colorb prevKeyColor(0,0,0,0);
+            Colorb prevModColor(255,255,255,255);
+            
 			if (m_texture)
 			{
+                prevFlip = m_texture->getFlip();
+                prevDrawModes = m_texture->getDrawMode();
+                prevKeyColor = m_texture->getKeyColor();
+                prevModColor = m_texture->getModColor();
+                
 				delete m_texture;
 				m_texture = nullptr;
 			}
@@ -53,6 +63,11 @@ namespace Johnny
 			SDL_Surface* sur = TTF_RenderText_Blended_Wrapped(m_font, m_text.c_str(), m_color, INT_MAX);
 
 			setTexture(Texture::SDL_SurfaceToTexture(sur));
+            
+            m_texture->setFlip(prevFlip);
+            m_texture->setDrawMode(prevDrawModes);
+            m_texture->setKeyColor(prevKeyColor);
+            m_texture->setModColor(prevModColor);
 
             SDL_FreeSurface(sur);
         }

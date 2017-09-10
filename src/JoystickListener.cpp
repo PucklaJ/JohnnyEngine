@@ -14,7 +14,7 @@ namespace Johnny
 
     JoystickListener::~JoystickListener()
     {
-        //dtor
+        
     }
 
     void JoystickListener::setManager(JoystickManager* jm)
@@ -227,10 +227,10 @@ namespace Johnny
         }
 
         std::vector<AxisButtonListener*> vec;
-        vec.push_back(a);
 
         m_abLis.insert(std::pair<int,std::vector<AxisButtonListener*>>(i,vec));
-
+        m_abLis[i].push_back(a);
+        
         a->setListener(this);
     }
 
@@ -242,6 +242,8 @@ namespace Johnny
 
     void JoystickListener::removeListener(AxisButtonListener* abl)
     {
+        if(m_abLis.empty())
+            return;
     	for(AbIterator it = m_abLis.begin();it!=m_abLis.end();it++)
     	{
     		for(size_t i = 0;i<it->second.size();i++)
@@ -273,11 +275,8 @@ namespace Johnny
     		}
     	}
     }
-
-    /*AxisButtonListener::~AxisButtonListener()
-    {
-    	m_listener->removeListener(this);
-    }*/
+    
+    
 
     ConnectionListener::~ConnectionListener()
     {
@@ -287,6 +286,11 @@ namespace Johnny
     void AxisButtonListener::setListener(JoystickListener* l)
     {
         m_listener = l;
+    }
+    
+    void AxisButtonListener::detach()
+    {
+        m_listener->removeListener(this);
     }
 
     void ConnectionListener::setListener(JoystickListener* l)
