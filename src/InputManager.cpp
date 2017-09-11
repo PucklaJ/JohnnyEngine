@@ -275,7 +275,7 @@ namespace Johnny
     
     Vector2f Mouse::getWorldPosition(Camera2D* cam) const
     {
-        Vector2f worldPos(x,y);
+        Vector2f worldPos((GLfloat)x,(GLfloat)y);
         
         worldPos.y = TransformableObject2D::getViewportSize().y-worldPos.y;
         worldPos = worldPos - TransformableObject2D::getViewportSize()/2.0f;

@@ -257,7 +257,7 @@ namespace Johnny
     				{
     					m_abLis.erase(it);
     				}
-    				break;
+    				return;
     			}
     		}
     	}
