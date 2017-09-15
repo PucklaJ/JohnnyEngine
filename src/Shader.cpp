@@ -673,7 +673,7 @@ namespace Johnny
 			GLuint loc = getUniformLocation(name);
 
 			if (loc != 4294967295)
-				glUniform4f(loc, (GLfloat)vec.x, (GLfloat)vec.y, (GLfloat)vec.width, (GLfloat)vec.height);
+				glUniform4i(loc, vec.x, vec.y, vec.width, vec.height);
 				
 		}
 	}

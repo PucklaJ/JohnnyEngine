@@ -12,6 +12,10 @@
 #define FLIP_VERTICALLY 2
 #define FLIP_DIAGONALLY 3
 
+#define TEXTURE_COORDS_PADDING 0.3
+#define TEXTURE_COORDS_PADDING_VEC2 vec2(TEXTURE_COORDS_PADDING*2.0,TEXTURE_COORDS_PADDING*2.0)
+#define TEXTURE_COORDS_PADDING_VEC1 vec2(TEXTURE_COORDS_PADDING,TEXTURE_COORDS_PADDING)
+
 layout(points) in;
 layout(triangle_strip,max_vertices = 6) out;
 
@@ -19,13 +23,13 @@ out vec2 textureCoords;
 
 uniform mat3 transform;
 uniform vec2 viewportSize;
-uniform vec4 textureRegion;
+uniform ivec4 textureRegion;
 uniform sampler2D textureAddress;
 uniform bool isFrameBuffer;
 uniform float depth;
 uniform int flip;
 
-ivec2 textureDimensions;
+vec2 textureDimensions;
 
 float TEXREG_X_L=0.0;
 float TEXREG_Y_U=0.0;
@@ -59,10 +63,19 @@ void setGlobals()
 {
     textureDimensions = textureSize(textureAddress,0);
     
-    TEXREG_X_L = ( textureRegion.x / textureDimensions.x );
-    TEXREG_Y_U = (isFrameBuffer ? ((textureDimensions.y-textureRegion.y) / textureDimensions.y ) : ( 1.0- ((textureDimensions.y-textureRegion.y) / textureDimensions.y )));
-    TEXREG_Y_D = (isFrameBuffer ? ( TEXREG_Y_U - textureRegion.w / textureDimensions.y ) : ( 1.0-(1.0-TEXREG_Y_U - textureRegion.w / textureDimensions.y) ));
-    TEXREG_X_R = ( TEXREG_X_L + textureRegion.z / textureDimensions.x );
+    vec4 _textureRegion = textureRegion;
+    //_textureRegion.xy += TEXTURE_COORDS_PADDING_VEC1;
+    //_textureRegion.zw -= TEXTURE_COORDS_PADDING_VEC2;
+    
+    TEXREG_X_L = ( _textureRegion.x / textureDimensions.x );
+    TEXREG_Y_U = (isFrameBuffer ? ((textureDimensions.y-_textureRegion.y) / textureDimensions.y ) : ( 1.0- ((textureDimensions.y-_textureRegion.y) / textureDimensions.y )));
+    TEXREG_Y_D = (isFrameBuffer ? ( TEXREG_Y_U - _textureRegion.w / textureDimensions.y ) : ( 1.0-(1.0-TEXREG_Y_U - _textureRegion.w / textureDimensions.y) ));
+    TEXREG_X_R = ( TEXREG_X_L + _textureRegion.z / textureDimensions.x );
+    
+    TEXREG_X_L += (1.0/(2.0*textureDimensions.x))*TEXTURE_COORDS_PADDING;
+    TEXREG_X_R -= (1.0/(2.0*textureDimensions.x))*TEXTURE_COORDS_PADDING;
+    TEXREG_Y_D -= (1.0/(2.0*textureDimensions.y))*TEXTURE_COORDS_PADDING;
+    TEXREG_Y_U += (1.0/(2.0*textureDimensions.y))*TEXTURE_COORDS_PADDING;
 }
 
 void setPosition(int which)

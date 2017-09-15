@@ -237,7 +237,7 @@ namespace Johnny
         	else
         	{
         		m_sprParent->setSrcRegion((*m_regions)[0]);
-        		m_sprParent->setDrawSize((GLfloat)(*m_regions)[0].width,(GLfloat)(*m_regions)[0].height);
+        		//m_sprParent->setDrawSize((GLfloat)(*m_regions)[0].width,(GLfloat)(*m_regions)[0].height);
         	}
 
         }
@@ -296,7 +296,7 @@ namespace Johnny
                 	}
 
                 	m_sprParent->setSrcRegion((*m_regions)[m_srcRegion.x]);
-                	m_sprParent->setDrawSize((GLfloat)(*m_regions)[m_srcRegion.x].width,(GLfloat)(*m_regions)[m_srcRegion.x].height);
+                	//m_sprParent->setDrawSize((GLfloat)(*m_regions)[m_srcRegion.x].width,(GLfloat)(*m_regions)[m_srcRegion.x].height);
                 }
                 
                 m_passedTime = 0.0;

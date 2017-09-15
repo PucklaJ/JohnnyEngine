@@ -222,7 +222,7 @@ namespace Johnny
             if(it->first == i)
             {
                 it->second.push_back(a);
-                return;
+                break;
             }
         }
 
