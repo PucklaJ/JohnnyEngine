@@ -51,6 +51,8 @@ namespace Johnny
             T height = 0; //!< The height of the rectangle
             T h;
         };		
+        
+        bool intersects(const Rectangle<T>& rect) const;
 
 
 		friend std::ostream& operator<< <>(std::ostream&, const Rectangle<T>&);

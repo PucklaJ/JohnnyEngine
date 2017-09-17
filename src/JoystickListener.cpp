@@ -217,12 +217,14 @@ namespace Johnny
 
     void JoystickListener::addListener(AxisButtonListener* a, int i)
     {
+        a->setListener(this);
+        
         for(AbIterator it = m_abLis.begin();it!=m_abLis.end();it++)
         {
             if(it->first == i)
             {
                 it->second.push_back(a);
-                break;
+                return;
             }
         }
 
@@ -231,7 +233,6 @@ namespace Johnny
         m_abLis.insert(std::pair<int,std::vector<AxisButtonListener*>>(i,vec));
         m_abLis[i].push_back(a);
         
-        a->setListener(this);
     }
 
     void JoystickListener::addListener(ConnectionListener* a)
@@ -250,13 +251,18 @@ namespace Johnny
     		{
     			if(it->second[i] == abl)
     			{
+                    
     				it->second[i] = it->second.back();
+                    
     				it->second.pop_back();
+                    
 
     				if(it->second.empty())
     				{
+                        
     					m_abLis.erase(it);
     				}
+                    
     				return;
     			}
     		}
@@ -290,6 +296,7 @@ namespace Johnny
     
     void AxisButtonListener::detach()
     {
+        
         m_listener->removeListener(this);
     }
 

@@ -40,6 +40,15 @@ namespace Johnny
 	{
 		return width*height;
 	}
+    
+    template<class T>
+    bool Rectangle<T>::intersects(const Rectangle<T>& rect) const
+    {
+        return rect.x < x + width &&
+               rect.x + rect.width > x &&
+               rect.y < y + height &&
+               rect.y + rect.height > y;
+    }
 
 	template<class T>
 	std::ostream& operator<<(std::ostream& os, const Rectangle<T>& r)
