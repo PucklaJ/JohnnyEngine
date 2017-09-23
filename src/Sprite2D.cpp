@@ -80,6 +80,15 @@ namespace Johnny
 
 	void Sprite2D::setTexture(Texture* texture)
 	{
+        /*if(m_mainClass && m_texture)
+        {
+            if(!m_mainClass->getResourceManager()->isLoaded(m_texture))
+            {
+                delete m_texture;
+                m_texture = nullptr;
+            }
+        }*/
+        
 		if (texture)
 		{
 			m_texture = texture;

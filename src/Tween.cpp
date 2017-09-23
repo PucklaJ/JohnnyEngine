@@ -434,6 +434,7 @@ namespace Johnny
 	{
 		for (size_t i = 0; i<m_tweens.size(); i++)
 		{
+            m_tweens[i]->quit();
 			delete m_tweens[i];
 		}
 
