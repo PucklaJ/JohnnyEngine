@@ -174,7 +174,7 @@ namespace Johnny
     
     void TiledMap::loadTexture()
     {
-        m_background = colorStringToColor(GetBackgroundColor());
+        m_background = colorStringToColor(GetBackgroundColor().ToString());
         //m_background.a = 255;
         
         m_mainTextureFrameBuffer = new FrameBuffer();
@@ -357,7 +357,7 @@ namespace Johnny
             {
                 //std::cout << "+ Ellipse" << std::endl;
                 const Tmx::Ellipse* ellipse = obj->GetEllipse();
-                Colorb color = colorStringToColor(objectGroup->GetColor());
+                Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
                 /*std::cout << "++ Center: " << ellipse->GetCenterX() << "; " << ellipse->GetCenterY() << std::endl;
                 std::cout << "++ Radius: " << ellipse->GetRadiusX() << "; " << ellipse->GetRadiusY() << std::endl;*/
                 
@@ -370,7 +370,7 @@ namespace Johnny
             {
                 //std::cout << "+ Polygon" << std::endl;
                 const Tmx::Polygon* polygon = obj->GetPolygon();
-                Colorb color = colorStringToColor(objectGroup->GetColor());
+                Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
                 //std::cout << "++ Points" << std::endl;
                 
                 Sint16* vx = new Sint16[polygon->GetNumPoints()];
@@ -410,7 +410,7 @@ namespace Johnny
             {
                 //std::cout << "+ Polyline" << std::endl;
                 const Tmx::Polyline* polyline = obj->GetPolyline();
-                Colorb color = colorStringToColor(objectGroup->GetColor());
+                Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
                 //std::cout << "++ Points" << std::endl; 
                 for(int k = 0;k<polyline->GetNumPoints();k++)
                 {
@@ -459,7 +459,7 @@ namespace Johnny
 
             // Render Rectangle
             
-            Colorb color = colorStringToColor(objectGroup->GetColor());
+            Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
             
             //rectangleRGBA(m_mainClass->getRenderer(),obj->GetX(),obj->GetY(),obj->GetX()+obj->GetWidth(),obj->GetY()+obj->GetHeight(),color.r,color.g,color.b,(Uint8)(objectGroup->GetOpacity()*255.0f));
             //boxRGBA(m_mainClass->getRenderer(),obj->GetX(),obj->GetY(),obj->GetX()+obj->GetWidth(),obj->GetY()+obj->GetHeight(),color.r,color.g,color.b,(Uint8)(objectGroup->GetOpacity()*255.0f/4.0f));
