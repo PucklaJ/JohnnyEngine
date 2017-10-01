@@ -3,6 +3,7 @@
 #include <iostream>
 #include "../include/Texture.h"
 #include "../include/Camera2D.h"
+#include "../include/ResourceManager.h"
 
 namespace Johnny
 {
@@ -39,6 +40,17 @@ namespace Johnny
         }
         return true;
     }
+
+	void TextActor2D::quit()
+	{
+		Sprite2D::quit();
+
+		if (!m_mainClass->getResourceManager()->isLoaded(m_font))
+		{
+			TTF_CloseFont(m_font);
+			m_font = nullptr;
+		}
+	}
 
 	void TextActor2D::generateText()
     {

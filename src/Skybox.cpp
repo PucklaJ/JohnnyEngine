@@ -65,7 +65,7 @@ namespace Johnny
         if(!m_texturesSet)
             return true;
             
-            m_cubeMap = new CubeMap3D(m_textures[SkyboxTex::TOP], m_textures[SkyboxTex::BOTTOM], m_textures[SkyboxTex::LEFT], m_textures[SkyboxTex::RIGHT], m_textures[SkyboxTex::FRONT], m_textures[SkyboxTex::BACK], m_mainClass->getResourceManager());
+            m_cubeMap = new CubeMap3D(m_textures[SkyboxTex::SKY_TOP], m_textures[SkyboxTex::SKY_BOTTOM], m_textures[SkyboxTex::SKY_LEFT], m_textures[SkyboxTex::SKY_RIGHT], m_textures[SkyboxTex::SKY_FRONT], m_textures[SkyboxTex::SKY_BACK], m_mainClass->getResourceManager());
 
 		if (SKYBOX_SHADER == nullptr)
 		{

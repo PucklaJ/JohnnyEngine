@@ -46,7 +46,12 @@ namespace Johnny
          * It is overriding the method from Sprite2D
          */
         bool update() override;
-
+		/*! \brief The quit method
+		 *
+		 *
+		 * It is overriding the method from Sprite2D
+		 */
+		void quit() override;
         /*! \brief Sets the text which will be rendered
          *  \param str The text which will e rendered
          */

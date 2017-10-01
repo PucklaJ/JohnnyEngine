@@ -6,8 +6,7 @@
 #include <assimp/scene.h>
 #include <GL/glew.h>
 #include <SDL2/SDL_surface.h>
-
-
+#include <SDL2/SDL_ttf.h>
 
 namespace Johnny
 {
@@ -105,6 +104,12 @@ namespace Johnny
 			 *  \return The loaded Scene or nullptr if the file wasn't found
 			 */
 			Scene* loadScene(const std::string& file);
+			/*! \brief Loads a font
+			 *  \param file The file path of the .ttf or .otf file relative to res/fonts
+			 *  \param pointSize The size of the with whic the font should be loaded
+			 *  \return The loaded font
+			 */
+			TTF_Font* loadFont(const std::string& file, unsigned short pointSize);
             
             /*! \brief Deletes all loaded Textures
              *
@@ -142,6 +147,14 @@ namespace Johnny
 			 *  \param s The Scene to delete
 			 */
 			void deleteScene(Scene* s);
+			/*! \brief Deletes all loaded fonts
+			 *  
+			 */
+			void clearFonts();
+			/*! \brief Deletes a single font
+			 *  \param font The font to delete
+			 */
+			void deleteFont(TTF_Font* font);
             
             /*! \brief Checks if a Texture is loaded
              *  \param tex The Texture to check
@@ -163,6 +176,11 @@ namespace Johnny
 			 *  \return true if the TextureData is loaded and false if not
 			 */
 			bool isLoaded(TextureData* tex);
+			/*! \brief Checks if a given font is loaded
+			 *  \param font The font to check
+			 *  \return true if the given font is loaded and false otherwhise
+			 */
+			bool isLoaded(TTF_Font* font);
             
             /*! \brief Deletes all resources
              *
@@ -196,6 +214,7 @@ namespace Johnny
 			std::map<std::string, std::string> m_shaders;		//!< The map that stores all shader source file contents
 			std::map<std::string, Mesh3D*> m_meshes;  			//!< The map that stores all Mesh3Ds
 			std::map<std::string, Scene*> m_scenes;				//!< The map that stores all Scenes
+			std::map<std::pair<std::string,unsigned short>, TTF_Font*> m_fonts; //!< The map which stores all fonts with the corresponding filepath and point size
 
     };
 }

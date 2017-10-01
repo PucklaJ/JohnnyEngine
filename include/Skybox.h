@@ -62,14 +62,14 @@ namespace Johnny
 	/*! \brief An enum which consists of the planes of the Skybox
 	 *
 	 */
-	enum SkyboxTex : unsigned int
+	enum SkyboxTex
 	{
-		RIGHT=0,
-		LEFT=1,
-		TOP=2,
-		BOTTOM=3,
-		FRONT=4,
-		BACK=5
+		SKY_RIGHT=0,
+		SKY_LEFT=1,
+		SKY_TOP=2,
+		SKY_BOTTOM=3,
+		SKY_FRONT=4,
+		SKY_BACK=5
 	};
 
 	/*! \brief A class which represents a box which is around the player and has no view translation

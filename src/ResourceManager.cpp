@@ -24,6 +24,7 @@ namespace Johnny
 	typedef std::map<std::string, Mesh3D*>::iterator MeshIterator;
 	typedef std::map<std::string, Scene*>::iterator SceneIterator;
 	typedef std::map<std::string, TextureData*>::iterator TextureDataIterator;
+	typedef std::map<std::pair<std::string,unsigned short>, TTF_Font*>::iterator FontIterator;
     
     Texture* TextureData::toTexture(GLenum target,GLenum filtering,GLenum format)
     {
@@ -259,6 +260,25 @@ namespace Johnny
 		return nullptr;
 	}
 
+	TTF_Font* ResourceManager::loadFont(const std::string& file, unsigned short pointSize)
+	{
+		FontIterator it = m_fonts.find(std::make_pair(file, pointSize));
+		if (it != m_fonts.end())
+		{
+			return it->second;
+		}
+		else
+		{
+			TTF_Font* font = TTF_OpenFont((std::string("res/fonts/") + file).c_str(), (int)pointSize);
+
+			m_fonts.insert(std::pair<std::pair<std::string, unsigned short>, TTF_Font*>(std::make_pair(file, pointSize), font));
+
+			return font;
+		}
+
+		return nullptr;
+	}
+
 	void ResourceManager::clearTextures()
 	{
 		for (TextureIterator it = m_textures.begin(); it != m_textures.end(); it++)
@@ -317,6 +337,29 @@ namespace Johnny
 			{
 				delete s;
 				m_scenes.erase(it);
+				break;
+			}
+		}
+	}
+
+	void ResourceManager::clearFonts()
+	{
+		for (FontIterator it = m_fonts.begin(); it != m_fonts.end(); it++)
+		{
+			TTF_CloseFont(it->second);
+		}
+
+		m_fonts.clear();
+	}
+
+	void ResourceManager::deleteFont(TTF_Font * font)
+	{
+		for (FontIterator it = m_fonts.begin(); it != m_fonts.end(); it++)
+		{
+			if (it->second == font)
+			{
+				TTF_CloseFont(font);
+				m_fonts.erase(it);
 				break;
 			}
 		}
@@ -395,6 +438,17 @@ namespace Johnny
 		return false;
 	}
 
+	bool ResourceManager::isLoaded(TTF_Font* font)
+	{
+		for (FontIterator it = m_fonts.begin(); it != m_fonts.end(); it++)
+		{
+			if (it->second == font)
+				return true;
+		}
+
+		return false;
+	}
+
 	void ResourceManager::clear()
 	{
 		clearTextures();
@@ -402,6 +456,7 @@ namespace Johnny
 		clearShaders();
 		clearMeshes();
 		clearScenes();
+		clearFonts();
 	}
 
 	void ResourceManager::processScene(const aiScene* sceneAi, Scene* scene, bool switchZAndY)
