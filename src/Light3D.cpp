@@ -195,15 +195,15 @@ namespace Johnny
 
 	void Lighting3D::load(Shader* s, GLuint shadowMapStartIndex, const std::string & spotLightName, const std::string & directionalLightsName, const std::string & pointLightName)
 	{
-		for (size_t i = 0; i < m_spotLights.size(); i++)
+		for (unsigned int i = 0; i < m_spotLights.size(); i++)
 		{
 			m_spotLights[i]->load(s, i, true, spotLightName, shadowMapStartIndex++);
 		}
-		for (size_t i = 0; i < m_directionalLights.size(); i++)
+		for (unsigned int i = 0; i < m_directionalLights.size(); i++)
 		{
 			m_directionalLights[i]->load(s, i, true, directionalLightsName, shadowMapStartIndex++);
 		}
-		for (size_t i = 0; i < m_pointLights.size(); i++)
+		for (unsigned int i = 0; i < m_pointLights.size(); i++)
 		{
 			m_pointLights[i]->load(s, i, true, pointLightName, shadowMapStartIndex++);
 		}

@@ -87,10 +87,10 @@ namespace Johnny
 		{
 			for (std::map<std::string, std::string>::iterator it = definesToChange->begin(); it != definesToChange->end(); it++)
 			{
-				unsigned int pos = fileContents.find("#define " + it->first + " ");
+				size_t pos = fileContents.find("#define " + it->first + " ");
 				if (pos != std::string::npos)
 				{
-					unsigned int returnPos = fileContents.find("\n", pos);
+					size_t returnPos = fileContents.find("\n", pos);
 					fileContents.replace(pos + ("#define " + it->first + " ").length(), returnPos - (pos + ("#define " + it->first + " ").length()), it->second);
 				}
 			}
@@ -480,7 +480,7 @@ namespace Johnny
 
 	std::string ResourceManager::getFileName(const std::string& directory)
 	{
-		unsigned int pos = 0;
+		size_t pos = 0;
 
 		pos = directory.find_last_of('/');
 		if (pos == std::string::npos)

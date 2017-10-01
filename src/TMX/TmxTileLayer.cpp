@@ -188,7 +188,7 @@ namespace Tmx
             out = (unsigned *)malloc(outlen);
             uncompress(
                 (Bytef*)out, &outlen, 
-                (const Bytef*)text.c_str(), text.size());
+                (const Bytef*)text.c_str(), (uLong)text.size());
     
         } 
         else if (compression == TMX_COMPRESSION_GZIP) 
@@ -196,7 +196,7 @@ namespace Tmx
             // Use the utility class for decompressing (which uses zlib)
             out = (unsigned *)Util::DecompressGZIP(
                 text.c_str(), 
-                text.size(), 
+                (int)text.size(), 
                 width * height * 4);
         } 
         else 

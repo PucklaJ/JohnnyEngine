@@ -130,7 +130,7 @@ namespace Johnny
 			indicesArray[i] = indices[i];
 		}
 
-		addVertices(verticesArray, vertices.size(), indicesArray, indices.size());
+		addVertices(verticesArray, (unsigned int)vertices.size(), indicesArray, (unsigned int)indices.size());
 
 		delete[] verticesArray;
 		delete[] indicesArray;

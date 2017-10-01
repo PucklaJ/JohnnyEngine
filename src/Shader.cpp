@@ -133,7 +133,7 @@ namespace Johnny
 	void UniformBuffer::addArray(UBOTypes type,unsigned int arraySize)
 	{
 		m_types.push_back(type);
-		m_arraySizes[m_types.size()-1] = arraySize;
+		m_arraySizes[(unsigned int)m_types.size()-1] = arraySize;
 	}
 
 	void UniformBuffer::map()

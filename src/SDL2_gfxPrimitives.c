@@ -1857,8 +1857,8 @@ int aaellipseRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rx, Sint16
 	yc2 = 2 * y;
 
 	sab = sqrt((double)(a2 + b2));
-	od = (Sint16)lrint(sab*0.01) + 1; /* introduce some overdraw */
-	dxt = (Sint16)lrint((double)a2 / sab) + od;
+	od = (Sint16)lrint((float)(sab*0.01)) + 1; /* introduce some overdraw */
+	dxt = (Sint16)lrint((float)((double)a2 / sab)) + od;
 
 	t = 0;
 	s = -2 * a2 * ry;
@@ -1934,7 +1934,7 @@ int aaellipseRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rx, Sint16
 	}
 
 	/* Replaces original approximation code dyt = abs(yp - yc); */
-	dyt = (Sint16)lrint((double)b2 / sab ) + od;    
+	dyt = (Sint16)lrint((float)((double)b2 / sab )) + od;    
 
 	for (i = 1; i <= dyt; i++) {
 		yp++;
@@ -3800,8 +3800,8 @@ int bezierRGBA(SDL_Renderer * renderer, const Sint16 * vx, const Sint16 * vy, in
 	* Draw 
 	*/
 	t=0.0;
-	x1=(Sint16)lrint(_evaluateBezier(x,n+1,t));
-	y1=(Sint16)lrint(_evaluateBezier(y,n+1,t));
+	x1=(Sint16)lrint((float)_evaluateBezier(x,n+1,t));
+	y1=(Sint16)lrint((float)_evaluateBezier(y,n+1,t));
 	for (i = 0; i <= (n*s); i++) {
 		t += stepsize;
 		x2=(Sint16)_evaluateBezier(x,n,t);
@@ -4179,18 +4179,18 @@ void _murphyWideline(SDL2_gfxMurphyIterator *m, Sint16 x1, Sint16 y1, Sint16 x2,
 	cang = cos(ang);
 
 	if (m->oct2 == 0) {
-		ptx = x1 + (Sint16)lrint(offset * sang);
+		ptx = x1 + (Sint16)lrint((float)(offset * sang));
 		if (m->quad4 == 0) {
-			pty = y1 - (Sint16)lrint(offset * cang);
+			pty = y1 - (Sint16)lrint((float)(offset * cang));
 		} else {
-			pty = y1 + (Sint16)lrint(offset * cang);
+			pty = y1 + (Sint16)lrint((float)(offset * cang));
 		}
 	} else {
-		ptx = x1 - (Sint16)lrint(offset * cang);
+		ptx = x1 - (Sint16)lrint((float)(offset * cang));
 		if (m->quad4 == 0) {
-			pty = y1 + (Sint16)lrint(offset * sang);
+			pty = y1 + (Sint16)lrint((float)(offset * sang));
 		} else {
-			pty = y1 - (Sint16)lrint(offset * sang);
+			pty = y1 - (Sint16)lrint((float)(offset * sang));
 		}
 	}
 

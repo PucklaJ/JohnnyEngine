@@ -280,8 +280,8 @@ namespace Johnny
 		m_vertices = new Vertex3D[vertices.size()];
 		m_indices = new GLuint[indices.size()];
 
-		m_vertSize = vertices.size();
-		m_indSize = indices.size();
+		m_vertSize = (unsigned int)vertices.size();
+		m_indSize = (unsigned int)indices.size();
 
 		for (size_t i = 0; i < vertices.size(); i++)
 		{

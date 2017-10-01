@@ -60,7 +60,7 @@ namespace Tmx
         const Tmx::Object *GetObject(int index) const { return objects.at(index); }
 
         /// Get the number of objects in the list.
-        int GetNumObjects() const { return objects.size(); }
+        int GetNumObjects() const { return (int)objects.size(); }
 
         /// Get the color used to display the objects in this group.
         Tmx::Color GetColor() const { return color; }
