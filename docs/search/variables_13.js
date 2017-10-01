@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['y',['y',['../dd/d32/class_johnny_1_1_rectangle.html#a237e7eaf841b584b1f510a5c610d96f1',1,'Johnny::Rectangle::y()'],['../d1/d20/class_johnny_1_1_mouse.html#a975c0d23f4aadbb3e8a14a0ea4bac7f2',1,'Johnny::Mouse::y()'],['../d2/d9f/struct_johnny_1_1_a___square.html#af6816904f0ad42f93c58e137f256b97f',1,'Johnny::A_Square::y()'],['../d2/de9/struct_johnny_1_1_animation_tile.html#a38a07e0e400768f3e0ad5ca54d16c67f',1,'Johnny::AnimationTile::y()']]],
-  ['yrel',['yrel',['../d1/d20/class_johnny_1_1_mouse.html#a645a3261ec68969fc946cce1d7e1cfdf',1,'Johnny::Mouse']]]
+  ['w',['w',['../class_johnny_1_1_vector4.html#a91050a343f6cdf6c2fb79c9ed1bb33d2',1,'Johnny::Vector4']]],
+  ['wheel_5fx',['wheel_x',['../class_johnny_1_1_mouse.html#ac5a3866ebb2c75334947dacca98ee156',1,'Johnny::Mouse']]],
+  ['wheel_5fy',['wheel_y',['../class_johnny_1_1_mouse.html#a0e6f0b3155cf439c3ef063e66856b240',1,'Johnny::Mouse']]],
+  ['width',['width',['../class_johnny_1_1_rectangle.html#a1c7c3c56feb5c4f78c94bac748aabd47',1,'Johnny::Rectangle::width()'],['../class_johnny_1_1_texture_data.html#a5ca8cacd9614352360f5d3718e1c668b',1,'Johnny::TextureData::width()'],['../class_johnny_1_1_vector2.html#ae72a6dba612a0146e0e3f6e6370a6397',1,'Johnny::Vector2::width()'],['../class_johnny_1_1_vector3.html#a44233f2a43a23acf7da49b6b1f5cc67c',1,'Johnny::Vector3::width()'],['../class_johnny_1_1_vector4.html#a738a4ddc43557b85bf4d73de0a262692',1,'Johnny::Vector4::width()']]]
 ];

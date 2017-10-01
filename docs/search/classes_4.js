@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['framebuffer',['FrameBuffer',['../d2/db0/class_johnny_1_1_frame_buffer.html',1,'Johnny']]]
+  ['entity3d',['Entity3D',['../class_johnny_1_1_entity3_d.html',1,'Johnny']]]
 ];

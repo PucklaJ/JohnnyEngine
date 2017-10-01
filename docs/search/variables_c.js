@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['quadratic',['quadratic',['../d4/d8a/class_johnny_1_1_point_light3_d.html#a7d4e8cb577716bbe1979f0a5c8b1e840',1,'Johnny::PointLight3D::quadratic()'],['../da/d67/class_johnny_1_1_spot_light3_d.html#aedc7c2b19f5841410b8f554a3f4c6996',1,'Johnny::SpotLight3D::quadratic()']]]
+  ['pointlights',['pointLights',['../class_johnny_1_1_scene.html#a06e98540b30fbd8943ba1900b58f7b6b',1,'Johnny::Scene']]],
+  ['pos',['pos',['../class_johnny_1_1_vertex3_d.html#a36498cd09f2842670a1c2bd0fee64277',1,'Johnny::Vertex3D']]],
+  ['position',['position',['../class_johnny_1_1_point_light3_d.html#addf600cb860134d61726ca89429532d5',1,'Johnny::PointLight3D::position()'],['../class_johnny_1_1_spot_light3_d.html#aa55619fe81d1266f6d9485cdcabaa978',1,'Johnny::SpotLight3D::position()'],['../class_johnny_1_1_skybox_vertex.html#a895e2d62a683a4088149079da1aa2486',1,'Johnny::SkyboxVertex::position()']]]
 ];

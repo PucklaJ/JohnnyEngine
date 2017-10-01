@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['g',['g',['../d2/d9f/struct_johnny_1_1_a___square.html#a9ed3ee8dc6ce3b8e3a05d9b810d74952',1,'Johnny::A_Square']]]
+  ['emittedlight',['emittedLight',['../class_johnny_1_1_material.html#ac1834a4b7d699a156cd2401a82a40317',1,'Johnny::Material']]]
 ];

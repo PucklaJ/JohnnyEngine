@@ -22,6 +22,12 @@ namespace Johnny
 	 */
     struct A_Square
     {
+    	/*! \brief Creates a new A_Square
+    	 *  \param x_ The x position of the new A_Square
+    	 *  \param y_ The y position of the new A_Square
+    	 *  \param g_ The g value of the new A_Square
+    	 *  \param solid_ Wether the A_Square is solid 
+		 */
 		A_Square(int x_,int y_,unsigned int g_, bool solid_)
 		{
 			x = x_;

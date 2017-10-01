@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['objloader',['OBJLoader',['../d0/d2a/class_johnny_1_1_o_b_j_loader.html',1,'Johnny']]]
+  ['normalposuvindex',['NormalPosUVIndex',['../class_johnny_1_1_normal_pos_u_v_index.html',1,'Johnny']]]
 ];
