@@ -1,4 +1,4 @@
-#version 430 core
+#version 330
 
 in vec2 textureCoords;
 out vec4 fragColor;
@@ -8,8 +8,8 @@ out vec4 fragColor;
 
 uniform sampler2D textureAddress;
 uniform int drawMode = 1;
-uniform vec4 keyColor = {0.0,0.0,0.0,0.0};
-uniform vec4 modColor = {1.0,1.0,1.0,1.0};
+uniform vec4 keyColor;
+uniform vec4 modColor;
 
 #define KEY_PADDING 0.1
 #define ALPHA_DISCARD_PADDING 0.2

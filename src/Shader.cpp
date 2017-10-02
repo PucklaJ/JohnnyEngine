@@ -458,8 +458,16 @@ namespace Johnny
 
 			return;
 		}
-
+        
+        GLuint vao = 0;
+        glGenVertexArrays(1,&vao);
+        glBindVertexArray(vao);
+        
 		glValidateProgram(m_program);
+        
+        glBindVertexArray(0);
+        glDeleteVertexArrays(1,&vao);
+        
 		GLint status;
 		glGetProgramiv(m_program, GL_VALIDATE_STATUS, &status);
 

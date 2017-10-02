@@ -28,6 +28,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include "TmxColor.h"
 #include <cstdio>
+#include <cstdlib>
 
 namespace Tmx
 {
