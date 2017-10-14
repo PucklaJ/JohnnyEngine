@@ -147,9 +147,9 @@ namespace Johnny
             shader->getShaderUpdater()->setUniforms(m->getLighting3D());
             shader->getShaderUpdater()->setUniforms(m->getCamera3D());
             
-            
 			for (size_t i = 0; i < actors->size(); i++)
 			{
+                
                 if((*actors)[i]->isVisible())
                 {
                     (*actors)[i]->setShader(it->first, false);

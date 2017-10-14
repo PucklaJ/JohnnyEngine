@@ -128,15 +128,20 @@ namespace Johnny
             m_joystickManager = nullptr;
         }
 
-        removeChild(m_inputManager);
-        m_resourceManager->clear();
+        if(m_inputManager)
+            removeChild(m_inputManager);
+        if(m_resourceManager)
+            m_resourceManager->clear();
         
 		RenderManager::unload();
 		Skybox::clear();
-
-		delete m_renderManager;
-        delete m_resourceManager;
-		delete m_timer;
+        
+        if(m_renderManager)
+            delete m_renderManager;
+        if(m_resourceManager)
+            delete m_resourceManager;
+        if(m_timer)
+            delete m_timer;
 		if (m_lighting3D)
 		{
 			delete m_lighting3D;
@@ -154,17 +159,25 @@ namespace Johnny
 			delete m_physics2D;
 			m_physics2D = nullptr;
 		}
-
-		delete m_frameBufferTex;
-		delete m_frameBufferTexMulti;
-		delete m_renderBuffer;
-		delete m_renderBufferMulti;
-		delete m_frameBuffer;
-		delete m_frameBufferMulti;
-		delete m_frameBufferMesh;
-
-        delete m_window;
-
+        
+        if(m_frameBufferTex)
+            delete m_frameBufferTex;
+        if(m_frameBufferTexMulti)
+            delete m_frameBufferTexMulti;
+		if(m_renderBuffer)
+            delete m_renderBuffer;
+		if(m_renderBufferMulti)
+            delete m_renderBufferMulti;
+		if(m_frameBuffer)
+            delete m_frameBuffer;
+		if(m_frameBufferMulti)
+            delete m_frameBufferMulti;
+		if(m_frameBufferMesh)
+            delete m_frameBufferMesh;
+            
+        if(m_window)
+            delete m_window;
+        
         SDL_Quit();
     }
 
@@ -191,7 +204,7 @@ namespace Johnny
 		SDL_GLContext glContext = SDL_GL_CreateContext(m_window->getWindow());
 		if (!glContext)
 		{
-			LogManager::error("Couldn't create SDL_GL_Context");
+			LogManager::error(std::string("Couldn't create SDL_GL_Context: ") + std::string(SDL_GetError()));
 		}
 		if (!RenderUtil::initGraphics(0.0f, 0.0f, 0.0f))
 		{

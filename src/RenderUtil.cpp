@@ -49,7 +49,7 @@ namespace Johnny
 		if (Settings::getb(SettingName::VSYNC))
 		{
 			if (SDL_GL_SetSwapInterval(-1)<0)
-				ERROR_OUT(SDL_GL_SetSwapInterval(1));
+				ERROR_OUT(SDL_GL_SetSwapInterval(1),"Couldn't enable VSNYC: ");
 		}
 		
 
@@ -58,18 +58,18 @@ namespace Johnny
 
 	void RenderUtil::initWindow()
 	{
-		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1));
+		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1),"Couldn't enable double buffering: ");
 
 		if (Settings::getb(SettingName::MSAA))
 		{
-			ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1));
-			ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, Settings::geti(SettingName::MSAA_SAMPLES)));
+			ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1),"Couldn't enable Multisampling: ");
+			ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, Settings::geti(SettingName::MSAA_SAMPLES)),"Couldn't set the multisampling samples: ");
 		}
 		
 
-		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE));
-		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3));
-		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3));
+		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE),"Couldn't set the profile mask: ");
+		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3),"Couldn't set the context major version: ");
+		ERROR_OUT(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3),"Couldn't set the context minor version: ");
 	}
 
 	void RenderUtil::swapWindow(SDL_Window* w)

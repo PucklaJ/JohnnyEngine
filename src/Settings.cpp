@@ -50,7 +50,7 @@ namespace Johnny
 					if (value)
 					{
 						if (SDL_GL_SetSwapInterval(-1) < 0)
-							ERROR_OUT(SDL_GL_SetSwapInterval(1));
+							ERROR_OUT(SDL_GL_SetSwapInterval(1),"Couldn't enable VSYNC: ");
 					}
 					else
 					{
