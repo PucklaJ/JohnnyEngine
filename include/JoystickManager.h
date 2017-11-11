@@ -1,7 +1,7 @@
 #ifndef JOYSTCKMANAGER_H
 #define JOYSTCKMANAGER_H
 #include <vector>
-#include <SDL2/SDL_events.h>
+#include "Events.h"
 
 namespace Johnny
 {
@@ -19,7 +19,7 @@ namespace Johnny
             /*! \brief Polls the controller events
              * \param e The event from which to poll
              */
-            void pollEvents(const SDL_Event& e);
+            void pollEvents(const Event& e);
             /*! \brief Updates the JoystickManager
              *
              */
@@ -32,11 +32,11 @@ namespace Johnny
             /*! \brief Adds a controller to the vector
              * \param gc The controller to add
              */
-            void addController(SDL_GameController* gc);
+            void addController(void* gc);
             /*! \brief Removes a controller from the vector
              * \param gc The controller to remove
              */
-            void removeController(SDL_GameController* gc);
+            void removeController(void* gc);
             /*! \brief Removes a controller with an index from the vector
              * \param index The index of te controller
              */
@@ -45,7 +45,7 @@ namespace Johnny
             /*! \return A vector with all SDL_GameController handles of the connected controllers
              *
              */
-            std::vector<SDL_GameController*>& getControllers(){return m_controllers;}
+            std::vector<void*>& getControllers(){return m_controllers;}
             
             /*! \return The currently attached JoystickListener
              *
@@ -54,7 +54,7 @@ namespace Johnny
             
         private:
             JoystickListener* m_listener = nullptr;         //!< The JoystickListener of the object
-            std::vector<SDL_GameController*> m_controllers; //!< The vector which holds the controllers
+            std::vector<void*> m_controllers; //!< The vector which holds the controllers
     };
 }
 

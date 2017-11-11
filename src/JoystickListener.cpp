@@ -2,6 +2,7 @@
 #include "../include/JoystickManager.h"
 #include "../include/LogManager.h"
 #include "../include/operators.h"
+#include "../include/MainClass.h"
 #include <iostream>
 //#define DEBUG_OUTPUTS
 
@@ -22,7 +23,7 @@ namespace Johnny
         m_manager = jm;
     }
 
-    void JoystickListener::onAxisMotion(const SDL_ControllerAxisEvent& e)
+    void JoystickListener::onAxisMotion(const ControllerAxisEvent& e)
     {
 #ifdef DEBUG_OUTPUTS
     	std::cout << "onAxisMotion start" << std::endl;
@@ -45,7 +46,7 @@ namespace Johnny
 #ifdef DEBUG_OUTPUTS
             std::cout << "Getting JoystickID" << std::endl;
 #endif
-            if(SDL_JoystickInstanceID(SDL_GameControllerGetJoystick(m_manager->getControllers()[i])) == e.which)
+            if(MainClass::getInstance()->getFramework()->getControllerID(m_manager->getControllers()[i]) == e.which)
             {
                 index = (int)i;
                 break;
@@ -101,7 +102,7 @@ namespace Johnny
         return n;
     }
 
-    void JoystickListener::onButtonDown(const SDL_ControllerButtonEvent& e)
+    void JoystickListener::onButtonDown(const ControllerButtonEvent& e)
     {
 #ifdef DEBUG_OUTPUTS
     	std::cout << "onButtonDown start" << std::endl;
@@ -113,7 +114,7 @@ namespace Johnny
             if(m_manager->getControllers()[i] == nullptr)
                continue;
 
-            if(SDL_JoystickInstanceID(SDL_GameControllerGetJoystick(m_manager->getControllers()[i])) == e.which)
+            if(MainClass::getInstance()->getFramework()->getControllerID(m_manager->getControllers()[i]) == e.which)
             {
                 index = (int)i;
                 break;
@@ -143,7 +144,7 @@ namespace Johnny
     }
 
 
-    void JoystickListener::onButtonUp(const SDL_ControllerButtonEvent& e)
+    void JoystickListener::onButtonUp(const ControllerButtonEvent& e)
     {
 #ifdef DEBUG_OUTPUTS
     	std::cout << "onButtonUp start" << std::endl;
@@ -155,7 +156,7 @@ namespace Johnny
             if(m_manager->getControllers()[i] == nullptr)
                 continue;
 
-            if(SDL_JoystickInstanceID(SDL_GameControllerGetJoystick(m_manager->getControllers()[i])) == e.which)
+            if(MainClass::getInstance()->getFramework()->getControllerID(m_manager->getControllers()[i]) == e.which)
             {
                 index = (int)i;
                 break;
@@ -182,13 +183,13 @@ namespace Johnny
 #endif
     }
 
-    void JoystickListener::onConnect(const SDL_ControllerDeviceEvent& e)
+    void JoystickListener::onConnect(const ControllerDeviceEvent& e)
     {
 #ifdef DEBUG_OUTPUTS
     	std::cout << "onConnect start" << std::endl;
 #endif
         LogManager::log("Controller connected");
-        m_manager->addController(SDL_GameControllerOpen(e.which));
+        m_manager->addController(MainClass::getInstance()->getFramework()->openController(e.which));
 
         for(size_t i = 0;i<m_conLis.size();i++)
         {
@@ -199,7 +200,7 @@ namespace Johnny
 #endif
     }
 
-    void JoystickListener::onDisconnect(const SDL_ControllerDeviceEvent& e)
+    void JoystickListener::onDisconnect(const ControllerDeviceEvent& e)
     {
 #ifdef DEBUG_OUTPUTS
     	std::cout << "onDisconnect start" << std::endl;

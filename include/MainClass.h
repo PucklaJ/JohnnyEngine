@@ -12,6 +12,8 @@
 #include "Timer.h"
 #include "Vector2.h"
 #include "Colors.h"
+#include "Framework.h"
+#include "Events.h"
 
 #define NO_FPS_LOCK -1
 
@@ -66,7 +68,7 @@ namespace Johnny
         	 *  \param height The height of the Window in pixels
         	 *  \param windowFlags The flags which will be used for the Window initialisation (this value will be ore'd together with SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL)
         	 */
-            MainClass(Uint32 initFlags = 0,const char* title = "New Window",int width = NORM_W,int height = NORM_H,Uint32 windowFlags = 0);
+            MainClass(unsigned int initFlags = 0,const std::string& title = "New Window",unsigned int width = NORM_W,unsigned int height = NORM_H,WindowFlags windowFlags = 0);
             virtual ~MainClass();
 
             /*! \brief Starts the engine.
@@ -142,6 +144,10 @@ namespace Johnny
              *
              */
 			Physics2D* getPhysics2D() { return m_physics2D; }
+            /*! \return The Framwork of the object which handles framework based stuff
+             * 
+             */
+            Framework* getFramework() {return m_framework;}
 
 			/*! \return The Camera3D of the object
 			 *
@@ -191,7 +197,7 @@ namespace Johnny
              *  \param width The new width of the Window
              *  \param height The new height of the Window
              */
-            virtual void onResize(int width,int height);
+            virtual void onResize(unsigned int width,unsigned int height);
             /*! \brief Gets called when the Window switches to fullscreen or switches to windowed mode
              *  \param full true if the window switches to fullscreen otherwise false
              */
@@ -217,7 +223,7 @@ namespace Johnny
             /*! \brief Gets called always when an event occoured
              *  \param e The event that happened
              */
-            virtual bool pollEvent(const SDL_Event& e);
+            virtual bool pollEvent(const Event& e);
 
             InputManager* m_inputManager = nullptr;       //!< The InputManager of the object
             ResourceManager* m_resourceManager = nullptr; //!< The ResourceManager of the object
@@ -230,6 +236,7 @@ namespace Johnny
 			Skybox* m_skybox = nullptr;					  //!< The Skybox of the object
 			Timer* m_timer = nullptr;					  //!< The Timer of the object
 			Physics2D* m_physics2D = nullptr;			  //!< The Physics2D of the object
+            Framework* m_framework = nullptr;             //!< The Framework of the object
 
         private:
             static MainClass* instance;					  //!< The instance of the MainClass
@@ -274,9 +281,9 @@ namespace Johnny
 			Texture* m_frameBufferTexMulti = nullptr;    //!< The Texture which will be attached to m_frameBufferMulti for color rendering
 			Texture* m_frameBufferTex = nullptr;		 //!< The Texture which will be attached to m_frameBuffer for color rendering
 
-            const char* m_windowTitle;					 //!< The title of the Window which was passed through the constructor
-            int m_windowWidth;							 //!< The width of the Window which was passed through the constructor in pixels
-            int m_windowHeight;							 //!< The height of the Window which was passed through the constructor in pixels
+            std::string m_windowTitle;					//!< The title of the Window which was passed through the constructor
+            unsigned int m_windowWidth;					//!< The width of the Window which was passed through the constructor in pixels
+            unsigned int m_windowHeight;				//!< The height of the Window which was passed through the constructor in pixels
 
             float m_scaleW;								 //!< Native_Resolution.x / Window_Resolution.x
             float m_scaleH;								 //!< Native_Resolution.y / Window_Resolution.y
@@ -286,9 +293,9 @@ namespace Johnny
             
             Colorb m_backgroundColor;					 //!< The bakground color which will be used to clear the screen
         
-            Vector2f m_nativeResolution;				 //!< The resolution of the back buffer
-			Uint32 m_initWindowFlags = 0;				 //!< The windowFlags which were passed through the constructor
-			Uint32 m_initFlags = 0;						 //!< The initFlags which were passed through the constructor
+            Vector2f m_nativeResolution;				//!< The resolution of the back buffer
+			WindowFlags m_initWindowFlags = 0;			//!< The windowFlags which were passed through the constructor
+			unsigned int m_initFlags = 0;			    //!< The initFlags which were passed through the constructor
     };
 }
 

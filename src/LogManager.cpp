@@ -102,7 +102,7 @@ namespace Johnny
 
 		const SDL_MessageBoxData messageBoxData = {
 			SDL_MESSAGEBOX_ERROR,
-			MainClass::getInstance()->getWindow()->getWindow(),
+			MainClass::getInstance()->getWindow() ? (SDL_Window*)MainClass::getInstance()->getWindow()->getHandle() : nullptr,
 			"An error accoured",
 			text.c_str(),
 			SDL_arraysize(buttons),

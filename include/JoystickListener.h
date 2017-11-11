@@ -1,61 +1,12 @@
 #ifndef JOYSTICKLISTENER_H
 #define JOYSTICKLISTENER_H
-#include <SDL2/SDL_events.h>
 #include <vector>
 #include <map>
+#include "JoystickListenerEnums.h"
+#include "Events.h"
 
 namespace Johnny
 {
-    /*! \brief Converts a Uint8 to a int
-     * \param u The Uint8 to convert
-     * \return The resulting integer
-     */
-    extern int Uint8ToInt(Uint8 u);
-    /*! \brief A enum which consists of all Buttons of a controller
-     *
-     */
-    enum Buttons
-    {
-        UP = 11,
-        DOWN = 12,
-        LEFT = 13,
-        RIGHT = 14,
-        START = 6,
-        SELECT = 4,
-        L3 = 7,
-        R3 = 8,
-        L1 = 9,
-        R1 = 10,
-        CROSS = 0,
-        CIRCLE = 1,
-        SQUARE = 2,
-        TRIANGLE = 3,
-        BACK=SELECT,
-        LS=L3,
-        RS=R3,
-        LB=L1,
-        RB=R1,
-        A=CROSS,
-        B=CIRCLE,
-        X=SQUARE,
-        Y=TRIANGLE
-    };
-	 
-    /*!\brief A enum which consists of the sticks and triggers of a controller
-     *
-     */
-    enum Axis
-    {
-        LEFT_STICK_X=0,
-        LEFT_STICK_Y=1,
-        RIGHT_STICK_X=2,
-        RIGHT_STICK_Y=3,
-        L2=4,
-        R2=5,
-        LT=L2,
-        RT=R2
-    };
-
     class JoystickListener;
 
     /*! \brief A Listener class which catches button input and axis movement of a controller
@@ -68,15 +19,15 @@ namespace Johnny
       /*! \brief Gets called when a stick or a trigger gets moved
        * \param e A struct which holds information about the event
        */
-      virtual void onAxisMotion(const SDL_ControllerAxisEvent& e)=0;
+      virtual void onAxisMotion(const ControllerAxisEvent& e)=0;
       /*! \brief Gets called when a button is pressed
        * \param e A struct which holds information about the event
        */
-      virtual void onButtonDown(const SDL_ControllerButtonEvent& e)=0;
+      virtual void onButtonDown(const ControllerButtonEvent& e)=0;
       /*! \brief Gets called when a button is released
        * \param e A struct which holds information about the event
        */
-      virtual void onButtonUp(const SDL_ControllerButtonEvent& e)=0;
+      virtual void onButtonUp(const ControllerButtonEvent& e)=0;
 
       /*! \brief Sets the JoystickListener of the object
        * \param jl The JoystickListener to set
@@ -102,11 +53,11 @@ namespace Johnny
       /*! \brief Gets called when a controller connects
        * \param e A struct which holds infotmation about the event
        */
-      virtual void onConnect(const SDL_ControllerDeviceEvent& e)=0;
+      virtual void onConnect(const ControllerDeviceEvent& e)=0;
       /*! \brief Gets called when a controller disconnects
        * \param e A struct which holds information about the event
        */
-      virtual void onDisconnect(const SDL_ControllerDeviceEvent& e)=0;
+      virtual void onDisconnect(const ControllerDeviceEvent& e)=0;
 
       /*! \brief Sets the JoystickListener of the object
        * \param jl The JoystickListener to set
@@ -139,23 +90,23 @@ namespace Johnny
             /*! \brief Gets called when a axsis or trigger of a controller is moved
              * \param e A struct which holds information about the event
              */
-            void onAxisMotion(const SDL_ControllerAxisEvent& e);
+            void onAxisMotion(const ControllerAxisEvent& e);
             /*! \brief Gets called when a button of a controller is pressed
              * \param e A struct which holds information about the event
              */
-            void onButtonDown(const SDL_ControllerButtonEvent& e);
+            void onButtonDown(const ControllerButtonEvent& e);
             /*! \brief Gets called when a button of a controller is released
              * \param e A struct which holds information about the event
              */
-            void onButtonUp(const SDL_ControllerButtonEvent& e);
+            void onButtonUp(const ControllerButtonEvent& e);
             /*! \brief Gets called when a controller connects
              * \param e A struct which holds information about the event
              */
-            void onConnect(const SDL_ControllerDeviceEvent& e);
+            void onConnect(const ControllerDeviceEvent& e);
             /*! \brief Gets called when a controller disconnects
              * \param e A struct which holds information about the event
              */
-            void onDisconnect(const SDL_ControllerDeviceEvent& e);
+            void onDisconnect(const ControllerDeviceEvent& e);
 
             /*! \brief Attaches a AxisButtonListener to a specific controller id
              * \param abl The listener to attach
@@ -189,6 +140,5 @@ namespace Johnny
      */
     typedef std::map<int,std::vector<AxisButtonListener*>>::iterator AbIterator ;
 }
-
 
 #endif // JOYSTICKLISTENER_H

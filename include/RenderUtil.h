@@ -2,7 +2,7 @@
 #include <SDL2/SDL.h>
 #include <string>
 
-#define ERROR_OUT(func,errorText) if(func<0)Johnny::LogManager::error(std::string(errorText) + std::string(SDL_GetError()))
+#define ERROR_OUT(func,errorText) if(func<0)Johnny::LogManager::error(std::string(errorText) + MainClass::getInstance()->getFramework()->getError())
 
 namespace Johnny
 {

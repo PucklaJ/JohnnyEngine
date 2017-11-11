@@ -3,6 +3,7 @@
 #include "../include/Actor.h"
 #include <SDL2/SDL_video.h>
 #include <SDL2/SDL_stdinc.h>
+#include "../include/Vector2.h"
 #include <GL/glew.h>
 
 namespace Johnny
@@ -10,6 +11,7 @@ namespace Johnny
     class MainClass;
     class Texture;
     class TextureData;
+    class Framework;
     
     /*! \brief A class which represents a window on a screen 
      *
@@ -17,35 +19,26 @@ namespace Johnny
     class Window
     {
         public:
-            /*! \brief Creates a new Window
-             *  \param m The MainClass to use for listening to the onFullscreen and onResize events
-             *  \param title The title of the Window
-             *  \param x The x position on the screen of the Window
-             *  \param y The y position on the screen of the Window
-             *  \param w The width of the Window in pixels
-             *  \param h The height of the Window in pixels
-             *  \param flags The WindowFlags for the Window whicch define different things like the resizability
-             */
-			Window(MainClass* m,const char* title = "Window Title",int x = SDL_WINDOWPOS_CENTERED,int y = SDL_WINDOWPOS_CENTERED,int w = NORM_W,int h = NORM_H,Uint32 flags = SDL_WINDOW_SHOWN);
+			Window(void* handle);
             virtual ~Window();
 
             /*! \brief Sets the Window into fullscreen mode or windowed mode
              *  \param full if true the Window goes into fullscreen or stays in fullscreen, if false the Window goes into windowed mode or stays in windowed mode
              *  \param flags The flags for the fullscreen transition
              */
-            void setFullscreen(bool full,Uint32 flags = SDL_WINDOW_FULLSCREEN_DESKTOP);
+            void setFullscreen(bool full = true,bool desktop = true);
             /*! \brief Sets the window into borderless mode
              *  \param border if true the window switches into borderless mode or stays in borderless mode
              */
-            void setBorderless(bool border);
+            void setBorderless(bool border = true);
             /*! \brief Sets the title of the Window
              *  \param title The title of the Window
              */
-            void setTitle(const char* title);
+            void setTitle(const std::string& title);
             /*! \brief Sets the resolution of the Window
              *  \param res The new resolution
              */
-            void setResolution(const SDL_Point& res);
+            void setResolution(const Vector2i& res);
             /*! \brief Sets the resolution of the Window
              *  \param w The new width of the Window in pixels
              *  \param h The new height of the Window in pixels
@@ -54,7 +47,7 @@ namespace Johnny
             /*! \brief Sets the position of the Window on the screen
              *  \param pos The new position
              */
-            void setPosition(const SDL_Point& pos);
+            void setPosition(const Vector2i& pos);
              /*! \brief Sets the position of the Window on the screen
              *  \param x The new x position
              *  \param y The new y position
@@ -69,26 +62,12 @@ namespace Johnny
             void setIcon(Texture* tex,GLenum target = GL_TEXTURE_2D,GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE);
             /*! \brief Sets the icon of the Window
              *  \param tex The TextureData to use as icon
-             *  \param pixelformat The SDL_Pixelformat with which the pixels are stored
              */
-            void setIcon(TextureData* tex,Uint32 pixelFormat = SDL_PIXELFORMAT_RGBA8888);
-            /*! \brief Sets the icon of the Window
-             *  \param sur The SDL_Surface to use as icon
-             */
-            void setIcon(SDL_Surface* sur);
-
-            /*! \brief Gets the SDL_Window handle
-             *  \return The SDL_Window of the Window
-             */
-            SDL_Window* getWindow() {return m_window;}
+            void setIcon(TextureData* tex);
             /*! \return The resolution of the Window
              *
              */
-            const SDL_Point getResolution();
-            /*! \return The SDL_Pixelformat of the Window
-             *
-             */
-            Uint32 getPixelFormat();
+            const Vector2i getResolution();
             /*! \brief Checks if the Window is borderless
              *  \return true if the Window is borderless and false otherwhise
              */
@@ -98,14 +77,15 @@ namespace Johnny
              */
             bool isFullscreen();
             
-            /*! \return The resolution of the screen (not the window)
-             *
-             */
-            static SDL_Point getScreenResolution();
+            void setHandle(void* handle) {m_handle = handle;}
+            void* getHandle() {return m_handle;}
+            
+            bool swap();
+            
         private:
-            SDL_Window* m_window;   //!< The SDL_Window handle
-            MainClass* m_mainClass; //!< The MainClass which was passed through the constructor
-            SDL_Point m_res;        //!< The resolution of the Window
+            MainClass* m_mainClass = nullptr; //!< The MainClass which was passed through the constructor
+            Vector2i m_res;        //!< The resolution of the Window
+            void* m_handle = nullptr; //!< The handle of the window of the framework
     };
 }
 

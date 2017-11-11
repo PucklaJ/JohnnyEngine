@@ -3,6 +3,7 @@
 #include <iostream>
 #include "../include/LogManager.h"
 #include "../include/Settings.h"
+#include "../include/MainClass.h"
 
 namespace Johnny
 {
@@ -45,15 +46,8 @@ namespace Johnny
 			glDisable(GL_MULTISAMPLE);
 
 		//glEnable(GL_FRAMEBUFFER_SRGB);
-
-		if (Settings::getb(SettingName::VSYNC))
-		{
-			if (SDL_GL_SetSwapInterval(-1)<0)
-				ERROR_OUT(SDL_GL_SetSwapInterval(1),"Couldn't enable VSNYC: ");
-		}
-		
-
-		return true;
+        
+		return MainClass::getInstance()->getFramework()->initGraphics();
 	}
 
 	void RenderUtil::initWindow()

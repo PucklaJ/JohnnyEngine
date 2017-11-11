@@ -1,5 +1,4 @@
 #include "../include/MainClass.h"
-#include <SDL2/SDL.h>
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
@@ -39,7 +38,7 @@ namespace Johnny
 {
     MainClass* MainClass::instance = nullptr;
 
-    MainClass::MainClass(Uint32 initFlags,const char* title,int width,int height,Uint32 windowFlags) : Actor("MainClass"),
+    MainClass::MainClass(unsigned int initFlags,const std::string& title,unsigned int width,unsigned int height,WindowFlags windowFlags) : Actor("MainClass"),
                                                                    m_windowTitle(title),
                                                                    m_windowWidth(width),
                                                                    m_windowHeight(height),
@@ -81,7 +80,7 @@ namespace Johnny
         }
         catch(std::exception& e)
         {
-			LogManager::error(std::string("An error accoured!\n") + e.what() + "\n");
+			LogManager::error(std::string("An exception accoured!: ") + e.what() + "\n");
         }
 
     }
@@ -178,33 +177,37 @@ namespace Johnny
         if(m_window)
             delete m_window;
         
-        SDL_Quit();
+        if(!m_framework->quit())
+            LogManager::error(std::string("Error while quitting: ") + m_framework->getError());
     }
 
     void MainClass::m_init()
     {
         LogManager::log("Initializing Engine");
         
-        if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
+        m_framework = Framework::createFramework(Frameworks::GLFW);
+        
+        if(!m_framework->init(FlagsInitFramework::Everything))
         {
-            LogManager::error(std::string("Initializing SDL: ") + SDL_GetError());
+            LogManager::error(std::string("Initializing Framework: ") + m_framework->getError());
         }
 		if (TTF_Init() < 0)
 		{
 			LogManager::error(std::string("Initializing SDL_ttf: ") + TTF_GetError());
 		}
 
-		RenderUtil::initWindow();
+		m_framework->initWindow();
 
-        m_window = new Window(this,m_windowTitle,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,m_windowWidth,m_windowHeight,SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | m_initWindowFlags);
-        if(!m_window->getWindow())
+        //m_window = new Window(this,m_windowTitle,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,m_windowWidth,m_windowHeight,SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | m_initWindowFlags);
+        m_window = m_framework->createWindow(m_windowTitle,150,150,m_windowWidth,m_windowHeight,FlagsWindow::Shown | FlagsWindow::OpenGL | m_initWindowFlags);
+        
+        if(!m_window || !m_window->getHandle())
         {
-            LogManager::error(std::string("Creating Window: ") + std::string(SDL_GetError()));
+            LogManager::error(std::string("Creating Window: ") + m_framework->getError());
         }
-		SDL_GLContext glContext = SDL_GL_CreateContext(m_window->getWindow());
-		if (!glContext)
+		if (!m_framework->createOpenGLContext())
 		{
-			LogManager::error(std::string("Couldn't create SDL_GL_Context: ") + std::string(SDL_GetError()));
+			LogManager::error(std::string("Couldn't create OpenGL-Context: ") + m_framework->getError());
 		}
 		if (!RenderUtil::initGraphics(0.0f, 0.0f, 0.0f))
 		{
@@ -321,7 +324,7 @@ namespace Johnny
 					m_frameBufferTex->unbind();
 					glViewport(0, 0, (GLsizei)m_nativeResolution.x, (GLsizei)m_nativeResolution.y);
 
-					RenderUtil::swapWindow(m_window->getWindow());
+					m_framework->swapWindow(m_window);
 
 					m_timer->endTimeMeasure();
 #ifdef DEBUG_OUTPUTS
@@ -332,41 +335,40 @@ namespace Johnny
 
     bool MainClass::pollEvents()
     {
-        SDL_Event e;
         m_inputManager->setMouseWheel(0,0);
-        while(SDL_PollEvent(&e))
+        while(m_framework->pollEvent())
         {
 #ifdef DEBUG_OUTPUTS
         	std::cout << "Polling an event" << std::endl;
 #endif
-            switch(e.type)
+            switch(m_framework->event.type)
             {
-                case SDL_QUIT:
+			case EventType::Quit:
                     return false;
-                case SDL_KEYDOWN:
-                    m_inputManager->pressKey(InputManager::convertSDL(e.key.keysym.sym));
+                case EventType::KeyDown:
+                    m_inputManager->pressKey(m_framework->event.key.key);
                     break;
-                case SDL_KEYUP:
-                    m_inputManager->releaseKey(InputManager::convertSDL(e.key.keysym.sym));
+                case EventType::KeyUp:
+                    m_inputManager->releaseKey(m_framework->event.key.key);
                     break;
-                case SDL_MOUSEBUTTONDOWN:
-                    m_inputManager->pressKey(InputManager::convertSDL(e.button.button));
+                case EventType::MouseButtonDown:
+                    m_inputManager->pressKey(m_framework->event.button.button);
                     break;
-                case SDL_MOUSEBUTTONUP:
-                    m_inputManager->releaseKey(InputManager::convertSDL(e.button.button));
+                case EventType::MouseButtonUp:
+                    m_inputManager->releaseKey(m_framework->event.button.button);
                     break;
-                case SDL_MOUSEMOTION:
-                    m_inputManager->setMouseCoords(e.motion.x,e.motion.y);
-					m_inputManager->setMouseRel(e.motion.xrel, e.motion.yrel);
+                case EventType::MouseMotion:
+                    m_inputManager->setMouseCoords(m_framework->event.motion.x,m_framework->event.motion.y);
+					m_inputManager->setMouseRel(m_framework->event.motion.xrel, m_framework->event.motion.yrel);
                     break;
-                case SDL_MOUSEWHEEL:
-                    m_inputManager->setMouseWheel(e.wheel.x,e.wheel.y);
+                case EventType::MouseWheel:
+                    m_inputManager->setMouseWheel(m_framework->event.wheel.x,m_framework->event.wheel.y);
                     break;
-				case SDL_WINDOWEVENT:
-					switch (e.window.event)
+				case EventType::WindowEvent:
+					switch (m_framework->event.window.event)
 					{
-					case SDL_WINDOWEVENT_SIZE_CHANGED:
-						onResize(e.window.data1, e.window.data2);
+					case WindowEventType::SizeChanged:
+						onResize(m_framework->event.window.data1, m_framework->event.window.data2);
 					}
             }
 
@@ -374,12 +376,12 @@ namespace Johnny
             std::cout << "Polling Joystickevents" << std::endl;
 #endif
             if(m_joystickManager)
-                m_joystickManager->pollEvents(e);
+                m_joystickManager->pollEvents(m_framework->event);
 #ifdef DEBUG_OUTPUTS
             std::cout << "Polled Joystickevents" << std::endl;
 #endif
 
-            if(!pollEvent(e))
+            if(!pollEvent(m_framework->event))
             {
                 return false;
             }
@@ -394,7 +396,7 @@ namespace Johnny
     }
 
 
-    bool MainClass::pollEvent(const SDL_Event& e)
+    bool MainClass::pollEvent(const Event& e)
     {
         return true;
     }
@@ -427,7 +429,7 @@ namespace Johnny
 		return m_camera2D;
 	}
     
-    void MainClass::onResize(int w,int h)
+    void MainClass::onResize(unsigned int w,unsigned int h)
     {
         double normScale = m_nativeResolution.x/m_nativeResolution.y;
 		double newScale = (double)w / (double)h;
@@ -459,7 +461,7 @@ namespace Johnny
     
     void MainClass::onFullscreen(bool full)
     {
-        SDL_Point newRes = m_window->getResolution();
+        Vector2i newRes = m_window->getResolution();
         
         double normScale = m_nativeResolution.x/m_nativeResolution.y;
 		double newScale = (double)newRes.x / (double)newRes.y;
@@ -476,7 +478,7 @@ namespace Johnny
 			m_windowWidth = newRes.x;
 			m_windowHeight = (int)((double)newRes.x / normScale);
 
-			if (newRes.y > m_windowHeight)
+			if (newRes.y > (int)m_windowHeight)
 				m_viewportOffsetY = (GLint)(((float)newRes.y - (float)m_windowHeight) / 2.0f);
 			else
 			{

@@ -4,25 +4,37 @@
 #include <SDL2/SDL_surface.h>
 #include "../include/Texture.h"
 #include "../include/ResourceManager.h"
+#include "../include/Framework.h"
 
 namespace Johnny
 {
-    Window::Window(MainClass* mClass,const char* title,int x,int y,int w,int h,Uint32 flags) :
-        m_mainClass(mClass)
+    Window::Window(void* handle) :
+        m_handle(handle),
+        m_mainClass(MainClass::getInstance())
     {
-        m_window = SDL_CreateWindow(title,x,y,w,h,flags);
-        m_res = {w,h};
+        m_res = getResolution();
     }
 
     Window::~Window()
     {
-        SDL_DestroyWindow(m_window);
-        m_window = nullptr;
+        m_mainClass->getFramework()->destroyWindow(this);
+        m_handle = nullptr;
     }
 
-    void Window::setFullscreen(bool b,Uint32 flag)
+    void Window::setFullscreen(bool b,bool desktop)
     {
-        Uint32 flags = SDL_GetWindowFlags(m_window);
+        bool full = isFullscreen();
+        
+        if(full && b)
+            return;
+        else if(full && !b)
+            m_mainClass->getFramework()->setWindowFullscreen(this,false,desktop);
+        else if(!full && !b)
+            return;
+        else if(!full && b)
+            m_mainClass->getFramework()->setWindowFullscreen(this,true,desktop);
+            
+        /*Uint32 flags = SDL_GetWindowFlags(m_window);
 
         if((flags & SDL_WINDOW_FULLSCREEN) && b)
         {
@@ -41,7 +53,7 @@ namespace Johnny
         else
         {
             SDL_SetWindowFullscreen(m_window,flag);
-        }
+        }*/
         
         m_mainClass->onFullscreen(b);
 
@@ -49,7 +61,18 @@ namespace Johnny
 
     void Window::setBorderless(bool b)
     {
-        Uint32 flags = SDL_GetWindowFlags(m_window);
+        bool borderless = isBorderless();
+        
+        if(borderless && b)
+            return;
+        else if(borderless && !b)
+            m_mainClass->getFramework()->setWindowBorderless(this,false);
+        else if(!borderless && !b)
+            return;
+        else if(!borderless && b)
+            m_mainClass->getFramework()->setWindowBorderless(this,true);
+        
+        /*Uint32 flags = SDL_GetWindowFlags(m_window);
 
         if((flags & SDL_WINDOW_BORDERLESS) && b)
         {
@@ -66,93 +89,64 @@ namespace Johnny
         else
         {
             SDL_SetWindowBordered(m_window,SDL_TRUE);
-        }
+        }*/
     }
 
-    const SDL_Point Window::getResolution()
+    const Vector2i Window::getResolution()
     {
-        SDL_Point p;
-        SDL_GetWindowSize(m_window,&p.x,&p.y);
-
-        return p;
+        return m_mainClass->getFramework()->getWindowResolution(this);
     }
 
-    void Window::setTitle(const char* title)
+    void Window::setTitle(const std::string& title)
     {
-        SDL_SetWindowTitle(m_window,title);
+        m_mainClass->getFramework()->setWindowTitle(this,title);
     }
 
-    void Window::setResolution(const SDL_Point& p )
+    void Window::setResolution(const Vector2i& p )
     {
-        setResolution(p.x,p.y);
+        m_mainClass->getFramework()->setWindowResolution(this,p);
+        m_res = p;
+        m_mainClass->onResize(p.width,p.height);
     }
 
     void Window::setResolution(int w, int h)
     {
-        SDL_SetWindowSize(m_window,w,h);
-        m_res.x = w;
-        m_res.y = h;
-        m_mainClass->onResize(w,h);
+        setResolution(Vector2i(w,h));
     }
 
-    void Window::setPosition(const SDL_Point& p)
+    void Window::setPosition(const Vector2i& p)
     {
-        setPosition(p.x,p.y);
+        m_mainClass->getFramework()->setWindowPosition(this,p);
     }
 
     void Window::setPosition(int x, int y)
     {
-        SDL_SetWindowPosition(m_window,x,y);
+        setPosition(Vector2i(x,y));
     }
     
     void Window::setIcon(Texture* tex,GLenum target,GLenum format, GLenum type)
     {
-        SDL_Surface* sur = tex->toSDLSurface(target,format,type);
-        
-        SDL_SetWindowIcon(m_window,sur);
-        
-        SDL_FreeSurface(sur);
+        m_mainClass->getFramework()->setWindowIcon(this,tex,target,format,type);
     }
     
-    void Window::setIcon(TextureData* texD,Uint32 pixelFormat)
+    void Window::setIcon(TextureData* texD)
     {
-        SDL_Surface* sur = texD->toSDL_Surface(pixelFormat);
-        
-        SDL_SetWindowIcon(m_window,sur);
-        
-        SDL_FreeSurface(sur);
-    }
-    
-    void Window::setIcon(SDL_Surface* sur)
-    {   
-        SDL_SetWindowIcon(m_window,sur);
+        m_mainClass->getFramework()->setWindowIcon(this,texD);
     }
 
     bool Window::isBorderless()
     {
-        Uint32 flags = SDL_GetWindowFlags(m_window);
-        return (flags & SDL_WINDOW_BORDERLESS) != 0;
+        return m_mainClass->getFramework()->isWindowBorderless(this);
     }
 
     bool Window::isFullscreen()
     {
-        Uint32 flags = SDL_GetWindowFlags(m_window);
-        return (flags & (SDL_WINDOW_FULLSCREEN | SDL_WINDOW_FULLSCREEN_DESKTOP)) != 0;
+        return m_mainClass->getFramework()->isWindowFullscreen(this);
     }
     
-    SDL_Point Window::getScreenResolution()
+    bool Window::swap()
     {
-        SDL_DisplayMode dm;
-        SDL_GetCurrentDisplayMode(0,&dm);
-        
-        SDL_Point res = {dm.w,dm.h};
-        
-        return res;
-    }
-    
-    Uint32 Window::getPixelFormat()
-    {
-        return SDL_GetWindowPixelFormat(m_window);
+        return m_mainClass->getFramework()->swapWindow(this);
     }
 }
 
