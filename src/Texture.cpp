@@ -80,21 +80,21 @@ namespace Johnny
 		Vertex3D* vertices = new Vertex3D[4];
 		GLuint* indices = new GLuint[6];
 
-		vertices[0].pos = glm::vec3(-width / 2.0f, -height / 2.0f, 0.0f);
-		vertices[0].normal = glm::vec3(0.0, 0.0, 1.0);
-		vertices[0].uv = glm::vec2(0.0, 0.0);
+		vertices[0].pos = Vector3f(-width / 2.0f, -height / 2.0f, 0.0f);
+		vertices[0].normal = Vector3f(0.0, 0.0, 1.0);
+		vertices[0].uv = Vector2f(0.0, 0.0);
 
-		vertices[1].pos = glm::vec3(width / 2.0f, -height / 2.0f, 0.0f);
-		vertices[1].normal = glm::vec3(0.0, 0.0, 1.0);
-		vertices[1].uv = glm::vec2(1.0, 0.0);
+		vertices[1].pos = Vector3f(width / 2.0f, -height / 2.0f, 0.0f);
+		vertices[1].normal = Vector3f(0.0, 0.0, 1.0);
+		vertices[1].uv = Vector2f(1.0, 0.0);
 
-		vertices[2].pos = glm::vec3(width / 2.0f, height / 2.0f, 0.0f);
-		vertices[2].normal = glm::vec3(0.0, 0.0, 1.0);
-		vertices[2].uv = glm::vec2(1.0, 1.0);
+		vertices[2].pos = Vector3f(width / 2.0f, height / 2.0f, 0.0f);
+		vertices[2].normal = Vector3f(0.0, 0.0, 1.0);
+		vertices[2].uv = Vector2f(1.0, 1.0);
 
-		vertices[3].pos = glm::vec3(-width / 2.0f, height / 2.0f, 0.0f);
-		vertices[3].normal = glm::vec3(0.0, 0.0, 1.0);
-		vertices[3].uv = glm::vec2(0.0, 1.0);
+		vertices[3].pos = Vector3f(-width / 2.0f, height / 2.0f, 0.0f);
+		vertices[3].normal = Vector3f(0.0, 0.0, 1.0);
+		vertices[3].uv = Vector2f(0.0, 1.0);
 
 		indices[0] = 0;
 		indices[1] = 1;
@@ -166,10 +166,10 @@ namespace Johnny
 				return;
 			}
 
-			glm::vec2 pos(0.0, 0.0);
+			Vector2f pos(0.0, 0.0);
 
 			glBindBuffer(GL_ARRAY_BUFFER, m_texture2D_vbo);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec2), &pos, GL_STATIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, sizeof(Vector2f), &pos, GL_STATIC_DRAW);
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 			glBindVertexArray(m_texture2D_vao);
@@ -177,7 +177,7 @@ namespace Johnny
 			glEnableVertexAttribArray(0);
 
 			glBindBuffer(GL_ARRAY_BUFFER, m_texture2D_vbo);
-			glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), 0);
+			glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vector2f), 0);
 
 			glBindVertexArray(0);
 		}

@@ -5,9 +5,9 @@
 #include <tuple>
 #include <map>
 #include <string>
-#include <glm/glm.hpp>
 #include <vector>
 #include <assimp/scene.h>
+#include "Colors.h"
 
 
 
@@ -79,13 +79,13 @@ namespace Johnny
 		void unbind();
 
 		std::string name = "NONE";								    //!< The name of the material
-		glm::vec3 ambientColor = glm::vec3(1.0f, 1.0f, 1.0f);	    //!< The ambientColor of the material
-		glm::vec3 diffuseColor = glm::vec3(1.0f, 1.0f, 1.0f);	    //!< The diffuseColor of the material
-		glm::vec3 specularColor = glm::vec3(1.0f, 1.0f, 1.0f);	    //!< The specular color of the material
-		glm::vec3 emittedLight = glm::vec3(0.0f, 0.0f, 0.0f);	    //!< The light which the material emits (will be ignored)
+		Colorf ambientColor = Colorf(1.0f, 1.0f, 1.0f);	    //!< The ambientColor of the material
+		Colorf diffuseColor = Colorf(1.0f, 1.0f, 1.0f);	    //!< The diffuseColor of the material
+		Colorf specularColor = Colorf(1.0f, 1.0f, 1.0f);	    //!< The specular color of the material
+		Colorf emittedLight = Colorf(0.0f, 0.0f, 0.0f);	    //!< The light which the material emits (will be ignored)
 		GLfloat specularExponent = 1.0f;						    //!< The specularExponent for the calculation of the specular light
 		GLfloat transparency = 1.0f;							    //!< The transperancy of the material
-		glm::vec3 transmissionFilter = glm::vec3(1.0f, 1.0f, 1.0f); //!< The transmissionFilter of the material (will be ignored)
+		Colorf transmissionFilter = Colorf(1.0f, 1.0f, 1.0f); //!< The transmissionFilter of the material (will be ignored)
 		GLuint illumination = 0;									//!< The illumination of the material (will be ignored)
 		std::string ambientTexture = "";							//!< The filePath of the ambient texture
 		std::string diffuseTexture = "";							//!< The filePath of the diffuse texture

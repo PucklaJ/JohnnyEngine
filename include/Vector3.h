@@ -2,7 +2,6 @@
 #include <GL/glew.h>
 #include <iostream>
 #include "Vector4.h"
-#include <glm/glm.hpp>
 
 namespace Johnny
 {
@@ -64,10 +63,6 @@ namespace Johnny
 			T depth; //!< The z value of the Vector3 if it is used as dimensions
 		};
         
-        /*! \brief Converts the Vector3 to a vec3 from glm
-         *
-         */
-        glm::vec3 toGLM() const;
 
         /*! \param squared Wether the result should be the squared length or not
 		 *  \return The length of the Vector3
@@ -151,13 +146,6 @@ namespace Johnny
 
 		friend std::ostream& operator<< <>(std::ostream&, const Vector3<T>&);
 	};
-    
-    /*! \brief Converts a glm::vec3 to a Vector3
-     *  \param T The type of the elements of the converted Vector3
-     *  \param v The glm::vec to convert
-     */
-    template<class T>
-    extern Vector3<T> toMy(const glm::vec3& v);
 
 	typedef Vector3<GLfloat> Vector3f;
 	typedef Vector3<GLdouble> Vector3d;

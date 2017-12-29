@@ -1,7 +1,6 @@
 #include "../include/Shader.h"
 #include <vector>
 #include <iostream>
-#include <glm/gtc/type_ptr.hpp>
 #include "../include/LogManager.h"
 #include <cstdlib>
 #include "../include/operators.h"
@@ -597,17 +596,6 @@ namespace Johnny
         }
 	}
 
-	void Shader::setUniform(const std::string& name, const glm::vec2& vec)
-	{
-		if (m_program != 0)
-        {
-            GLuint loc = getUniformLocation(name);
-            
-            if(loc != 4294967295)
-                glUniform2f(loc, vec.x,vec.y);
-        }
-	}
-
 	void Shader::setUniform(const std::string& name, const Vector2f& vec)
 	{
 		if (m_program != 0)
@@ -630,17 +618,6 @@ namespace Johnny
 		}
 	}
 
-	void Shader::setUniform(const std::string & name, const glm::vec3 & vec)
-	{
-		if (m_program != 0)
-        {
-            GLuint loc = getUniformLocation(name);
-            
-            if(loc != 4294967295)
-                glUniform3f(loc, vec.x,vec.y,vec.z);
-        }
-	}
-
 	void Shader::setUniform(const std::string & name, const Vector3f& vec)
 	{
 		if (m_program != 0)
@@ -649,17 +626,6 @@ namespace Johnny
             
             if(loc != 4294967295)
                 glUniform3f(loc, vec.x,vec.y,vec.z);
-        }
-	}
-
-	void Shader::setUniform(const std::string & name, const glm::vec4 & vec)
-	{
-		if (m_program != 0)
-        {
-            GLuint loc = getUniformLocation(name);
-            
-            if(loc != 4294967295)
-                glUniform4f(loc, vec.x,vec.y,vec.z,vec.w);
         }
 	}
 
@@ -686,17 +652,6 @@ namespace Johnny
 		}
 	}
 
-	void Shader::setUniform(const std::string & name, const glm::mat4 & mat)
-	{
-		if (m_program != 0)
-        {
-            GLuint loc = getUniformLocation(name);
-            
-            if(loc != 4294967295)
-                glUniformMatrix4fv(loc,1,GL_FALSE, &mat[0][0]);
-        }
-	}
-
 	void Shader::setUniform(const std::string& name, const Matrix4f& mat)
 	{
 		if (m_program != 0)
@@ -705,17 +660,6 @@ namespace Johnny
             
             if(loc != 4294967295)
                 glUniformMatrix4fv(loc,1,GL_FALSE, &mat.values[0]);
-        }
-	}
-
-	void Shader::setUniform(const std::string& name, const glm::mat3& mat)
-	{
-		if (m_program != 0)
-        {
-            GLuint loc = getUniformLocation(name);
-            
-            if(loc != 4294967295)
-                glUniformMatrix3fv(loc,1,GL_FALSE, &mat[0][0]);
         }
 	}
 

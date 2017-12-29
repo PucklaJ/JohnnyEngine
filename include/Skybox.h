@@ -1,9 +1,9 @@
 #pragma once
 #include "../include/Actor.h"
-#include <glm/glm.hpp>
 #include <GL/glew.h>
 #include <string>
 #include "ShaderUpdater.h"
+#include "Vector3.h"
 
 namespace Johnny
 {
@@ -30,7 +30,7 @@ namespace Johnny
 	class SkyboxVertex
 	{
 	public:
-		glm::vec3 position; //!< Position of the SkyboxVertex
+		Vector3f position; //!< Position of the SkyboxVertex
 	};
 
 	/*! \brief The mesh wich is used for the Skybox

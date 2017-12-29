@@ -155,30 +155,4 @@ namespace Johnny
         
         return path;
     }
-    
-    void print(const glm::mat3& matrix)
-    {
-        for(unsigned int y = 0;y<3;y++)
-        {
-            std::cout << "[ ";
-            for(unsigned int x = 0;x<3;x++)
-            {
-                std::cout << matrix[y][x] << " ";
-            }
-            std::cout << "]" << std::endl;
-        }
-    }
-    
-    void print(const glm::mat4& matrix)
-    {
-        for(unsigned int y = 0;y<4;y++)
-        {
-            std::cout << "[ ";
-            for(unsigned int x = 0;x<4;x++)
-            {
-                std::cout << matrix[y][x] << " ";
-            }
-            std::cout << "]" << std::endl;
-        }
-    }
 }

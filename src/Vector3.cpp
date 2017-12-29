@@ -35,11 +35,6 @@ namespace Johnny
 		else
 			return sqrt(x*x + y*y + z*z);
 	}
-    template<class T>
-    glm::vec3 Vector3<T>::toGLM() const
-    {
-        return glm::vec3(x,y,z);
-    }
     
 	template<class T>
 	Vector3<T>& Vector3<T>::normalise()
@@ -223,11 +218,6 @@ namespace Johnny
 			break;
 		}
 	}
-    template<class T>
-    Vector3<T> toMy(const glm::vec3& v)
-    {
-        return Vector3<T>((T)v.x,(T)v.y,(T)v.z);
-    }
 }
 
 #endif

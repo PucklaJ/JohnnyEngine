@@ -6,7 +6,6 @@
 #include <math.h>
 #include <cstdlib>
 #include <vector>
-#include <glm/glm.hpp>
 #include <algorithm>
 
 namespace Johnny
@@ -130,13 +129,4 @@ namespace Johnny
 	{
 		return (var > max ? max : (var < min ? min : var));
 	}
-    
-    /*! \brief Prints a 3x3 matrix to the console DEPRECATED
-     *  \param mat The matrix to print
-     */
-    extern void print(const glm::mat3& mat);
-    /*! \brief Prints a 4x4 matrix to the console DEPRECATED
-     *  \param mat The matrix to print
-     */
-    extern void print(const glm::mat4& mat);
 }

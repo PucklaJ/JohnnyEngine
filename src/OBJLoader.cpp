@@ -57,9 +57,9 @@ namespace Johnny
 
 		std::map<std::tuple<GLuint, GLuint, GLuint>, GLuint> normalPosUVIndices;
 		std::vector<NormalPosUVIndex> normalPosUVIndicesAll;
-		std::vector<glm::vec3> positions;
-		std::vector<glm::vec3> normals;
-		std::vector<glm::vec2> uvs;
+		std::vector<Vector3f> positions;
+		std::vector<Vector3f> normals;
+		std::vector<Vector2f> uvs;
 		std::vector<std::string> tokens;
 		std::vector<std::string> materialFilesToLoad;
 		std::vector<Material> materials;
@@ -93,18 +93,18 @@ namespace Johnny
 					continue;*/
 				else if (tokens[0] == "v")
 				{
-					positions.push_back(glm::vec3(atof(tokens[1].c_str()),
+					positions.push_back(Vector3f(atof(tokens[1].c_str()),
 						atof(tokens[2].c_str()),
 						atof(tokens[3].c_str())));
 				}
 				else if (tokens[0] == "vt")
 				{
-					uvs.push_back(glm::vec2(atof(tokens[1].c_str()),
+					uvs.push_back(Vector2f(atof(tokens[1].c_str()),
 						atof(tokens[2].c_str())));
 				}
 				else if (tokens[0] == "vn")
 				{
-					normals.push_back(glm::vec3(atof(tokens[1].c_str()),
+					normals.push_back(Vector3f(atof(tokens[1].c_str()),
 						atof(tokens[2].c_str()),
 						atof(tokens[3].c_str())));
 				}
@@ -465,11 +465,11 @@ namespace Johnny
 		{
 			str = "";
 			material->Get(AI_MATKEY_COLOR_AMBIENT, color);
-			ambientColor = glm::vec3(color.r, color.g, color.b);
+			ambientColor = Colorf(color.r, color.g, color.b);
 			material->Get(AI_MATKEY_COLOR_DIFFUSE, color);
-			diffuseColor = glm::vec3(color.r, color.g, color.b);
+			diffuseColor = Colorf(color.r, color.g, color.b);
 			material->Get(AI_MATKEY_COLOR_SPECULAR, color);
-			specularColor = glm::vec3(color.r, color.g, color.b);
+			specularColor = Colorf(color.r, color.g, color.b);
 			material->Get(AI_MATKEY_SHININESS, specularExponent);
 			material->Get(AI_MATKEY_OPACITY, transparency);
 			material->GetTexture(aiTextureType_AMBIENT, 0, &str);
@@ -529,19 +529,19 @@ namespace Johnny
 				{
 					if (tokens.size() == 2)
 					{
-						ambientColor = glm::vec3(atof(tokens[1].c_str()),
+						ambientColor = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[1].c_str()),
 							atof(tokens[1].c_str()));
 					}
 					else if (tokens.size() == 3)
 					{
-						ambientColor = glm::vec3(atof(tokens[1].c_str()),
+						ambientColor = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[2].c_str()),
 							atof(tokens[2].c_str()));
 					}
 					else
 					{
-						ambientColor = glm::vec3(atof(tokens[1].c_str()),
+						ambientColor = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[2].c_str()),
 							atof(tokens[3].c_str()));
 					}
@@ -551,19 +551,19 @@ namespace Johnny
 				{
 					if (tokens.size() == 2)
 					{
-						diffuseColor = glm::vec3(atof(tokens[1].c_str()),
+						diffuseColor = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[1].c_str()),
 							atof(tokens[1].c_str()));
 					}
 					else if (tokens.size() == 3)
 					{
-						diffuseColor = glm::vec3(atof(tokens[1].c_str()),
+						diffuseColor = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[2].c_str()),
 							atof(tokens[2].c_str()));
 					}
 					else
 					{
-						diffuseColor = glm::vec3(atof(tokens[1].c_str()),
+						diffuseColor = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[2].c_str()),
 							atof(tokens[3].c_str()));
 					}
@@ -572,19 +572,19 @@ namespace Johnny
 				{
 					if (tokens.size() == 2)
 					{
-						specularColor = glm::vec3(atof(tokens[1].c_str()),
+						specularColor = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[1].c_str()),
 							atof(tokens[1].c_str()));
 					}
 					else if (tokens.size() == 3)
 					{
-						specularColor = glm::vec3(atof(tokens[1].c_str()),
+						specularColor = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[2].c_str()),
 							atof(tokens[2].c_str()));
 					}
 					else
 					{
-						specularColor = glm::vec3(atof(tokens[1].c_str()),
+						specularColor = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[2].c_str()),
 							atof(tokens[3].c_str()));
 					}
@@ -594,19 +594,19 @@ namespace Johnny
 				{
 					if (tokens.size() == 2)
 					{
-						emittedLight = glm::vec3(atof(tokens[1].c_str()),
+						emittedLight = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[1].c_str()),
 							atof(tokens[1].c_str()));
 					}
 					else if (tokens.size() == 3)
 					{
-						emittedLight = glm::vec3(atof(tokens[1].c_str()),
+						emittedLight = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[2].c_str()),
 							atof(tokens[2].c_str()));
 					}
 					else
 					{
-						emittedLight = glm::vec3(atof(tokens[1].c_str()),
+						emittedLight = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[2].c_str()),
 							atof(tokens[3].c_str()));
 					}
@@ -615,19 +615,19 @@ namespace Johnny
 				{
 					if (tokens.size() == 2)
 					{
-						transmissionFilter = glm::vec3(atof(tokens[1].c_str()),
+						transmissionFilter = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[1].c_str()),
 							atof(tokens[1].c_str()));
 					}
 					else if (tokens.size() == 3)
 					{
-						transmissionFilter = glm::vec3(atof(tokens[1].c_str()),
+						transmissionFilter = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[2].c_str()),
 							atof(tokens[2].c_str()));
 					}
 					else
 					{
-						transmissionFilter = glm::vec3(atof(tokens[1].c_str()),
+						transmissionFilter = Colorf(atof(tokens[1].c_str()),
 							atof(tokens[2].c_str()),
 							atof(tokens[3].c_str()));
 					}

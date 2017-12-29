@@ -2,13 +2,13 @@
 
 struct Material
 {
-	vec3  ambientColor;
-	vec3  diffuseColor;
-	vec3  specularColor;
+	vec4  ambientColor;
+	vec4  diffuseColor;
+	vec4  specularColor;
 	float transperancy;
 	float specularExponent;
-	vec3  emittedLight;
-	vec3  transmissionFilter;
+	vec4  emittedLight;
+	vec4  transmissionFilter;
 	sampler2D ambientTexture;
 	sampler2D diffuseTexture;
 	sampler2D specularTexture;
@@ -158,7 +158,7 @@ void calculateVariables()
 	ambientTransperancy = textureA.w * ambientLight.w;
 	diffuseTransperancy = textureD.w;
 	specularTransperancy = textureS.w;
-	ambientColor = vec4(material.transmissionFilter * ambientLight.xyz * material.ambientColor * textureA.xyz,ambientTransperancy);
+	ambientColor = vec4(material.transmissionFilter.rgb * ambientLight.xyz * material.ambientColor.rgb * textureA.xyz,ambientTransperancy);
 	viewDir = normalize(eyePosition-vertexPositionOut);
 }
 
@@ -178,8 +178,8 @@ vec3 calculatePointLight(PointLight light,vec3 fragPos,vec3 normal)
 	float sBright = pow(clamp(dot(viewDir,reflectedLightVector),0.0,1.0),material.specularExponent)/(a*distance*distance+b*distance+c);
 	vec3 specularLight = vec3(sBright,sBright,sBright) * light.specular;
 
-	vec4 specularColor = vec4(material.transmissionFilter * specularLight * material.specularColor * textureS.xyz,specularTransperancy);
-	vec4 diffuseColor = vec4(material.transmissionFilter * diffuseLight * material.diffuseColor * textureD.xyz,diffuseTransperancy);
+	vec4 specularColor = vec4(material.transmissionFilter.rgb * specularLight * material.specularColor.rgb * textureS.xyz,specularTransperancy);
+	vec4 diffuseColor = vec4(material.transmissionFilter.rgb * diffuseLight * material.diffuseColor.rgb * textureD.xyz,diffuseTransperancy);
 	vec4 resultingColor;
 
 	float shadow = light.castsShadow ? shadowCalculation(vec4(fragPos,1.0),-normalizedLightVector,normal,light.shadowMap) : 0.0;
@@ -204,8 +204,8 @@ vec3 calculateDirectionalLight(DirectionalLight light,vec3 fragPos,vec3 normal)
 	float sBright = pow(clamp(dot(viewDir,reflectedLightVector),0.0,1.0),material.specularExponent);
 	vec3 specularLight = vec3(sBright,sBright,sBright) * light.specular;
 
-	vec4 specularColor = vec4(material.transmissionFilter * specularLight * material.specularColor * textureS.xyz,specularTransperancy);
-	vec4 diffuseColor = vec4(material.transmissionFilter * diffuseLight * material.diffuseColor * textureD.xyz,diffuseTransperancy);
+	vec4 specularColor = vec4(material.transmissionFilter.rgb * specularLight * material.specularColor.rgb * textureS.xyz,specularTransperancy);
+	vec4 diffuseColor = vec4(material.transmissionFilter.rgb * diffuseLight * material.diffuseColor.rgb * textureD.xyz,diffuseTransperancy);
 	vec4 resultingColor;
 
 	float shadow = light.castsShadow ? shadowCalculation(vec4(fragPos,1.0),-normalizedLightVector,normal,light.shadowMap) : 0.0;
@@ -237,8 +237,8 @@ vec3 calculateSpotLight(SpotLight light,vec3 fragPos,vec3 normal)
 	float sBright = pow(clamp(dot(viewDir,reflectedLightVector),0.0,1.0),material.specularExponent)/(a*distance*distance+b*distance+c);
 	vec3 specularLight = vec3(sBright,sBright,sBright) * light.specular * intensity;
 
-	vec4 specularColor = vec4(material.transmissionFilter * specularLight * material.specularColor * textureS.xyz,specularTransperancy);
-	vec4 diffuseColor = vec4(material.transmissionFilter * diffuseLight * material.diffuseColor * textureD.xyz,diffuseTransperancy);
+	vec4 specularColor = vec4(material.transmissionFilter.rgb * specularLight * material.specularColor.rgb * textureS.xyz,specularTransperancy);
+	vec4 diffuseColor = vec4(material.transmissionFilter.rgb * diffuseLight * material.diffuseColor.rgb * textureD.xyz,diffuseTransperancy);
 	vec4 resultingColor;
 
 	float shadow = light.castsShadow ? shadowCalculation(vec4(fragPos,1.0),-normalizedLightVector,normal,light.shadowMap) : 0.0;

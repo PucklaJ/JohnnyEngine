@@ -1,7 +1,6 @@
 #pragma once
 #include "../include/Vector3.h"
 #include "../include/Vector2.h"
-#include <glm/glm.hpp>
 #include <iostream>
 
 #define MAT3_GET(r,c) (r + c * 3)
@@ -84,8 +83,6 @@ namespace Johnny
 			T values[3 * 3];	   //!< The elements of the 3x3 matrix as an array
 			Vector3<T> columns[3]; //!< The elements of the 3x3 matrix as columns
 		};
-        
-        glm::mat3 toGLM(); //!< Converts a Matrix3<T> to a glm::mat3
 
         /*! \brief Multiplies a 3x3 matrix with this matrix
          *  \param mat The 3x3 matrix to multiply with
@@ -120,13 +117,6 @@ namespace Johnny
 
 		friend std::ostream& operator<< <>(std::ostream&, const Matrix3<T>&);
 	};
-    
-    /*! \brief Converts a glm::mat3 to a Matrix3<T>
-     *  \param mat The matrix to convert
-     *  \return The matrix converted into a Matrix3<T>
-     */
-    template<class T>
-    Matrix3<T> toMy(const glm::mat3& mat);
 
 	typedef Matrix3<GLfloat> Matrix3f;
 	typedef Matrix3<GLdouble> Matrix3d;

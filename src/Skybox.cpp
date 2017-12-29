@@ -91,52 +91,52 @@ namespace Johnny
 			SkyboxVertex vertices[36];
 
 			// FRONT
-			vertices[0].position = glm::vec3(-SIZE, SIZE, -SIZE);
-			vertices[1].position = glm::vec3(-SIZE, -SIZE, -SIZE);
-			vertices[2].position = glm::vec3(SIZE, -SIZE, -SIZE);
-			vertices[3].position = glm::vec3(SIZE, -SIZE, -SIZE);
-			vertices[4].position = glm::vec3(SIZE, SIZE, -SIZE);
-			vertices[5].position = glm::vec3(-SIZE, SIZE, -SIZE);
+			vertices[0].position = Vector3f(-SIZE, SIZE, -SIZE);
+			vertices[1].position = Vector3f(-SIZE, -SIZE, -SIZE);
+			vertices[2].position = Vector3f(SIZE, -SIZE, -SIZE);
+			vertices[3].position = Vector3f(SIZE, -SIZE, -SIZE);
+			vertices[4].position = Vector3f(SIZE, SIZE, -SIZE);
+			vertices[5].position = Vector3f(-SIZE, SIZE, -SIZE);
 
 			// LEFT
-			vertices[6].position = glm::vec3(-SIZE, -SIZE, SIZE);
-			vertices[7].position = glm::vec3(-SIZE, -SIZE, -SIZE);
-			vertices[8].position = glm::vec3(-SIZE, SIZE, -SIZE);
-			vertices[9].position = glm::vec3(-SIZE, SIZE, -SIZE);
-			vertices[10].position = glm::vec3(-SIZE, SIZE, SIZE);
-			vertices[11].position = glm::vec3(-SIZE, -SIZE, SIZE);
+			vertices[6].position = Vector3f(-SIZE, -SIZE, SIZE);
+			vertices[7].position = Vector3f(-SIZE, -SIZE, -SIZE);
+			vertices[8].position = Vector3f(-SIZE, SIZE, -SIZE);
+			vertices[9].position = Vector3f(-SIZE, SIZE, -SIZE);
+			vertices[10].position = Vector3f(-SIZE, SIZE, SIZE);
+			vertices[11].position = Vector3f(-SIZE, -SIZE, SIZE);
 
 			// RIGHT
-			vertices[12].position = glm::vec3(SIZE, -SIZE, -SIZE);
-			vertices[13].position = glm::vec3(SIZE, -SIZE, SIZE);
-			vertices[14].position = glm::vec3(SIZE, SIZE, SIZE);
-			vertices[15].position = glm::vec3(SIZE, SIZE, SIZE);
-			vertices[16].position = glm::vec3(SIZE, SIZE, -SIZE);
-			vertices[17].position = glm::vec3(SIZE, -SIZE, -SIZE);
+			vertices[12].position = Vector3f(SIZE, -SIZE, -SIZE);
+			vertices[13].position = Vector3f(SIZE, -SIZE, SIZE);
+			vertices[14].position = Vector3f(SIZE, SIZE, SIZE);
+			vertices[15].position = Vector3f(SIZE, SIZE, SIZE);
+			vertices[16].position = Vector3f(SIZE, SIZE, -SIZE);
+			vertices[17].position = Vector3f(SIZE, -SIZE, -SIZE);
 
 			// BACK
-			vertices[18].position = glm::vec3(-SIZE, -SIZE, SIZE);
-			vertices[19].position = glm::vec3(-SIZE, SIZE, SIZE);
-			vertices[20].position = glm::vec3(SIZE, SIZE, SIZE);
-			vertices[21].position = glm::vec3(SIZE, SIZE, SIZE);
-			vertices[22].position = glm::vec3(SIZE, -SIZE, SIZE);
-			vertices[23].position = glm::vec3(-SIZE, -SIZE, SIZE);
+			vertices[18].position = Vector3f(-SIZE, -SIZE, SIZE);
+			vertices[19].position = Vector3f(-SIZE, SIZE, SIZE);
+			vertices[20].position = Vector3f(SIZE, SIZE, SIZE);
+			vertices[21].position = Vector3f(SIZE, SIZE, SIZE);
+			vertices[22].position = Vector3f(SIZE, -SIZE, SIZE);
+			vertices[23].position = Vector3f(-SIZE, -SIZE, SIZE);
 
 			// TOP
-			vertices[24].position = glm::vec3(-SIZE, SIZE, -SIZE);
-			vertices[25].position = glm::vec3(SIZE, SIZE, -SIZE);
-			vertices[26].position = glm::vec3(SIZE, SIZE, SIZE);
-			vertices[27].position = glm::vec3(SIZE, SIZE, SIZE);
-			vertices[28].position = glm::vec3(-SIZE, SIZE, SIZE);
-			vertices[29].position = glm::vec3(-SIZE, SIZE, -SIZE);
+			vertices[24].position = Vector3f(-SIZE, SIZE, -SIZE);
+			vertices[25].position = Vector3f(SIZE, SIZE, -SIZE);
+			vertices[26].position = Vector3f(SIZE, SIZE, SIZE);
+			vertices[27].position = Vector3f(SIZE, SIZE, SIZE);
+			vertices[28].position = Vector3f(-SIZE, SIZE, SIZE);
+			vertices[29].position = Vector3f(-SIZE, SIZE, -SIZE);
 
 			// BOTTOM
-			vertices[30].position = glm::vec3(-SIZE, -SIZE, -SIZE);
-			vertices[31].position = glm::vec3(-SIZE, -SIZE, SIZE);
-			vertices[32].position = glm::vec3(SIZE, -SIZE, -SIZE);
-			vertices[33].position = glm::vec3(SIZE, -SIZE, -SIZE);
-			vertices[34].position = glm::vec3(-SIZE, -SIZE, SIZE);
-			vertices[35].position = glm::vec3(SIZE, -SIZE, SIZE);
+			vertices[30].position = Vector3f(-SIZE, -SIZE, -SIZE);
+			vertices[31].position = Vector3f(-SIZE, -SIZE, SIZE);
+			vertices[32].position = Vector3f(SIZE, -SIZE, -SIZE);
+			vertices[33].position = Vector3f(SIZE, -SIZE, -SIZE);
+			vertices[34].position = Vector3f(-SIZE, -SIZE, SIZE);
+			vertices[35].position = Vector3f(SIZE, -SIZE, SIZE);
 
 			SKYBOX_MESH = new SkyboxMesh();
 			SKYBOX_MESH->addVertices(vertices, 36);

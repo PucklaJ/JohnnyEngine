@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Quelldateien\TMX">
+      <UniqueIdentifier>{2f95fd78-972b-4af2-b68e-74270b78a3c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\TMX\base64">
+      <UniqueIdentifier>{502ae9b7-fe5e-4423-bffd-8177a8a35010}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\TMX">
+      <UniqueIdentifier>{46465624-9abf-4926-99c8-0ecbf6107246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\TMX\base64">
+      <UniqueIdentifier>{39e64422-4f11-4a2e-96ca-ec061946c481}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\Actor.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Camera2D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Camera3D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Colors.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ContactListener.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\CubeMap3D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\DebugMovement2D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\DebugMovement3D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Entity3D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\FrameBuffer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Framework.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Geometry.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\GLFWFramework.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\InputManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\JoystickListener.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\JoystickManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Light3D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\LogManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\MainClass.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mathematics.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Matrix3.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Matrix4.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Mesh3D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Model3D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\OBJLoader.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\operators.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Physics2D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\PhysicsSprite2D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\RenderBuffer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\RenderManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\RenderTexture.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\RenderUtil.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ResourceManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SDL2_framerate.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SDL2_gfxPrimitives.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SDL2_imageFilter.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SDL2_rotozoom.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SDLFramework.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Settings.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Shader.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ShaderUpdater.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ShadowMap3D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Skybox.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Sprite2D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\stb_image.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TextActor2D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Texture.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TiledMap.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Timer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Transform2D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Transform3D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Tween.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Vector2.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Vector3.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Vector4.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Vertex3D.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Window.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\miniz.c">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxColor.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxEllipse.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxImage.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxImageLayer.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxLayer.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxMap.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxObject.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxObjectGroup.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxPolygon.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxPolyline.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxProperty.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxPropertySet.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxTerrain.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxTerrainArray.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxTile.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxTileLayer.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxTileOffset.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxTileset.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\TmxUtil.cpp">
+      <Filter>Quelldateien\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\TMX\base64\base64.cpp">
+      <Filter>Quelldateien\TMX\base64</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\Actor.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Camera2D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Camera3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Colors.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\ContactListener.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\CubeMap3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\DebugMovement2D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\DebugMovement3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Defines.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Entity3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Events.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\FrameBuffer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Framework.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Geometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\GLFWFramework.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\InputManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Johnny.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\JoystickListener.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\JoystickListenerEnums.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\JoystickManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Light3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\LogManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\MainClass.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\mathematics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\mathematics_functions.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Matrix3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Matrix4.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Mesh3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Model3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\OBJLoader.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\operators.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Physics2D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\PhysicsSprite2D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\RenderBuffer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\RenderManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\RenderTexture.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\RenderUtil.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\ResourceManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\SDL2_framerate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\SDL2_gfxPrimitives.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\SDL2_gfxPrimitives_font.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\SDL2_imageFilter.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\SDL2_rotozoom.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\SDLFramework.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Settings.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Shader.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\ShaderUpdater.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\ShadowMap3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Skybox.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Sprite2D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\stb_image.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TextActor2D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Texture.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TiledMap.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Timer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Transform2D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Transform3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Tween.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Vector2.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Vector3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Vector4.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Vertex3D.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\Window.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\Tmx.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxColor.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxEllipse.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxImage.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxImageLayer.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxLayer.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxMap.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxMapTile.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxObject.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxObjectGroup.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxPoint.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxPolygon.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxPolyline.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxProperty.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxPropertySet.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxTerrain.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxTerrainArray.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxTile.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxTileLayer.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxTileOffset.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxTileset.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\TmxUtil.h">
+      <Filter>Headerdateien\TMX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\TMX\base64\base64.h">
+      <Filter>Headerdateien\TMX\base64</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

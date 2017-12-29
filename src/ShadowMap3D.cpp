@@ -2,8 +2,6 @@
 #include "../include/FrameBuffer.h"
 #include "../include/Shader.h"
 #include "../include/Transform3D.h"
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 #include "../include/mathematics.h"
 #include "../include/MainClass.h"
 #include <iostream>
@@ -118,9 +116,8 @@ namespace Johnny
 			direction = m_directionalLight->direction;
 
 			lightView = Matrix4f::lookAt(-direction * 1.3f, -direction * 1.3f + direction, Vector3f(0.0f, 1.0f, 0.0f));
-            // T left,T right,T bottom,T top,T zNear,T zFar);
-			//lightProjection = toMy<GLfloat>(glm::ortho(-(GLfloat)m_width/2.0f, (GLfloat)m_width/2.0f, -(GLfloat)m_height/2.0f, (GLfloat)m_height/2.0f, 0.1f, 100.0f));
-			lightProjection = toMy<GLfloat>(glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.1f, 100.0f));
+			lightProjection = Matrix4f::orthographic(10.0f, -10.0f, 10.0f, -10.0f, 100.0f, 0.1f);
+			
         }
 		else if (m_curLight == SHADOW_SPOT)
 		{
@@ -128,8 +125,8 @@ namespace Johnny
 			position = m_spotLight->position;
 
 			lightView = Matrix4f::lookAt(position, position + direction, Vector3f(0.0f, 1.0f, 0.0f));
-			lightProjection = Matrix4f::perspective(/*m_spotLight->outerCutOff * (float)M_PI / 180.0f*/70.0f,
-                                                    (float)m_width / (float)m_height/*MainClass::getInstance()->getNativeRes().x / MainClass::getInstance()->getNativeRes().y*/,
+			lightProjection = Matrix4f::perspective(70.0f,
+                                                    (float)m_width / (float)m_height,
                                                     clamp(1000.0f, 100.0f, 1000.0f),
                                                     clamp(0.1f, 1.0f, 10.0f));
 		}

@@ -2,7 +2,6 @@
 #include <GL/glew.h>
 #include <string>
 #include <map>
-#include <glm/glm.hpp>
 #include "Matrix3.h"
 #include "Matrix4.h"
 #include "Vector3.h"
@@ -177,11 +176,6 @@ namespace Johnny
 		 *  \param name The name of the uniform
 		 *  \param value The value of the uniform
 		 */
-		void setUniform(const std::string& name, const glm::vec2& value);
-		/*! \brief Sets the value of a uniform in the shader
-		 *  \param name The name of the uniform
-		 *  \param value The value of the uniform
-		 */
 		void setUniform(const std::string& name, const Vector2f& value);
 		/*! \brief Sets the value of a uniform in the shader
 		 *  \param name The name of the uniform
@@ -192,17 +186,7 @@ namespace Johnny
 		 *  \param name The name of the uniform
 		 *  \param value The value of the uniform
 		 */
-		void setUniform(const std::string& name, const glm::vec3& value);
-		/*! \brief Sets the value of a uniform in the shader
-		 *  \param name The name of the uniform
-		 *  \param value The value of the uniform
-		 */
 		void setUniform(const std::string& name, const Vector3f& value);
-		/*! \brief Sets the value of a uniform in the shader
-		 *  \param name The name of the uniform
-		 *  \param value The value of the uniform
-		 */
-		void setUniform(const std::string& name, const glm::vec4& value);
 		/*! \brief Sets the value of a uniform in the shader
 		 *  \param name The name of the uniform
 		 *  \param value The value of the uniform
@@ -217,17 +201,7 @@ namespace Johnny
 		 *  \param name The name of the uniform
 		 *  \param value The value of the uniform
 		 */
-		void setUniform(const std::string& name, const glm::mat4& value);
-		/*! \brief Sets the value of a uniform in the shader
-		 *  \param name The name of the uniform
-		 *  \param value The value of the uniform
-		 */
 		void setUniform(const std::string& name, const Matrix4f& value);
-		/*! \brief Sets the value of a uniform in the shader
-		 *  \param name The name of the uniform
-		 *  \param value The value of the uniform
-		 */
-		void setUniform(const std::string& name, const glm::mat3& value);
 		/*! \brief Sets the value of a uniform in the shader
 		 *  \param name The name of the uniform
 		 *  \param value The value of the uniform

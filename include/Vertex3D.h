@@ -1,8 +1,9 @@
 #ifndef VERTEX_H
 #define VERTEX_H
-#include <glm/glm.hpp>
 #include <GL/glew.h>
-#include "../include/OBJLoader.h"
+#include "OBJLoader.h"
+#include "Vector3.h"
+#include "Vector2.h"
 
 namespace Johnny
 {	
@@ -18,9 +19,9 @@ namespace Johnny
 		static const int SIZE; 				  //!< The size of the Vertex in bytes
 		static void setVertexAttribPointer(); //!< Sets the vertex attributes for a Shader
 
-		glm::vec3 pos;						  //!< The position of the Vertex3D
-		glm::vec3 normal;					  //!< The normal of the Vertex3D
-		glm::vec2 uv;						  //!< The uv coordinates / texture coordinates of the Vertex3D
+		Vector3f pos;						  //!< The position of the Vertex3D
+		Vector3f normal;					  //!< The normal of the Vertex3D
+		Vector2f uv;						  //!< The uv coordinates / texture coordinates of the Vertex3D
 	};
 }
 
