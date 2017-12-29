@@ -69,7 +69,11 @@ namespace Johnny
 
 		if (SDL_GetRelativeMouseMode())
 		{
-			m_mainClass->getCamera3D()->addRotation(-m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().yrel, -m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().xrel, m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().wheel_y*10.0f*m_mainClass->getTimer()->getDeltaTimeInSeconds());
+			GLfloat x = -m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().yrel;
+			GLfloat y = -m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().xrel;
+			GLfloat z = m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().wheel_y*10.0f*m_mainClass->getTimer()->getDeltaTimeInSeconds();
+
+			m_mainClass->getCamera3D()->addRotation(x,y,z);
 		}
 		else if (m_mainClass->getInputManager()->justPressed(Keys::MS_LEFT))
 		{

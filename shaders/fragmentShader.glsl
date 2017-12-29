@@ -131,7 +131,7 @@ void main()
 	
 
     if(NUM_POINT_LIGHTS == 0 && NUM_SPOT_LIGHTS == 0 && NUM_DIRECTIONAL_LIGHTS == 0)
-        resultingColor.xyz = ambientColor.xyz * ambientColor.w * eyePosition / eyePosition;
+        resultingColor.xyz = ambientColor.xyz * ambientColor.w;
 
 	
 	resultingColor.w = material.transperancy;
@@ -158,7 +158,7 @@ void calculateVariables()
 	ambientTransperancy = textureA.w * ambientLight.w;
 	diffuseTransperancy = textureD.w;
 	specularTransperancy = textureS.w;
-	ambientColor = vec4(material.transmissionFilter * ambientLight.xyz * material.ambientColor * textureA.xyz /** material.diffuseColor / material.diffuseColor * material.specularColor / material.specularColor*/,ambientTransperancy) /** material.specularExponent / material.specularExponent*/;
+	ambientColor = vec4(material.transmissionFilter * ambientLight.xyz * material.ambientColor * textureA.xyz,ambientTransperancy);
 	viewDir = normalize(eyePosition-vertexPositionOut);
 }
 

@@ -128,10 +128,10 @@ namespace Johnny
 			position = m_spotLight->position;
 
 			lightView = Matrix4f::lookAt(position, position + direction, Vector3f(0.0f, 1.0f, 0.0f));
-			lightProjection = Matrix4f::perspective(/*m_spotLight->outerCutOff * (float)M_PI / 180.0f*/Transform3D::getFOV(),
+			lightProjection = Matrix4f::perspective(/*m_spotLight->outerCutOff * (float)M_PI / 180.0f*/70.0f,
                                                     (float)m_width / (float)m_height/*MainClass::getInstance()->getNativeRes().x / MainClass::getInstance()->getNativeRes().y*/,
-                                                    clamp(Transform3D::getFarPlane(), 100.0f, 1000.0f),
-                                                    clamp(Transform3D::getNearPlane(), 1.0f, 10.0f));
+                                                    clamp(1000.0f, 100.0f, 1000.0f),
+                                                    clamp(0.1f, 1.0f, 10.0f));
 		}
 
 		m_lightSpaceMatrix = lightProjection * lightView;

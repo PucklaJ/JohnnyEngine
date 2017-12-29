@@ -97,6 +97,7 @@ void main()
 
 	//vec3 col = normalProcessing();
 	//vec3 col = edgeDetectionProcessing();
+	//vec3 col = blurProcessing();
 
 	vec4 value = texture(frameBuffer,vertexUVOut);
 	vec3 col = value.xyz;

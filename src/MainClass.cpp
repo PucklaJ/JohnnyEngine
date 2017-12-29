@@ -185,7 +185,7 @@ namespace Johnny
     {
         LogManager::log("Initializing Engine");
         
-        m_framework = Framework::createFramework(Frameworks::GLFW);
+        m_framework = Framework::createFramework(Frameworks::SDL);
         
         if(!m_framework->init(FlagsInitFramework::Everything))
         {
@@ -248,7 +248,7 @@ namespace Johnny
         // FPS Manager
 		m_timer = new Timer();
 
-		Transform3D::setProjection(70.0f, m_nativeResolution.x, m_nativeResolution.y, 0.1f, 1000.0f);
+		Transform3D::setProjection(Matrix4f::perspective(70.0f, m_nativeResolution.x / m_nativeResolution.y, 1000.0f, 0.1f));
 
 		if ((m_initFlags & InitFlags::INIT_3D) != 0)
 			init3D();
@@ -520,7 +520,7 @@ namespace Johnny
 		m_frameBuffer->checkStatus();
 		m_frameBufferMulti->checkStatus();
 
-		Transform3D::setProjection(Transform3D::getFOV(), getNativeRes().x, getNativeRes().y, Transform3D::getNearPlane(), Transform3D::getFarPlane());
+		Transform3D::setProjection(Matrix4f::perspective(70.0f, getNativeRes().x / getNativeRes().y, 1000.0f, 0.1f));
 
 		TransformableObject2D::setViewportSize(m_nativeResolution);
 		TransformableObject2D::setCenter(Vector2f(-0.5f,-0.5f));

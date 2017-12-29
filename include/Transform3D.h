@@ -76,32 +76,12 @@ namespace Johnny
 		Matrix4f getProjectedTransformation(const Camera3D* cam = nullptr) const;
 
 		/*! \brief Sets the values needed for the perspective projection
-		 *  \param fov The field of view of the perspective projection
-		 *  \param width The width of the viewport
-		 *  \param height The height of the viewport
-		 *  \param zNear The near plane for the perspective projection
-		 *  \param zFar The far plane of the 
-		 */
-		static void setProjection(GLfloat fov, GLfloat width, GLfloat height, GLfloat zNear, GLfloat zFar);
-		/*! \return The near plane of the perspective projection 
-		 *
-		 */
-		static GLfloat getNearPlane() { return zNear; }
-		/*! \return The far plane of the perspective projection
-		 *
-		 */
-		static GLfloat getFarPlane() { return zFar; }
-		/*! \return The field of view of the perspective projection
-		 *
-		 */
-		static GLfloat getFOV() { return fov; }
+		*  \param projectionMatrix The new projection matrix
+		*/
+		static void setProjection(const Matrix4f& projectionMatrix);
 
 	private:
-		static GLfloat zNear;   //!< The near plane of the perspective projection
-		static GLfloat zFar;    //!< The far plane of the prespective projection
-		static GLfloat width;   //!< The width of the viewport for the perspective projection
-		static GLfloat height;  //!< The height of the viewport for the perspective projection
-		static GLfloat fov;     //!< The field of the view of the perspective projection
+		static Matrix4f m_projectionMatrix; //!< The projection matrix
 
 		Vector3f m_translation; //!< The translation of the Transform3D
 		Vector3f m_rotation;    //!< The rotation on the x-,y- and z-Axis in degrees
@@ -171,6 +151,11 @@ namespace Johnny
 		 *  \param z The rotation on the z-Axis to add
 		 */
 		virtual void addRotation(GLfloat x, GLfloat y, GLfloat z) { setRotation(m_transform.getRotation().x + x, m_transform.getRotation().y + y, m_transform.getRotation().z + z); }
+
+		virtual void setScale(const Vector3f& scale) { setScale(scale.x, scale.y, scale.z); }
+		virtual void setScale(GLfloat x,GLfloat y,GLfloat z);
+		virtual void addScale(const Vector3f& scale) { addScale(scale.x, scale.y, scale.z); }
+		virtual void addScale(GLfloat x, GLfloat y, GLfloat z) { setScale(getScale().x + x, getScale().y + y, getScale().z + z); }
 
 		/*! \return A modelworld transformation matrix
 		 *

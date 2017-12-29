@@ -6,25 +6,23 @@
 
 namespace Johnny
 {
-	GLfloat Transform3D::zFar;
+	/*GLfloat Transform3D::zFar;
 	GLfloat Transform3D::zNear;
 	GLfloat Transform3D::width;
 	GLfloat Transform3D::height;
-	GLfloat Transform3D::fov;
+	GLfloat Transform3D::fov;*/
 
-	void Transform3D::setProjection(GLfloat fov, GLfloat width, GLfloat height, GLfloat zNear, GLfloat zFar)
+	Matrix4f Transform3D::m_projectionMatrix = Matrix4f::identity();
+
+	void Transform3D::setProjection(const Matrix4f& projectionMatrix)
 	{
-		Transform3D::fov = fov;
-		Transform3D::width = width;
-		Transform3D::height = height;
-		Transform3D::zNear = zNear;
-		Transform3D::zFar = zFar;
+		m_projectionMatrix = projectionMatrix;
 	}
 
 	Matrix4f Transform3D::getProjectionMatrix()
 	{
-        return Matrix4f::perspective(fov,width / height,zFar,zNear);
-    }
+		return m_projectionMatrix;
+	}
 
 	Transform3D::Transform3D() :
         m_translation(0.0f,0.0f,0.0f),
@@ -142,6 +140,11 @@ namespace Johnny
 	void TransformableObject3D::addPosition(GLfloat x, GLfloat y, GLfloat z)
 	{
 		addPosition(Vector3f(x, y, z));
+	}
+
+	void TransformableObject3D::setScale(GLfloat x, GLfloat y, GLfloat z)
+	{
+		m_transform.setScale(x, y, z);
 	}
 
 	Matrix4f TransformableObject3D::getTransformation() const
