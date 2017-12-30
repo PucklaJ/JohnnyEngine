@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="JohnnyEngine" Database="" Version="10.0.0">
+  <Project Name="JohnnyEngine" Path="JohnnyEngine.project" Active="No"/>
+  <Project Name="JohnnyEngine-Template" Path="JohnnyEngine-Template.project" Active="No"/>
+  <Project Name="CubeWaves" Path="CubeWaves/CubeWaves.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="no">
+      <Environment/>
+      <Project Name="JohnnyEngine" ConfigName="Debug"/>
+      <Project Name="JohnnyEngine-Template" ConfigName="Debug"/>
+      <Project Name="CubeWaves" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="JohnnyEngine" ConfigName="Release"/>
+      <Project Name="JohnnyEngine-Template" ConfigName="Release"/>
+      <Project Name="CubeWaves" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

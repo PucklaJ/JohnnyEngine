@@ -4,6 +4,7 @@
 #include "../include/LogManager.h"
 #include <cstdlib>
 #include "../include/operators.h"
+#include <cstring>
 
 
 namespace Johnny

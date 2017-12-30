@@ -185,7 +185,7 @@ namespace Johnny
     {
         LogManager::log("Initializing Engine");
         
-        m_framework = Framework::createFramework(Frameworks::SDL);
+        m_framework = Framework::createFramework(Frameworks::GLFW);
         
         if(!m_framework->init(FlagsInitFramework::Everything))
         {
