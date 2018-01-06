@@ -1,8 +1,12 @@
 .PHONY: clean All
 
 All:
-	@echo "----------Building project:[ CubeWaves - Release ]----------"
-	@cd "CubeWaves" && "$(MAKE)" -f  "CubeWaves.mk"
+	@echo "----------Building project:[ JohnnyEngine - Debug ]----------"
+	@"$(MAKE)" -f  "JohnnyEngine.mk"
+	@echo "----------Building project:[ JohnnyEngine-Template - Debug ]----------"
+	@"$(MAKE)" -f  "JohnnyEngine-Template.mk"
 clean:
-	@echo "----------Cleaning project:[ CubeWaves - Release ]----------"
-	@cd "CubeWaves" && "$(MAKE)" -f  "CubeWaves.mk" clean
+	@echo "----------Cleaning project:[ JohnnyEngine - Debug ]----------"
+	@"$(MAKE)" -f  "JohnnyEngine.mk"  clean
+	@echo "----------Cleaning project:[ JohnnyEngine-Template - Debug ]----------"
+	@"$(MAKE)" -f  "JohnnyEngine-Template.mk" clean

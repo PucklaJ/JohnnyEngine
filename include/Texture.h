@@ -150,7 +150,8 @@ namespace Johnny
          *  \param target The target to which the Texture will be bound
          */
 		Texture(GLubyte* pixels, GLsizei width, GLsizei height,GLenum filtering,GLint internalFormat = GL_RGBA, GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE, GLenum target = GL_TEXTURE_2D);
-		Texture();
+		Texture(GLuint texture,GLsizei width, GLsizei height);
+        Texture();
 		~Texture();
  
         /*! \brief Binds a Texture and loads it as a uniform to a Shader

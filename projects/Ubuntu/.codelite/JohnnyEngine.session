@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/JohnnyEngine.workspace">
-  <int Value="1" Name="m_selectedTab"/>
+  <int Value="0" Name="m_selectedTab"/>
   <wxString Value="/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/JohnnyEngine.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/CubeWaves/Game.h" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="23" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/CubeWaves/Game.cpp" Name="FileName"/>
-      <int Value="20" Name="FirstVisibleLine"/>
-      <int Value="23" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/CubeWaves/res/shaders/fragmentShader.glsl" Name="FileName"/>
-      <int Value="141" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <wxString Value="/media/johnny/Daten/git_repositories/JohnnyEngine/include/Texture.h" Name="FileName"/>
+      <int Value="132" Name="FirstVisibleLine"/>
+      <int Value="152" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

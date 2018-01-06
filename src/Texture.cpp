@@ -319,6 +319,14 @@ namespace Johnny
 			glBindTexture(target, 0);
 		}
 	}
+    
+    Texture::Texture(GLuint texture,GLsizei width, GLsizei height) :
+        m_texture(texture),
+        m_width(width),
+        m_height(height)
+    {
+        
+    }
 
 	Texture::Texture()
 	{
