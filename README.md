@@ -1,7 +1,7 @@
 \mainpage
 # JohnnyEngine
 
-This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and OpenGL.
+This is a 3D/2D game engine which uses SDL (GLFW) (maybe will add other frameworks) and OpenGL.
 
 ## Features
 
@@ -37,7 +37,9 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 ### Dependencies
 
 - [SDL2](http://www.libsdl.org)
+- [GLFW](http://www.glfw.org)
 - [SDL2_ttf](https://www.libsdl.org/projects/SDL_ttf/)
+  - [freetype](https://www.freetype.org)
 - [assimp](http://assimp.org/)
 - [OpenGL](https://www.opengl.org/)
 - [GLEW](http://glew.sourceforge.net/)
@@ -49,35 +51,16 @@ This is a 3D/2D game engine which uses SDL (maybe will add other frameworks) and
 
 #### Windows - Visual Studio
 
-1. Download dependencies from links above
-2. Put the .h/.hpp and .lib files in seperate directories
-3. In Visual Studio
-  - link to the .h/.hpp files
-  - link to the .lib files
-4. Add the files of the engine to the project
-5. Put .dll files to the executable directory
-5. It should compile and link
+1. Open the project from the projects/Windows folder
 
-#### Linux (Ubuntu) - Eclipse
+#### Linux (Ubuntu) - Code Lite
 
-1. Download the dependencies <br>
-  1.1 Execute these commands <br>
- 
-
-      sudo apt-get install libsdl2    
-      sudo apt-get install libsdl2-ttf    
-      sudo apt-get install assimp    
-      sudo apt-get install glew    
-      sudo apt-get install libz    
-      sudo apt-get install tinyxml2    
-
-2. In Eclipse <br>
-  2.1 Add the libraries to the project <br>
-3. It should compile and link <br>
+1. Download the dependencies through the download_deps.sh script
+2. Open the workspace from the projects/Ubuntu folder
 
 ## Documentation
 
-[Here](https://pucklamotzer09.github.io/JohnnyEngine/docs) you can find a doxygen generated documentation 
+[Here](https://pucklamotzer09.github.io/JohnnyEngine/docs/html) you can find a doxygen generated documentation 
 
 ## Future Plans
 

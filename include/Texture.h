@@ -150,7 +150,15 @@ namespace Johnny
          *  \param target The target to which the Texture will be bound
          */
 		Texture(GLubyte* pixels, GLsizei width, GLsizei height,GLenum filtering,GLint internalFormat = GL_RGBA, GLenum format = GL_RGBA, GLenum type = GL_UNSIGNED_BYTE, GLenum target = GL_TEXTURE_2D);
-		Texture(GLuint texture,GLsizei width, GLsizei height);
+		/*! \Creates a new Texture
+         *  \param texture The name of the texture (or ID)
+         *  \param width The width of the texture in pixels
+         *  \param height The height of the texture in pixels
+         */
+        Texture(GLuint texture,GLsizei width, GLsizei height);
+        /*! \Creates a new Texture
+         *
+         */
         Texture();
 		~Texture();
  

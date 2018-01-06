@@ -36,12 +36,12 @@ ObjectsFileList        :="JohnnyEngine-Template.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=mkdir -p
 LinkOptions            :=  
-IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)/media/johnny/Daten/git_repositories/JohnnyEngine/include $(IncludeSwitch)/media/johnny/Daten/git_repositories/JohnnyEngine/include/TMX $(IncludeSwitch)/media/johnny/Daten/git_repositories/JohnnyEngine/include/TMX/base64 
+IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)$(JOHNNY_INCLUDE) $(IncludeSwitch)$(JOHNNY_INCLUDE)/TMX $(IncludeSwitch)$(JOHNNY_INCLUDE)/TMX/base64 
 IncludePCH             := 
 RcIncludePath          := 
 Libs                   := $(LibrarySwitch)JohnnyEngine_d $(LibrarySwitch)Box2D $(LibrarySwitch)assimp $(LibrarySwitch)z $(LibrarySwitch)tinyxml2 $(LibrarySwitch)glfw3 $(LibrarySwitch)SDL2_ttf $(LibrarySwitch)SDL2 $(LibrarySwitch)SDL2main $(LibrarySwitch)GLEW $(LibrarySwitch)GL $(LibrarySwitch)dl $(LibrarySwitch)X11 $(LibrarySwitch)pthread 
 ArLibs                 :=  "libJohnnyEngine_d" "libBox2D" "libassimp" "libz" "libtinyxml2" "libglfw3" "libSDL2_ttf" "libSDL2" "libSDL2main" "libGLEW" "GL" "dl" "X11" "pthread" 
-LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/Debug 
+LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)$(JOHNNY_LIB_DBG) 
 
 ##
 ## Common variables
