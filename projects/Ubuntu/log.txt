@@ -56,3 +56,6 @@
 [05:01:2018] [14:47:51] Initializing Engine
 [05:01:2018] [14:47:52] OpenGL-Version: 4.5 (Core Profile) Mesa 17.2.2
 [05:01:2018] [14:47:52] Finished Initializing Engine
+[06:01:2018] [16:25:10] Initializing Engine
+[06:01:2018] [16:25:10] OpenGL-Version: 4.5 (Core Profile) Mesa 17.2.2
+[06:01:2018] [16:25:10] Finished Initializing Engine

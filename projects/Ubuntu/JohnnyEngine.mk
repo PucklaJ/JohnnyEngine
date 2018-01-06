@@ -2,9 +2,9 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## Debug
+## Release
 ProjectName            :=JohnnyEngine
-ConfigurationName      :=Debug
+ConfigurationName      :=Release
 WorkspacePath          :=/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu
 ProjectPath            :=/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu
 IntermediateDirectory  :=$(ProjectPath)/$(ConfigurationName)/obj
@@ -27,7 +27,7 @@ OutputSwitch           :=-o
 LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
-OutputFile             :=$(ProjectPath)/$(ConfigurationName)/lib$(ProjectName)_d.a
+OutputFile             :=$(ProjectPath)/$(ConfigurationName)/lib$(ProjectName).a
 Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
@@ -36,7 +36,7 @@ ObjectsFileList        :="JohnnyEngine.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=mkdir -p
 LinkOptions            :=  
-IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)../../include/TMX $(IncludeSwitch)../../include/TMX/base64 
+IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)/media/johnny/Daten/git_repositories/JohnnyEngine/include/TMX $(IncludeSwitch)/media/johnny/Daten/git_repositories/JohnnyEngine/include/TMX/base64 
 IncludePCH             := 
 RcIncludePath          := 
 Libs                   := 
@@ -50,8 +50,8 @@ LibPath                := $(LibraryPathSwitch).
 AR       := /usr/bin/ar rcu
 CXX      := /usr/bin/g++
 CC       := /usr/bin/gcc
-CXXFLAGS :=  -g -O0 -W -std=c++11 -Wall  $(Preprocessors)
-CFLAGS   :=  -g -O0 -W -std=c++11 -Wall  $(Preprocessors)
+CXXFLAGS :=  -O3 -std=c++11 $(Preprocessors)
+CFLAGS   :=  -O3 -std=c++11 $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
 
@@ -87,8 +87,8 @@ $(OutputFile): $(Objects)
 	@echo $(Objects0)  > $(ObjectsFileList)
 	@echo $(Objects1) >> $(ObjectsFileList)
 	$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList) $(ArLibs)
-	@$(MakeDirCommand) "/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/.build-debug"
-	@echo rebuilt > "/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/.build-debug/JohnnyEngine"
+	@$(MakeDirCommand) "/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/.build-release"
+	@echo rebuilt > "/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/.build-release/JohnnyEngine"
 
 MakeIntermediateDirs:
 	@test -d $(ProjectPath)/$(ConfigurationName)/obj || $(MakeDirCommand) $(ProjectPath)/$(ConfigurationName)/obj

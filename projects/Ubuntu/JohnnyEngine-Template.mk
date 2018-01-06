@@ -2,9 +2,9 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## Debug
+## Release
 ProjectName            :=JohnnyEngine-Template
-ConfigurationName      :=Debug
+ConfigurationName      :=Release
 WorkspacePath          :=/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu
 ProjectPath            :=/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu
 IntermediateDirectory  :=$(ProjectPath)/$(ConfigurationName)/obj
@@ -28,7 +28,7 @@ LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
 OutputFile             :=$(ProjectPath)/$(ConfigurationName)/$(ProjectName)
-Preprocessors          :=
+Preprocessors          :=$(PreprocessorSwitch)NDEBUG 
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E
@@ -39,9 +39,9 @@ LinkOptions            :=
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)$(JOHNNY_INCLUDE) $(IncludeSwitch)$(JOHNNY_INCLUDE)/TMX $(IncludeSwitch)$(JOHNNY_INCLUDE)/TMX/base64 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)JohnnyEngine_d $(LibrarySwitch)Box2D $(LibrarySwitch)assimp $(LibrarySwitch)z $(LibrarySwitch)tinyxml2 $(LibrarySwitch)glfw3 $(LibrarySwitch)SDL2_ttf $(LibrarySwitch)SDL2 $(LibrarySwitch)SDL2main $(LibrarySwitch)GLEW $(LibrarySwitch)GL $(LibrarySwitch)dl $(LibrarySwitch)X11 $(LibrarySwitch)pthread 
-ArLibs                 :=  "libJohnnyEngine_d" "libBox2D" "libassimp" "libz" "libtinyxml2" "libglfw3" "libSDL2_ttf" "libSDL2" "libSDL2main" "libGLEW" "GL" "dl" "X11" "pthread" 
-LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)$(JOHNNY_LIB_DBG) 
+Libs                   := $(LibrarySwitch)JohnnyEngine $(LibrarySwitch)Box2D $(LibrarySwitch)assimp $(LibrarySwitch)z $(LibrarySwitch)tinyxml2 $(LibrarySwitch)glfw3 $(LibrarySwitch)SDL2_ttf $(LibrarySwitch)SDL2 $(LibrarySwitch)SDL2main $(LibrarySwitch)GLEW $(LibrarySwitch)GL $(LibrarySwitch)dl $(LibrarySwitch)X11 $(LibrarySwitch)pthread 
+ArLibs                 :=  "libJohnnyEngine" "libBox2D" "libassimp" "libz" "libtinyxml2" "libglfw3" "libSDL2_ttf" "libSDL2" "libSDL2main" "libGLEW" "GL" "dl" "X11" "pthread" 
+LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)$(JOHNNY_LIB) 
 
 ##
 ## Common variables
@@ -50,8 +50,8 @@ LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)$(JOHNNY_LIB
 AR       := /usr/bin/ar rcu
 CXX      := /usr/bin/g++
 CC       := /usr/bin/gcc
-CXXFLAGS :=  -g -O0 -W -std=c++11 -Wall $(Preprocessors)
-CFLAGS   :=  -g -O0 -W -std=c++11 -Wall $(Preprocessors)
+CXXFLAGS :=  -O2 -Wall $(Preprocessors)
+CFLAGS   :=  -O3 -Wall $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
 
@@ -72,15 +72,15 @@ Objects=$(Objects0)
 .PHONY: all clean PreBuild PrePreBuild PostBuild MakeIntermediateDirs
 all: $(OutputFile)
 
-$(OutputFile): $(IntermediateDirectory)/.d ".build-debug/JohnnyEngine" $(Objects) 
+$(OutputFile): $(IntermediateDirectory)/.d ".build-release/JohnnyEngine" $(Objects) 
 	@$(MakeDirCommand) $(@D)
 	@echo "" > $(IntermediateDirectory)/.d
 	@echo $(Objects0)  > $(ObjectsFileList)
 	$(LinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)
 
-".build-debug/JohnnyEngine":
-	@$(MakeDirCommand) ".build-debug"
-	@echo stam > ".build-debug/JohnnyEngine"
+".build-release/JohnnyEngine":
+	@$(MakeDirCommand) ".build-release"
+	@echo stam > ".build-release/JohnnyEngine"
 
 
 

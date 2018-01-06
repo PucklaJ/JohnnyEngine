@@ -3,13 +3,13 @@
   <Project Name="JohnnyEngine" Path="JohnnyEngine.project" Active="No"/>
   <Project Name="JohnnyEngine-Template" Path="JohnnyEngine-Template.project" Active="Yes"/>
   <BuildMatrix>
-    <WorkspaceConfiguration Name="Debug" Selected="yes">
+    <WorkspaceConfiguration Name="Debug" Selected="no">
       <Environment/>
       <Project Name="JohnnyEngine" ConfigName="Debug"/>
       <Project Name="JohnnyEngine-Template" ConfigName="Debug"/>
       <Project Name="CubeWaves" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Release" Selected="no">
+    <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
       <Project Name="JohnnyEngine" ConfigName="Release"/>
       <Project Name="JohnnyEngine-Template" ConfigName="Release"/>

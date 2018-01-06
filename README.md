@@ -60,7 +60,8 @@ This is a 3D/2D game engine which uses SDL (GLFW) (maybe will add other framewor
 
 ## Documentation
 
-[Here](https://pucklamotzer09.github.io/JohnnyEngine/docs/html/index.html) you can find a doxygen generated documentation 
+[Here](https://pucklamotzer09.github.io/JohnnyEngine/docs/html/index.html) you can find a doxygen generated documentation
+[Here](https://pucklamotzer09.github.io/JohnnyEngine/docs/html/md_docfiles__tutorial.html) you can find a tutorial which explains the engine
 
 ## Future Plans
 

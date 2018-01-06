@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['this_20is_20the_20mainpage',['This is the mainpage',['../md_docfiles_mainpage.html',1,'']]],
-  ['this_20game_20was_20made_20with_20the_20_5bjohnnyengine_5d_28https_3a_2f_2fgithub_2ecom_2fpucklamotzer09_2fjohnnyengine_29_20which_20is_20under_20the_20following_20license_3a',['This game was made with the [JohnnyEngine](https://github.com/pucklamotzer09/JohnnyEngine) which is under the following license:',['../md__l_i_c_e_n_s_e__f_o_r__g_a_m_e_s.html',1,'']]],
+  ['tutorial',['Tutorial',['../md_docfiles__tutorial.html',1,'']]],
   ['target',['target',['../class_johnny_1_1_render_texture.html#a2fe2aaba5f675a01c5000ba8b8f4d86d',1,'Johnny::RenderTexture']]],
   ['text',['text',['../class_johnny_1_1_event.html#ad68ef525a9c0e7e913c0da9d5e81add6',1,'Johnny::Event']]],
   ['textactor2d',['TextActor2D',['../class_johnny_1_1_text_actor2_d.html',1,'Johnny::TextActor2D'],['../class_johnny_1_1_text_actor2_d.html#ae9947413fe17ac7e89081ff424d60ff4',1,'Johnny::TextActor2D::TextActor2D()']]],
