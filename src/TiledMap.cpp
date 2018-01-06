@@ -291,26 +291,26 @@ namespace Johnny
                 dst.w = tileSet->GetTileWidth();
                 dst.h = tileSet->GetTileHeight();
                 
-                //texture->setAlphaMod((Uint8)(tileLayer->GetOpacity()*255.0f)); TODO
+                texture->setModColor(Colorf(1.0f,1.0f,1.0f,tileLayer->GetOpacity()));
                 
-                /*if(tile.flippedHorizontally || tile.flippedVertically)
+                if(tile.flippedHorizontally || tile.flippedVertically || tile.flippedDiagonally)
                 {
                     if(tile.flippedHorizontally)
                     {
-                        //texture->renderCopyEx(m_mainClass->getRenderer(), 0.0,&dst,&src,nullptr,SDL_FLIP_HORIZONTAL); TODO
+                        texture->setFlip(Flip::HORIZONTALLY);
+                    }
+                    else if(tile.flippedVertically)
+                    {
+                        texture->setFlip(Flip::VERTICALLY);
                     }
                     else
                     {
-                        //texture->renderCopyEx(m_mainClass->getRenderer(), 0.0,&dst,&src,nullptr,SDL_FLIP_VERTICAL); TODO
+                        texture->setFlip(Flip::DIAGONALLY);
                     }
                 }
-                else
-                {*/
-                    Texture::renderTexture2D(texture,&dst,&src);
-                    //texture->renderCopy(m_mainClass->getRenderer(),&dst,&src);
-                //}
                 
-                //texture->setAlphaMod(255); TODO
+                Texture::renderTexture2D(texture,&dst,&src);
+                texture->setFlip(Flip::NONE);
                 
                 const Tmx::Tile* ttile = tileSet->GetTile(tileID);
                 if(ttile && (ttile->GetNumObjects() > 0))
@@ -356,8 +356,8 @@ namespace Johnny
             if(obj->GetEllipse() && m_renderObjects)
             {
                 //std::cout << "+ Ellipse" << std::endl;
-                const Tmx::Ellipse* ellipse = obj->GetEllipse();
-                Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
+                //const Tmx::Ellipse* ellipse = obj->GetEllipse();
+                //Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
                 /*std::cout << "++ Center: " << ellipse->GetCenterX() << "; " << ellipse->GetCenterY() << std::endl;
                 std::cout << "++ Radius: " << ellipse->GetRadiusX() << "; " << ellipse->GetRadiusY() << std::endl;*/
                 
@@ -370,7 +370,7 @@ namespace Johnny
             {
                 //std::cout << "+ Polygon" << std::endl;
                 const Tmx::Polygon* polygon = obj->GetPolygon();
-                Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
+                //Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
                 //std::cout << "++ Points" << std::endl;
                 
                 Sint16* vx = new Sint16[polygon->GetNumPoints()];
@@ -409,20 +409,20 @@ namespace Johnny
             else if(obj->GetPolyline() && m_renderObjects)
             {
                 //std::cout << "+ Polyline" << std::endl;
-                const Tmx::Polyline* polyline = obj->GetPolyline();
-                Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
+                //const Tmx::Polyline* polyline = obj->GetPolyline();
+                //Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
                 //std::cout << "++ Points" << std::endl; 
-                for(int k = 0;k<polyline->GetNumPoints();k++)
-                {
-                    if(k!=0)
-                    {
-                        const Tmx::Point& point1 = polyline->GetPoint(k-1);
-                        const Tmx::Point& point2 = polyline->GetPoint(k);
+                //for(int k = 0;k<polyline->GetNumPoints();k++)
+                //{
+                //    if(k!=0)
+                //    {
+                        //const Tmx::Point& point1 = polyline->GetPoint(k-1);
+                        //const Tmx::Point& point2 = polyline->GetPoint(k);
                         //std::cout << "+++ " << k << ". " << point1.x << "; " << point1.y << std::endl;
                         
                         //aalineRGBA(m_mainClass->getRenderer(),point1.x+obj->GetX(),point1.y+obj->GetY(),point2.x+obj->GetX(),point2.y+obj->GetY(),color.r,color.g,color.b,(Uint8)(objectGroup->GetOpacity()*255.0f));
-                    }
-                }
+                //    }
+                //}
                 
                 continue;
             }
@@ -459,7 +459,7 @@ namespace Johnny
 
             // Render Rectangle
             
-            Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
+            //Colorb color = colorStringToColor(objectGroup->GetColor().ToString());
             
             //rectangleRGBA(m_mainClass->getRenderer(),obj->GetX(),obj->GetY(),obj->GetX()+obj->GetWidth(),obj->GetY()+obj->GetHeight(),color.r,color.g,color.b,(Uint8)(objectGroup->GetOpacity()*255.0f));
             //boxRGBA(m_mainClass->getRenderer(),obj->GetX(),obj->GetY(),obj->GetX()+obj->GetWidth(),obj->GetY()+obj->GetHeight(),color.r,color.g,color.b,(Uint8)(objectGroup->GetOpacity()*255.0f/4.0f));

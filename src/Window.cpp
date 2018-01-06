@@ -9,8 +9,8 @@
 namespace Johnny
 {
     Window::Window(void* handle) :
-        m_handle(handle),
-        m_mainClass(MainClass::getInstance())
+        m_mainClass(MainClass::getInstance()),
+        m_handle(handle)
     {
         m_res = getResolution();
     }

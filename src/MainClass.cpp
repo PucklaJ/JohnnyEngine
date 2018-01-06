@@ -372,7 +372,12 @@ namespace Johnny
 					{
 					case WindowEventType::SizeChanged:
 						onResize(m_framework->event.window.data1, m_framework->event.window.data2);
+                        break;
+                    default:
+                        break;
 					}
+                default:
+                    break;
             }
 
 #ifdef DEBUG_OUTPUTS

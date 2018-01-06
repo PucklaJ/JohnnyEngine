@@ -49,16 +49,19 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g;-O0;-W;-std=c++11;-Wall" C_Options="-g;-O0;-W;-std=c++11;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+      <Compiler Options="-g;-O0;-W;-std=c++11;-Wall;-Wno-ignored-qualifiers;-Wno-unused-parameter" C_Options="-g;-O0;-W;-Wall;-Wno-ignored-qualifiers;-Wno-unused-parameter" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value="$(JOHNNY_INCLUDE)"/>
-        <IncludePath Value="$(JOHNNY_INCLUDE)/TMX"/>
-        <IncludePath Value="$(JOHNNY_INCLUDE)/TMX/base64"/>
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)"/>
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)/TMX"/>
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)/TMX/base64"/>
       </Compiler>
       <Linker Options="" Required="yes">
         <LibraryPath Value="$(JOHNNY_LIB_DBG)"/>
+        <LibraryPath Value="$(JOHNNY_DEPS_LIB)"/>
         <Library Value="libJohnnyEngine_d"/>
         <Library Value="libBox2D"/>
         <Library Value="libassimp"/>
+        <Library Value="libtmxparser"/>
         <Library Value="libz"/>
         <Library Value="libtinyxml2"/>
         <Library Value="libglfw3"/>
@@ -106,17 +109,20 @@
       </Completion>
     </Configuration>
     <Configuration Name="Release" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-O2;-Wall" C_Options="-O3;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+      <Compiler Options="-O3;-w;-std=c++11;-Wall" C_Options="-O3;-Wall;-w" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value="$(JOHNNY_INCLUDE)"/>
-        <IncludePath Value="$(JOHNNY_INCLUDE)/TMX"/>
-        <IncludePath Value="$(JOHNNY_INCLUDE)/TMX/base64"/>
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)"/>
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)/TMX"/>
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)/TMX/base64"/>
         <Preprocessor Value="NDEBUG"/>
       </Compiler>
       <Linker Options="" Required="yes">
         <LibraryPath Value="$(JOHNNY_LIB)"/>
+        <LibraryPath Value="$(JOHNNY_DEPS_LIB)"/>
         <Library Value="libJohnnyEngine"/>
         <Library Value="libBox2D"/>
         <Library Value="libassimp"/>
+        <Library Value="libtmxparser"/>
         <Library Value="libz"/>
         <Library Value="libtinyxml2"/>
         <Library Value="libglfw3"/>

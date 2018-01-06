@@ -3,31 +3,6 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
-    <VirtualDirectory Name="TMX">
-      <VirtualDirectory Name="base64">
-        <File Name="../../src/TMX/base64/base64.cpp"/>
-      </VirtualDirectory>
-      <File Name="../../src/TMX/miniz.c"/>
-      <File Name="../../src/TMX/TmxColor.cpp"/>
-      <File Name="../../src/TMX/TmxEllipse.cpp"/>
-      <File Name="../../src/TMX/TmxImage.cpp"/>
-      <File Name="../../src/TMX/TmxImageLayer.cpp"/>
-      <File Name="../../src/TMX/TmxLayer.cpp"/>
-      <File Name="../../src/TMX/TmxMap.cpp"/>
-      <File Name="../../src/TMX/TmxObject.cpp"/>
-      <File Name="../../src/TMX/TmxObjectGroup.cpp"/>
-      <File Name="../../src/TMX/TmxPolygon.cpp"/>
-      <File Name="../../src/TMX/TmxPolyline.cpp"/>
-      <File Name="../../src/TMX/TmxProperty.cpp"/>
-      <File Name="../../src/TMX/TmxPropertySet.cpp"/>
-      <File Name="../../src/TMX/TmxTerrain.cpp"/>
-      <File Name="../../src/TMX/TmxTerrainArray.cpp"/>
-      <File Name="../../src/TMX/TmxTile.cpp"/>
-      <File Name="../../src/TMX/TmxTileLayer.cpp"/>
-      <File Name="../../src/TMX/TmxTileOffset.cpp"/>
-      <File Name="../../src/TMX/TmxTileset.cpp"/>
-      <File Name="../../src/TMX/TmxUtil.cpp"/>
-    </VirtualDirectory>
     <File Name="../../src/Actor.cpp"/>
     <File Name="../../src/Camera2D.cpp"/>
     <File Name="../../src/Camera3D.cpp"/>
@@ -87,33 +62,6 @@
     <File Name="../../src/stb_image.c"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
-    <VirtualDirectory Name="TMX">
-      <VirtualDirectory Name="base64">
-        <File Name="../../include/TMX/base64/base64.h"/>
-      </VirtualDirectory>
-      <File Name="../../include/TMX/Tmx.h"/>
-      <File Name="../../include/TMX/TmxColor.h"/>
-      <File Name="../../include/TMX/TmxEllipse.h"/>
-      <File Name="../../include/TMX/TmxImage.h"/>
-      <File Name="../../include/TMX/TmxImageLayer.h"/>
-      <File Name="../../include/TMX/TmxLayer.h"/>
-      <File Name="../../include/TMX/TmxMap.h"/>
-      <File Name="../../include/TMX/TmxMapTile.h"/>
-      <File Name="../../include/TMX/TmxObject.h"/>
-      <File Name="../../include/TMX/TmxObjectGroup.h"/>
-      <File Name="../../include/TMX/TmxPoint.h"/>
-      <File Name="../../include/TMX/TmxPolygon.h"/>
-      <File Name="../../include/TMX/TmxPolyline.h"/>
-      <File Name="../../include/TMX/TmxProperty.h"/>
-      <File Name="../../include/TMX/TmxPropertySet.h"/>
-      <File Name="../../include/TMX/TmxTerrain.h"/>
-      <File Name="../../include/TMX/TmxTerrainArray.h"/>
-      <File Name="../../include/TMX/TmxTile.h"/>
-      <File Name="../../include/TMX/TmxTileLayer.h"/>
-      <File Name="../../include/TMX/TmxTileOffset.h"/>
-      <File Name="../../include/TMX/TmxTileset.h"/>
-      <File Name="../../include/TMX/TmxUtil.h"/>
-    </VirtualDirectory>
     <File Name="../../include/InputManager.h"/>
     <File Name="../../include/operators.h"/>
     <File Name="../../include/stb_image.h"/>
@@ -189,9 +137,10 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g;-O0;-W;-std=c++11;-Wall;" C_Options="-g;-O0;-W;-std=c++11;-Wall;" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
-        <IncludePath Value="../../include/TMX"/>
-        <IncludePath Value="../../include/TMX/base64"/>
+      <Compiler Options="-g;-O0;-W;-std=c++11;-Wall;-Wno-ignored-qualifiers;-Wno-unused-parameter" C_Options="-g;-O0;-w" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)"/>
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)/TMX"/>
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)/TMX/base64"/>
       </Compiler>
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
@@ -229,9 +178,10 @@
       </Completion>
     </Configuration>
     <Configuration Name="Release" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-O3;-std=c++11" C_Options="-O3;-std=c++11" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
-        <IncludePath Value="/media/johnny/Daten/git_repositories/JohnnyEngine/include/TMX"/>
-        <IncludePath Value="/media/johnny/Daten/git_repositories/JohnnyEngine/include/TMX/base64"/>
+      <Compiler Options="-O3;-std=c++11;-w" C_Options="-O3;-w" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)"/>
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)/TMX"/>
+        <IncludePath Value="$(JOHNNY_DEPS_INCLUDE)/TMX/base64"/>
       </Compiler>
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>

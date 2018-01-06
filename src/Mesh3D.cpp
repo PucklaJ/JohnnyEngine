@@ -41,12 +41,9 @@ namespace Johnny
 	Mesh3D::Mesh3D(aiMesh* mesh, const aiScene* scene, bool switchZandY) : Mesh3D()
 	{
 
-		if (mesh->mMaterialIndex >= 0)
-		{
-			m_material = Material(scene->mMaterials[mesh->mMaterialIndex]);
-			if (m_material.name == "NONE")
-				m_material.name = "Material";
-		}
+        m_material = Material(scene->mMaterials[mesh->mMaterialIndex]);
+        if (m_material.name == "NONE")
+            m_material.name = "Material";
 
 		m_name = mesh->mName.C_Str();
 		if (m_name == "")

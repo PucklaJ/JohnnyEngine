@@ -49,6 +49,8 @@ namespace Johnny
         case EventType::ControllerDeviceRemoved:
             m_listener->onDisconnect(e.cdevice);
             break;
+        default:
+            break;
         }
 #ifdef DEBUG_OUTPUTS
         std::cout << "JoystickManager pollEvents end" << std::endl;

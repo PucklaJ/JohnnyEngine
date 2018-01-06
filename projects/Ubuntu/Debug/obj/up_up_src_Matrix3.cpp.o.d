@@ -1,6 +1,7 @@
 /media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/Debug/obj/up_up_src_Matrix3.cpp.o: \
  ../../src/Matrix3.cpp ../../src/../include/Matrix3.h \
  ../../src/../include/../include/Vector3.h \
+ /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/GL/glew.h \
  ../../src/../include/../include/Vector4.h \
  ../../src/../include/../include/../src/Vector4.cpp \
  ../../src/../include/../include/../src/Vector3.cpp \
@@ -14,6 +15,8 @@
 ../../src/../include/Matrix3.h:
 
 ../../src/../include/../include/Vector3.h:
+
+/media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/GL/glew.h:
 
 ../../src/../include/../include/Vector4.h:
 

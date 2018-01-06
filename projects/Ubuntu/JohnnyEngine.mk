@@ -5,7 +5,7 @@
 ## Release
 ProjectName            :=JohnnyEngine
 ConfigurationName      :=Release
-WorkspacePath          :=/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu
+WorkspacePath          :=/media/johnny/Daten/Meine_Projekte/CodeLiteProjects/Linux/JohnnyEngine
 ProjectPath            :=/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu
 IntermediateDirectory  :=$(ProjectPath)/$(ConfigurationName)/obj
 OutDir                 := $(IntermediateDirectory)
@@ -36,7 +36,7 @@ ObjectsFileList        :="JohnnyEngine.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=mkdir -p
 LinkOptions            :=  
-IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)/media/johnny/Daten/git_repositories/JohnnyEngine/include/TMX $(IncludeSwitch)/media/johnny/Daten/git_repositories/JohnnyEngine/include/TMX/base64 
+IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)$(JOHNNY_DEPS_INCLUDE) $(IncludeSwitch)$(JOHNNY_DEPS_INCLUDE)/TMX $(IncludeSwitch)$(JOHNNY_DEPS_INCLUDE)/TMX/base64 
 IncludePCH             := 
 RcIncludePath          := 
 Libs                   := 
@@ -50,8 +50,8 @@ LibPath                := $(LibraryPathSwitch).
 AR       := /usr/bin/ar rcu
 CXX      := /usr/bin/g++
 CC       := /usr/bin/gcc
-CXXFLAGS :=  -O3 -std=c++11 $(Preprocessors)
-CFLAGS   :=  -O3 -std=c++11 $(Preprocessors)
+CXXFLAGS :=  -O3 -std=c++11 -w $(Preprocessors)
+CFLAGS   :=  -O3 -w $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
 
@@ -67,13 +67,9 @@ Objects0=$(IntermediateDirectory)/up_up_src_Actor.cpp$(ObjectSuffix) $(Intermedi
 	$(IntermediateDirectory)/up_up_src_Vector4.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_Vertex3D.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_Window.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_JoystickListener.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_JoystickManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_Light3D.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_LogManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_MainClass.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_mathematics.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_Matrix3.cpp$(ObjectSuffix) \
 	$(IntermediateDirectory)/up_up_src_Matrix4.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_Mesh3D.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_Model3D.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_OBJLoader.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_InputManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_operators.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_stb_image.c$(ObjectSuffix) 
 
-Objects1=$(IntermediateDirectory)/up_up_src_TMX_miniz.c$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxColor.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxEllipse.cpp$(ObjectSuffix) \
-	$(IntermediateDirectory)/up_up_src_TMX_TmxImage.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxImageLayer.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxLayer.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxMap.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxObject.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxObjectGroup.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxPolygon.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxPolyline.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxProperty.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxPropertySet.cpp$(ObjectSuffix) \
-	$(IntermediateDirectory)/up_up_src_TMX_TmxTerrain.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxTerrainArray.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxTile.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxTileLayer.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxTileOffset.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxTileset.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_TmxUtil.cpp$(ObjectSuffix) $(IntermediateDirectory)/up_up_src_TMX_base64_base64.cpp$(ObjectSuffix) 
 
 
-
-Objects=$(Objects0) $(Objects1) 
+Objects=$(Objects0) 
 
 ##
 ## Main Build Targets 
@@ -85,10 +81,9 @@ $(OutputFile): $(Objects)
 	@$(MakeDirCommand) $(@D)
 	@echo "" > $(IntermediateDirectory)/.d
 	@echo $(Objects0)  > $(ObjectsFileList)
-	@echo $(Objects1) >> $(ObjectsFileList)
 	$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList) $(ArLibs)
-	@$(MakeDirCommand) "/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/.build-release"
-	@echo rebuilt > "/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/.build-release/JohnnyEngine"
+	@$(MakeDirCommand) "/media/johnny/Daten/Meine_Projekte/CodeLiteProjects/Linux/JohnnyEngine/.build-release"
+	@echo rebuilt > "/media/johnny/Daten/Meine_Projekte/CodeLiteProjects/Linux/JohnnyEngine/.build-release/JohnnyEngine"
 
 MakeIntermediateDirs:
 	@test -d $(ProjectPath)/$(ConfigurationName)/obj || $(MakeDirCommand) $(ProjectPath)/$(ConfigurationName)/obj
@@ -558,174 +553,6 @@ $(IntermediateDirectory)/up_up_src_stb_image.c$(DependSuffix): ../../src/stb_ima
 
 $(IntermediateDirectory)/up_up_src_stb_image.c$(PreprocessSuffix): ../../src/stb_image.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_stb_image.c$(PreprocessSuffix) ../../src/stb_image.c
-
-$(IntermediateDirectory)/up_up_src_TMX_miniz.c$(ObjectSuffix): ../../src/TMX/miniz.c $(IntermediateDirectory)/up_up_src_TMX_miniz.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/miniz.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_miniz.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_miniz.c$(DependSuffix): ../../src/TMX/miniz.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_miniz.c$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_miniz.c$(DependSuffix) -MM ../../src/TMX/miniz.c
-
-$(IntermediateDirectory)/up_up_src_TMX_miniz.c$(PreprocessSuffix): ../../src/TMX/miniz.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_miniz.c$(PreprocessSuffix) ../../src/TMX/miniz.c
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxColor.cpp$(ObjectSuffix): ../../src/TMX/TmxColor.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxColor.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxColor.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxColor.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxColor.cpp$(DependSuffix): ../../src/TMX/TmxColor.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxColor.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxColor.cpp$(DependSuffix) -MM ../../src/TMX/TmxColor.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxColor.cpp$(PreprocessSuffix): ../../src/TMX/TmxColor.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxColor.cpp$(PreprocessSuffix) ../../src/TMX/TmxColor.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxEllipse.cpp$(ObjectSuffix): ../../src/TMX/TmxEllipse.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxEllipse.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxEllipse.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxEllipse.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxEllipse.cpp$(DependSuffix): ../../src/TMX/TmxEllipse.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxEllipse.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxEllipse.cpp$(DependSuffix) -MM ../../src/TMX/TmxEllipse.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxEllipse.cpp$(PreprocessSuffix): ../../src/TMX/TmxEllipse.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxEllipse.cpp$(PreprocessSuffix) ../../src/TMX/TmxEllipse.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxImage.cpp$(ObjectSuffix): ../../src/TMX/TmxImage.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxImage.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxImage.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxImage.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxImage.cpp$(DependSuffix): ../../src/TMX/TmxImage.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxImage.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxImage.cpp$(DependSuffix) -MM ../../src/TMX/TmxImage.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxImage.cpp$(PreprocessSuffix): ../../src/TMX/TmxImage.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxImage.cpp$(PreprocessSuffix) ../../src/TMX/TmxImage.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxImageLayer.cpp$(ObjectSuffix): ../../src/TMX/TmxImageLayer.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxImageLayer.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxImageLayer.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxImageLayer.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxImageLayer.cpp$(DependSuffix): ../../src/TMX/TmxImageLayer.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxImageLayer.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxImageLayer.cpp$(DependSuffix) -MM ../../src/TMX/TmxImageLayer.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxImageLayer.cpp$(PreprocessSuffix): ../../src/TMX/TmxImageLayer.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxImageLayer.cpp$(PreprocessSuffix) ../../src/TMX/TmxImageLayer.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxLayer.cpp$(ObjectSuffix): ../../src/TMX/TmxLayer.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxLayer.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxLayer.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxLayer.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxLayer.cpp$(DependSuffix): ../../src/TMX/TmxLayer.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxLayer.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxLayer.cpp$(DependSuffix) -MM ../../src/TMX/TmxLayer.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxLayer.cpp$(PreprocessSuffix): ../../src/TMX/TmxLayer.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxLayer.cpp$(PreprocessSuffix) ../../src/TMX/TmxLayer.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxMap.cpp$(ObjectSuffix): ../../src/TMX/TmxMap.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxMap.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxMap.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxMap.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxMap.cpp$(DependSuffix): ../../src/TMX/TmxMap.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxMap.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxMap.cpp$(DependSuffix) -MM ../../src/TMX/TmxMap.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxMap.cpp$(PreprocessSuffix): ../../src/TMX/TmxMap.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxMap.cpp$(PreprocessSuffix) ../../src/TMX/TmxMap.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxObject.cpp$(ObjectSuffix): ../../src/TMX/TmxObject.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxObject.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxObject.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxObject.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxObject.cpp$(DependSuffix): ../../src/TMX/TmxObject.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxObject.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxObject.cpp$(DependSuffix) -MM ../../src/TMX/TmxObject.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxObject.cpp$(PreprocessSuffix): ../../src/TMX/TmxObject.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxObject.cpp$(PreprocessSuffix) ../../src/TMX/TmxObject.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxObjectGroup.cpp$(ObjectSuffix): ../../src/TMX/TmxObjectGroup.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxObjectGroup.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxObjectGroup.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxObjectGroup.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxObjectGroup.cpp$(DependSuffix): ../../src/TMX/TmxObjectGroup.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxObjectGroup.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxObjectGroup.cpp$(DependSuffix) -MM ../../src/TMX/TmxObjectGroup.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxObjectGroup.cpp$(PreprocessSuffix): ../../src/TMX/TmxObjectGroup.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxObjectGroup.cpp$(PreprocessSuffix) ../../src/TMX/TmxObjectGroup.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxPolygon.cpp$(ObjectSuffix): ../../src/TMX/TmxPolygon.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxPolygon.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxPolygon.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxPolygon.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxPolygon.cpp$(DependSuffix): ../../src/TMX/TmxPolygon.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxPolygon.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxPolygon.cpp$(DependSuffix) -MM ../../src/TMX/TmxPolygon.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxPolygon.cpp$(PreprocessSuffix): ../../src/TMX/TmxPolygon.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxPolygon.cpp$(PreprocessSuffix) ../../src/TMX/TmxPolygon.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxPolyline.cpp$(ObjectSuffix): ../../src/TMX/TmxPolyline.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxPolyline.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxPolyline.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxPolyline.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxPolyline.cpp$(DependSuffix): ../../src/TMX/TmxPolyline.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxPolyline.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxPolyline.cpp$(DependSuffix) -MM ../../src/TMX/TmxPolyline.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxPolyline.cpp$(PreprocessSuffix): ../../src/TMX/TmxPolyline.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxPolyline.cpp$(PreprocessSuffix) ../../src/TMX/TmxPolyline.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxProperty.cpp$(ObjectSuffix): ../../src/TMX/TmxProperty.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxProperty.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxProperty.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxProperty.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxProperty.cpp$(DependSuffix): ../../src/TMX/TmxProperty.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxProperty.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxProperty.cpp$(DependSuffix) -MM ../../src/TMX/TmxProperty.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxProperty.cpp$(PreprocessSuffix): ../../src/TMX/TmxProperty.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxProperty.cpp$(PreprocessSuffix) ../../src/TMX/TmxProperty.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxPropertySet.cpp$(ObjectSuffix): ../../src/TMX/TmxPropertySet.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxPropertySet.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxPropertySet.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxPropertySet.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxPropertySet.cpp$(DependSuffix): ../../src/TMX/TmxPropertySet.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxPropertySet.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxPropertySet.cpp$(DependSuffix) -MM ../../src/TMX/TmxPropertySet.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxPropertySet.cpp$(PreprocessSuffix): ../../src/TMX/TmxPropertySet.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxPropertySet.cpp$(PreprocessSuffix) ../../src/TMX/TmxPropertySet.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTerrain.cpp$(ObjectSuffix): ../../src/TMX/TmxTerrain.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxTerrain.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxTerrain.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxTerrain.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxTerrain.cpp$(DependSuffix): ../../src/TMX/TmxTerrain.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxTerrain.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxTerrain.cpp$(DependSuffix) -MM ../../src/TMX/TmxTerrain.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTerrain.cpp$(PreprocessSuffix): ../../src/TMX/TmxTerrain.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxTerrain.cpp$(PreprocessSuffix) ../../src/TMX/TmxTerrain.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTerrainArray.cpp$(ObjectSuffix): ../../src/TMX/TmxTerrainArray.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxTerrainArray.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxTerrainArray.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxTerrainArray.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxTerrainArray.cpp$(DependSuffix): ../../src/TMX/TmxTerrainArray.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxTerrainArray.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxTerrainArray.cpp$(DependSuffix) -MM ../../src/TMX/TmxTerrainArray.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTerrainArray.cpp$(PreprocessSuffix): ../../src/TMX/TmxTerrainArray.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxTerrainArray.cpp$(PreprocessSuffix) ../../src/TMX/TmxTerrainArray.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTile.cpp$(ObjectSuffix): ../../src/TMX/TmxTile.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxTile.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxTile.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxTile.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxTile.cpp$(DependSuffix): ../../src/TMX/TmxTile.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxTile.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxTile.cpp$(DependSuffix) -MM ../../src/TMX/TmxTile.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTile.cpp$(PreprocessSuffix): ../../src/TMX/TmxTile.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxTile.cpp$(PreprocessSuffix) ../../src/TMX/TmxTile.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTileLayer.cpp$(ObjectSuffix): ../../src/TMX/TmxTileLayer.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxTileLayer.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxTileLayer.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxTileLayer.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxTileLayer.cpp$(DependSuffix): ../../src/TMX/TmxTileLayer.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxTileLayer.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxTileLayer.cpp$(DependSuffix) -MM ../../src/TMX/TmxTileLayer.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTileLayer.cpp$(PreprocessSuffix): ../../src/TMX/TmxTileLayer.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxTileLayer.cpp$(PreprocessSuffix) ../../src/TMX/TmxTileLayer.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTileOffset.cpp$(ObjectSuffix): ../../src/TMX/TmxTileOffset.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxTileOffset.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxTileOffset.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxTileOffset.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxTileOffset.cpp$(DependSuffix): ../../src/TMX/TmxTileOffset.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxTileOffset.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxTileOffset.cpp$(DependSuffix) -MM ../../src/TMX/TmxTileOffset.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTileOffset.cpp$(PreprocessSuffix): ../../src/TMX/TmxTileOffset.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxTileOffset.cpp$(PreprocessSuffix) ../../src/TMX/TmxTileOffset.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTileset.cpp$(ObjectSuffix): ../../src/TMX/TmxTileset.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxTileset.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxTileset.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxTileset.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxTileset.cpp$(DependSuffix): ../../src/TMX/TmxTileset.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxTileset.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxTileset.cpp$(DependSuffix) -MM ../../src/TMX/TmxTileset.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxTileset.cpp$(PreprocessSuffix): ../../src/TMX/TmxTileset.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxTileset.cpp$(PreprocessSuffix) ../../src/TMX/TmxTileset.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxUtil.cpp$(ObjectSuffix): ../../src/TMX/TmxUtil.cpp $(IntermediateDirectory)/up_up_src_TMX_TmxUtil.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/TmxUtil.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_TmxUtil.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_TmxUtil.cpp$(DependSuffix): ../../src/TMX/TmxUtil.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_TmxUtil.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_TmxUtil.cpp$(DependSuffix) -MM ../../src/TMX/TmxUtil.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_TmxUtil.cpp$(PreprocessSuffix): ../../src/TMX/TmxUtil.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_TmxUtil.cpp$(PreprocessSuffix) ../../src/TMX/TmxUtil.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_base64_base64.cpp$(ObjectSuffix): ../../src/TMX/base64/base64.cpp $(IntermediateDirectory)/up_up_src_TMX_base64_base64.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/media/johnny/Daten/git_repositories/JohnnyEngine/src/TMX/base64/base64.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_up_src_TMX_base64_base64.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/up_up_src_TMX_base64_base64.cpp$(DependSuffix): ../../src/TMX/base64/base64.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_up_src_TMX_base64_base64.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/up_up_src_TMX_base64_base64.cpp$(DependSuffix) -MM ../../src/TMX/base64/base64.cpp
-
-$(IntermediateDirectory)/up_up_src_TMX_base64_base64.cpp$(PreprocessSuffix): ../../src/TMX/base64/base64.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/up_up_src_TMX_base64_base64.cpp$(PreprocessSuffix) ../../src/TMX/base64/base64.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

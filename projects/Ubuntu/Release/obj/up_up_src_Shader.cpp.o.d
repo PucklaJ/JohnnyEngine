@@ -1,5 +1,6 @@
 /media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/Release/obj/up_up_src_Shader.cpp.o: \
  ../../src/Shader.cpp ../../src/../include/Shader.h \
+ /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/GL/glew.h \
  ../../src/../include/Matrix3.h ../../src/../include/../include/Vector3.h \
  ../../src/../include/../include/Vector4.h \
  ../../src/../include/../include/../src/Vector4.cpp \
@@ -16,6 +17,8 @@
  ../../src/../include/operators.h
 
 ../../src/../include/Shader.h:
+
+/media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/GL/glew.h:
 
 ../../src/../include/Matrix3.h:
 

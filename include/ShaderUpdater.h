@@ -34,7 +34,7 @@ namespace Johnny
          *  \param s The shader which should be updated
          */
         ShaderUpdater(Shader* s);
-        ~ShaderUpdater();
+        virtual ~ShaderUpdater();
         
         /*! \brief Gets called every frame before anything is rendered
          *

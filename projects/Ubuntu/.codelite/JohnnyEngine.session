@@ -4,9 +4,9 @@
   <wxString Value="/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu/JohnnyEngine.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="/media/johnny/Daten/git_repositories/JohnnyEngine/src/MainClass.cpp" Name="FileName"/>
-      <int Value="173" Name="FirstVisibleLine"/>
-      <int Value="191" Name="CurrentLine"/>
+      <wxString Value="/media/johnny/Daten/git_repositories/JohnnyEngine/include/TiledMap.h" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

@@ -19,6 +19,11 @@ namespace Johnny
 {
     const unsigned int Texture2DShaderUpdater::TRANSFORM_NORMAL=0;
     const unsigned int Texture2DShaderUpdater::TRANSFORM_CAMERA=1;
+    
+    Texture2DShaderUpdater::~Texture2DShaderUpdater()
+    {
+        
+    }
 
     void Texture2DShaderUpdater::update()
     {

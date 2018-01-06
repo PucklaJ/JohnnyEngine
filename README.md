@@ -56,7 +56,9 @@ This is a 3D/2D game engine which uses SDL (GLFW) (maybe will add other framewor
 #### Linux (Ubuntu) - Code Lite
 
 1. Download the dependencies through the download_deps.sh script
-2. Open the workspace from the projects/Ubuntu folder
+2. Setup the needed environment variables with the setup_env_vars.sh script
+3. Logout and login
+4. Open the workspace from the projects/Ubuntu folder
 
 ## Documentation
 
