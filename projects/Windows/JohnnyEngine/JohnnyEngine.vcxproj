@@ -73,11 +73,11 @@
     <OutDir>$(ProjectDir)\$(PlatformTarget)\$(Configuration)\</OutDir>
     <TargetName>$(ProjectName)_d</TargetName>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
-    <IncludePath>E:\git_repositories\JohnnyEngine\include\TMX\base64;E:\git_repositories\JohnnyEngine\include\TMX;E:\git_repositories\JohnnyEngine\dependencies\include;$(IncludePath)</IncludePath>
+    <IncludePath>E:\git_repositories\JohnnyEngine\dependencies\include\TMX\base64;E:\git_repositories\JohnnyEngine\dependencies\include\TMX;E:\git_repositories\JohnnyEngine\dependencies\include;$(IncludePath)</IncludePath>
     <LibraryPath>E:\git_repositories\JohnnyEngine\dependencies\lib\Windows\x86\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>E:\git_repositories\JohnnyEngine\include\TMX\base64;E:\git_repositories\JohnnyEngine\include\TMX;E:\git_repositories\JohnnyEngine\dependencies\include;$(IncludePath)</IncludePath>
+    <IncludePath>E:\git_repositories\JohnnyEngine\dependencies\include\TMX\base64;E:\git_repositories\JohnnyEngine\dependencies\include\TMX;E:\git_repositories\JohnnyEngine\dependencies\include;$(IncludePath)</IncludePath>
     <LibraryWPath>$(LibraryWPath)</LibraryWPath>
     <OutDir>$(ProjectDir)\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
@@ -100,7 +100,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>assimp-vc140-mt_d.lib;Box2D_d.lib;glew32_d.lib;glfw3_d.lib;SDL2_d.lib;SDL2_ttf_d.lib;SDL2main_d.lib;tinyxml2_d.lib;zlibstatic_d.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>assimp-vc140-mt_d.lib;Box2D_d.lib;glew32_d.lib;glfw3_d.lib;SDL2_d.lib;SDL2_ttf_d.lib;SDL2main_d.lib;tmxparser_d.lib;tinyxml2_d.lib;zlibstatic_d.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -124,7 +124,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>assimp-vc140-mt.lib;Box2D.lib;glew32.lib;glfw3.lib;SDL2.lib;SDL2_ttf.lib;SDL2main.lib;tinyxml2.lib;zlibstatic.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>assimp-vc140-mt.lib;Box2D.lib;glew32.lib;glfw3.lib;SDL2.lib;SDL2_ttf.lib;SDL2main.lib;tmxparser.lib;tinyxml2.lib;zlibstatic.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -190,27 +190,6 @@
     <ClCompile Include="..\..\..\src\Texture.cpp" />
     <ClCompile Include="..\..\..\src\TiledMap.cpp" />
     <ClCompile Include="..\..\..\src\Timer.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\base64\base64.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\miniz.c" />
-    <ClCompile Include="..\..\..\src\TMX\TmxColor.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxEllipse.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxImage.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxImageLayer.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxLayer.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxMap.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxObject.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxObjectGroup.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxPolygon.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxPolyline.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxProperty.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxPropertySet.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxTerrain.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxTerrainArray.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxTile.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxTileLayer.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxTileOffset.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxTileset.cpp" />
-    <ClCompile Include="..\..\..\src\TMX\TmxUtil.cpp" />
     <ClCompile Include="..\..\..\src\Transform2D.cpp" />
     <ClCompile Include="..\..\..\src\Transform3D.cpp" />
     <ClCompile Include="..\..\..\src\Tween.cpp" />
@@ -276,29 +255,6 @@
     <ClInclude Include="..\..\..\include\Texture.h" />
     <ClInclude Include="..\..\..\include\TiledMap.h" />
     <ClInclude Include="..\..\..\include\Timer.h" />
-    <ClInclude Include="..\..\..\include\TMX\base64\base64.h" />
-    <ClInclude Include="..\..\..\include\TMX\Tmx.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxColor.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxEllipse.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxImage.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxImageLayer.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxLayer.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxMap.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxMapTile.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxObject.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxObjectGroup.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxPoint.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxPolygon.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxPolyline.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxProperty.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxPropertySet.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxTerrain.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxTerrainArray.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxTile.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxTileLayer.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxTileOffset.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxTileset.h" />
-    <ClInclude Include="..\..\..\include\TMX\TmxUtil.h" />
     <ClInclude Include="..\..\..\include\Transform2D.h" />
     <ClInclude Include="..\..\..\include\Transform3D.h" />
     <ClInclude Include="..\..\..\include\Tween.h" />

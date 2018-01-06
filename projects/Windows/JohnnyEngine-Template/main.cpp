@@ -1,7 +1,11 @@
+#define SDL_MAIN_HANDLED 1
 #include "Game.h"
-#undef main
 
-int main(int args, char* argv[])
+#ifdef _DEBUG
+int main(int args,char* argv[])
+#else
+int SDL_main(int args, char* argv[])
+#endif
 {
 	Game().run();
 

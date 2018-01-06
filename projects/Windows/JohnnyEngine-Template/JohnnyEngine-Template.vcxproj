@@ -70,13 +70,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\git_repositories\JohnnyEngine\dependencies\include;E:\git_repositories\JohnnyEngine\include\TMX\base64;E:\git_repositories\JohnnyEngine\include;E:\git_repositories\JohnnyEngine\include\TMX;$(IncludePath)</IncludePath>
+    <IncludePath>E:\git_repositories\JohnnyEngine\dependencies\include;E:\git_repositories\JohnnyEngine\dependencies\include\TMX\base64;E:\git_repositories\JohnnyEngine\include;E:\git_repositories\JohnnyEngine\dependencies\include\TMX;$(IncludePath)</IncludePath>
     <LibraryPath>E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine\x86\Debug;E:\git_repositories\JohnnyEngine\dependencies\lib\Windows\x86\Debug;$(LibraryPath)</LibraryPath>
     <OutDir>$(ProjectDir)\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>E:\git_repositories\JohnnyEngine\dependencies\include;E:\git_repositories\JohnnyEngine\include\TMX\base64;E:\git_repositories\JohnnyEngine\include;E:\git_repositories\JohnnyEngine\include\TMX;$(IncludePath)</IncludePath>
+    <IncludePath>E:\git_repositories\JohnnyEngine\dependencies\include;E:\git_repositories\JohnnyEngine\dependencies\include\TMX\base64;E:\git_repositories\JohnnyEngine\include;E:\git_repositories\JohnnyEngine\dependencies\include\TMX;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
     <LibraryPath>E:\git_repositories\JohnnyEngine\dependencies\lib\Windows\x86\Release;E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine\x86\Release;$(LibraryPath)</LibraryPath>
@@ -121,6 +121,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>JohnnyEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
