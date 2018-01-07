@@ -1,1 +1,7 @@
-﻿  JohnnyEngine-Template.vcxproj -> E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine-Template\\x86\Release\JohnnyEngine-Template.exe
+﻿  Game.cpp
+  main.cpp
+     Bibliothek "E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine-Template\\x86\Release\JohnnyEngine-Template.lib" und Objekt "E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine-Template\\x86\Release\JohnnyEngine-Template.exp" werden erstellt.
+  Code wird generiert.
+  All 4043 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Codegenerierung ist abgeschlossen.
+  JohnnyEngine-Template.vcxproj -> E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine-Template\\x86\Release\JohnnyEngine-Template.exe

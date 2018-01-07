@@ -1,1 +1,102 @@
-﻿  JohnnyEngine.vcxproj -> E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine\\x86\Release\JohnnyEngine.lib
+﻿  Actor.cpp
+  Camera2D.cpp
+  Camera3D.cpp
+  Colors.cpp
+  ContactListener.cpp
+  CubeMap3D.cpp
+  DebugMovement2D.cpp
+  DebugMovement3D.cpp
+  Entity3D.cpp
+  FrameBuffer.cpp
+  Framework.cpp
+  Geometry.cpp
+  GLFWFramework.cpp
+  InputManager.cpp
+  JoystickListener.cpp
+  JoystickManager.cpp
+  Light3D.cpp
+  LogManager.cpp
+  MainClass.cpp
+  mathematics.cpp
+  Kompilieren...
+  Matrix3.cpp
+  Matrix4.cpp
+  Mesh3D.cpp
+  Model3D.cpp
+  OBJLoader.cpp
+..\..\..\src\OBJLoader.cpp(98): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(103): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(109): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(534): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(540): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(546): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(556): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(562): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(568): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(577): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(583): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(589): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(599): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(605): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(611): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(620): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(626): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+..\..\..\src\OBJLoader.cpp(632): warning C4244: "Argument": Konvertierung von "double" in "const GLfloat", möglicher Datenverlust
+  operators.cpp
+  Physics2D.cpp
+  PhysicsSprite2D.cpp
+  RenderBuffer.cpp
+  RenderManager.cpp
+  RenderTexture.cpp
+  RenderUtil.cpp
+  ResourceManager.cpp
+  SDLFramework.cpp
+..\..\..\src\SDLFramework.cpp(514): warning C4244: "=": Konvertierung von "const SDL_FingerID" in "long", möglicher Datenverlust
+..\..\..\src\SDLFramework.cpp(517): warning C4244: "=": Konvertierung von "const SDL_TouchID" in "long", möglicher Datenverlust
+..\..\..\src\SDLFramework.cpp(526): warning C4244: "=": Konvertierung von "const SDL_TouchID" in "long", möglicher Datenverlust
+..\..\..\src\SDLFramework.cpp(532): warning C4244: "=": Konvertierung von "const SDL_GestureID" in "long", möglicher Datenverlust
+..\..\..\src\SDLFramework.cpp(535): warning C4244: "=": Konvertierung von "const SDL_TouchID" in "long", möglicher Datenverlust
+  Settings.cpp
+  Shader.cpp
+  ShaderUpdater.cpp
+  ShadowMap3D.cpp
+  Skybox.cpp
+  Sprite2D.cpp
+  Kompilieren...
+  TextActor2D.cpp
+  Texture.cpp
+  TiledMap.cpp
+  Timer.cpp
+  Transform2D.cpp
+  Transform3D.cpp
+  Tween.cpp
+  Vector2.cpp
+  Vector3.cpp
+  Vector4.cpp
+  Vertex3D.cpp
+  Window.cpp
+  SDL2_framerate.c
+  SDL2_gfxPrimitives.c
+  SDL2_imageFilter.c
+  SDL2_rotozoom.c
+  stb_image.c
+glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+glfw3.lib(glfw3.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+SDL2.lib(SDL2.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+SDL2_ttf.lib(SDL2_ttf.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+tmxparser.lib(TmxImageLayer.obj) : warning LNK4006: "public: enum tinyxml2::XMLError __thiscall tinyxml2::XMLElement::QueryIntAttribute(char const *,int *)const " (?QueryIntAttribute@XMLElement@tinyxml2@@QBE?AW4XMLError@2@PBDPAH@Z) ist bereits in "tmxparser.lib(TmxImageLayer.obj)" definiert; zweite Definition wird ignoriert.
+tmxparser.lib(TmxImageLayer.obj) : warning LNK4006: "public: enum tinyxml2::XMLError __thiscall tinyxml2::XMLElement::QueryFloatAttribute(char const *,float *)const " (?QueryFloatAttribute@XMLElement@tinyxml2@@QBE?AW4XMLError@2@PBDPAM@Z) ist bereits in "tmxparser.lib(TmxImageLayer.obj)" definiert; zweite Definition wird ignoriert.
+tmxparser.lib(TmxImageLayer.obj) : warning LNK4006: "public: enum tinyxml2::XMLError __thiscall tinyxml2::XMLElement::QueryBoolAttribute(char const *,bool *)const " (?QueryBoolAttribute@XMLElement@tinyxml2@@QBE?AW4XMLError@2@PBDPA_N@Z) ist bereits in "tmxparser.lib(TmxImageLayer.obj)" definiert; zweite Definition wird ignoriert.
+tmxparser.lib(TmxMap.obj) : warning LNK4006: "public: class tinyxml2::XMLNode const * __thiscall tinyxml2::XMLNode::NextSibling(void)const " (?NextSibling@XMLNode@tinyxml2@@QBEPBV12@XZ) ist bereits in "tmxparser.lib(TmxMap.obj)" definiert; zweite Definition wird ignoriert.
+tmxparser.lib(TmxMap.obj) : warning LNK4006: "public: class tinyxml2::XMLElement * __thiscall tinyxml2::XMLNode::FirstChildElement(char const *)" (?FirstChildElement@XMLNode@tinyxml2@@QAEPAVXMLElement@2@PBD@Z) ist bereits in "tmxparser.lib(TmxMap.obj)" definiert; zweite Definition wird ignoriert.
+tmxparser.lib(TmxMap.obj) : warning LNK4006: "public: class tinyxml2::XMLNode * __thiscall tinyxml2::XMLNode::FirstChild(void)" (?FirstChild@XMLNode@tinyxml2@@QAEPAV12@XZ) ist bereits in "tmxparser.lib(TmxMap.obj)" definiert; zweite Definition wird ignoriert.
+tmxparser.lib(TmxTileset.obj) : warning LNK4006: "public: enum tinyxml2::XMLError __thiscall tinyxml2::XMLDocument::ErrorID(void)const " (?ErrorID@XMLDocument@tinyxml2@@QBE?AW4XMLError@2@XZ) ist bereits in "tmxparser.lib(TmxTileset.obj)" definiert; zweite Definition wird ignoriert.
+tmxparser.lib(TmxMap.obj) : warning LNK4006: "public: bool __thiscall tinyxml2::XMLDocument::Error(void)const " (?Error@XMLDocument@tinyxml2@@QBE_NXZ) ist bereits in "tmxparser.lib(TmxMap.obj)" definiert; zweite Definition wird ignoriert.
+tinyxml2.lib(tinyxml2.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+OpenGL32.lib(OPENGL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+assimp-vc140-mt.lib(assimp-vc140-mt.dll) : warning LNK4006: "public: struct aiScene const * __thiscall Assimp::Importer::ReadFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,unsigned int)" (?ReadFile@Importer@Assimp@@QAEPBUaiScene@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z) ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+assimp-vc140-mt.lib(assimp-vc140-mt.dll) : warning LNK4006: "public: enum aiReturn __thiscall aiMaterial::Get(char const *,unsigned int,unsigned int,struct aiString &)const " (?Get@aiMaterial@@QBE?AW4aiReturn@@PBDIIAAUaiString@@@Z) ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+assimp-vc140-mt.lib(assimp-vc140-mt.dll) : warning LNK4006: "public: enum aiReturn __thiscall aiMaterial::Get(char const *,unsigned int,unsigned int,struct aiColor3D &)const " (?Get@aiMaterial@@QBE?AW4aiReturn@@PBDIIAAUaiColor3D@@@Z) ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+assimp-vc140-mt.lib(assimp-vc140-mt.dll) : warning LNK4006: "public: enum aiReturn __thiscall aiMaterial::Get(char const *,unsigned int,unsigned int,float &)const " (?Get@aiMaterial@@QBE?AW4aiReturn@@PBDIIAAM@Z) ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+assimp-vc140-mt.lib(assimp-vc140-mt.dll) : warning LNK4006: "public: enum aiReturn __thiscall aiMaterial::GetTexture(enum aiTextureType,unsigned int,struct aiString *,enum aiTextureMapping *,unsigned int *,float *,enum aiTextureOp *,enum aiTextureMapMode *)const " (?GetTexture@aiMaterial@@QBE?AW4aiReturn@@W4aiTextureType@@IPAUaiString@@PAW4aiTextureMapping@@PAIPAMPAW4aiTextureOp@@PAW4aiTextureMapMode@@@Z) ist bereits in "assimp-vc140-mt.lib(assimp-vc140-mt.dll)" definiert; zweite Definition wird ignoriert.
+  JohnnyEngine.vcxproj -> E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine\\x86\Release\JohnnyEngine.lib

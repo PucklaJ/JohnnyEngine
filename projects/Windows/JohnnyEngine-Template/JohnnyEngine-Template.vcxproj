@@ -70,24 +70,24 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\git_repositories\JohnnyEngine\dependencies\include;E:\git_repositories\JohnnyEngine\dependencies\include\TMX\base64;E:\git_repositories\JohnnyEngine\include;E:\git_repositories\JohnnyEngine\dependencies\include\TMX;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine\x86\Debug;E:\git_repositories\JohnnyEngine\dependencies\lib\Windows\x86\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\..\include;..\..\..\dependencies\include;..\..\..\dependencies\include\TMX\base64;..\..\..\dependencies\include\TMX;$(IncludePath)</IncludePath>
+    <LibraryPath>..\JohnnyEngine\x86\Debug;..\..\..\dependencies\lib\Windows\x86\Debug;$(LibraryPath)</LibraryPath>
     <OutDir>$(ProjectDir)\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>E:\git_repositories\JohnnyEngine\dependencies\include;E:\git_repositories\JohnnyEngine\dependencies\include\TMX\base64;E:\git_repositories\JohnnyEngine\include;E:\git_repositories\JohnnyEngine\dependencies\include\TMX;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\..\include;..\..\..\dependencies\include;..\..\..\dependencies\include\TMX\base64;..\..\..\dependencies\include\TMX;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
-    <LibraryPath>E:\git_repositories\JohnnyEngine\dependencies\lib\Windows\x86\Release;E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine\x86\Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\..\dependencies\lib\Windows\x86\Release;..\JohnnyEngine\x86\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>E:\git_repositories\JohnnyEngine\dependencies\include;E:\git_repositories\JohnnyEngine\include\TMX\base64;E:\git_repositories\JohnnyEngine\include;E:\git_repositories\JohnnyEngine\include\TMX;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\..\include;..\..\..\dependencies\include;..\..\..\dependencies\include\TMX\base64;..\..\..\dependencies\include\TMX;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>E:\git_repositories\JohnnyEngine\dependencies\include;E:\git_repositories\JohnnyEngine\include\TMX\base64;E:\git_repositories\JohnnyEngine\include;E:\git_repositories\JohnnyEngine\include\TMX;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\..\include;..\..\..\dependencies\include;..\..\..\dependencies\include\TMX\base64;..\..\..\dependencies\include\TMX;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
   </PropertyGroup>

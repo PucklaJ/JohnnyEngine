@@ -2,9 +2,9 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## Release
+## Debug
 ProjectName            :=JohnnyEngine-Template
-ConfigurationName      :=Release
+ConfigurationName      :=Debug
 WorkspacePath          :=/media/johnny/Daten/Meine_Projekte/CodeLiteProjects/Linux/JohnnyEngine
 ProjectPath            :=/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu
 IntermediateDirectory  :=$(ProjectPath)/$(ConfigurationName)/obj
@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Jonas Pucher
-Date                   :=06/01/18
+Date                   :=07/01/18
 CodeLitePath           :=/home/johnny/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -28,7 +28,7 @@ LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
 OutputFile             :=$(ProjectPath)/$(ConfigurationName)/$(ProjectName)
-Preprocessors          :=$(PreprocessorSwitch)NDEBUG 
+Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E
@@ -39,9 +39,9 @@ LinkOptions            :=
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)$(JOHNNY_INCLUDE) $(IncludeSwitch)$(JOHNNY_DEPS_INCLUDE) $(IncludeSwitch)$(JOHNNY_DEPS_INCLUDE)/TMX $(IncludeSwitch)$(JOHNNY_DEPS_INCLUDE)/TMX/base64 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)JohnnyEngine $(LibrarySwitch)Box2D $(LibrarySwitch)assimp $(LibrarySwitch)tmxparser $(LibrarySwitch)z $(LibrarySwitch)tinyxml2 $(LibrarySwitch)glfw3 $(LibrarySwitch)SDL2_ttf $(LibrarySwitch)SDL2 $(LibrarySwitch)SDL2main $(LibrarySwitch)GLEW $(LibrarySwitch)GL $(LibrarySwitch)dl $(LibrarySwitch)X11 $(LibrarySwitch)pthread 
-ArLibs                 :=  "libJohnnyEngine" "libBox2D" "libassimp" "libtmxparser" "libz" "libtinyxml2" "libglfw3" "libSDL2_ttf" "libSDL2" "libSDL2main" "libGLEW" "GL" "dl" "X11" "pthread" 
-LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)$(JOHNNY_LIB) $(LibraryPathSwitch)$(JOHNNY_DEPS_LIB) 
+Libs                   := $(LibrarySwitch)JohnnyEngine_d $(LibrarySwitch)Box2D $(LibrarySwitch)assimp $(LibrarySwitch)tmxparser $(LibrarySwitch)z $(LibrarySwitch)tinyxml2 $(LibrarySwitch)glfw3 $(LibrarySwitch)SDL2_ttf $(LibrarySwitch)SDL2 $(LibrarySwitch)SDL2main $(LibrarySwitch)GLEW $(LibrarySwitch)GL $(LibrarySwitch)dl $(LibrarySwitch)X11 $(LibrarySwitch)pthread 
+ArLibs                 :=  "libJohnnyEngine_d" "libBox2D" "libassimp" "libtmxparser" "libz" "libtinyxml2" "libglfw3" "libSDL2_ttf" "libSDL2" "libSDL2main" "libGLEW" "GL" "dl" "X11" "pthread" 
+LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)$(JOHNNY_LIB_DBG) $(LibraryPathSwitch)$(JOHNNY_DEPS_LIB) 
 
 ##
 ## Common variables
@@ -50,8 +50,8 @@ LibPath                := $(LibraryPathSwitch). $(LibraryPathSwitch)$(JOHNNY_LIB
 AR       := /usr/bin/ar rcu
 CXX      := /usr/bin/g++
 CC       := /usr/bin/gcc
-CXXFLAGS :=  -O3 -w -std=c++11 -Wall $(Preprocessors)
-CFLAGS   :=  -O3 -Wall -w $(Preprocessors)
+CXXFLAGS :=  -g -O0 -W -std=c++11 -Wall -Wno-ignored-qualifiers -Wno-unused-parameter $(Preprocessors)
+CFLAGS   :=  -g -O0 -W -Wall -Wno-ignored-qualifiers -Wno-unused-parameter $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
 

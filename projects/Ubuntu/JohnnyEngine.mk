@@ -2,9 +2,9 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## Release
+## Debug
 ProjectName            :=JohnnyEngine
-ConfigurationName      :=Release
+ConfigurationName      :=Debug
 WorkspacePath          :=/media/johnny/Daten/Meine_Projekte/CodeLiteProjects/Linux/JohnnyEngine
 ProjectPath            :=/media/johnny/Daten/git_repositories/JohnnyEngine/projects/Ubuntu
 IntermediateDirectory  :=$(ProjectPath)/$(ConfigurationName)/obj
@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Jonas Pucher
-Date                   :=06/01/18
+Date                   :=07/01/18
 CodeLitePath           :=/home/johnny/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -27,7 +27,7 @@ OutputSwitch           :=-o
 LibraryPathSwitch      :=-L
 PreprocessorSwitch     :=-D
 SourceSwitch           :=-c 
-OutputFile             :=$(ProjectPath)/$(ConfigurationName)/lib$(ProjectName).a
+OutputFile             :=$(ProjectPath)/$(ConfigurationName)/lib$(ProjectName)_d.a
 Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
@@ -50,8 +50,8 @@ LibPath                := $(LibraryPathSwitch).
 AR       := /usr/bin/ar rcu
 CXX      := /usr/bin/g++
 CC       := /usr/bin/gcc
-CXXFLAGS :=  -O3 -std=c++11 -w $(Preprocessors)
-CFLAGS   :=  -O3 -w $(Preprocessors)
+CXXFLAGS :=  -g -O0 -W -std=c++11 -Wall -Wno-ignored-qualifiers -Wno-unused-parameter $(Preprocessors)
+CFLAGS   :=  -g -O0 -w $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
 
@@ -82,8 +82,8 @@ $(OutputFile): $(Objects)
 	@echo "" > $(IntermediateDirectory)/.d
 	@echo $(Objects0)  > $(ObjectsFileList)
 	$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList) $(ArLibs)
-	@$(MakeDirCommand) "/media/johnny/Daten/Meine_Projekte/CodeLiteProjects/Linux/JohnnyEngine/.build-release"
-	@echo rebuilt > "/media/johnny/Daten/Meine_Projekte/CodeLiteProjects/Linux/JohnnyEngine/.build-release/JohnnyEngine"
+	@$(MakeDirCommand) "/media/johnny/Daten/Meine_Projekte/CodeLiteProjects/Linux/JohnnyEngine/.build-debug"
+	@echo rebuilt > "/media/johnny/Daten/Meine_Projekte/CodeLiteProjects/Linux/JohnnyEngine/.build-debug/JohnnyEngine"
 
 MakeIntermediateDirs:
 	@test -d $(ProjectPath)/$(ConfigurationName)/obj || $(MakeDirCommand) $(ProjectPath)/$(ConfigurationName)/obj
