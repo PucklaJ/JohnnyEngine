@@ -9,12 +9,6 @@
   <VirtualDirectory Name="include">
     <File Name="Game.h"/>
   </VirtualDirectory>
-  <Dependencies Name="Debug">
-    <Project Name="JohnnyEngine"/>
-  </Dependencies>
-  <Dependencies Name="Release">
-    <Project Name="JohnnyEngine"/>
-  </Dependencies>
   <VirtualDirectory Name="res">
     <VirtualDirectory Name="shaders">
       <File Name="res/shaders/fragmentShader.glsl"/>
@@ -170,4 +164,10 @@
       </Completion>
     </Configuration>
   </Settings>
+  <Dependencies Name="Debug">
+    <Project Name="JohnnyEngine"/>
+  </Dependencies>
+  <Dependencies Name="Release">
+    <Project Name="JohnnyEngine"/>
+  </Dependencies>
 </CodeLite_Project>

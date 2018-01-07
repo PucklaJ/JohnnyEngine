@@ -15,7 +15,6 @@
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_platform.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/begin_code.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/close_code.h \
- /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_config_minimal.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_assert.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_atomic.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_audio.h \
@@ -140,8 +139,6 @@
 /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/begin_code.h:
 
 /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/close_code.h:
-
-/media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_config_minimal.h:
 
 /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_assert.h:
 

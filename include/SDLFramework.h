@@ -42,6 +42,11 @@ namespace Johnny
         void closeController(void* handle) override;
         bool isAttachedController(void* handle) override;
         
+        void lockAndHideCursor() override;
+        void hideCursor() override;
+        void showCursor() override;
+        bool isCursorHidden() override;
+        
     private:
         Uint32 initFlagsToSDLFlags(FrameworkInitFlags flags);
         Uint32 windowFlagsToSDLFlags(WindowFlags flags);

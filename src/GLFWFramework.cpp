@@ -12,6 +12,7 @@ namespace Johnny
 	bool GLFWFramework::wasEvent = false;
 	bool GLFWFramework::polledEvents = false;
 	std::queue<Event> GLFWFramework::events;
+    Vector2d GLFWFramework::m_prevMousePos;
 
 	bool GLFWFramework::init(FrameworkInitFlags flags)
 	{
@@ -77,6 +78,8 @@ namespace Johnny
 
 		glfwSetKeyCallback(handle, onKey);
 		glfwSetWindowSizeCallback(handle, onResize);
+        glfwSetCursorPosCallback(handle,onMouseMove);
+        glfwSetMouseButtonCallback(handle,onMouseButton);
 		
 		return window;
 	}
@@ -112,7 +115,7 @@ namespace Johnny
 		
 		if (!events.empty())
 		{
-			event = events.back();
+			event = events.front();
 			events.pop();
 			wasEvent = true;
 		}
@@ -120,7 +123,9 @@ namespace Johnny
 		{
 			polledEvents = false;
 		}
-
+        
+        glfwGetCursorPos((GLFWwindow*)MainClass::getInstance()->getWindow()->getHandle(),&m_prevMousePos.x,&m_prevMousePos.y);
+        
 		return wasEvent;
 	}
 	bool GLFWFramework::setWindowTitle(Window * window, const std::string & title)
@@ -222,6 +227,26 @@ namespace Johnny
 	{
 		return false;
 	}
+    
+    void GLFWFramework::lockAndHideCursor()
+    {
+        glfwSetInputMode((GLFWwindow*)MainClass::getInstance()->getWindow()->getHandle(),GLFW_CURSOR,GLFW_CURSOR_DISABLED);
+    }
+    
+    void GLFWFramework::hideCursor()
+    {
+        glfwSetInputMode((GLFWwindow*)MainClass::getInstance()->getWindow()->getHandle(),GLFW_CURSOR,GLFW_CURSOR_HIDDEN);
+    }
+    
+    void GLFWFramework::showCursor()
+    {
+        glfwSetInputMode((GLFWwindow*)MainClass::getInstance()->getWindow()->getHandle(),GLFW_CURSOR,GLFW_CURSOR_NORMAL);
+    }
+    
+    bool GLFWFramework::isCursorHidden()
+    {
+        return glfwGetInputMode((GLFWwindow*)MainClass::getInstance()->getWindow()->getHandle(),GLFW_CURSOR) != GLFW_CURSOR_NORMAL;
+    }
 
 	void GLFWFramework::onError(int error, const char* description)
 	{
@@ -232,13 +257,13 @@ namespace Johnny
 	void GLFWFramework::onKey(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		Event e;
-		e.type = action == GLFW_PRESS ? EventType::KeyDown : (action == GLFW_RELEASE ? EventType::KeyUp : EventType::KeyDown);
-		e.key.type = action == GLFW_PRESS ? EventType::KeyDown : (action == GLFW_RELEASE ? EventType::KeyUp : EventType::KeyDown);
-		e.key.state = action == GLFW_PRESS ? 1 : (action == GLFW_RELEASE ? 0 : 1);
+		e.type = action == GLFW_PRESS ? EventType::KeyDown : (action == GLFW_RELEASE ? EventType::KeyUp : EventType::Undefined);
+		e.key.type = action == GLFW_PRESS ? EventType::KeyDown : (action == GLFW_RELEASE ? EventType::KeyUp : EventType::Undefined);
+		e.key.state = action == GLFW_PRESS ? 1 : (action == GLFW_RELEASE ? 0 : 2);
 		e.key.windowID = 0;
 		e.key.repeat = action == GLFW_REPEAT ? 1 : 0;
 		e.key.key = toJohnnyKeys(key);
-
+        
 		events.push(e);
 		wasEvent = true;
 	}
@@ -247,6 +272,29 @@ namespace Johnny
 	{
 		MainClass::getInstance()->onResize(width, height);
 	}
+    
+    void GLFWFramework::onMouseMove(GLFWwindow* window, double xpos, double ypos)
+    {
+        Event e;
+        e.type = EventType::MouseMotion;
+        e.motion.x = (int)xpos;
+        e.motion.y = (int)ypos;
+        e.motion.xrel = (int)(xpos - m_prevMousePos.x);
+        e.motion.yrel = (int)(ypos - m_prevMousePos.y);
+        
+        events.push(e);
+        wasEvent = true;
+    }
+    
+    void GLFWFramework::onMouseButton(GLFWwindow* window, int button, int action, int mods)
+    {
+        Event e;
+        e.type = action == GLFW_PRESS ? EventType::MouseButtonDown : (action == GLFW_RELEASE ? EventType::MouseButtonUp : EventType::Undefined);
+        e.button.button = button == GLFW_MOUSE_BUTTON_LEFT ? Keys::MS_LEFT : (button == GLFW_MOUSE_BUTTON_RIGHT ? Keys::MS_RIGHT : Keys::MS_MIDDLE);
+        
+        events.push(e);
+        wasEvent = true;
+    }
 
 	Keys GLFWFramework::toJohnnyKeys(int key)
 	{

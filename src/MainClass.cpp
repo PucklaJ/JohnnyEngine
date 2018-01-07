@@ -437,6 +437,11 @@ namespace Johnny
 		return m_camera2D;
 	}
     
+    const Colorb& MainClass::getAmbientLight3D() const
+    {
+        return m_lighting3D->ambientLight;
+    }
+    
     void MainClass::onResize(unsigned int w,unsigned int h)
     {
         double normScale = m_nativeResolution.x/m_nativeResolution.y;

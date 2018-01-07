@@ -173,6 +173,10 @@ namespace Johnny
              *
              */
             const Colorb& getBackgroundColor() const {return m_backgroundColor;}
+            /*! \return The ambient Light
+             *
+             */
+             const Colorb& getAmbientLight3D() const;
             
             /*! \brief The render function
              *

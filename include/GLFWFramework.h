@@ -44,10 +44,17 @@ namespace Johnny
 		void* openController(int id) override;
 		void closeController(void* handle) override;
 		bool isAttachedController(void* handle) override;
+        
+        void lockAndHideCursor() override;
+        void hideCursor() override;
+        void showCursor() override;
+        bool isCursorHidden() override;
 	private:
 		static void onError(int error, const char* description);
 		static void onKey(GLFWwindow* window, int key, int scancode, int action, int mods);
 		static void onResize(GLFWwindow* window, int width, int height);
+        static void onMouseMove(GLFWwindow* window, double xpos, double ypos);
+        static void onMouseButton(GLFWwindow* window, int button, int action, int mods);
 
 		static Keys toJohnnyKeys(int key);
 
@@ -56,6 +63,8 @@ namespace Johnny
 
 		static bool wasEvent;
 		static bool polledEvents;
+        
+        static Vector2d m_prevMousePos;
 	};
 }
 

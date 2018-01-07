@@ -11,7 +11,6 @@
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_platform.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/begin_code.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/close_code.h \
- /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_config_minimal.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_error.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_video.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_pixels.h \
@@ -111,11 +110,10 @@
  ../../src/../include/ShaderUpdater.h ../../src/../include/Shader.h \
  ../../src/../include/RenderManager.h ../../src/../include/Texture.h \
  ../../src/../include/FrameBuffer.h ../../src/../include/RenderBuffer.h \
- ../../src/../include/Mesh3D.h \
- ../../src/../include/../include/OBJLoader.h \
- ../../src/../include/../include/Colors.h ../../src/../include/Skybox.h \
- ../../src/../include/Settings.h ../../src/../include/Camera2D.h \
- ../../src/../include/Transform2D.h ../../src/../include/Physics2D.h \
+ ../../src/../include/Mesh3D.h ../../src/../include/OBJLoader.h \
+ ../../src/../include/Skybox.h ../../src/../include/Settings.h \
+ ../../src/../include/Camera2D.h ../../src/../include/Transform2D.h \
+ ../../src/../include/Physics2D.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/Box2D/Box2D.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/Box2D/Common/b2Settings.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/Box2D/Common/b2Draw.h \
@@ -180,8 +178,6 @@
 /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/begin_code.h:
 
 /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/close_code.h:
-
-/media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_config_minimal.h:
 
 /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_error.h:
 
@@ -407,9 +403,7 @@
 
 ../../src/../include/Mesh3D.h:
 
-../../src/../include/../include/OBJLoader.h:
-
-../../src/../include/../include/Colors.h:
+../../src/../include/OBJLoader.h:
 
 ../../src/../include/Skybox.h:
 

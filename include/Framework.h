@@ -108,6 +108,11 @@ namespace Johnny
         virtual void closeController(void* handle) = 0;
         virtual bool isAttachedController(void* handle)=0;
         
+        virtual void lockAndHideCursor() = 0;
+        virtual void hideCursor() = 0;
+        virtual void showCursor() = 0;
+        virtual bool isCursorHidden() = 0;
+        
         Event event;
     };
 }

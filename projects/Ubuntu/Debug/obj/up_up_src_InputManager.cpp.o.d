@@ -10,7 +10,6 @@
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_platform.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/begin_code.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/close_code.h \
- /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_config_minimal.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_scancode.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_mouse.h \
  /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_error.h \
@@ -54,8 +53,6 @@
 /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/begin_code.h:
 
 /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/close_code.h:
-
-/media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_config_minimal.h:
 
 /media/johnny/Daten/git_repositories/JohnnyEngine/dependencies/include/SDL2/SDL_scancode.h:
 

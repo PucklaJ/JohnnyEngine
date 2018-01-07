@@ -239,6 +239,28 @@ namespace Johnny
         return SDL_GameControllerGetAttached((SDL_GameController*)handle) == SDL_TRUE ? true : false;
     }
     
+    void SDLFramework::lockAndHideCursor()
+    {
+        SDL_SetRelativeMouseMode(SDL_TRUE);
+    }
+    
+    void SDLFramework::hideCursor()
+    {
+        SDL_SetRelativeMouseMode(SDL_FALSE);
+        SDL_ShowCursor(0);
+    }
+    
+    void SDLFramework::showCursor()
+    {
+        SDL_SetRelativeMouseMode(SDL_FALSE);
+        SDL_ShowCursor(1);
+    }
+    
+    bool SDLFramework::isCursorHidden()
+    {
+        return SDL_GetRelativeMouseMode() || SDL_ShowCursor(-1) == 0;
+    }
+    
     Uint32 SDLFramework::initFlagsToSDLFlags(FrameworkInitFlags flags)
     {
         Uint32 sdlFlags = 0;

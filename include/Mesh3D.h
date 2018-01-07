@@ -1,6 +1,8 @@
 #pragma once
 #include <GL/glew.h>
-#include "../include/OBJLoader.h"
+#include "OBJLoader.h"
+#include "Vector2.h"
+#include "Vector3.h"
 #include <assimp/scene.h>
 
 
@@ -17,6 +19,9 @@ namespace Johnny
 	class Mesh3D
 	{
 	public:
+        static Mesh3D* plane(const Vector2f& size);
+        static Mesh3D* box(const Vector3f& size);
+    
 		Mesh3D();
 		/*! \brief Creates a Mesh3D from a aiMesh
 		 *  \param mesh The aiMesh from which to take the data

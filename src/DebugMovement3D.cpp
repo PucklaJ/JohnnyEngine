@@ -19,8 +19,6 @@ namespace Johnny
 
 	bool DebugMovement3D::init()
 	{
-		SDL_SetRelativeMouseMode(SDL_TRUE);
-
 		return true;
 	}
 
@@ -64,10 +62,10 @@ namespace Johnny
 
 		if (m_mainClass->getInputManager()->justPressed(Keys::ESCAPE))
 		{
-			SDL_SetRelativeMouseMode(SDL_FALSE);
+			m_mainClass->getFramework()->showCursor();
 		}
 
-		if (SDL_GetRelativeMouseMode())
+		if (m_mainClass->getFramework()->isCursorHidden())
 		{
 			GLfloat x = -m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().yrel;
 			GLfloat y = -m_lookSpeed * (float)m_mainClass->getInputManager()->getMouse().xrel;
@@ -77,7 +75,7 @@ namespace Johnny
 		}
 		else if (m_mainClass->getInputManager()->justPressed(Keys::MS_LEFT))
 		{
-			SDL_SetRelativeMouseMode(SDL_TRUE);
+			m_mainClass->getFramework()->lockAndHideCursor();
 		}
 
 		return true;
