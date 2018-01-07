@@ -1,7 +1,7 @@
 ﻿  Game.cpp
-  main.cpp
-     Bibliothek "E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine-Template\\x86\Release\JohnnyEngine-Template.lib" und Objekt "E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine-Template\\x86\Release\JohnnyEngine-Template.exp" werden erstellt.
   Code wird generiert.
-  All 4043 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  530 of 4043 functions (13.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    29 functions had inline decision re-evaluated but remain unchanged
   Codegenerierung ist abgeschlossen.
   JohnnyEngine-Template.vcxproj -> E:\git_repositories\JohnnyEngine\projects\Windows\JohnnyEngine-Template\\x86\Release\JohnnyEngine-Template.exe

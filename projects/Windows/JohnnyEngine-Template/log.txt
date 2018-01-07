@@ -32,3 +32,15 @@
 [07:01:2018] [14:22:41] Initializing Engine
 [07:01:2018] [14:22:41] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
 [07:01:2018] [14:22:41] Finished Initializing Engine
+[07:01:2018] [14:52:03] Initializing Engine
+[07:01:2018] [14:52:03] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[07:01:2018] [14:52:03] Finished Initializing Engine
+[07:01:2018] [14:53:07] Initializing Engine
+[07:01:2018] [14:53:07] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[07:01:2018] [14:53:07] Finished Initializing Engine
+[07:01:2018] [14:54:23] Initializing Engine
+[07:01:2018] [14:54:24] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[07:01:2018] [14:54:24] Finished Initializing Engine
+[07:01:2018] [14:57:22] Initializing Engine
+[07:01:2018] [14:57:23] OpenGL-Version: 3.3.13474 Core Profile Context 22.19.162.4
+[07:01:2018] [14:57:23] Finished Initializing Engine
