@@ -201,7 +201,6 @@ namespace Johnny
 
 		m_framework->initWindow();
 
-        //m_window = new Window(this,m_windowTitle,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,m_windowWidth,m_windowHeight,SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | m_initWindowFlags);
         m_window = m_framework->createWindow(m_windowTitle,150,150,m_windowWidth,m_windowHeight,FlagsWindow::Shown | FlagsWindow::OpenGL | m_initWindowFlags);
         
         if(!m_window || !m_window->getHandle())

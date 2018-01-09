@@ -62,7 +62,7 @@ namespace Johnny
 			DEFAULT_SHADER->addUniform("transform");
 			DEFAULT_SHADER->addUniform("ambientLight");
 			DEFAULT_SHADER->addUniform("worldMatrix", false);
-			DEFAULT_SHADER->addUniform("eyePosition");
+			DEFAULT_SHADER->addUniform("eyePosition",false);
 			Material::setUniforms(DEFAULT_SHADER);
             
             DEFAULT_SHADER->setShaderUpdater<ShaderUpdater>();

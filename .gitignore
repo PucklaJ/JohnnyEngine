@@ -1,3 +1,6 @@
 .DS_Store
 
 .ipch
+.obj
+.o
+.o.d

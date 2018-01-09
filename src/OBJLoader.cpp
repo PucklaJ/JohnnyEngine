@@ -489,10 +489,10 @@ namespace Johnny
 	void Material::setUniforms(Shader* s, bool withTextures)
 	{
 		s->addUniform("material.ambientColor");
-		s->addUniform("material.diffuseColor");
-		s->addUniform("material.specularColor");
+		s->addUniform("material.diffuseColor",false);
+		s->addUniform("material.specularColor",false);
 		s->addUniform("material.transperancy");
-		s->addUniform("material.specularExponent");
+		s->addUniform("material.specularExponent",false);
 		//s->addUniform("material.emittedLight");
 		s->addUniform("material.transmissionFilter");
 		if (withTextures)
