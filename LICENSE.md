@@ -1,5 +1,3 @@
-The zlib/libpng License 
- 
 Copyright (c) 2017 Jonas Pucher 
  
 This software is provided 'as-is', without any express or implied 
