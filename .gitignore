@@ -1,6 +1,10 @@
+.*
+!.gitignore
 .DS_Store
 
 .ipch
 .obj
 .o
 .o.d
+compile_commands.json
+build
