@@ -5,7 +5,7 @@
 #include "Actor.h"
 #include "Window.h"
 #include <chrono>
-#include "SDL2_framerate.h"
+#include <SDL2/SDL2_framerate.h>
 #include <SDL2/SDL_pixels.h>
 #include <SDL2/SDL_mixer.h>
 #include <GL/glew.h>

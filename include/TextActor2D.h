@@ -2,15 +2,7 @@
 #define TEXTACTOR_H
 #include "../include/Actor.h"
 #include <GL/glew.h>
-#ifdef __linux__
-    #include <SDL2/SDL_ttf.h>
-#else
-#ifdef _WIN32
-    #include <TTF/SDL_ttf.h>
-#else
-    #include <SDL2_ttf/SDL_ttf.h>
-#endif
-#endif
+#include <SDL2/SDL_ttf.h>
 #include <string>
 #include "Sprite2D.h"
 

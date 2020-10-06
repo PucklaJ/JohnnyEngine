@@ -761,7 +761,7 @@ namespace Johnny
             v[polyline->GetNumPoints()-1-i] = m_mainClass->getPhysics2D()->coordsPixelToWorld(Vector2f(xb,yb));
         }
         
-        shape.CreateChain(v,polyline->GetNumPoints());
+        shape.CreateChain(v,polyline->GetNumPoints(), v[0], v[polyline->GetNumPoints()-1]);
         delete[] v;
         
         fdef.shape = &shape;

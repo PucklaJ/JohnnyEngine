@@ -22,15 +22,7 @@
 #include "../include/Settings.h"
 #include "../include/Camera2D.h"
 #include "../include/Physics2D.h"
-#ifdef _WIN32
-#include <TTF/SDL_ttf.h>
-#endif
-#ifdef __linux__
 #include <SDL2/SDL_ttf.h>
-#endif
-#ifdef __APPLE__
-#include <SDL2_ttf/SDL_ttf.h>
-#endif
 #include "../include/Timer.h"
 //#define DEBUG_OUTPUTS
 
@@ -188,7 +180,11 @@ namespace Johnny
 #ifndef __LINUX__
         m_framework = Framework::createFramework(Frameworks::SDL);
 #else
+#ifdef USE_GLFW
         m_framework = Framework::createFramework(Frameworks::GLFW);
+#else
+        m_framework = Framework::createFramework(Frameworks::SDL);
+#endif
 #endif
         if(!m_framework->init(FlagsInitFramework::Everything))
         {

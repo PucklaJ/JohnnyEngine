@@ -1,7 +1,7 @@
 #ifndef TILED_MAP_H
 #define TILED_MAP_H
 #include "Sprite2D.h"
-#include <TMX/Tmx.h>
+#include <Tmx.h>
 #include <string>
 #include <vector>
 #include "Physics2D.h"
