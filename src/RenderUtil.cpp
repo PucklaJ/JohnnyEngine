@@ -46,6 +46,13 @@ namespace Johnny
 			glDisable(GL_MULTISAMPLE);
 
 		//glEnable(GL_FRAMEBUFFER_SRGB);
+        GLint numExtensions;
+        glGetIntegerv(GL_NUM_EXTENSIONS,&numExtensions);
+        for(GLuint i = 0;i<numExtensions;i++)
+        {   
+            const GLubyte* ext = glGetStringi(GL_EXTENSIONS,i);
+            std::cout << "Extension: " << ext << std::endl;
+        }
         
 		return MainClass::getInstance()->getFramework()->initGraphics();
 	}

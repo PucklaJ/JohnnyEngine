@@ -116,7 +116,7 @@ namespace Johnny
 			direction = m_directionalLight->direction;
 
 			lightView = Matrix4f::lookAt(-direction * 1.3f, -direction * 1.3f + direction, Vector3f(0.0f, 1.0f, 0.0f));
-			lightProjection = Matrix4f::orthographic(10.0f, -10.0f, 10.0f, -10.0f, 100.0f, 0.1f);
+			lightProjection = Matrix4f::orthographic(100.0f, -100.0f, 100.0f, -100.0f, 100.0f, 0.1f);
 			
         }
 		else if (m_curLight == SHADOW_SPOT)
