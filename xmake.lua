@@ -1,5 +1,6 @@
 set_project("johnny-engine")
 
+add_repositories("box2d_xmake https://github.com/PucklaMotzer09/xmake-repo.git box2d_xmake")
 add_requires("glew", "libsdl", "libsdl_ttf", "libsdl_mixer", "libsdl_gfx", "box2d", "assimp", "stb", "tmxparser")
 
 add_rules("mode.debug", "mode.release")
