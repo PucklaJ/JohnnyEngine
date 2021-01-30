@@ -1,6 +1,6 @@
 #ifndef PHYSICS_H
 #define PHYSICS_H
-#include <Box2D/Box2D.h>
+#include <box2d/box2d.h>
 #include "mathematics.h"
 #include "Actor.h"
 
@@ -108,7 +108,7 @@ namespace Johnny
              *  \param type The type of the body
              *  \return The newly created body 
              */
-            b2Body* createBOX(const Vector2f& position,float width, float height,float32 friction = DEF_FRICTION,float32 restitution = DEF_RESTITUTION,float32 density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
+            b2Body* createBOX(const Vector2f& position,float width, float height,float friction = DEF_FRICTION,float restitution = DEF_RESTITUTION,float density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
             /*! \brief Creates a body as a box
              *  \param positon The positon of the box in pixel coordinates
              *  \param width The width of the box
@@ -127,7 +127,7 @@ namespace Johnny
              *  \param type The type of the body
              *  \return The newly created body 
              */
-            b2Body* createCIRCLE(const Vector2f& position, float radius,float32 friction = DEF_FRICTION,float32 restitution = DEF_RESTITUTION,float32 density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
+            b2Body* createCIRCLE(const Vector2f& position, float radius,float friction = DEF_FRICTION,float restitution = DEF_RESTITUTION,float density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
             /*! \brief Creates a body as a circle
              *  \param positon The positon of the circle in pixel coordinates
              *  \param radius The radius of the circle
@@ -145,7 +145,7 @@ namespace Johnny
              *  \param density The density of the body
              *  \return The newly created body 
              */
-            b2Body* createCAPSULE(const Vector2f& position, float width, float height,float32 friction = DEF_FRICTION,float32 restitution = DEF_RESTITUTION,float32 density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
+            b2Body* createCAPSULE(const Vector2f& position, float width, float height,float friction = DEF_FRICTION,float restitution = DEF_RESTITUTION,float density = DEF_DENSITY,b2BodyType type = b2_dynamicBody);
             /*! \brief Creates a body as a capsule
              *  \param positon The positon of the capsule in pixel coordinates
              *  \param width The width of the capsule

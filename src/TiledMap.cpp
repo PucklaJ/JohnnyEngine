@@ -5,7 +5,7 @@
 #include "../include/ResourceManager.h"
 #include <iostream>
 #include "../include/mathematics.h"
-#include <Box2D/Box2D.h>
+#include <box2d/box2d.h>
 #include "../include/FrameBuffer.h"
 #include "../include/Settings.h"
 #include "../include/Timer.h"
@@ -761,7 +761,7 @@ namespace Johnny
             v[polyline->GetNumPoints()-1-i] = m_mainClass->getPhysics2D()->coordsPixelToWorld(Vector2f(xb,yb));
         }
         
-        shape.CreateChain(v,polyline->GetNumPoints());
+        shape.CreateChain(v,polyline->GetNumPoints(), v[0], v[polyline->GetNumPoints()-1]);
         delete[] v;
         
         fdef.shape = &shape;

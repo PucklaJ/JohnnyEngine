@@ -71,7 +71,7 @@ namespace Johnny
         return d * m_pixelsPerMetre;
     }
     
-    b2Body* Physics2D::createBOX(const Vector2f& pos,float w,float h,float32 friction,float32 restitution,float32 density,b2BodyType type)
+    b2Body* Physics2D::createBOX(const Vector2f& pos,float w,float h,float friction,float restitution,float density,b2BodyType type)
     {
         b2BodyDef bdef;
         b2FixtureDef fdef;
@@ -112,7 +112,7 @@ namespace Johnny
         return body;
     }
     
-    b2Body* Physics2D::createCIRCLE(const Vector2f& pos,float radius,float32 friction,float32 restitution,float32 density,b2BodyType type)
+    b2Body* Physics2D::createCIRCLE(const Vector2f& pos,float radius,float friction,float restitution,float density,b2BodyType type)
     {
         b2BodyDef bdef;
         b2FixtureDef fdef;
@@ -152,7 +152,7 @@ namespace Johnny
         return body;
     }
 
-    b2Body* Physics2D::createCAPSULE(const Vector2f& pos,float w,float h,float32 friction,float32 restitution,float32 density,b2BodyType type)
+    b2Body* Physics2D::createCAPSULE(const Vector2f& pos,float w,float h,float friction,float restitution,float density,b2BodyType type)
     {
     	b2BodyDef bdef;
     	b2FixtureDef fdef;

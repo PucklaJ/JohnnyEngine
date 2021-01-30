@@ -1,5 +1,6 @@
 #ifndef GLFWFRAMEWORK_H
 #define GLFWFRAMEWORK_H
+#ifdef USE_GLFW
 #include "Framework.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -68,4 +69,5 @@ namespace Johnny
 	};
 }
 
+#endif
 #endif

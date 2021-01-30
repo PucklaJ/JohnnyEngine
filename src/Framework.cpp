@@ -10,8 +10,10 @@ namespace Johnny
         {
             case Frameworks::SDL:
                 return new SDLFramework();
+#ifdef USE_GLFW
 			case Frameworks::GLFW:
 				return new GLFWFramework();
+#endif
             default:
                 return nullptr;
         }

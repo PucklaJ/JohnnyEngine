@@ -1,3 +1,4 @@
+#ifdef USE_GLFW
 #include "../include/GLFWFramework.h"
 #include "../include/Settings.h"
 #include "../include/MainClass.h"
@@ -424,3 +425,4 @@ namespace Johnny
 		}
 	}
 }
+#endif
