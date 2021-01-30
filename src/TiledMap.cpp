@@ -5,7 +5,7 @@
 #include "../include/ResourceManager.h"
 #include <iostream>
 #include "../include/mathematics.h"
-#include <Box2D/Box2D.h>
+#include <box2d/box2d.h>
 #include "../include/FrameBuffer.h"
 #include "../include/Settings.h"
 #include "../include/Timer.h"

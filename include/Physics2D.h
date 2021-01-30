@@ -1,6 +1,6 @@
 #ifndef PHYSICS_H
 #define PHYSICS_H
-#include <Box2D/Box2D.h>
+#include <box2d/box2d.h>
 #include "mathematics.h"
 #include "Actor.h"
 
