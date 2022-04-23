@@ -66,7 +66,7 @@ public:
    */
   void setBody(b2Body *body) {
     m_body = body;
-    body->SetUserData(this);
+    body->GetUserData().pointer = reinterpret_cast<uintptr_t>(this);
   }
   /*! \brief Sets if the PhysicsSprite2D should be destroyed if it moves out of
    * the physics world \param b The bool value to set m_automaticDestroy

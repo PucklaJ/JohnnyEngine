@@ -27,7 +27,7 @@ bool PhysicsSprite2D::init() {
     return false;
 
   if (m_body) {
-    m_body->SetUserData(this);
+    m_body->GetUserData().pointer = reinterpret_cast<uintptr_t>(this);
     attachBodyToSprite();
   }
 
