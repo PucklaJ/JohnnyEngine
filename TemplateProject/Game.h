@@ -5,16 +5,15 @@
 
 using namespace Johnny;
 
-class Game : public MainClass
-{
+class Game : public MainClass {
 public:
-	Game();
-	~Game();
+  Game();
+  ~Game();
 
-	bool init() override;
-	bool update() override;
-	bool render() override;
-	void quit() override;
+  bool init() override;
+  bool update() override;
+  bool render() override;
+  void quit() override;
 };
 
 #endif

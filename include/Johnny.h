@@ -19,11 +19,9 @@
 #include "Light3D.h"
 #include "LogManager.h"
 #include "MainClass.h"
-#include "mathematics.h"
 #include "Mesh3D.h"
 #include "Model3D.h"
 #include "OBJLoader.h"
-#include "operators.h"
 #include "Physics2D.h"
 #include "PhysicsSprite2D.h"
 #include "RenderBuffer.h"
@@ -46,5 +44,7 @@
 #include "Tween.h"
 #include "Vertex3D.h"
 #include "Window.h"
+#include "mathematics.h"
+#include "operators.h"
 
 #endif

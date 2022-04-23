@@ -4,281 +4,247 @@
 #include "../include/Sprite2D.h"
 #include <iostream>
 
-namespace Johnny
-{
-	Transform2D::Transform2D() :
-		m_translation(0.0f, 0.0f),
-		m_rotation(0.0f),
-		m_scale(1.0f, 1.0f)
-	{
+namespace Johnny {
+Transform2D::Transform2D()
+    : m_translation(0.0f, 0.0f), m_rotation(0.0f), m_scale(1.0f, 1.0f) {}
 
-	}
+Transform2D::Transform2D(const Vector2f &translation, const GLfloat &rotation,
+                         const Vector2f &scale)
+    : m_translation(translation), m_rotation(rotation), m_scale(scale) {}
 
-	Transform2D::Transform2D(const Vector2f& translation, const GLfloat& rotation, const Vector2f& scale) :
-		m_translation(translation),
-		m_rotation(rotation),
-		m_scale(scale)
-	{
-		
-	}
+Transform2D::~Transform2D() {}
 
-	Transform2D::~Transform2D()
-	{
+Matrix3f Transform2D::getTransformation() const {
+  return Matrix3f::translate(m_translation) * Matrix3f::rotate(m_rotation) *
+         Matrix3f::scale(m_scale);
+}
 
-	}
+Matrix3f Transform2D::getProjectedTransformation(const Camera2D *cam) const {
+  return cam->getViewMatrix() * getTransformation();
+}
 
-	Matrix3f Transform2D::getTransformation() const
-	{
-		return Matrix3f::translate(m_translation) * Matrix3f::rotate(m_rotation) * Matrix3f::scale(m_scale);
-	}
+Vector2f TransformableObject2D::center;
+bool TransformableObject2D::yAxisFlipped = true;
+bool TransformableObject2D::xAxisFlipped = false;
+Vector2f TransformableObject2D::viewportSize;
+std::vector<TransformableObject2D *> TransformableObject2D::objects;
+bool TransformableObject2D::centerSet = false;
 
-	Matrix3f Transform2D::getProjectedTransformation(const Camera2D* cam) const
-	{
-		return cam->getViewMatrix() * getTransformation();
-	}
+const Vector2f &TransformableObject2D::getCenter() { return center; }
 
-	Vector2f TransformableObject2D::center;
-	bool TransformableObject2D::yAxisFlipped = true;
-	bool TransformableObject2D::xAxisFlipped = false;
-	Vector2f TransformableObject2D::viewportSize;
-	std::vector<TransformableObject2D*> TransformableObject2D::objects;
-    bool TransformableObject2D::centerSet = false;
+bool TransformableObject2D::getYAxisFlipped() { return yAxisFlipped; }
 
-	const Vector2f& TransformableObject2D::getCenter()
-	{
-		return center;
-	}
+bool TransformableObject2D::getXAxisFlipped() { return xAxisFlipped; }
 
-	bool TransformableObject2D::getYAxisFlipped()
-	{
-		return yAxisFlipped;
-	}
+const Vector2f &TransformableObject2D::getViewportSize() {
+  return viewportSize;
+}
 
-	bool TransformableObject2D::getXAxisFlipped()
-	{
-		return xAxisFlipped;
-	}
+void TransformableObject2D::setCenter(const Vector2f &v) {
+  Vector2f prevCenter;
+  if (centerSet) {
+    prevCenter = getCenter() * getViewportSize();
+  }
 
-	const Vector2f& TransformableObject2D::getViewportSize()
-	{
-		return viewportSize;
-	}
+  center = v;
+  if (centerSet) {
 
-	void TransformableObject2D::setCenter(const Vector2f& v)
-	{
-        Vector2f prevCenter;
-        if(centerSet)
-        {
-            prevCenter = getCenter() * getViewportSize();
-        }
-            
-		center = v;
-        if(centerSet)
-        {
-            
-            
-            for (size_t i = 0; i < objects.size(); i++)
-            {
-                if (!objects[i]->m_affectedByCenter)
-                    continue;
+    for (size_t i = 0; i < objects.size(); i++) {
+      if (!objects[i]->m_affectedByCenter)
+        continue;
 
-                objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - prevCenter));
-                objects[i]->setPosition(objects[i]->m_transform.getTranslation());
-            }
-        }
-        
-        centerSet = true;
-	}
+      objects[i]->m_transform.setTranslation(fromCoords(
+          objects[i]->m_transform.getTranslation() -
+          objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() -
+          prevCenter));
+      objects[i]->setPosition(objects[i]->m_transform.getTranslation());
+    }
+  }
 
-	void TransformableObject2D::setYAxisFlipped(bool b)
-	{
-		bool prevY = yAxisFlipped;
-		yAxisFlipped = b;
-        
-        Vector2f _center = getCenter() * getViewportSize();
-        
-		for (size_t i = 0; i < objects.size(); i++)
-		{
-			if (!objects[i]->m_affectedByCenter)
-				continue;
+  centerSet = true;
+}
 
-			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - _center,xAxisFlipped,prevY));
-			objects[i]->setPosition(objects[i]->m_transform.getTranslation());
-		}
-	}
+void TransformableObject2D::setYAxisFlipped(bool b) {
+  bool prevY = yAxisFlipped;
+  yAxisFlipped = b;
 
-	void TransformableObject2D::setXAxisFlipped(bool b)
-	{
-		bool prevX = xAxisFlipped;
-		xAxisFlipped = b;
-        
-        Vector2f _center = getCenter() * getViewportSize();
-        
-		for (size_t i = 0; i < objects.size(); i++)
-		{
-			if (!objects[i]->m_affectedByCenter)
-				continue;
+  Vector2f _center = getCenter() * getViewportSize();
 
-			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() - _center, prevX, yAxisFlipped));
-			objects[i]->setPosition(objects[i]->m_transform.getTranslation());
-		}
-	}
+  for (size_t i = 0; i < objects.size(); i++) {
+    if (!objects[i]->m_affectedByCenter)
+      continue;
 
-	void TransformableObject2D::setViewportSize(const Vector2f& v)
-	{
-		Vector2f prevViewport = viewportSize;
-		viewportSize = v;
-        
-        Vector2f _center = getCenter() * prevViewport;
-        
-		for (size_t i = 0; i < objects.size(); i++)
-		{
-			if (!objects[i]->m_affectedByCenter)
-				continue;
+    objects[i]->m_transform.setTranslation(fromCoords(
+        objects[i]->m_transform.getTranslation() -
+            objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() -
+            _center,
+        xAxisFlipped, prevY));
+    objects[i]->setPosition(objects[i]->m_transform.getTranslation());
+  }
+}
 
-			objects[i]->m_transform.setTranslation(fromCoords(objects[i]->m_transform.getTranslation() - Vector2f(objects[i]->m_size.x / 2.0f,-objects[i]->m_size.y / 2.0f) * objects[i]->m_transform.getScale() - _center,prevViewport));
-			objects[i]->setPosition(objects[i]->m_transform.getTranslation());
-		}
-	}
+void TransformableObject2D::setXAxisFlipped(bool b) {
+  bool prevX = xAxisFlipped;
+  xAxisFlipped = b;
 
-	TransformableObject2D::TransformableObject2D()
-	{
-		objects.push_back(this);
-	}
+  Vector2f _center = getCenter() * getViewportSize();
 
-	TransformableObject2D::~TransformableObject2D()
-	{
+  for (size_t i = 0; i < objects.size(); i++) {
+    if (!objects[i]->m_affectedByCenter)
+      continue;
 
-		if (objects.size() == 1)
-			objects.clear();
-		else
-		{
+    objects[i]->m_transform.setTranslation(fromCoords(
+        objects[i]->m_transform.getTranslation() -
+            objects[i]->m_size / 2.0f * objects[i]->m_transform.getScale() -
+            _center,
+        prevX, yAxisFlipped));
+    objects[i]->setPosition(objects[i]->m_transform.getTranslation());
+  }
+}
 
-			for (size_t i = 0; i < objects.size(); i++)
-			{
+void TransformableObject2D::setViewportSize(const Vector2f &v) {
+  Vector2f prevViewport = viewportSize;
+  viewportSize = v;
 
-				if (objects[i] == this)
-				{
-					objects[i] = objects.back();
-					objects.pop_back();
-					break;
-				}
-			}
-		}
-	}
+  Vector2f _center = getCenter() * prevViewport;
 
-	void TransformableObject2D::setPosition(const Vector2f& pos)
-	{
-		if (m_size.x == 0.0f && m_size.y == 0.0f)
-		{
-			m_transform.setTranslation(pos);
-		}
-		else
-		{
-            Vector2f _size = Vector2f(m_size.x / 2.0f,-m_size.y/2.0f);
-            Vector2f _center;
-            
-            if(m_affectedByCenter)
-            {
-                _center = getCenter() * getViewportSize();
-            }
-            
-			m_transform.setTranslation(fromCoords(pos) + _size * m_transform.getScale() + _center);
-		}
-			
-	}
+  for (size_t i = 0; i < objects.size(); i++) {
+    if (!objects[i]->m_affectedByCenter)
+      continue;
 
-	void TransformableObject2D::setPosition(const GLfloat& x, const GLfloat& y)
-	{
-		setPosition(Vector2f(x, y));
-	}
+    objects[i]->m_transform.setTranslation(
+        fromCoords(objects[i]->m_transform.getTranslation() -
+                       Vector2f(objects[i]->m_size.x / 2.0f,
+                                -objects[i]->m_size.y / 2.0f) *
+                           objects[i]->m_transform.getScale() -
+                       _center,
+                   prevViewport));
+    objects[i]->setPosition(objects[i]->m_transform.getTranslation());
+  }
+}
 
-	void TransformableObject2D::setRotation(const GLfloat& rotation)
-	{
-		m_transform.setRotation(rotation);
-	}
+TransformableObject2D::TransformableObject2D() { objects.push_back(this); }
 
-	void TransformableObject2D::setScale(const Vector2f& v)
-	{
-		if (m_size.x == 0.0f && m_size.y == 0.0f)
-			m_transform.setScale(v);
-		else
-		{
-            Vector2f _center = getCenter() * getViewportSize();
-            
-			m_transform.setTranslation(toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f,-m_size.y/2.0f) * m_transform.getScale() - (m_affectedByCenter ? _center : Vector2f(0.0f, 0.0f))));
-			m_transform.setScale(v);
-			setPosition(m_transform.getTranslation());
-		}
-		
-	}
+TransformableObject2D::~TransformableObject2D() {
 
-	void TransformableObject2D::setScale(const GLfloat& x, const GLfloat& y)
-	{
-		setScale(Vector2f(x, y));
-	}
+  if (objects.size() == 1)
+    objects.clear();
+  else {
 
-	void TransformableObject2D::setSize(const Vector2f& v)
-	{
-		if (m_size.x == 0.0f && m_size.y == 0.0f)
-		{
-			m_size = v;
-		}
-		else
-		{
-            Vector2f _center = getCenter() * getViewportSize();
-            
-			m_transform.setTranslation(toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) * m_transform.getScale() - (m_affectedByCenter ? _center : Vector2f(0.0f, 0.0f))));
-			m_size = v;
-		}
-		
-		setPosition(m_transform.getTranslation());
-	}
+    for (size_t i = 0; i < objects.size(); i++) {
 
-	void TransformableObject2D::addPosition(const Vector2f& pos)
-	{
-		setPosition(getPosition() + pos);
-	}
+      if (objects[i] == this) {
+        objects[i] = objects.back();
+        objects.pop_back();
+        break;
+      }
+    }
+  }
+}
 
-	void TransformableObject2D::addPosition(const GLfloat& x, const GLfloat& y)
-	{
-		addPosition(Vector2f(x,y));
-	}
+void TransformableObject2D::setPosition(const Vector2f &pos) {
+  if (m_size.x == 0.0f && m_size.y == 0.0f) {
+    m_transform.setTranslation(pos);
+  } else {
+    Vector2f _size = Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f);
+    Vector2f _center;
 
-	void TransformableObject2D::addScale(const Vector2f& v)
-	{
-		m_transform.setScale(m_transform.getScale() + v);
-	}
+    if (m_affectedByCenter) {
+      _center = getCenter() * getViewportSize();
+    }
 
-	void TransformableObject2D::addScale(const GLfloat& x, const GLfloat& y)
-	{
-		m_transform.setScale(m_transform.getScale() + Vector2f(x, y));
-	}
+    m_transform.setTranslation(fromCoords(pos) +
+                               _size * m_transform.getScale() + _center);
+  }
+}
 
-	Vector2f TransformableObject2D::getPosition() const
-	{
-        Vector2f _center = getCenter() * getViewportSize();
-        
-		return toCoords(m_transform.getTranslation() - Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) * m_transform.getScale() - (m_affectedByCenter ? _center : Vector2f(0.0f, 0.0f)));
-	}
+void TransformableObject2D::setPosition(const GLfloat &x, const GLfloat &y) {
+  setPosition(Vector2f(x, y));
+}
+
+void TransformableObject2D::setRotation(const GLfloat &rotation) {
+  m_transform.setRotation(rotation);
+}
+
+void TransformableObject2D::setScale(const Vector2f &v) {
+  if (m_size.x == 0.0f && m_size.y == 0.0f)
+    m_transform.setScale(v);
+  else {
+    Vector2f _center = getCenter() * getViewportSize();
+
+    m_transform.setTranslation(toCoords(
+        m_transform.getTranslation() -
+        Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) * m_transform.getScale() -
+        (m_affectedByCenter ? _center : Vector2f(0.0f, 0.0f))));
+    m_transform.setScale(v);
+    setPosition(m_transform.getTranslation());
+  }
+}
+
+void TransformableObject2D::setScale(const GLfloat &x, const GLfloat &y) {
+  setScale(Vector2f(x, y));
+}
+
+void TransformableObject2D::setSize(const Vector2f &v) {
+  if (m_size.x == 0.0f && m_size.y == 0.0f) {
+    m_size = v;
+  } else {
+    Vector2f _center = getCenter() * getViewportSize();
+
+    m_transform.setTranslation(toCoords(
+        m_transform.getTranslation() -
+        Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) * m_transform.getScale() -
+        (m_affectedByCenter ? _center : Vector2f(0.0f, 0.0f))));
+    m_size = v;
+  }
+
+  setPosition(m_transform.getTranslation());
+}
+
+void TransformableObject2D::addPosition(const Vector2f &pos) {
+  setPosition(getPosition() + pos);
+}
+
+void TransformableObject2D::addPosition(const GLfloat &x, const GLfloat &y) {
+  addPosition(Vector2f(x, y));
+}
+
+void TransformableObject2D::addScale(const Vector2f &v) {
+  m_transform.setScale(m_transform.getScale() + v);
+}
+
+void TransformableObject2D::addScale(const GLfloat &x, const GLfloat &y) {
+  m_transform.setScale(m_transform.getScale() + Vector2f(x, y));
+}
+
+Vector2f TransformableObject2D::getPosition() const {
+  Vector2f _center = getCenter() * getViewportSize();
+
+  return toCoords(m_transform.getTranslation() -
+                  Vector2f(m_size.x / 2.0f, -m_size.y / 2.0f) *
+                      m_transform.getScale() -
+                  (m_affectedByCenter ? _center : Vector2f(0.0f, 0.0f)));
+}
 
 #define IS_VIEW (viewport.x != -1.0f && viewport.y != -1.0f)
 #define GET_VIEW (IS_VIEW ? viewport : viewportSize)
 
-	Vector2f TransformableObject2D::toCoords(const Vector2f& v,const Vector2f& viewport)
-	{
-		return Vector2f(xAxisFlipped ? (GET_VIEW.x - v.x) : v.x, yAxisFlipped ? (GET_VIEW.y - v.y) : v.y);
-	}
-	Vector2f TransformableObject2D::toCoords(const Vector2f& v, bool x, bool y)
-	{
-		return Vector2f(x ? (viewportSize.x - v.x) : v.x, y ? (viewportSize.y - v.y) : v.y);
-	}
-	Vector2f TransformableObject2D::fromCoords(const Vector2f& v,const Vector2f& viewport)
-	{
-		return Vector2f(xAxisFlipped ? (GET_VIEW.x - v.x) : v.x, yAxisFlipped ? (GET_VIEW.y - v.y) : v.y);
-	}
-	Vector2f TransformableObject2D::fromCoords(const Vector2f& v, bool x, bool y)
-	{
-		return Vector2f(x ? (viewportSize.x - v.x) : v.x, y ? (viewportSize.y - v.y) : v.y);
-	}
+Vector2f TransformableObject2D::toCoords(const Vector2f &v,
+                                         const Vector2f &viewport) {
+  return Vector2f(xAxisFlipped ? (GET_VIEW.x - v.x) : v.x,
+                  yAxisFlipped ? (GET_VIEW.y - v.y) : v.y);
 }
+Vector2f TransformableObject2D::toCoords(const Vector2f &v, bool x, bool y) {
+  return Vector2f(x ? (viewportSize.x - v.x) : v.x,
+                  y ? (viewportSize.y - v.y) : v.y);
+}
+Vector2f TransformableObject2D::fromCoords(const Vector2f &v,
+                                           const Vector2f &viewport) {
+  return Vector2f(xAxisFlipped ? (GET_VIEW.x - v.x) : v.x,
+                  yAxisFlipped ? (GET_VIEW.y - v.y) : v.y);
+}
+Vector2f TransformableObject2D::fromCoords(const Vector2f &v, bool x, bool y) {
+  return Vector2f(x ? (viewportSize.x - v.x) : v.x,
+                  y ? (viewportSize.y - v.y) : v.y);
+}
+} // namespace Johnny

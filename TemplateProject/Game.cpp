@@ -1,28 +1,13 @@
 #include "Game.h"
 
-Game::Game() : MainClass()
-{
-}
+Game::Game() : MainClass() {}
 
-Game::~Game()
-{
-}
+Game::~Game() {}
 
-bool Game::init()
-{
-	return true;
-}
+bool Game::init() { return true; }
 
-bool Game::update()
-{
-	return true;
-}
+bool Game::update() { return true; }
 
-bool Game::render()
-{
-	return true;
-}
+bool Game::render() { return true; }
 
-void Game::quit()
-{
-}
+void Game::quit() {}
