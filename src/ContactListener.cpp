@@ -36,8 +36,8 @@ namespace Johnny
 		std::cout << "Casting userdatas" << std::endl;
 #endif
 
-		spr1 = static_cast<PhysicsSprite2D*>(f1->GetBody()->GetUserData());
-		spr2 = static_cast<PhysicsSprite2D*>(f2->GetBody()->GetUserData());
+		spr1 = reinterpret_cast<PhysicsSprite2D*>(f1->GetBody()->GetUserData().pointer);
+		spr2 = reinterpret_cast<PhysicsSprite2D*>(f2->GetBody()->GetUserData().pointer);
 
 #ifdef DEBUG_OUTPUT
 		std::cout << "Casted userdatas" << std::endl;
@@ -75,8 +75,8 @@ namespace Johnny
 		PhysicsSprite2D* spr1 = nullptr;
 		PhysicsSprite2D* spr2 = nullptr;
 
-		spr1 = static_cast<PhysicsSprite2D*>(f1->GetBody()->GetUserData());
-		spr2 = static_cast<PhysicsSprite2D*>(f2->GetBody()->GetUserData());
+		spr1 = reinterpret_cast<PhysicsSprite2D*>(f1->GetBody()->GetUserData().pointer);
+		spr2 = reinterpret_cast<PhysicsSprite2D*>(f2->GetBody()->GetUserData().pointer);
 
 		if(spr1)
 		{
@@ -96,8 +96,8 @@ namespace Johnny
 		PhysicsSprite2D* spr1 = nullptr;
 		PhysicsSprite2D* spr2 = nullptr;
 
-		spr1 = static_cast<PhysicsSprite2D*>(f1->GetBody()->GetUserData());
-		spr2 = static_cast<PhysicsSprite2D*>(f2->GetBody()->GetUserData());
+		spr1 = reinterpret_cast<PhysicsSprite2D*>(f1->GetBody()->GetUserData().pointer);
+		spr2 = reinterpret_cast<PhysicsSprite2D*>(f2->GetBody()->GetUserData().pointer);
 
 		if(spr1)
 		{
@@ -116,8 +116,8 @@ namespace Johnny
 		PhysicsSprite2D* spr1 = nullptr;
 		PhysicsSprite2D* spr2 = nullptr;
 
-		spr1 = static_cast<PhysicsSprite2D*>(f1->GetBody()->GetUserData());
-		spr2 = static_cast<PhysicsSprite2D*>(f2->GetBody()->GetUserData());
+		spr1 = reinterpret_cast<PhysicsSprite2D*>(f1->GetBody()->GetUserData().pointer);
+		spr2 = reinterpret_cast<PhysicsSprite2D*>(f2->GetBody()->GetUserData().pointer);
 
 		if(spr1)
 		{
