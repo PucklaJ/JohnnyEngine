@@ -4,11 +4,12 @@ add_requires("glew", "libsdl", "libsdl_ttf", "libsdl_mixer", "libsdl_gfx", "box2
 
 add_rules("mode.debug", "mode.release")
 target("johnny-engine")
-    set_kind("static")
+    set_kind("$(kind)")
     if is_os("windows") then
         add_cxxflags("/EHsc")
     end
     add_defines("STB_IMAGE_IMPLEMENTATION")
+    set_languages("c++11")
 
     add_packages("glew", "libsdl", "libsdl_ttf", "libsdl_mixer", "libsdl_gfx", "box2d", "assimp", "stb", "tmxparser")
 
